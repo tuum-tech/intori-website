@@ -1,12 +1,6 @@
 import axios from 'axios'
 
-//          Type	Required	Description	                Default
-// relay	  string	No	Farcaster Auth relay server URL	    https://relay.farcaster.xyz
-// domain	  string	Yes	Domain of your application.	        None
-// siweUri	string	Yes	A URI identifying your application.	None
-// rpcUrl	  string	No	Optimism RPC server URL	            https://mainnet.optimism.io
-// version	string	No	Farcaster Auth version	            v1
-declare interface AuthKitConfig {
+type AuthKitConfig = {
   relay?: string
   domain?: string
   siweUri?: string
@@ -14,28 +8,44 @@ declare interface AuthKitConfig {
   version?: string
 }
 
-export const domainFromNextUrl = () => {
-  if (process.env.NEXTAUTH_URL) {
-    return new URL(process.env.NEXTAUTH_URL).host
-  }
+const normalizeUrl = (value: string) => (value.endsWith('/') ? value : `${value}/`)
 
-  return window.location.host
+export const getSiteUrl = (): string => {
+  // Prefer explicit public site URL if you have it
+  const explicit =
+    process.env.NEXT_PUBLIC_APP_URL ||
+    process.env.NEXTAUTH_URL ||
+    process.env.NEXT_PUBLIC_SITE_URL
+
+  if (explicit) return normalizeUrl(explicit)
+
+  // Vercel provides host without protocol
+  const vercel = process.env.NEXT_PUBLIC_VERCEL_URL
+  if (vercel) return normalizeUrl(`https://${vercel}`)
+
+  // Browser fallback
+  if (typeof window !== 'undefined') return normalizeUrl(window.location.origin)
+
+  // Last-resort dev fallback
+  return 'http://localhost:3000/'
 }
 
-export const getAppUri = () => {
-  if (process.env.NEXTAUTH_URL) {
-    return new URL(process.env.NEXTAUTH_URL).href
+export const getDomain = (): string => {
+  const siteUrl = getSiteUrl()
+  try {
+    return new URL(siteUrl).host
+  } catch {
+    return 'localhost:3000'
   }
-
-  return window.location.href
 }
 
-export const authKitConfig: AuthKitConfig = {
-  // For a production app, replace this with an Optimism Mainnet
-  // RPC URL from a provider like Alchemy or Infura.
-  rpcUrl: 'https://mainnet.optimism.io',
-  domain: domainFromNextUrl(),
+// Export a function, not a computed const, so nothing runs at import time
+export const getAuthKitConfig = (): AuthKitConfig => {
+  const siteUrl = getSiteUrl()
 
-  // extra slash at end is important.
-  siweUri: getAppUri()
+  return {
+    rpcUrl: 'https://mainnet.optimism.io',
+    domain: getDomain(),
+    siweUri: siteUrl
+  }
 }

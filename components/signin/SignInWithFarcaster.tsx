@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect } from 'react'
+import React, { useCallback, useState, useEffect, useMemo } from 'react'
 import { getCsrfToken, signIn, signOut } from "next-auth/react"
 import {
   SignInButton,
@@ -6,7 +6,7 @@ import {
   StatusAPIResponse
 } from "@farcaster/auth-kit"
 import "@farcaster/auth-kit/styles.css"
-import { authKitConfig } from '../../utils/farcaster'
+import { getAuthKitConfig } from '../../utils/farcaster'
 
 import styles from './SignInWithFarcaster.module.css'
 
@@ -15,6 +15,7 @@ type Props = {
 }
 export const SignInWithFarcasterButton: React.FC<Props> = ({ redirect }) => {
     const [error, setError] = useState(false)
+    const authKitConfig = useMemo(() => getAuthKitConfig(), [])
 
     // A nonce ensures that each authentication request is unique.
     // It prevents attackers from capturing a valid authentication request and replaying

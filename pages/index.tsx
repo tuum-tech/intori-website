@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { getSession } from "next-auth/react"
 import { Footer } from '../components/Footer'
+import { FAQ } from '../lib/faq'
 
 import styles from './index.module.css'
 
@@ -136,77 +137,23 @@ const SigninDefaultScreen = () => {
         <section className={styles.faq}>
           <h2>Get to know intori</h2>
 
-          <details>
-            <summary>What is Intori?</summary>
-            <p>
-              <span>Intori is a Frame app that helps Farcaster users connect through shared insights.</span>
-              <br />
-              <br />
-              By answering simple questions, you unlock meaningful follow suggestions and gain points to send gifts, making it easy to grow your network.
-            </p>
-          </details>
-
-          <details>
-            <summary>How does gifting work?</summary>
-            <p>
-              Every time you <span>answer 5 questions, you earn a batch of 5 gifts.</span>
-              <br />
-              <br />
-              These gifts can be sent to your <span>top 5 suggested follows,</span> creating a positive engagement loop.
-              <br />
-              <br />
-              Recipients get a <span>Warpcast notification</span>, encouraging them to connect.
-            </p>
-          </details>
-
-          <details>
-            <summary>How are suggested follows chosen? </summary>
-            <p>
-              Suggested follows are based on <span>your responses to questions and shared insights.</span>
-              <br />
-              <br />
-              Intori finds people whose interests align with yours, making new connections <span>genuine and valuable.</span>
-            </p>
-          </details>
-
-          <details>
-            <summary>Why use intori over manual discovery?</summary>
-            <p>
-              Instead of searching through the noise, <span>intori brings the right people to you.</span>
-              <br />
-              <br />
-              It automates networking by surfacing <span>genuine connections</span>, rewarding engagement, and <span>removing friction</span> from finding like-minded people.
-            </p>
-          </details>
-
-          <details>
-            <summary>Can I see my gifted points history?</summary>
-            <p>
-              Yes! You can see your accumulated points to track how many gifts are available to send. However, we do not yet track the total quantity of gifts sent or received.
-              <br />
-              <br />
-              You can view all gifts you&apos;ve received in chronological order on your home feed, complete with timestamps. Clicking on a gift reveals the sender&apos;s profile, including some of their insights, making it easy to learn more about them and start a conversation.
-              <br />
-              <br />
-              Future updates may include additional tracking features for sent gifts.
-            </p>
-          </details>
-
-          <details>
-            <summary>Does intori have a token?</summary>
-            <p>
-              Yes. intori uses a token called <span>$INTO</span> as part of the app experience. The token is integrated into certain features within the app and is not intended for trading, speculation, or external use.
-              <br />
-              <br />
-              Token Name: <a href="https://basescan.org/token/0x4baea77ec672dec0fc311cca0eb45916e66a93a1">INTO</a>
-              <br />
-              <br />
-              Contract Address: <span>0x4BAeA77EC672DEc0Fc311cCA0EB45916e66A93A1</span>
-              <br />
-              <br />
-              The <span>$INTO</span> token is designed solely to support in-app activities and engagement within the intori ecosystem.
-            </p>
-          </details>
+          {FAQ.map((item, index) => (
+            <details key={index}>
+              <summary>{item.question}</summary>
+              <div>
+                {item.answer.map((paragraph, pIndex) => (
+                  <p key={pIndex}>{paragraph}</p>
+                ))}
+                {item.bullets && item.bullets.length > 0 && (
+                  <ul>
+                    {item.bullets.map((bullet, bIndex) => (
+                      <li key={bIndex}>{bullet}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </details>
+          ))}
         </section>
         <section className={styles.finalCta}>
           <h3>✅ Start answering questions and discover your next connection.  </h3>

@@ -26,27 +26,23 @@ export const getServerSideProps = (async (context) => {
 
 const APP_URL = "https://warpcast.com/~/frames/launch?domain=frame.intori.co"
 
-// Hero stamp images for cascade effect
+// Hero stamp images for floating animation
 const HERO_STAMPS = {
-  cascade: [
+  floating: [
     '/brand/hero-stamps/music-lovers.png',
     '/brand/hero-stamps/gamers.png',
     '/brand/hero-stamps/foodies.png',
     '/brand/hero-stamps/travel.png',
-    '/brand/hero-stamps/tech.png',
-    '/brand/hero-stamps/pet-owners.png',
   ],
-  phone: [
-    '/brand/hero-stamps/creator.png',
-    '/brand/hero-stamps/bookworms.png',
-    '/brand/hero-stamps/sports-fans.png',
-    '/brand/hero-stamps/outdoors.png',
-  ],
-  background: [
-    '/brand/hero-stamps/sustainable.png',
-    '/brand/hero-stamps/night-owls.png',
-  ]
 }
+
+// Screenshots to cycle in phone
+const PHONE_SCREENSHOTS = [
+  '/brand/screenshots/passport.png',
+  '/brand/screenshots/circles.png',
+  '/brand/screenshots/connections.png',
+  '/brand/screenshots/questions.png',
+]
 
 // Stamps for value sections
 const VALUE_STAMPS = {
@@ -79,26 +75,6 @@ const SigninDefaultScreen = () => {
       </Head>
 
       <main className={styles.main}>
-        {/* Background stamps */}
-        <div className={styles.bgStamps}>
-          <Image
-            src={HERO_STAMPS.background[0]}
-            alt=""
-            width={400}
-            height={400}
-            className={`${styles.bgStamp} ${styles.bgStamp1}`}
-            aria-hidden="true"
-          />
-          <Image
-            src={HERO_STAMPS.background[1]}
-            alt=""
-            width={500}
-            height={500}
-            className={`${styles.bgStamp} ${styles.bgStamp2}`}
-            aria-hidden="true"
-          />
-        </div>
-
         {/* ============================================================
             HERO SECTION
             ============================================================ */}
@@ -121,79 +97,45 @@ const SigninDefaultScreen = () => {
             <a href={APP_URL} className={styles.ctaPrimary}>
               Open intori
             </a>
+
+            <p className={styles.heroMicro}>
+              No feed. No swiping. Just identity and community.
+            </p>
           </div>
 
           <div className={styles.heroVisual}>
-            {/* Cascading stamps around phone */}
-            <div className={styles.stampCascade}>
-              <Image
-                src={HERO_STAMPS.cascade[0]}
-                alt="Music Lovers stamp"
-                width={140}
-                height={140}
-                className={`${styles.cascadeStamp} ${styles.cascadeStamp1}`}
-              />
-              <Image
-                src={HERO_STAMPS.cascade[1]}
-                alt="Gamers stamp"
-                width={100}
-                height={100}
-                className={`${styles.cascadeStamp} ${styles.cascadeStamp2}`}
-              />
-              <Image
-                src={HERO_STAMPS.cascade[2]}
-                alt="Foodies stamp"
-                width={120}
-                height={120}
-                className={`${styles.cascadeStamp} ${styles.cascadeStamp3}`}
-              />
-              <Image
-                src={HERO_STAMPS.cascade[3]}
-                alt="Travel stamp"
-                width={90}
-                height={90}
-                className={`${styles.cascadeStamp} ${styles.cascadeStamp4}`}
-              />
-              <Image
-                src={HERO_STAMPS.cascade[4]}
-                alt="Tech stamp"
-                width={110}
-                height={110}
-                className={`${styles.cascadeStamp} ${styles.cascadeStamp5}`}
-              />
-              <Image
-                src={HERO_STAMPS.cascade[5]}
-                alt="Pet Owners stamp"
-                width={80}
-                height={80}
-                className={`${styles.cascadeStamp} ${styles.cascadeStamp6}`}
-              />
+            {/* Floating stamps that drift toward phone */}
+            <div className={styles.floatingStamps}>
+              {HERO_STAMPS.floating.map((stamp, index) => (
+                <div
+                  key={index}
+                  className={`${styles.floatingStamp} ${styles[`floatingStamp${index + 1}`]}`}
+                >
+                  <Image
+                    src={stamp}
+                    alt=""
+                    width={100}
+                    height={100}
+                  />
+                </div>
+              ))}
             </div>
 
-            {/* Phone mockup */}
-            <div className={styles.phoneContainer}>
-              <div className={styles.phoneMockup}>
-                <div className={styles.phoneScreen}>
-                  <div className={styles.phoneStampGrid}>
-                    {HERO_STAMPS.phone.map((stamp, index) => (
-                      <Image
-                        key={index}
-                        src={stamp}
-                        alt=""
-                        width={100}
-                        height={100}
-                        className={styles.phoneStamp}
-                      />
-                    ))}
-                  </div>
-                  <div className={styles.phoneLogo}>
+            {/* Modern phone frame with real screenshots */}
+            <div className={styles.phoneFrame}>
+              <div className={styles.phoneNotch} />
+              <div className={styles.phoneScreen}>
+                <div className={styles.screenshotCarousel}>
+                  {PHONE_SCREENSHOTS.map((screenshot, index) => (
                     <Image
-                      src="/intori-logo-full.svg"
-                      alt="intori"
-                      width={70}
-                      height={32}
+                      key={index}
+                      src={screenshot}
+                      alt="intori app screenshot"
+                      fill
+                      className={`${styles.screenshot} ${styles[`screenshot${index + 1}`]}`}
+                      priority={index === 0}
                     />
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -430,7 +372,9 @@ const SigninDefaultScreen = () => {
             FOOTER CTA
             ============================================================ */}
         <section className={styles.footerCta}>
-          <h2>Start collecting your identity.</h2>
+          <p className={styles.footerTagline}>
+            Answer daily themes. Collect stamps. Find your people.
+          </p>
           <a href={APP_URL} className={styles.ctaDark}>
             Open intori
           </a>

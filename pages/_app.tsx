@@ -26,11 +26,11 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     <Fragment>
       <Head>
         <title>Intori – Meet the Right People on Farcaster</title>
-        <meta name="description" content="Answer questions. Unlock insights. Give gifts. Make connections."/>
+        <meta name="description" content="Answer questions. Unlock insights. Make connections."/>
         <meta name="keywords" content="intori, farcaster, decentralized, warpcast, find users, meet users, suggestions, social farcaster, onchain, onchain summmer, base, base onchain"/>
         <meta name="author" content="Tuum Tech"/>
-        <meta property="og:description" content="Answer questions. Unlock insights. Give gifts. Make connections." />
-        <meta name="twitter:description" property="twitter:description" content="Answer questions. Unlock insights. Give gifts. Make connections."/>
+        <meta property="og:description" content="Answer questions. Unlock insights. Make connections." />
+        <meta name="twitter:description" property="twitter:description" content="Answer questions. Unlock insights. Make connections."/>
         <meta property="twitter:card" content="https://www.intori.co/landing-page/metacard.png"/>
         <meta name="twitter:image:src" property="twitter:image:src" content="https://www.intori.co/landing-page/metacard.png"/>
         <meta name="twitter:image" property="twitter:image" content="https://www.intori.co/landing-page/metacard.png"/>

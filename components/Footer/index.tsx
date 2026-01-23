@@ -15,7 +15,7 @@ export const Footer: React.FC = () => {
       </div>
 
       <div className={styles.contact}>
-        <p>Answer questions. Unlock insights. Give gifts. Make connections.</p>
+        <p>Answer questions. Unlock insights. Make connections.</p>
         <div className={styles.sm}>
           <a href="mailto:contact@tuum.tech" target="_blank" rel="noopener noreferrer">
             contact@tuum.tech

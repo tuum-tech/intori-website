@@ -820,7 +820,15 @@
   }
 
   .padHero {
-    padding: 56px 0 48px;
+    padding: clamp(72px, 8vw, 96px) 0 clamp(80px, 9vw, 104px);
+  }
+
+  .padLg {
+    padding: clamp(72px, 8vw, 96px) 0;
+  }
+
+  .padMd {
+    padding: clamp(64px, 7vw, 88px) 0;
   }
 
   .hero {
@@ -901,6 +909,7 @@
 
   .valueTitle {
     font-size: 28px;
+    margin-bottom: clamp(20px, 2.5vw, 28px);
   }
 
   .valueCopy {
@@ -956,6 +965,25 @@
 
   .faq details p {
     font-size: 15px;
+  }
+
+  /* Add breathing room after visual blocks to prevent crowded transitions */
+  .stampChips {
+    margin-top: clamp(24px, 3vw, 32px);
+    margin-bottom: clamp(28px, 5vw, 48px);
+  }
+
+  .circlesVisual {
+    margin-bottom: clamp(28px, 5vw, 48px);
+  }
+
+  /* Extra section padding for key transitions using :has() selector */
+  .sectionBand:has(.stampChips) .sectionInner {
+    padding-bottom: clamp(96px, 10vw, 120px);
+  }
+
+  .sectionBand:has(.circlesVisual) .sectionInner {
+    padding-bottom: clamp(96px, 10vw, 120px);
   }
 }
 

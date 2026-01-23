@@ -40,4 +40,6 @@ yarn-error.log*
 .env.production
 
 #AI Tools
+.claude/public/brand/screenshots/*.mov
 .claude/
+public/brand/screenshots/*.mov

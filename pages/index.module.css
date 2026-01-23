@@ -19,10 +19,36 @@
    ========================================================================== */
 
 /* ==========================================================================
-   BASE LAYOUT
+   BASE LAYOUT + DESIGN TOKENS
    ========================================================================== */
 
 .main {
+  /* Design Tokens - Radii */
+  --r-xs: 10px;
+  --r-sm: 12px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --r-xl: 28px;
+  --r-pill: 999px;
+
+  /* Design Tokens - Borders */
+  --b-subtle: rgba(18, 18, 18, 0.08);
+  --b-softer: rgba(18, 18, 18, 0.06);
+
+  /* Design Tokens - Shadows */
+  --sh-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --sh-md: 0 12px 24px rgba(0, 0, 0, 0.08);
+  --sh-lg: 0 24px 48px rgba(0, 0, 0, 0.12);
+
+  /* Design Tokens - Buttons */
+  --btn-padding: 18px 36px;
+  --btn-gap: 10px;
+
+  /* Design Tokens - Chips */
+  --chip-padding: 10px 18px;
+  --chip-stamp-padding: 6px 14px 6px 6px;
+  --chip-gap: 8px;
+
   background: #FFFFFF;
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
@@ -93,7 +119,7 @@
   justify-content: center;
   background: #121212;
   padding: 8px;
-  border-radius: 12px;
+  border-radius: var(--r-sm);
 }
 
 .logoContainer h3 {
@@ -133,12 +159,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 18px 36px;
+  gap: var(--btn-gap);
+  padding: var(--btn-padding);
   background: #D5F74E;
   color: #121212;
   border: none;
-  border-radius: 88px;
+  border-radius: var(--r-pill);
   font-size: 18px;
   font-weight: 600;
   text-decoration: none;
@@ -159,12 +185,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 18px 36px;
+  gap: var(--btn-gap);
+  padding: var(--btn-padding);
   background: #121212;
   color: #FFFFFF;
   border: none;
-  border-radius: 88px;
+  border-radius: var(--r-pill);
   font-size: 18px;
   font-weight: 600;
   text-decoration: none;
@@ -192,7 +218,7 @@
     rgba(213, 247, 78, 0.06) 0%,
     transparent 70%
   );
-  border-radius: 24px;
+  border-radius: var(--r-lg);
   padding: 40px 20px;
 }
 
@@ -228,8 +254,8 @@
   height: 62.353515625%;
 
   overflow: hidden;
-  border-radius: 28px;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+  border-radius: var(--r-xl);
+  box-shadow: inset 0 0 0 1px var(--b-subtle);
 }
 
 .phoneScreenImage {
@@ -253,8 +279,8 @@
 /* Hero stamps - shared styles */
 .heroStamp {
   position: absolute;
-  border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-radius: var(--r-xs);
+  box-shadow: var(--sh-md);
 
   opacity: 0;
   animation:
@@ -293,15 +319,15 @@
 .heroBubble {
   position: absolute;
   background: #FFFFFF;
-  border: 1px solid rgba(18, 18, 18, 0.08);
-  border-radius: 16px;
+  border: 1px solid var(--b-subtle);
+  border-radius: var(--r-md);
   padding: 12px 16px;
   font-size: 13px;
   font-weight: 500;
   color: rgba(18, 18, 18, 0.8);
   max-width: 180px;
   line-height: 1.4;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--sh-sm);
 
   opacity: 0;
   animation:
@@ -425,9 +451,9 @@
 .showcaseStampLarge {
   width: 200px;
   height: 200px;
-  border-radius: 16px;
+  border-radius: var(--r-md);
   object-fit: cover;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--sh-lg);
 }
 
 .showcaseStampSmall {
@@ -439,18 +465,18 @@
 .showcaseStampSmall img {
   width: 88px;
   height: 88px;
-  border-radius: 12px;
+  border-radius: var(--r-sm);
   object-fit: cover;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--sh-md);
 }
 
 /* Large single stamp */
 .stampLarge {
   width: 280px;
   height: 280px;
-  border-radius: 16px;
+  border-radius: var(--r-md);
   object-fit: cover;
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--sh-lg);
 }
 
 /* Stamp chips row */
@@ -464,12 +490,12 @@
 .stampChip {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 14px 6px 6px;
+  gap: var(--chip-gap);
+  padding: var(--chip-stamp-padding);
   background: #FFFFFF;
-  border-radius: 48px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(18, 18, 18, 0.06);
+  border-radius: var(--r-pill);
+  box-shadow: var(--sh-sm);
+  border: 1px solid var(--b-softer);
 }
 
 .stampChipImage {
@@ -502,12 +528,12 @@
 .circlePill {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
+  gap: var(--chip-gap);
+  padding: var(--chip-padding);
   background: #FFFFFF;
-  border-radius: 48px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(18, 18, 18, 0.06);
+  border-radius: var(--r-pill);
+  box-shadow: var(--sh-sm);
+  border: 1px solid var(--b-softer);
   font-size: 14px;
   font-weight: 600;
   color: #121212;
@@ -549,9 +575,9 @@
 .connectionStamp {
   width: 56px;
   height: 56px;
-  border-radius: 10px;
+  border-radius: var(--r-xs);
   object-fit: cover;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--sh-sm);
 }
 
 .connectionPlus {
@@ -600,8 +626,8 @@
 
 .faq details {
   margin-bottom: 16px;
-  border: 1px solid rgba(18, 18, 18, 0.1);
-  border-radius: 16px;
+  border: 1px solid var(--b-subtle);
+  border-radius: var(--r-md);
   overflow: hidden;
   background: #FFFFFF;
 }
@@ -712,7 +738,7 @@
   }
 
   .phoneScreen {
-    border-radius: 28px;
+    border-radius: var(--r-xl);
   }
 
   /* Reposition accents for tablet */
@@ -867,7 +893,7 @@
   }
 
   .phoneScreen {
-    border-radius: 24px;
+    border-radius: var(--r-lg);
   }
 
   /* Hide question bubbles on mobile to reduce clutter */

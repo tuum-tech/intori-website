@@ -42,3 +42,4 @@ yarn-error.log*
 #AI Tools
 .claude/public/brand/screenshots/*.mov
 .claude/
+public/brand/screenshots/*.mov

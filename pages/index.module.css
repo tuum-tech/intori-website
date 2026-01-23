@@ -186,26 +186,169 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-/* Hero Video Frame */
-.heroVisualFrame {
-  background: rgba(18, 18, 18, 0.02);
-  border: 1px solid rgba(18, 18, 18, 0.08);
-  padding: 12px;
+  /* Subtle radial gradient background */
+  background: radial-gradient(
+    ellipse 600px 400px at 50% 60%,
+    rgba(213, 247, 78, 0.06) 0%,
+    transparent 70%
+  );
   border-radius: 24px;
-  box-shadow:
-    0 24px 48px rgba(0, 0, 0, 0.06),
-    inset 0 0 0 1px rgba(18, 18, 18, 0.03);
+  padding: 40px 20px;
 }
 
-/* Hero Video */
-.heroVideo {
+/* Device wrapper - contains phone and accents */
+.heroDeviceWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 420px;
+  width: 100%;
+}
+
+/* Phone frame image */
+.phoneFrame {
   display: block;
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
   height: auto;
-  border-radius: 14px;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 32px 64px rgba(0, 0, 0, 0.12));
+}
+
+/* Phone screen - positioned inside frame */
+.phoneScreen {
+  position: absolute;
+  z-index: 1;
+
+  left: 15.91796875%;
+  top: 18.84765625%;
+  width: 58.0078125%;
+  height: 62.353515625%;
+
+  overflow: hidden;
+  border-radius: 28px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.phoneScreenImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* Hero accents container */
+.heroAccents {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Hero stamps - shared styles */
+.heroStamp {
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+
+  opacity: 0;
+  animation:
+    heroFadeIn 700ms ease-out forwards,
+    heroFloat 6s ease-in-out infinite;
+}
+
+.heroStamp1 {
+  top: 8%;
+  left: -18%;
+  width: 72px;
+  height: 72px;
+  animation-delay: 0ms, 0ms;
+  animation-duration: 700ms, 6s;
+}
+
+.heroStamp2 {
+  bottom: 25%;
+  right: -14%;
+  width: 56px;
+  height: 56px;
+  animation-delay: 120ms, 0ms;
+  animation-duration: 700ms, 6.8s;
+}
+
+.heroStamp3 {
+  bottom: 8%;
+  left: -12%;
+  width: 64px;
+  height: 64px;
+  animation-delay: 240ms, 0ms;
+  animation-duration: 700ms, 7.4s;
+}
+
+/* Hero question bubbles */
+.heroBubble {
+  position: absolute;
+  background: #FFFFFF;
+  border: 1px solid rgba(18, 18, 18, 0.08);
+  border-radius: 16px;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(18, 18, 18, 0.8);
+  max-width: 180px;
+  line-height: 1.4;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+
+  opacity: 0;
+  animation:
+    heroFadeIn 700ms ease-out forwards,
+    heroDrift 7s ease-in-out infinite;
+}
+
+.heroBubble1 {
+  top: 18%;
+  right: -32%;
+  animation-delay: 360ms, 0ms;
+  animation-duration: 700ms, 7s;
+}
+
+.heroBubble2 {
+  bottom: 35%;
+  left: -38%;
+  animation-delay: 480ms, 0ms;
+  animation-duration: 700ms, 7.8s;
+}
+
+/* Fade-in animation (runs once) */
+@keyframes heroFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Float animation for stamps (runs forever) */
+@keyframes heroFloat {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+/* Drift animation for bubbles (slight sideways movement) */
+@keyframes heroDrift {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(4px, -6px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .heroStamp,
+  .heroBubble {
+    animation: heroFadeIn 1ms linear forwards;
+  }
 }
 
 /* ==========================================================================
@@ -540,7 +683,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    order: 2;
+    order: 1;
   }
 
   .logoContainer {
@@ -556,17 +699,56 @@
   }
 
   .heroVisual {
-    order: 1;
+    order: 2;
+    padding: 20px 40px;
   }
 
-  .heroVisualFrame {
-    padding: 10px;
-    border-radius: 20px;
-  }
-
-  .heroVideo {
+  .heroDeviceWrap {
     max-width: 340px;
-    border-radius: 12px;
+  }
+
+  .phoneFrame {
+    max-width: 340px;
+  }
+
+  .phoneScreen {
+    border-radius: 28px;
+  }
+
+  /* Reposition accents for tablet */
+  .heroStamp1 {
+    top: 5%;
+    left: -12%;
+    width: 60px;
+    height: 60px;
+  }
+
+  .heroStamp2 {
+    bottom: 22%;
+    right: -10%;
+    width: 48px;
+    height: 48px;
+  }
+
+  .heroStamp3 {
+    bottom: 5%;
+    left: -8%;
+    width: 52px;
+    height: 52px;
+  }
+
+  .heroBubble {
+    font-size: 12px;
+    padding: 10px 14px;
+    max-width: 160px;
+  }
+
+  .heroBubble1 {
+    right: -28%;
+  }
+
+  .heroBubble2 {
+    left: -32%;
   }
 
   .stampShowcase {
@@ -616,7 +798,7 @@
 
 @media only screen and (max-width: 768px) {
   .padHero {
-    padding: 96px 0;
+    padding: 72px 0 64px;
   }
 
   .padLg {
@@ -626,11 +808,23 @@
   .padMd {
     padding: 80px 0;
   }
+
+  .hero {
+    gap: 40px;
+  }
 }
 
 @media only screen and (max-width: 640px) {
   .sectionInner {
     padding: 0 20px;
+  }
+
+  .padHero {
+    padding: 56px 0 48px;
+  }
+
+  .hero {
+    gap: 32px;
   }
 
   .hero h1 {
@@ -652,14 +846,47 @@
     font-size: 16px;
   }
 
-  .heroVisualFrame {
-    padding: 8px;
-    border-radius: 18px;
+  .heroVisual {
+    padding: 16px 20px;
   }
 
-  .heroVideo {
-    max-width: 260px;
-    border-radius: 10px;
+  .heroDeviceWrap {
+    max-width: 300px;
+  }
+
+  .phoneFrame {
+    max-width: 300px;
+  }
+
+  .phoneScreen {
+    border-radius: 24px;
+  }
+
+  /* Hide question bubbles on mobile to reduce clutter */
+  .heroBubble {
+    display: none;
+  }
+
+  /* Smaller, repositioned stamps for mobile */
+  .heroStamp1 {
+    top: 3%;
+    left: -8%;
+    width: 48px;
+    height: 48px;
+  }
+
+  .heroStamp2 {
+    bottom: 20%;
+    right: -6%;
+    width: 40px;
+    height: 40px;
+  }
+
+  .heroStamp3 {
+    bottom: 3%;
+    left: -5%;
+    width: 44px;
+    height: 44px;
   }
 
   .showcaseStampLarge {
@@ -737,14 +964,32 @@
     font-size: 32px;
   }
 
-  .heroVisualFrame {
-    padding: 6px;
-    border-radius: 16px;
+  .heroDeviceWrap {
+    max-width: 260px;
   }
 
-  .heroVideo {
-    max-width: 220px;
-    border-radius: 10px;
+  .phoneFrame {
+    max-width: 260px;
+  }
+
+  .phoneScreen {
+    border-radius: 22px;
+  }
+
+  /* Further reduce stamps on very small screens */
+  .heroStamp1 {
+    width: 40px;
+    height: 40px;
+  }
+
+  .heroStamp2 {
+    width: 36px;
+    height: 36px;
+  }
+
+  .heroStamp3 {
+    width: 38px;
+    height: 38px;
   }
 
   .showcaseStampLarge {

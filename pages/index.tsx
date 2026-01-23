@@ -88,17 +88,66 @@ const SigninDefaultScreen = () => {
               </div>
 
               <div className={styles.heroVisual}>
-                <div className={styles.heroVisualFrame}>
-                  <video
-                    className={styles.heroVideo}
-                    src="/brand/screenshots/optimized/app-recording.mp4"
-                    poster="/brand/screenshots/optimized/app-recording-poster.jpg"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                  />
+                <div className={styles.heroDeviceWrap}>
+                  <picture>
+                    <source srcSet="/brand/screenshots/hero-phone-template.webp" type="image/webp" />
+                    <Image
+                      className={styles.phoneFrame}
+                      src="/brand/screenshots/hero-phone-template.png"
+                      alt="Phone showing intori app"
+                      width={440}
+                      height={880}
+                      priority
+                      sizes="(max-width: 640px) 300px, (max-width: 1024px) 340px, 420px"
+                    />
+                  </picture>
+                  <div className={styles.phoneScreen}>
+                    <picture>
+                      <source srcSet="/brand/screenshots/stamp.webp" type="image/webp" />
+                      <Image
+                        className={styles.phoneScreenImage}
+                        src="/brand/screenshots/stamp.jpg"
+                        alt=""
+                        width={390}
+                        height={844}
+                        priority
+                        sizes="(max-width: 640px) 260px, (max-width: 1024px) 300px, 370px"
+                      />
+                    </picture>
+                  </div>
+
+                  <div className={styles.heroAccents} aria-hidden="true">
+                    {/* Stamps */}
+                    <Image
+                      className={`${styles.heroStamp} ${styles.heroStamp1}`}
+                      src="/brand/hero-stamps/music-lovers.png"
+                      alt=""
+                      width={72}
+                      height={72}
+                    />
+                    <Image
+                      className={`${styles.heroStamp} ${styles.heroStamp2}`}
+                      src="/brand/hero-stamps/foodies.png"
+                      alt=""
+                      width={56}
+                      height={56}
+                    />
+                    <Image
+                      className={`${styles.heroStamp} ${styles.heroStamp3}`}
+                      src="/brand/hero-stamps/travel.png"
+                      alt=""
+                      width={64}
+                      height={64}
+                    />
+
+                    {/* Question bubbles */}
+                    <div className={`${styles.heroBubble} ${styles.heroBubble1}`}>
+                      What do you never get tired of?
+                    </div>
+                    <div className={`${styles.heroBubble} ${styles.heroBubble2}`}>
+                      Where do you feel most like yourself?
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

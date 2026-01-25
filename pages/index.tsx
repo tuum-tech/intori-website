@@ -402,46 +402,44 @@ const SigninDefaultScreen = () => {
         </div>
 
         {/* ============================================================
-            FOOTER CTA
+            FOOTER CTA (Dark Section) + FAQ in Blue Panel
             ============================================================ */}
-        <div className={`${styles.sectionBand} ${styles.sectionBandWhite}`}>
+        <div className={`${styles.sectionBand} ${styles.sectionBandDark}`}>
           <div className={`${styles.sectionInner} ${styles.padLg}`}>
             <div className={styles.footerCta}>
               <p className={styles.footerTagline}>
                 Answer questions. Unlock insights. Make connections.
               </p>
-              <a href={APP_URL} className={styles.ctaDark}>
+              <a href={APP_URL} className={styles.ctaPrimary}>
                 Open intori
               </a>
             </div>
           </div>
-        </div>
 
-        {/* ============================================================
-            FAQ SECTION
-            ============================================================ */}
-        <div className={`${styles.sectionBand} ${styles.sectionBandAlt}`}>
-          <div className={`${styles.sectionInner} ${styles.padMd}`}>
-            <div className={styles.faq}>
-              <h2>Questions</h2>
+          {/* Questions Panel - Blue rounded panel sitting in the dark section */}
+          <div className={styles.sectionInner}>
+            <div className={styles.questionsPanel}>
+              <div className={styles.faq}>
+                <h2>Questions</h2>
 
-              {FAQ.map((item, index) => (
-                <details key={index}>
-                  <summary>{item.question}</summary>
-                  <div>
-                    {item.answer.map((paragraph, pIndex) => (
-                      <p key={pIndex}>{paragraph}</p>
-                    ))}
-                    {item.bullets && item.bullets.length > 0 && (
-                      <ul>
-                        {item.bullets.map((bullet, bIndex) => (
-                          <li key={bIndex}>{bullet}</li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                </details>
-              ))}
+                {FAQ.map((item, index) => (
+                  <details key={index}>
+                    <summary>{item.question}</summary>
+                    <div>
+                      {item.answer.map((paragraph, pIndex) => (
+                        <p key={pIndex}>{paragraph}</p>
+                      ))}
+                      {item.bullets && item.bullets.length > 0 && (
+                        <ul>
+                          {item.bullets.map((bullet, bIndex) => (
+                            <li key={bIndex}>{bullet}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </details>
+                ))}
+              </div>
             </div>
           </div>
         </div>

@@ -17,12 +17,12 @@
 }
 
 .footer a:hover {
-  color: #A793F2;
+  color: #D5F74E;
 }
 
 
 .contact {
-  border-bottom: 1px solid #646E87;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   margin-bottom: 25px;
   padding-bottom: 25px;
 
@@ -50,7 +50,7 @@
   transition: fill 0.3s ease;
 }
 .sm > a:hover svg path {
-  fill: #A793F2;
+  fill: #D5F74E;
 }
 .legal a {
   margin-right: 18px;

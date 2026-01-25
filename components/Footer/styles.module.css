@@ -1,5 +1,6 @@
 .footer {
-  padding: 300px 40px 40px 40px;
+  background: #121212;
+  padding: 80px 40px 40px 40px;
 }
 .footer > div {
   display: flex;
@@ -57,7 +58,7 @@
 
 @media only screen and (max-width: 900px) {
   .footer {
-    padding: 300px 10px 40px 10px;
+    padding: 64px 20px 40px 20px;
     text-align: left;
   }
   .footer > div {

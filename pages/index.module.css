@@ -70,6 +70,13 @@
   background: #FFFFFF;
 }
 
+/* Dark navy section for high-contrast moments - solid, seamless with footer */
+.sectionBandDark {
+  background: #121212;
+  position: relative;
+  padding-bottom: 80px;
+}
+
 .sectionInner {
   max-width: 1160px;
   margin: 0 auto;
@@ -212,14 +219,70 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Subtle radial gradient background */
-  background: radial-gradient(
-    ellipse 600px 400px at 50% 60%,
-    rgba(213, 247, 78, 0.06) 0%,
-    transparent 70%
-  );
   border-radius: var(--r-lg);
   padding: 40px 20px;
+}
+
+/* Atmospheric hero glow - layered studio lighting effect (NOT a circle)
+   Multiple offset gradients create uneven, organic light falloff */
+.heroVisual::before {
+  content: '';
+  position: absolute;
+  inset: -200px;
+  background:
+    /* Layer 1: Large diffuse wash - offset upper-right */
+    radial-gradient(
+      ellipse 90% 70% at 60% 35%,
+      rgba(96, 179, 215, 0.18) 0%,
+      rgba(96, 179, 215, 0.06) 40%,
+      transparent 70%
+    ),
+    /* Layer 2: Mid-tone glow - offset lower-left */
+    radial-gradient(
+      ellipse 70% 90% at 40% 60%,
+      rgba(96, 179, 215, 0.14) 0%,
+      rgba(96, 179, 215, 0.04) 50%,
+      transparent 80%
+    ),
+    /* Layer 3: Concentrated core light - slightly off-center */
+    radial-gradient(
+      ellipse 50% 60% at 52% 48%,
+      rgba(96, 179, 215, 0.22) 0%,
+      rgba(96, 179, 215, 0.08) 35%,
+      transparent 65%
+    ),
+    /* Layer 4: Soft ambient fill */
+    radial-gradient(
+      ellipse 120% 100% at 45% 55%,
+      rgba(96, 179, 215, 0.06) 0%,
+      transparent 60%
+    );
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Secondary atmospheric layer - adds depth and asymmetry */
+.heroVisual::after {
+  content: '';
+  position: absolute;
+  inset: -100px;
+  background:
+    /* Upper highlight bloom */
+    radial-gradient(
+      ellipse 60% 40% at 55% 30%,
+      rgba(96, 179, 215, 0.12) 0%,
+      transparent 60%
+    ),
+    /* Lower subtle wash */
+    radial-gradient(
+      ellipse 80% 50% at 45% 70%,
+      rgba(96, 179, 215, 0.08) 0%,
+      transparent 55%
+    );
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Device wrapper - contains phone and accents */
@@ -230,6 +293,7 @@
   justify-content: center;
   max-width: 420px;
   width: 100%;
+  z-index: 1;
 }
 
 /* Phone frame image */
@@ -276,11 +340,19 @@
   z-index: 3;
 }
 
-/* Hero stamps - shared styles */
+/* Hero stamps - shared styles (premium 3D collectible feel) */
 .heroStamp {
   position: absolute;
   border-radius: var(--r-xs);
-  box-shadow: var(--sh-md);
+  /* Surface treatment - subtle gradient */
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 100%);
+  /* 2-layer shadow system: contact + ambient */
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    0 1px 3px rgba(0, 0, 0, 0.06),
+    0 16px 40px rgba(0, 0, 0, 0.10);
+  /* Simple 1px border */
+  border: 1px solid rgba(18, 18, 18, 0.06);
 
   opacity: 0;
   animation:
@@ -315,19 +387,24 @@
   animation-duration: 700ms, 7.4s;
 }
 
-/* Hero question bubbles */
+/* Hero question bubbles (premium floating card feel) */
 .heroBubble {
   position: absolute;
-  background: #FFFFFF;
-  border: 1px solid var(--b-subtle);
+  /* Surface treatment - subtle gradient */
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 100%);
+  border: 1px solid rgba(18, 18, 18, 0.06);
   border-radius: var(--r-md);
-  padding: 12px 16px;
+  padding: 14px 18px;
   font-size: 13px;
   font-weight: 500;
-  color: rgba(18, 18, 18, 0.8);
-  max-width: 180px;
-  line-height: 1.4;
-  box-shadow: var(--sh-sm);
+  color: rgba(18, 18, 18, 0.85);
+  max-width: 190px;
+  line-height: 1.45;
+  /* 2-layer shadow system: contact + ambient */
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    0 1px 3px rgba(0, 0, 0, 0.06),
+    0 16px 40px rgba(0, 0, 0, 0.10);
 
   opacity: 0;
   animation:
@@ -491,18 +568,34 @@
   display: inline-flex;
   align-items: center;
   gap: var(--chip-gap);
-  padding: var(--chip-stamp-padding);
-  background: #FFFFFF;
+  padding: 8px 18px 8px 8px;
+  /* Surface gradient for depth */
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 100%);
   border-radius: var(--r-pill);
-  box-shadow: var(--sh-sm);
-  border: 1px solid var(--b-softer);
+  /* Premium shadow: contact + ambient */
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.06),
+    0 4px 12px rgba(0, 0, 0, 0.06),
+    0 12px 28px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  outline: 1px solid rgba(18, 18, 18, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stampChip:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.06),
+    0 8px 16px rgba(0, 0, 0, 0.08),
+    0 16px 36px rgba(0, 0, 0, 0.10);
 }
 
 .stampChipImage {
-  width: 28px;
-  height: 28px;
-  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
   object-fit: cover;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .stampChipLabel {
@@ -515,33 +608,46 @@
 .circlesVisual {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  max-width: 400px;
+  gap: 16px;
+  max-width: 440px;
 }
 
 .circleRow {
   display: flex;
-  gap: 10px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
+/* Circle pills as collectible identity tiles */
 .circlePill {
   display: inline-flex;
   align-items: center;
-  gap: var(--chip-gap);
-  padding: var(--chip-padding);
-  background: #FFFFFF;
+  gap: 10px;
+  padding: 16px 26px;
+  /* Surface treatment - subtle gradient */
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 100%);
   border-radius: var(--r-pill);
-  box-shadow: var(--sh-sm);
-  border: 1px solid var(--b-softer);
-  font-size: 14px;
+  /* 2-layer shadow system: contact + ambient */
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    0 1px 3px rgba(0, 0, 0, 0.06),
+    0 16px 40px rgba(0, 0, 0, 0.10);
+  /* Simple 1px border */
+  border: 1px solid rgba(18, 18, 18, 0.06);
+  font-size: 16px;
   font-weight: 600;
   color: #121212;
+  transition: transform 0.2s ease;
+  will-change: transform;
+}
+
+.circlePill:hover {
+  transform: translateY(-2px);
 }
 
 .circlePill img {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
 }
 
 .circlePillPurple { border-left: 4px solid #D467FF; }
@@ -557,58 +663,199 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
 }
 
 .connectionLine {
-  width: 2px;
-  height: 32px;
-  background: linear-gradient(to bottom, #D5F74E, transparent);
+  width: 3px;
+  height: 48px;
+  background: linear-gradient(to bottom, #D5F74E, rgba(213, 247, 78, 0.3), transparent);
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(213, 247, 78, 0.25);
 }
 
 .stampConnection {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 20px;
 }
 
+/* Connection stamps as premium collectible tiles */
 .connectionStamp {
-  width: 56px;
-  height: 56px;
-  border-radius: var(--r-xs);
+  width: 84px;
+  height: 84px;
+  border-radius: var(--r-md);
   object-fit: cover;
-  box-shadow: var(--sh-sm);
+  /* Premium shadow system: contact shadow + soft ambient */
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.06),
+    0 12px 32px rgba(0, 0, 0, 0.10);
+  /* Subtle border for definition */
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  outline: 1px solid rgba(18, 18, 18, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  will-change: transform;
+}
+
+.connectionStamp:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.08),
+    0 8px 20px rgba(0, 0, 0, 0.08),
+    0 20px 48px rgba(0, 0, 0, 0.12);
 }
 
 .connectionPlus {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 300;
-  color: rgba(18, 18, 18, 0.5);
+  color: rgba(18, 18, 18, 0.35);
 }
 
 /* ==========================================================================
-   FOOTER CTA
+   FOOTER CTA (Dark Section)
    ========================================================================== */
 
 .footerCta {
   text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 .footerTagline {
-  font-size: clamp(24px, 3vw, 36px);
-  line-height: 1.35;
-  font-weight: 500;
-  color: #121212;
-  margin: 0 0 48px 0;
-  letter-spacing: -0.01em;
-  max-width: 600px;
+  font-size: clamp(26px, 3.5vw, 40px);
+  line-height: 1.3;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 0 0 52px 0;
+  letter-spacing: -0.02em;
+  max-width: 640px;
   margin-left: auto;
   margin-right: auto;
 }
 
+/* Primary CTA on dark background - tasteful glow + depth */
+.footerCta .ctaPrimary {
+  background: #D5F74E;
+  color: #0F1419;
+  box-shadow:
+    0 0 24px rgba(213, 247, 78, 0.35),
+    0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.footerCta .ctaPrimary:hover {
+  box-shadow:
+    0 0 32px rgba(213, 247, 78, 0.45),
+    0 12px 32px rgba(0, 0, 0, 0.30);
+}
+
 /* ==========================================================================
-   FAQ SECTION
+   FAQ SECTION - Blue Panel Design
    ========================================================================== */
+
+/* Blue panel wrapper for Questions section - premium material treatment */
+.questionsPanel {
+  /* More natural: one main hotspot + gentle vignette + subtle vertical shading */
+  background:
+    radial-gradient(ellipse 85% 60% at 35% 18%, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.06) 35%, transparent 70%),
+    radial-gradient(ellipse 90% 70% at 50% 110%, rgba(0,0,0,0.14) 0%, transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.00) 40%),
+    #60B3D7;
+  border-radius: var(--r-xl);
+  padding: 72px 56px 80px;
+  margin-top: 56px;
+  position: relative;
+  z-index: 10;
+  /* Softer, premium edge definition */
+  border: 1px solid rgba(255,255,255,0.20);
+  border-top-color: rgba(255,255,255,0.34);
+  /* Better "object on dark" separation (less harsh, more diffuse) */
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.20),
+    0 18px 60px rgba(0,0,0,0.28),
+    0 2px 0 rgba(255,255,255,0.04);
+}
+
+/* Subtle top sheen overlay - premium trick */
+.questionsPanel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.10) 0%,
+    rgba(255,255,255,0.00) 18%,
+    rgba(0,0,0,0.04) 100%
+  );
+  opacity: 0.65;
+}
+
+/* Questions heading - subtle, refined */
+.questionsPanel .faq h2 {
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: clamp(28px, 3.5vw, 40px);
+  letter-spacing: 0.01em;
+  margin-bottom: 48px;
+}
+
+/* FAQ cards inside blue panel - premium treatment */
+.questionsPanel .faq details {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 14px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(18, 18, 18, 0.06);
+  border-radius: 20px;
+  /* Softer and more "real" */
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.03),
+    0 10px 26px rgba(0, 0, 0, 0.08);
+}
+
+.questionsPanel .faq details:last-of-type {
+  margin-bottom: 0;
+}
+
+/* + icon as Hims-style control chip */
+.questionsPanel .faq details summary::after {
+  content: '+';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(18, 18, 18, 0.42);
+  background: rgba(255,255,255,0.92);
+  border-radius: 999px;
+  border: 1px solid rgba(18,18,18,0.06);
+  box-shadow:
+    0 1px 1px rgba(0,0,0,0.04),
+    0 6px 16px rgba(0,0,0,0.06);
+  flex-shrink: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.questionsPanel .faq details[open] summary::after {
+  transform: rotate(45deg);
+  box-shadow:
+    0 1px 1px rgba(0,0,0,0.03),
+    0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Premium spacing */
+.questionsPanel .faq details summary {
+  padding: 24px 26px;
+}
+
+.questionsPanel .faq details > div {
+  padding: 0 26px 26px;
+}
 
 .faq {
   max-width: 800px;
@@ -727,6 +974,33 @@
   .heroVisual {
     order: 2;
     padding: 20px 40px;
+  }
+
+  /* Scale down hero glows on tablet */
+  .heroVisual::before {
+    inset: -150px;
+    filter: blur(35px);
+  }
+
+  .heroVisual::after {
+    inset: -80px;
+    filter: blur(50px);
+  }
+
+  /* Questions panel tablet adjustments */
+  .questionsPanel {
+    padding: 56px 32px 64px;
+    margin-top: 48px;
+  }
+
+  .questionsPanel .faq h2 {
+    margin-bottom: 40px;
+  }
+
+  .questionsPanel .faq details summary::after {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
   }
 
   .heroDeviceWrap {
@@ -884,6 +1158,17 @@
     padding: 16px 20px;
   }
 
+  /* Scale down hero glows on mobile */
+  .heroVisual::before {
+    inset: -100px;
+    filter: blur(30px);
+  }
+
+  .heroVisual::after {
+    inset: -60px;
+    filter: blur(40px);
+  }
+
   .heroDeviceWrap {
     max-width: 300px;
   }
@@ -948,31 +1233,85 @@
   }
 
   .stampChip {
-    padding: 5px 12px 5px 5px;
+    padding: 6px 14px 6px 6px;
   }
 
   .stampChipImage {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
   }
 
   .stampChipLabel {
-    font-size: 12px;
-  }
-
-  .circlePill {
-    padding: 8px 14px;
     font-size: 13px;
   }
 
+  .circlePill {
+    padding: 14px 22px;
+    font-size: 15px;
+  }
+
   .circlePill img {
-    width: 18px;
-    height: 18px;
+    width: 22px;
+    height: 22px;
+  }
+
+  .circleRow {
+    gap: 10px;
+  }
+
+  .circlesVisual {
+    gap: 12px;
+  }
+
+  /* Connection stamps on mobile */
+  .connectionStamp {
+    width: 68px;
+    height: 68px;
+  }
+
+  .stampConnection {
+    gap: 16px;
   }
 
   .footerTagline {
-    font-size: 22px;
-    margin-bottom: 40px;
+    font-size: 24px;
+    margin-bottom: 44px;
+  }
+
+  /* Questions panel responsive adjustments */
+  .questionsPanel {
+    padding: 44px 16px 52px;
+    margin-top: 48px;
+    border-radius: var(--r-lg);
+  }
+
+  .questionsPanel .faq h2 {
+    margin-bottom: 32px;
+  }
+
+  .questionsPanel .faq details {
+    margin-bottom: 12px;
+    border-radius: 16px;
+  }
+
+  .questionsPanel .faq details summary {
+    padding: 20px 20px;
+  }
+
+  .questionsPanel .faq details > div {
+    padding: 0 20px 20px;
+  }
+
+  .questionsPanel .faq details summary::after {
+    width: 28px;
+    height: 28px;
+    font-size: 15px;
+  }
+
+  /* Dark section padding on mobile */
+  .sectionBandDark {
+    padding-bottom: 48px;
   }
 
   .faq h2 {
@@ -1057,6 +1396,6 @@
   }
 
   .footerTagline {
-    font-size: 20px;
+    font-size: 22px;
   }
 }

@@ -124,7 +124,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #121212;
+  background: #171738;
   padding: 8px;
   border-radius: var(--r-sm);
 }
@@ -159,6 +159,31 @@
   font-size: 13px;
   color: rgba(18, 18, 18, 0.4);
   letter-spacing: 0.01em;
+}
+
+/* Secondary CTA Link */
+.ctaSecondary {
+  display: block;
+  margin-top: 12px;
+  font-size: 14px;
+  color: rgba(18, 18, 18, 0.6);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.ctaSecondary:hover {
+  color: rgba(18, 18, 18, 0.8);
+}
+
+/* Secondary CTA on dark background */
+.footerCta .ctaSecondary {
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 14px;
+}
+
+.footerCta .ctaSecondary:hover {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* Primary CTA Button */

@@ -783,22 +783,22 @@
    FAQ SECTION - Blue Panel Design
    ========================================================================== */
 
-/* Blue panel wrapper for Questions section - premium material treatment */
+/* Dark panel wrapper for Questions section - premium material treatment */
 .questionsPanel {
   /* More natural: one main hotspot + gentle vignette + subtle vertical shading */
   background:
-    radial-gradient(ellipse 85% 60% at 35% 18%, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.06) 35%, transparent 70%),
-    radial-gradient(ellipse 90% 70% at 50% 110%, rgba(0,0,0,0.14) 0%, transparent 55%),
-    linear-gradient(180deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.00) 40%),
-    #60B3D7;
+    radial-gradient(ellipse 85% 60% at 35% 18%, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 35%, transparent 70%),
+    radial-gradient(ellipse 90% 70% at 50% 110%, rgba(0,0,0,0.18) 0%, transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.00) 40%),
+    #1E1E42;
   border-radius: var(--r-xl);
   padding: 72px 56px 80px;
   margin-top: 56px;
   position: relative;
   z-index: 10;
   /* Softer, premium edge definition */
-  border: 1px solid rgba(255,255,255,0.20);
-  border-top-color: rgba(255,255,255,0.34);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-top-color: rgba(255,255,255,0.22);
   /* Better "object on dark" separation (less harsh, more diffuse) */
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,0.20),

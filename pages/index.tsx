@@ -24,7 +24,8 @@ export const getServerSideProps = (async (context) => {
   }
 }) satisfies GetServerSideProps
 
-const APP_URL = "https://warpcast.com/~/frames/launch?domain=frame.intori.co"
+const BASE_APP_URL = "https://base.app/app/frame.intori.co"
+const FARCASTER_URL = "https://warpcast.com/~/frames/launch?domain=frame.intori.co"
 
 // Stamps for value sections
 const VALUE_STAMPS = {
@@ -66,7 +67,7 @@ const SigninDefaultScreen = () => {
               <div className={styles.heroContent}>
                 <div className={styles.logoContainer}>
                   <div className={styles.logo}>
-                    <Image src="/intorilogomark.svg" alt="" width={24} height={24} />
+                    <Image src="/logo.png" alt="intori" width={28} height={28} />
                   </div>
                   <h3>intori</h3>
                 </div>
@@ -78,8 +79,12 @@ const SigninDefaultScreen = () => {
                   No feed. No swiping. Just the real you.
                 </h2>
 
-                <a href={APP_URL} className={styles.ctaPrimary}>
+                <a href={BASE_APP_URL} className={styles.ctaPrimary}>
                   Open intori
+                </a>
+
+                <a href={FARCASTER_URL} className={styles.ctaSecondary}>
+                  Open on Farcaster
                 </a>
 
                 <p className={styles.heroPlatforms}>
@@ -410,8 +415,11 @@ const SigninDefaultScreen = () => {
               <p className={styles.footerTagline}>
                 Answer questions. Unlock insights. Make connections.
               </p>
-              <a href={APP_URL} className={styles.ctaPrimary}>
+              <a href={BASE_APP_URL} className={styles.ctaPrimary}>
                 Open intori
+              </a>
+              <a href={FARCASTER_URL} className={styles.ctaSecondary}>
+                Open on Farcaster
               </a>
             </div>
           </div>

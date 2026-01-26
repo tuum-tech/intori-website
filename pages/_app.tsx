@@ -25,18 +25,25 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
     <Fragment>
       <Head>
-        <title>Intori – Meet the Right People on Farcaster</title>
-        <meta name="description" content="Answer questions. Unlock insights. Make connections."/>
+        <title>intori — Answer daily themes. Collect stamps. Find your people.</title>
+        <meta name="description" content="No feed. No swiping. Just identity and community."/>
+        <link rel="canonical" href="https://www.intori.co/" />
         <meta name="keywords" content="intori, farcaster, decentralized, warpcast, find users, meet users, suggestions, social farcaster, onchain, onchain summmer, base, base onchain"/>
         <meta name="author" content="Tuum Tech"/>
-        <meta property="og:description" content="Answer questions. Unlock insights. Make connections." />
-        <meta name="twitter:description" property="twitter:description" content="Answer questions. Unlock insights. Make connections."/>
-        <meta property="twitter:card" content="https://www.intori.co/landing-page/metacard.png"/>
-        <meta name="twitter:image:src" property="twitter:image:src" content="https://www.intori.co/landing-page/metacard.png"/>
-        <meta name="twitter:image" property="twitter:image" content="https://www.intori.co/landing-page/metacard.png"/>
-        <meta name="og:image:alt" property="og:image:alt" content="Intori – Meet the right people on Farcaster" />
-        <meta property="og:url" content="https://www.intori.co" />
+        <meta property="og:title" content="intori — Answer daily themes. Collect stamps. Find your people." />
+        <meta property="og:description" content="No feed. No swiping. Just identity and community." />
+        <meta property="og:url" content="https://www.intori.co/" />
         <meta property="og:type" content="website"/>
+        <meta property="og:site_name" content="intori" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image" content="https://www.intori.co/og/og-2026-01.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="intori" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="intori — Answer daily themes. Collect stamps. Find your people." />
+        <meta name="twitter:description" content="No feed. No swiping. Just identity and community." />
+        <meta name="twitter:image" content="https://www.intori.co/og/og-2026-01.png" />
       </Head>
       <SessionProvider session={session}>
         <QueryClientProvider client={queryClient}>

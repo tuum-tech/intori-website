@@ -1,6 +1,7 @@
 import type { GetServerSideProps } from "next";
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import { getSession } from "next-auth/react"
 import { Footer } from '../components/Footer'
 import { FAQ } from '../lib/faq'
@@ -24,6 +25,7 @@ export const getServerSideProps = (async (context) => {
   }
 }) satisfies GetServerSideProps
 
+const WORLD_APP_URL = "https://world.org/mini-app?app_id=app_263f86463869627f1183badc977e21a3"
 const BASE_APP_URL = "https://base.app/app/frame.intori.co"
 const FARCASTER_URL = "https://warpcast.com/~/frames/launch?domain=frame.intori.co"
 
@@ -63,15 +65,20 @@ const SigninDefaultScreen = () => {
             ============================================================ */}
         <div className={`${styles.sectionBand} ${styles.sectionBandWhite}`}>
           <div className={`${styles.sectionInner} ${styles.padHero}`}>
+
+            {/* Minimal nav: logo left — News right, spans full content width */}
+            <div className={styles.heroNavBar}>
+              <div className={styles.logoContainer}>
+                <div className={styles.logo}>
+                  <Image src="/logo.png" alt="intori" width={36} height={36} />
+                </div>
+                <h3>intori</h3>
+              </div>
+              <Link href="/news" className={styles.newsLink}>News</Link>
+            </div>
+
             <div className={styles.hero}>
               <div className={styles.heroContent}>
-                <div className={styles.logoContainer}>
-                  <div className={styles.logo}>
-                    <Image src="/logo.png" alt="intori" width={28} height={28} />
-                  </div>
-                  <h3>intori</h3>
-                </div>
-
                 <h1>Discover people.<br />Collect stamps.</h1>
 
                 <h2>
@@ -79,17 +86,17 @@ const SigninDefaultScreen = () => {
                   No feed. No swiping. Just the real you.
                 </h2>
 
-                <a href={BASE_APP_URL} className={styles.ctaPrimary}>
-                  Open intori
-                </a>
-
-                <a href={FARCASTER_URL} className={styles.ctaSecondary}>
-                  Open on Farcaster
-                </a>
-
-                <p className={styles.heroPlatforms}>
-                  Works on Farcaster, Base, and World App
-                </p>
+                <div className={styles.ctaGroup}>
+                  <a href={WORLD_APP_URL} className={styles.ctaPrimary}>
+                    Open on World
+                  </a>
+                  <p className={styles.ctaProviders}>
+                    Also on{' '}
+                    <a href={BASE_APP_URL} className={styles.ctaProviderLink} target="_blank" rel="noopener noreferrer">Base</a>
+                    {' · '}
+                    <a href={FARCASTER_URL} className={styles.ctaProviderLink} target="_blank" rel="noopener noreferrer">Farcaster</a>
+                  </p>
+                </div>
               </div>
 
               <div className={styles.heroVisual}>
@@ -415,12 +422,17 @@ const SigninDefaultScreen = () => {
               <p className={styles.footerTagline}>
                 Answer questions. Unlock insights. Make connections.
               </p>
-              <a href={BASE_APP_URL} className={styles.ctaPrimary}>
-                Open intori
-              </a>
-              <a href={FARCASTER_URL} className={styles.ctaSecondary}>
-                Open on Farcaster
-              </a>
+              <div className={styles.ctaGroup}>
+                <a href={WORLD_APP_URL} className={styles.ctaPrimary}>
+                  Open on World
+                </a>
+                <p className={styles.ctaProviders}>
+                  Also on{' '}
+                  <a href={BASE_APP_URL} className={styles.ctaProviderLink} target="_blank" rel="noopener noreferrer">Base</a>
+                  {' · '}
+                  <a href={FARCASTER_URL} className={styles.ctaProviderLink} target="_blank" rel="noopener noreferrer">Farcaster</a>
+                </p>
+              </div>
             </div>
           </div>
 

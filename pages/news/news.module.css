@@ -1,0 +1,476 @@
+/* ==========================================================================
+   INTORI NEWS — Shared styles
+   Calm, premium layout. Matches homepage brand.
+   ========================================================================== */
+
+/* ==========================================================================
+   BASE / LAYOUT
+   ========================================================================== */
+
+.page {
+  background: #FFFFFF;
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+.inner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.innerWide {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ==========================================================================
+   TOP BAR — back to home + (on index) page title
+   ========================================================================== */
+
+.topBar {
+  padding: 32px 0 0;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(18, 18, 18, 0.5);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: color 0.15s ease;
+}
+
+.backLink:hover {
+  color: #121212;
+}
+
+.backArrow {
+  font-size: 15px;
+  line-height: 1;
+}
+
+/* ==========================================================================
+   NEWS INDEX — Header
+   ========================================================================== */
+
+.indexHeader {
+  padding: 56px 0 48px;
+  border-bottom: 1px solid rgba(18, 18, 18, 0.07);
+}
+
+.indexTitle {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 700;
+  color: #121212;
+  letter-spacing: -0.04em;
+  margin: 0 0 10px;
+  line-height: 1.05;
+}
+
+.indexSubtitle {
+  font-size: 16px;
+  color: rgba(18, 18, 18, 0.5);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   NEWS INDEX — Post list
+   ========================================================================== */
+
+.postList {
+  padding: 0 0 120px;
+}
+
+.postCard {
+  display: block;
+  text-decoration: none;
+  padding: 40px 0;
+  border-bottom: 1px solid rgba(18, 18, 18, 0.07);
+  transition: opacity 0.15s ease;
+}
+
+.postCard:last-child {
+  border-bottom: none;
+}
+
+.postCard:hover {
+  opacity: 0.75;
+}
+
+.postCardInner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: start;
+}
+
+.postCardContent {
+  min-width: 0;
+}
+
+.postCardMeta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.postCardDate {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(18, 18, 18, 0.4);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.postCardTitle {
+  font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 700;
+  color: #121212;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin: 0 0 10px;
+}
+
+.postCardDek {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(18, 18, 18, 0.6);
+  margin: 0;
+}
+
+.postCardThumb {
+  flex-shrink: 0;
+  width: 120px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: #F8F8F7;
+}
+
+/* ==========================================================================
+   TAG PILL
+   ========================================================================== */
+
+.tagPill {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: rgba(18, 18, 18, 0.06);
+  color: rgba(18, 18, 18, 0.55);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   POST PAGE — Header
+   ========================================================================== */
+
+.postHeader {
+  padding: 48px 0 40px;
+}
+
+.postHeaderMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.postDate {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(18, 18, 18, 0.4);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.postTitle {
+  font-size: clamp(28px, 4.5vw, 52px);
+  font-weight: 700;
+  color: #121212;
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+  margin: 0 0 18px;
+}
+
+.postDek {
+  font-size: clamp(17px, 2vw, 20px);
+  line-height: 1.55;
+  color: rgba(18, 18, 18, 0.6);
+  margin: 0 0 20px;
+  max-width: 680px;
+}
+
+.postAuthorLine {
+  font-size: 13px;
+  color: rgba(18, 18, 18, 0.4);
+  margin: 0;
+}
+
+.postAuthorLine strong {
+  color: rgba(18, 18, 18, 0.65);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   POST PAGE — Hero image
+   ========================================================================== */
+
+.heroImageWrap {
+  margin: 0 0 48px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #F8F8F7;
+  aspect-ratio: 16 / 9;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hero image fallback — dark branded block when no image is set */
+.heroImageFallback {
+  background: #171738;
+  border-radius: 16px;
+  padding: 96px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.heroFallbackLogo {
+  width: 140px;
+  height: auto;
+  display: block;
+  /* intori-logo-full.svg uses white fills — shows cleanly on dark bg */
+}
+
+/* ==========================================================================
+   POST PAGE — Body (rendered markdown)
+   ========================================================================== */
+
+.postBody {
+  font-size: 17px;
+  line-height: 1.75;
+  color: rgba(18, 18, 18, 0.8);
+  padding-bottom: 80px;
+}
+
+.postBody h2 {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 700;
+  color: #121212;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin: 56px 0 18px;
+}
+
+.postBody h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #121212;
+  letter-spacing: -0.015em;
+  margin: 40px 0 14px;
+}
+
+.postBody p {
+  margin: 0 0 24px;
+}
+
+.postBody ul,
+.postBody ol {
+  margin: 0 0 24px;
+  padding-left: 28px;
+}
+
+.postBody li {
+  margin-bottom: 10px;
+}
+
+.postBody a {
+  color: #121212;
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+
+.postBody a:hover {
+  opacity: 0.7;
+}
+
+.postBody strong {
+  font-weight: 700;
+  color: #121212;
+}
+
+.postBody em {
+  font-style: italic;
+}
+
+.postBody hr {
+  border: none;
+  border-top: 1px solid rgba(18, 18, 18, 0.1);
+  margin: 48px 0;
+}
+
+/* Block quote — premium pull-quote style */
+.postBody blockquote {
+  margin: 40px 0;
+  padding: 28px 32px;
+  background: #F8F8F7;
+  border-left: 4px solid #D5F74E;
+  border-radius: 0 12px 12px 0;
+}
+
+.postBody blockquote p {
+  font-size: 18px;
+  font-style: italic;
+  color: rgba(18, 18, 18, 0.75);
+  margin: 0;
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   POST PAGE — CTA Section
+   ========================================================================== */
+
+.ctaSection {
+  background: #171738;
+  border-radius: 24px;
+  padding: 64px 48px;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.ctaTagline {
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+  margin: 0 0 36px;
+}
+
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 36px;
+  background: #D5F74E;
+  color: #0F1419;
+  border-radius: 999px;
+  font-size: 17px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.18s ease-out, box-shadow 0.18s ease-out;
+  box-shadow:
+    0 0 24px rgba(213, 247, 78, 0.35),
+    0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.ctaPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 32px rgba(213, 247, 78, 0.45),
+    0 12px 32px rgba(0, 0, 0, 0.30);
+}
+
+.ctaProviders {
+  margin-top: 16px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.ctaProviderLink {
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.ctaProviderLink:hover {
+  color: rgba(255, 255, 255, 0.9);
+  border-bottom-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ==========================================================================
+   DIVIDER
+   ========================================================================== */
+
+.divider {
+  height: 1px;
+  background: rgba(18, 18, 18, 0.07);
+  margin: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 640px) {
+  .inner {
+    padding: 0 20px;
+  }
+
+  .innerWide {
+    padding: 0 20px;
+  }
+
+  .postCardInner {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .postCardThumb {
+    width: 100%;
+    height: 180px;
+    order: -1;
+  }
+
+  .ctaSection {
+    padding: 48px 28px;
+    margin-bottom: 60px;
+    border-radius: 18px;
+  }
+
+  .postBody {
+    font-size: 16px;
+  }
+
+  .postBody h2 {
+    margin-top: 40px;
+  }
+
+  .postBody blockquote {
+    padding: 22px 24px;
+  }
+
+  .postBody blockquote p {
+    font-size: 16px;
+  }
+
+  .heroImageFallback {
+    padding: 64px 32px;
+    border-radius: 12px;
+  }
+
+  .heroFallbackLogo {
+    width: 100px;
+  }
+}

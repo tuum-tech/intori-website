@@ -31,6 +31,7 @@
     "dotenv-safe": "^9.1.0",
     "formidable": "^3.5.2",
     "formik": "^2.4.6",
+    "gray-matter": "^4.0.3",
     "jsonpath": "^1.1.1",
     "lodash.clonedeep": "^4.5.0",
     "next": "^14.2.2",
@@ -47,6 +48,8 @@
     "react-switch": "^7.0.0",
     "react-tabs": "^6.0.2",
     "react-toastify": "^10.0.5",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1",
     "tsx": "^4.9.3",
     "viem": "^2.9.20",
     "yup": "^1.4.0"

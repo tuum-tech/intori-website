@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useCallback } from 'react'
 import { Line } from "react-chartjs-2";
 import { StatsContainer, StatsChartContainer } from '../StatsCard'
 import { Empty } from '../../common/Empty'
@@ -35,7 +35,7 @@ export const StatsChart: React.FC = () => {
       .sort()
   }, [data])
 
-  const createDataset = (
+  const createDataset = useCallback((
     field: keyof DailyStats,
     label: string,
     borderColor: string,
@@ -50,7 +50,7 @@ export const StatsChart: React.FC = () => {
       borderColor,
       yAxisID
     }
-  }
+  }, [availableDates, statsByDate])
 
   // Chart for User Activity and Status
   const userActivityData = useMemo(() => {
@@ -64,7 +64,7 @@ export const StatsChart: React.FC = () => {
         createDataset('usersBlocked', 'Users Blocked', 'rgba(255, 152, 0, 1)', 'rgba(255, 152, 0, 0.2)', 'y'),
       ]
     }
-  }, [data, availableDates])
+  }, [data, availableDates, createDataset])
 
   // Chart 1: Gifts Sent, Questions Answered (removed Unique Users)
   const usersGiftsQuestionsData = useMemo(() => {
@@ -76,7 +76,7 @@ export const StatsChart: React.FC = () => {
         createDataset('questionsAnswered', 'Questions Answered', 'rgba(51, 153, 255, 1)', 'rgba(51, 153, 255, 0.2)', 'y'),
       ]
     }
-  }, [data, availableDates])
+  }, [data, availableDates, createDataset])
 
   // Chart 2: Insight Likes, Friend Requests
   const likesRequestsData = useMemo(() => {
@@ -88,7 +88,7 @@ export const StatsChart: React.FC = () => {
         createDataset('acceptedFriendRequests', 'Friend Requests', 'rgba(75, 192, 192, 1)', 'rgba(75, 192, 192, 0.2)', 'y'),
       ]
     }
-  }, [data, availableDates])
+  }, [data, availableDates, createDataset])
 
   // Chart 3: Special Gifts Sent, Day Passes Bought, Insights Boosted
   const specialsDayPassesBoostedData = useMemo(() => {
@@ -101,7 +101,7 @@ export const StatsChart: React.FC = () => {
         createDataset('insightsBoosted', 'Insights Boosted', 'rgba(255, 99, 71, 1)', 'rgba(255, 99, 71, 0.2)', 'y'),
       ]
     }
-  }, [data, availableDates])
+  }, [data, availableDates, createDataset])
 
   // Helper for percent difference tooltip
   function percentDiffLabel(context: TooltipItem<'line'>) {

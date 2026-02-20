@@ -55,22 +55,10 @@ export type FaqItem = {
       ]
     },
     {
-      question: "What is intori Plus?",
+      question: "Where can I use intori?",
       answer: [
-        "intori Plus unlocks status, access, and deeper participation.",
-        "Plus members get special visual status, access to daily bonus questions, and the ability to claim daily rewards."
-      ],
-      bullets: [
-        "A visual indicator on your profile",
-        "Daily bonus questions",
-        "Access to rewards and deeper progression"
-      ]
-    },
-    {
-      question: "Is intori connected to World App or Farcaster?",
-      answer: [
-        "intori works across multiple ecosystems including Farcaster and World App.",
-        "Your identity, Circles, and Stamps travel with you, allowing you to discover and connect with people wherever intori is available."
+        "intori is live on World App, and also available on Base App and Farcaster.",
+        "Your identity, Circles, and Stamps travel with you across all platforms — so your profile is always yours, wherever you open it."
       ]
     }
   ]

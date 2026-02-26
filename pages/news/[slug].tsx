@@ -51,7 +51,7 @@ export default function NewsPost({
   const ogImage = post.heroImage || DEFAULT_OG_IMAGE
 
   return (
-    <>
+    <div className={styles.newsArticleWrapper}>
       <Head>
         <title>{post.title} — intori</title>
         <meta name="description" content={post.dek} />
@@ -122,40 +122,42 @@ export default function NewsPost({
             className={styles.postBody}
             dangerouslySetInnerHTML={{ __html: post.contentHtml }}
           />
+        </div>
+      </div>
 
-          {/* CTA section */}
-          <div className={styles.ctaSection}>
-            <p className={styles.ctaTagline}>
-              Discover your people on intori.
-            </p>
-            <a href={WORLD_APP_URL} className={styles.ctaPrimary}>
-              Open on World
+      {/* Full-width CTA band — flows into footer */}
+      <div className={styles.ctaBand}>
+        <div className={styles.ctaInner}>
+          <p className={styles.ctaTagline}>
+            Discover your people on intori.
+          </p>
+          <a href={WORLD_APP_URL} className={styles.ctaPrimary}>
+            Open on World
+          </a>
+          <p className={styles.ctaProviders}>
+            Also on{' '}
+            <a
+              href={BASE_APP_URL}
+              className={styles.ctaProviderLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Base
             </a>
-            <p className={styles.ctaProviders}>
-              Also on{' '}
-              <a
-                href={BASE_APP_URL}
-                className={styles.ctaProviderLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Base
-              </a>
-              {' · '}
-              <a
-                href={FARCASTER_URL}
-                className={styles.ctaProviderLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Farcaster
-              </a>
-            </p>
-          </div>
+            {' · '}
+            <a
+              href={FARCASTER_URL}
+              className={styles.ctaProviderLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Farcaster
+            </a>
+          </p>
         </div>
       </div>
 
       <Footer />
-    </>
+    </div>
   )
 }

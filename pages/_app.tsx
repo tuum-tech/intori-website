@@ -36,14 +36,14 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
         <meta property="og:type" content="website"/>
         <meta property="og:site_name" content="intori" />
         <meta property="og:locale" content="en_US" />
-        <meta property="og:image" content="https://www.intori.co/og/og-2026-01.jpg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="intori" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="intori — Answer daily themes. Collect stamps. Find your people." />
-        <meta name="twitter:description" content="No feed. No swiping. Just identity and community." />
-        <meta name="twitter:image" content="https://www.intori.co/og/og-2026-01.jpg" />
+        <meta property="og:image" content="https://www.intori.co/og/og-2026-01.jpg" key="og-image" />
+        <meta property="og:image:width" content="1200" key="og-image-width" />
+        <meta property="og:image:height" content="630" key="og-image-height" />
+        <meta property="og:image:alt" content="intori" key="og-image-alt" />
+        <meta name="twitter:card" content="summary_large_image" key="twitter-card" />
+        <meta name="twitter:title" content="intori — Answer daily themes. Collect stamps. Find your people." key="twitter-title" />
+        <meta name="twitter:description" content="No feed. No swiping. Just identity and community." key="twitter-description" />
+        <meta name="twitter:image" content="https://www.intori.co/og/og-2026-01.jpg" key="twitter-image" />
       </Head>
       <SessionProvider session={session}>
         <QueryClientProvider client={queryClient}>

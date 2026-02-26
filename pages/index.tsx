@@ -51,12 +51,12 @@ const SigninDefaultScreen = () => {
     <>
       <Head>
         <meta property="fc:frame" content="vNext" />
-        <meta property="fc:frame:image" content="https://www.intori.co/og/og-2026-01.png" />
+        <meta property="fc:frame:image" content="https://www.intori.co/og/og-2026-01.jpg" />
         <meta property="fc:frame:image:aspect_ratio" content="1.91:1" />
         <meta name={`fc:frame:button:1`} content="Learn More" />
         <meta name={`fc:frame:button:1:action`} content="link" />
         <meta name={`fc:frame:button:1:target`} content="https://www.intori.co" />
-        <meta property="og:image" content="https://www.intori.co/og/og-2026-01.png" />
+        <meta property="og:image" content="https://www.intori.co/og/og-2026-01.jpg" />
       </Head>
 
       <main className={styles.main}>

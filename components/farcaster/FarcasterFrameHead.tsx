@@ -14,7 +14,7 @@ export const FarcasterFrameHead: React.FC<Props> = ({
   children,
   frameImageAspectRatio
 }) => {
-    const imageUrl = imgUrl || "https://www.intori.co/og/og-2026-01.png"
+    const imageUrl = imgUrl || "https://www.intori.co/og/og-2026-01.jpg"
     return (
       <Head>
         <meta charSet="utf-8"/>

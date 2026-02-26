@@ -10,7 +10,10 @@ const WORLD_APP_URL =
 const BASE_APP_URL = 'https://base.app/app/frame.intori.co'
 const FARCASTER_URL =
   'https://warpcast.com/~/frames/launch?domain=frame.intori.co'
-const DEFAULT_OG_IMAGE = 'https://www.intori.co/og/og-2026-01.jpg'
+const SITE_URL = 'https://www.intori.co'
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og/og-2026-01.jpg`
+const LAUNCH_ARTICLE_SLUG = 'intori-now-live-on-world'
+const LAUNCH_OG_IMAGE = `${SITE_URL}/news/intori-world-01.png`
 
 type Props = {
   post: Post
@@ -44,11 +47,22 @@ function formatDate(dateStr: string) {
   })
 }
 
+function toAbsoluteImageUrl(url: string) {
+  if (url.startsWith('http://') || url.startsWith('https://')) {
+    return url
+  }
+
+  return `${SITE_URL}${url.startsWith('/') ? '' : '/'}${url}`
+}
+
 export default function NewsPost({
   post,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const canonicalUrl = `https://www.intori.co/news/${post.slug}`
-  const ogImage = post.heroImage || DEFAULT_OG_IMAGE
+  const isLaunchArticle = post.slug === LAUNCH_ARTICLE_SLUG
+  const canonicalUrl = `${SITE_URL}/news/${post.slug}`
+  const ogImage = isLaunchArticle
+    ? LAUNCH_OG_IMAGE
+    : toAbsoluteImageUrl(post.heroImage || DEFAULT_OG_IMAGE)
 
   return (
     <div className={styles.newsArticleWrapper}>
@@ -61,6 +75,9 @@ export default function NewsPost({
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:type" content="article" />
         <meta property="og:image" content={ogImage} />
+        <meta property="og:image:secure_url" content={ogImage} />
+        {isLaunchArticle && <meta property="og:image:width" content="1200" />}
+        {isLaunchArticle && <meta property="og:image:height" content="675" />}
         <meta property="article:published_time" content={post.date} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${post.title} — intori`} />

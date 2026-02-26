@@ -44,7 +44,7 @@ export default function NewsIndex({
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://www.intori.co/og/og-2026-01.png"
+          content="https://www.intori.co/og/og-2026-01.jpg"
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="News — intori" />
@@ -54,7 +54,7 @@ export default function NewsIndex({
         />
         <meta
           name="twitter:image"
-          content="https://www.intori.co/og/og-2026-01.png"
+          content="https://www.intori.co/og/og-2026-01.jpg"
         />
       </Head>
 

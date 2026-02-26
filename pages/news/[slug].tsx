@@ -10,7 +10,7 @@ const WORLD_APP_URL =
 const BASE_APP_URL = 'https://base.app/app/frame.intori.co'
 const FARCASTER_URL =
   'https://warpcast.com/~/frames/launch?domain=frame.intori.co'
-const DEFAULT_OG_IMAGE = 'https://www.intori.co/og/og-2026-01.png'
+const DEFAULT_OG_IMAGE = 'https://www.intori.co/og/og-2026-01.jpg'
 
 type Props = {
   post: Post

@@ -74,15 +74,15 @@ export default function NewsPost({
         <meta property="og:description" content={post.dek} />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content={ogImage} />
-        <meta property="og:image:secure_url" content={ogImage} />
-        {isLaunchArticle && <meta property="og:image:width" content="1200" />}
-        {isLaunchArticle && <meta property="og:image:height" content="675" />}
+        <meta property="og:image" content={ogImage} key="og-image" />
+        <meta property="og:image:secure_url" content={ogImage} key="og-image-secure-url" />
+        {isLaunchArticle && <meta property="og:image:width" content="1200" key="og-image-width" />}
+        {isLaunchArticle && <meta property="og:image:height" content="675" key="og-image-height" />}
         <meta property="article:published_time" content={post.date} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${post.title} — intori`} />
         <meta name="twitter:description" content={post.dek} />
-        <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:image" content={ogImage} key="twitter-image" />
       </Head>
 
       <div className={styles.page}>

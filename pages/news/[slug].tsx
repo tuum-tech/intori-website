@@ -11,7 +11,7 @@ const BASE_APP_URL = 'https://base.app/app/frame.intori.co'
 const FARCASTER_URL =
   'https://warpcast.com/~/frames/launch?domain=frame.intori.co'
 const SITE_URL = 'https://www.intori.co'
-const DEFAULT_OG_IMAGE = `${SITE_URL}/og/og-2026-01.jpg`
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og/og-default.jpg`
 const LAUNCH_ARTICLE_SLUG = 'intori-now-live-on-world'
 const LAUNCH_OG_IMAGE = `${SITE_URL}/news/intori-world-01.png`
 

@@ -1,13 +1,11 @@
 import type { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
-import Link from 'next/link'
-import { Footer } from '@/components/Footer'
+import { MarketingFooter, MarketingHeader, WorldIcon } from '@/components/MarketingChrome'
 import { getAllSlugs, getPostBySlug, type Post } from '@/lib/news'
 import styles from './news.module.css'
 
 const WORLD_APP_URL =
   'https://world.org/mini-app?app_id=app_263f86463869627f1183badc977e21a3'
-const BASE_APP_URL = 'https://base.app/app/frame.intori.co'
 const FARCASTER_URL =
   'https://warpcast.com/~/frames/launch?domain=frame.intori.co'
 const SITE_URL = 'https://www.intori.co'
@@ -60,6 +58,7 @@ export default function NewsPost({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const isLaunchArticle = post.slug === LAUNCH_ARTICLE_SLUG
   const canonicalUrl = `${SITE_URL}/news/${post.slug}`
+  const pageTitle = `${post.title} — intori`
   const ogImage = isLaunchArticle
     ? LAUNCH_OG_IMAGE
     : toAbsoluteImageUrl(post.heroImage || DEFAULT_OG_IMAGE)
@@ -67,10 +66,10 @@ export default function NewsPost({
   return (
     <div className={styles.newsArticleWrapper}>
       <Head>
-        <title>{post.title} — intori</title>
+        <title>{pageTitle}</title>
         <meta name="description" content={post.dek} />
         <link rel="canonical" href={canonicalUrl} />
-        <meta property="og:title" content={`${post.title} — intori`} />
+        <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={post.dek} />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:type" content="article" />
@@ -80,21 +79,15 @@ export default function NewsPost({
         {isLaunchArticle && <meta property="og:image:height" content="675" key="og-image-height" />}
         <meta property="article:published_time" content={post.date} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${post.title} — intori`} />
+        <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={post.dek} />
         <meta name="twitter:image" content={ogImage} key="twitter-image" />
       </Head>
 
       <div className={styles.page}>
-        <div className={styles.inner}>
-          {/* Back to home */}
-          <div className={styles.topBar}>
-            <Link href="/" className={styles.backLink}>
-              <span className={styles.backArrow}>←</span>
-              Back to home
-            </Link>
-          </div>
+        <MarketingHeader />
 
+        <div className={styles.inner}>
           {/* Post header */}
           <div className={styles.postHeader}>
             <div className={styles.postHeaderMeta}>
@@ -146,35 +139,26 @@ export default function NewsPost({
       <div className={styles.ctaBand}>
         <div className={styles.ctaInner}>
           <p className={styles.ctaTagline}>
-            Discover your people on intori.
+            Made for you. Within minutes.
           </p>
           <a href={WORLD_APP_URL} className={styles.ctaPrimary}>
+            <WorldIcon size={17} />
             Open on World
           </a>
-          <p className={styles.ctaProviders}>
-            Also on{' '}
-            <a
-              href={BASE_APP_URL}
-              className={styles.ctaProviderLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Base
-            </a>
-            {' · '}
+          <div className={styles.ctaProviders}>
             <a
               href={FARCASTER_URL}
               className={styles.ctaProviderLink}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Farcaster
+              Open on Farcaster
             </a>
-          </p>
+          </div>
         </div>
       </div>
 
-      <Footer />
+      <MarketingFooter />
     </div>
   )
 }

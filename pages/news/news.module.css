@@ -8,56 +8,76 @@
    ========================================================================== */
 
 /* Wrapper prevents body (#000) from showing through at any breakpoint */
-.newsArticleWrapper {
-  min-height: 100vh;
-  background: #171738;
-}
-
+.newsArticleWrapper,
 .page {
-  background: #FFFFFF;
-  font-family: Arial, Helvetica, sans-serif;
   min-height: 100vh;
+  background:
+    radial-gradient(circle at 78% 10%, rgba(213, 247, 78, 0.10), transparent 28%),
+    radial-gradient(circle at 12% 42%, rgba(212, 103, 255, 0.08), transparent 32%),
+    #F4F4F0;
+  color: #161823;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .inner {
-  max-width: 760px;
+  max-width: 860px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 48px;
 }
 
 .innerWide {
   max-width: 1160px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 48px;
 }
 
-/* ==========================================================================
-   TOP BAR — back to home + (on index) page title
-   ========================================================================== */
-
-.topBar {
-  padding: 32px 0 0;
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  height: 80px;
+  background: rgba(244, 244, 240, 0.94);
+  border-bottom: 1px solid rgba(23, 23, 56, 0.09);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
-.backLink {
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(100% - 96px, 1280px);
+  height: 80px;
+  margin: 0 auto;
+}
+
+.logo,
+.nav,
+.homeLink {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  font-weight: 500;
-  color: rgba(18, 18, 18, 0.5);
+}
+
+.nav {
+  gap: 34px;
+}
+
+.nav a {
+  color: #161823;
+  font-size: 14px;
+  font-weight: 750;
   text-decoration: none;
-  letter-spacing: 0.01em;
-  transition: color 0.15s ease;
 }
 
-.backLink:hover {
-  color: #121212;
-}
-
-.backArrow {
-  font-size: 15px;
-  line-height: 1;
+.homeLink {
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 8px;
+  background: #D5F74E;
+  color: #171738 !important;
+  font-weight: 850 !important;
 }
 
 /* ==========================================================================
@@ -65,24 +85,24 @@
    ========================================================================== */
 
 .indexHeader {
-  padding: 56px 0 48px;
-  border-bottom: 1px solid rgba(18, 18, 18, 0.07);
+  padding: 72px 0 44px;
 }
 
 .indexTitle {
   font-size: clamp(36px, 5vw, 56px);
-  font-weight: 700;
-  color: #121212;
-  letter-spacing: -0.04em;
+  font-weight: 900;
+  color: #171738;
+  letter-spacing: -0.025em;
   margin: 0 0 10px;
   line-height: 1.05;
 }
 
 .indexSubtitle {
   font-size: 16px;
-  color: rgba(18, 18, 18, 0.5);
+  color: rgba(22, 24, 35, 0.64);
   margin: 0;
   line-height: 1.5;
+  font-weight: 550;
 }
 
 /* ==========================================================================
@@ -90,30 +110,36 @@
    ========================================================================== */
 
 .postList {
-  padding: 0 0 120px;
+  display: grid;
+  gap: 18px;
+  padding: 0 0 96px;
 }
 
 .postCard {
   display: block;
   text-decoration: none;
-  padding: 40px 0;
-  border-bottom: 1px solid rgba(18, 18, 18, 0.07);
-  transition: opacity 0.15s ease;
-}
-
-.postCard:last-child {
-  border-bottom: none;
+  border: 1px solid rgba(23, 23, 56, 0.09);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 90% 4%, rgba(96, 179, 215, 0.08), transparent 32%),
+    #FFFFFF;
+  box-shadow: 0 12px 28px rgba(23, 23, 56, 0.06);
+  overflow: hidden;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
 }
 
 .postCard:hover {
-  opacity: 0.75;
+  border-color: rgba(23, 23, 56, 0.14);
+  box-shadow: 0 18px 38px rgba(23, 23, 56, 0.09);
+  transform: translateY(-2px);
 }
 
 .postCardInner {
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 40px;
+  gap: 32px;
   align-items: start;
+  padding: 26px;
 }
 
 .postCardContent {
@@ -130,16 +156,16 @@
 
 .postCardDate {
   font-size: 12px;
-  font-weight: 500;
-  color: rgba(18, 18, 18, 0.4);
+  font-weight: 800;
+  color: rgba(22, 24, 35, 0.44);
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
 .postCardTitle {
   font-size: clamp(20px, 2.5vw, 26px);
-  font-weight: 700;
-  color: #121212;
+  font-weight: 900;
+  color: #171738;
   letter-spacing: -0.025em;
   line-height: 1.2;
   margin: 0 0 10px;
@@ -148,8 +174,9 @@
 .postCardDek {
   font-size: 15px;
   line-height: 1.6;
-  color: rgba(18, 18, 18, 0.6);
+  color: rgba(22, 24, 35, 0.64);
   margin: 0;
+  font-weight: 550;
 }
 
 .postCardThumb {
@@ -158,7 +185,7 @@
   height: 107px;
   border-radius: 10px;
   object-fit: cover;
-  background: #F8F8F7;
+  background: #ECEBE5;
 }
 
 /* ==========================================================================
@@ -171,11 +198,11 @@
   padding: 3px 10px;
   border-radius: 999px;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  background: rgba(18, 18, 18, 0.06);
-  color: rgba(18, 18, 18, 0.55);
+  background: rgba(23, 23, 56, 0.07);
+  color: rgba(22, 24, 35, 0.60);
   white-space: nowrap;
 }
 
@@ -184,7 +211,7 @@
    ========================================================================== */
 
 .postHeader {
-  padding: 48px 0 40px;
+  padding: 72px 0 34px;
 }
 
 .postHeaderMeta {
@@ -197,17 +224,17 @@
 
 .postDate {
   font-size: 12px;
-  font-weight: 500;
-  color: rgba(18, 18, 18, 0.4);
+  font-weight: 800;
+  color: rgba(22, 24, 35, 0.44);
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
 .postTitle {
   font-size: clamp(28px, 4.5vw, 52px);
-  font-weight: 700;
-  color: #121212;
-  letter-spacing: -0.04em;
+  font-weight: 900;
+  color: #171738;
+  letter-spacing: -0.025em;
   line-height: 1.08;
   margin: 0 0 18px;
 }
@@ -215,20 +242,20 @@
 .postDek {
   font-size: clamp(17px, 2vw, 20px);
   line-height: 1.55;
-  color: rgba(18, 18, 18, 0.6);
+  color: rgba(22, 24, 35, 0.64);
   margin: 0 0 20px;
   max-width: 680px;
 }
 
 .postAuthorLine {
   font-size: 13px;
-  color: rgba(18, 18, 18, 0.4);
+  color: rgba(22, 24, 35, 0.44);
   margin: 0;
 }
 
 .postAuthorLine strong {
-  color: rgba(18, 18, 18, 0.65);
-  font-weight: 600;
+  color: rgba(22, 24, 35, 0.78);
+  font-weight: 800;
 }
 
 /* ==========================================================================
@@ -237,10 +264,12 @@
 
 .heroImageWrap {
   margin: 0 0 48px;
-  border-radius: 16px;
+  border: 1px solid rgba(23, 23, 56, 0.09);
+  border-radius: 18px;
   overflow: hidden;
-  background: #F8F8F7;
+  background: #ECEBE5;
   aspect-ratio: 16 / 9;
+  box-shadow: 0 16px 36px rgba(23, 23, 56, 0.08);
 }
 
 .heroImage {
@@ -252,8 +281,11 @@
 
 /* Hero image fallback — dark branded block when no image is set */
 .heroImageFallback {
-  background: #171738;
-  border-radius: 16px;
+  background:
+    radial-gradient(circle at 82% 20%, rgba(96, 179, 215, 0.16), transparent 34%),
+    radial-gradient(circle at 8% 100%, rgba(213, 247, 78, 0.10), transparent 36%),
+    linear-gradient(135deg, #171738 0%, #1F1F43 100%);
+  border-radius: 18px;
   padding: 96px 48px;
   display: flex;
   align-items: center;
@@ -275,14 +307,19 @@
 .postBody {
   font-size: 17px;
   line-height: 1.75;
-  color: rgba(18, 18, 18, 0.8);
-  padding-bottom: 80px;
+  color: rgba(22, 24, 35, 0.74);
+  border: 1px solid rgba(23, 23, 56, 0.09);
+  border-radius: 18px;
+  background: #fff;
+  padding: clamp(28px, 5vw, 52px);
+  margin-bottom: 80px;
+  box-shadow: 0 16px 36px rgba(23, 23, 56, 0.07);
 }
 
 .postBody h2 {
   font-size: clamp(22px, 3vw, 28px);
-  font-weight: 700;
-  color: #121212;
+  font-weight: 900;
+  color: #171738;
   letter-spacing: -0.025em;
   line-height: 1.2;
   margin: 56px 0 18px;
@@ -290,8 +327,8 @@
 
 .postBody h3 {
   font-size: 20px;
-  font-weight: 700;
-  color: #121212;
+  font-weight: 850;
+  color: #171738;
   letter-spacing: -0.015em;
   margin: 40px 0 14px;
 }
@@ -311,8 +348,8 @@
 }
 
 .postBody a {
-  color: #121212;
-  font-weight: 600;
+  color: #171738;
+  font-weight: 800;
   text-underline-offset: 3px;
 }
 
@@ -321,8 +358,8 @@
 }
 
 .postBody strong {
-  font-weight: 700;
-  color: #121212;
+  font-weight: 850;
+  color: #171738;
 }
 
 .postBody em {
@@ -331,7 +368,7 @@
 
 .postBody hr {
   border: none;
-  border-top: 1px solid rgba(18, 18, 18, 0.1);
+  border-top: 1px solid rgba(23, 23, 56, 0.10);
   margin: 48px 0;
 }
 
@@ -339,7 +376,7 @@
 .postBody blockquote {
   margin: 40px 0;
   padding: 28px 32px;
-  background: #F8F8F7;
+  background: #F4F4F0;
   border-left: 4px solid #D5F74E;
   border-radius: 0 12px 12px 0;
 }
@@ -347,7 +384,7 @@
 .postBody blockquote p {
   font-size: 18px;
   font-style: italic;
-  color: rgba(18, 18, 18, 0.75);
+  color: rgba(22, 24, 35, 0.74);
   margin: 0;
   line-height: 1.65;
 }
@@ -358,7 +395,10 @@
 
 .ctaBand {
   width: 100%;
-  background: #171738;
+  background:
+    radial-gradient(circle at 80% 18%, rgba(96, 179, 215, 0.16), transparent 34%),
+    radial-gradient(circle at 8% 100%, rgba(213, 247, 78, 0.10), transparent 36%),
+    linear-gradient(135deg, #171738 0%, #1F1F43 100%);
   margin: 0;
   padding: 64px 0;
   text-align: center;
@@ -372,7 +412,7 @@
 
 .ctaTagline {
   font-size: clamp(22px, 3vw, 32px);
-  font-weight: 600;
+  font-weight: 900;
   color: #FFFFFF;
   letter-spacing: -0.025em;
   line-height: 1.3;
@@ -383,12 +423,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 18px 36px;
+  gap: 10px;
+  min-height: 56px;
+  padding: 0 30px;
   background: #D5F74E;
   color: #0F1419;
-  border-radius: 999px;
-  font-size: 17px;
-  font-weight: 600;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1;
   text-decoration: none;
   transition: transform 0.18s ease-out, box-shadow 0.18s ease-out;
   box-shadow:
@@ -404,21 +447,30 @@
 }
 
 .ctaProviders {
-  margin-top: 16px;
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
 }
 
 .ctaProviderLink {
-  color: rgba(255, 255, 255, 0.55);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 22px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+  font-weight: 800;
   text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
 }
 
 .ctaProviderLink:hover {
-  color: rgba(255, 255, 255, 0.9);
-  border-bottom-color: rgba(255, 255, 255, 0.5);
+  color: #FFFFFF;
+  border-color: rgba(213, 247, 78, 0.36);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 /* ==========================================================================
@@ -436,6 +488,29 @@
    ========================================================================== */
 
 @media (max-width: 640px) {
+  .header,
+  .headerInner {
+    height: 64px;
+  }
+
+  .headerInner {
+    width: min(100% - 32px, 680px);
+  }
+
+  .nav {
+    gap: 12px;
+  }
+
+  .nav a:not(.homeLink) {
+    display: none;
+  }
+
+  .homeLink {
+    min-height: 40px;
+    padding: 0 14px;
+    font-size: 13px !important;
+  }
+
   .inner {
     padding: 0 20px;
   }

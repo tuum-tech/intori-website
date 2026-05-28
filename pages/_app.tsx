@@ -25,13 +25,17 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
     <Fragment>
       <Head>
-        <title>intori — Answer daily themes. Collect stamps. Find your people.</title>
-        <meta name="description" content="No feed. No swiping. Just identity and community."/>
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width, viewport-fit=cover"
+        />
+        <title>intori — Made for you. Within minutes.</title>
+        <meta name="description" content="Choose where to start, answer a few quick questions, and intori shapes personalized recommendations, plans, drafts, and more around you."/>
         <link rel="canonical" href="https://www.intori.co/" />
-        <meta name="keywords" content="intori, farcaster, decentralized, warpcast, find users, meet users, suggestions, social farcaster, onchain, onchain summmer, base, base onchain"/>
+        <meta name="keywords" content="intori, World, personalization, music ideas, game day ideas, time planning, drafts"/>
         <meta name="author" content="Tuum Tech"/>
-        <meta property="og:title" content="intori — Answer daily themes. Collect stamps. Find your people." />
-        <meta property="og:description" content="No feed. No swiping. Just identity and community." />
+        <meta property="og:title" content="intori — Made for you. Within minutes." />
+        <meta property="og:description" content="Choose where to start, answer quick questions, and intori gives you a more personal starting point." />
         <meta property="og:url" content="https://www.intori.co/" />
         <meta property="og:type" content="website"/>
         <meta property="og:site_name" content="intori" />
@@ -41,8 +45,8 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
         <meta property="og:image:height" content="630" key="og-image-height" />
         <meta property="og:image:alt" content="intori" key="og-image-alt" />
         <meta name="twitter:card" content="summary_large_image" key="twitter-card" />
-        <meta name="twitter:title" content="intori — Answer daily themes. Collect stamps. Find your people." key="twitter-title" />
-        <meta name="twitter:description" content="No feed. No swiping. Just identity and community." key="twitter-description" />
+        <meta name="twitter:title" content="intori — Made for you. Within minutes." key="twitter-title" />
+        <meta name="twitter:description" content="Choose where to start, answer quick questions, and intori gives you a more personal starting point." key="twitter-description" />
         <meta name="twitter:image" content="https://www.intori.co/og/og-default.jpg" key="twitter-image" />
       </Head>
       <SessionProvider session={session}>

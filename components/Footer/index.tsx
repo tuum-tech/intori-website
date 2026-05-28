@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react'
 import Img from 'next/image'
 import Link from 'next/link'
-import { SignInWithFarcasterButton } from "@/components/signin/SignInWithFarcaster"
 
 import styles from './styles.module.css'
 
@@ -11,19 +10,14 @@ export const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
       <div>
-        <Img src="/intori-logo-full.svg" width={70} height={31.5} alt="Intori" />
+        <Img src="/intori-logo-full.svg" width={70} height={31.5} alt="intori" />
       </div>
 
       <div className={styles.contact}>
-        <p>Answer questions. Unlock insights. Make connections.</p>
+        <p>Answer a little. Get picks made for you.</p>
         <div className={styles.sm}>
           <a href="mailto:contact@tuum.tech" target="_blank" rel="noopener noreferrer">
             contact@tuum.tech
-          </a>
-          <div></div>
-
-          <a href="https://discord.gg/Quqhpn2uMN" target="_blank" rel="noopener noreferrer">
-            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M15.2583 3.5C15.0303 3.91226 14.8271 4.33801 14.6499 4.77495C12.9081 4.49684 11.1338 4.49684 9.39199 4.77495C9.21473 4.33801 9.01154 3.91226 8.78354 3.5C7.14279 3.78304 5.54777 4.28993 4.04226 5.00676C1.35011 8.92931 0.129191 13.6914 0.598226 18.4401C2.35266 19.7717 4.32175 20.7873 6.41864 21.442C6.89611 20.8053 7.32224 20.1309 7.69293 19.4253C7.0088 19.1706 6.35125 18.8484 5.72984 18.4633C5.90027 18.3488 6.06149 18.2209 6.212 18.0808C8.02409 18.9621 10.0096 19.4197 12.0209 19.4197C14.0323 19.4197 16.0178 18.9621 17.8299 18.0808C17.9906 18.2199 18.1513 18.3474 18.312 18.4633C17.6872 18.8454 17.0303 19.1712 16.3489 19.4369C16.7043 20.1584 17.119 20.8486 17.5888 21.5C19.6831 20.8475 21.6487 19.8317 23.3977 18.4981C23.878 13.7485 22.6561 8.9825 19.9537 5.06471C18.4651 4.33305 16.8858 3.80677 15.2583 3.5ZM8.20954 15.7279C7.63506 15.6863 7.09889 15.4216 6.71359 14.9894C6.32829 14.5571 6.12383 13.991 6.14312 13.4099C6.12092 12.8279 6.32437 12.2602 6.71025 11.8273C7.09613 11.3944 7.634 11.1306 8.20954 11.0918C8.78508 11.1306 9.32295 11.3944 9.70883 11.8273C10.0947 12.2602 10.2982 12.8279 10.276 13.4099C10.2982 13.9918 10.0947 14.5595 9.70883 14.9924C9.32295 15.4253 8.78508 15.6892 8.20954 15.7279ZM15.8323 15.7279C15.2578 15.6863 14.7217 15.4216 14.3364 14.9894C13.9511 14.5571 13.7466 13.991 13.7659 13.4099C13.7437 12.8279 13.9472 12.2602 14.333 11.8273C14.7189 11.3944 15.2568 11.1306 15.8323 11.0918C16.4089 11.1277 16.9486 11.3907 17.335 11.8242C17.7215 12.2577 17.9239 12.8271 17.8988 13.4099C17.9239 13.9926 17.7215 14.562 17.335 14.9955C16.9486 15.429 16.4089 15.692 15.8323 15.7279Z" fill="#646E87"/> </svg>
           </a>
 
           <a href="https://x.com/intoriHQ" target="_blank" rel="noopener noreferrer">
@@ -43,21 +37,19 @@ export const Footer: React.FC = () => {
       <div className={styles.legal}>
         <div>
           <Link href="/terms-of-use">
-            Terms & Conditions
+            Terms
           </Link>
           <Link href="/privacy-policy">
-            Privacy Policy
+            Privacy
           </Link>
           <a href="mailto:contact@tuum.tech" target="_blank" rel="noopener noreferrer">
-            Feedback & Bug Report
+            Contact
           </a>
-          <SignInWithFarcasterButton />
         </div>
         <p>
-          © {year} intori All Rights Reserved.
+          © {year} intori
         </p>
       </div>
     </footer>
   )
 }
-

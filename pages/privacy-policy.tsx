@@ -1,18 +1,27 @@
 import type { NextPage } from "next";
+import Head from 'next/head'
 import { LegalLayout } from '../layouts/Legal'
 
 const Privacy: NextPage = () => {
   return (
-    <LegalLayout>
-      <h1>Intori Privacy Policy</h1>
-      <p><strong>Last Updated: 10 July, 2024</strong></p>
+    <>
+      <Head>
+        <title>Privacy Policy — intori</title>
+        <meta
+          name="description"
+          content="How intori collects, uses, and protects information."
+        />
+      </Head>
+
+      <LegalLayout>
+        <h1>intori Privacy Policy</h1>
+        <p><strong>Last Updated: May 22, 2026</strong></p>
 
       <h2>Who we are</h2>
-      <p>The intori service is owned by Tuum Technologies, Inc. (&quot;Tuum&quot; or &quot;we&quot; or &quot;us&quot; or &quot;our&quot;).</p>
-      <p>We can be contacted in several ways:</p>
       <p>
-        By email to: <a href="mailto:contact@tuum.tech">contact@tuum.tech</a>
+        The intori service is owned by Tuum Technologies, Inc. (&quot;Tuum&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;).
       </p>
+      <p>You can contact us by email at <a href="mailto:contact@tuum.tech">contact@tuum.tech</a>.</p>
       <p>In writing to:</p>
       <address>
         Tuum Technologies, Inc.<br />
@@ -20,81 +29,224 @@ const Privacy: NextPage = () => {
         Raleigh, NC 27609
       </address>
 
-      <h2>What is intori? Overview, background and context</h2>
+      <h2>What intori is</h2>
       <p>
-        The intori (Inter-Origins) web app and associated Farcaster Frames (together referred to as the intori App) enables users to (i) track and manage their preferences and traits data history; (ii) leverage data from Farcaster’s API and user-provided data to discover relevant connections; and (iii) additional functionality as Tuum may add to the app from time to time (collectively, the &quot;App&quot; or &quot;intori&quot;). This Privacy Policy (&quot;Privacy Policy&quot;) helps explain how we collect, use, store, and protect your information when you use the App, our developer software, or our website at <a href="https://intori.co" target="_blank" rel="noopener noreferrer">https://intori.co</a> (collectively the &quot;Services&quot;). Please also read intori’s Terms of Service (the “Terms”), which describe the terms under which you use the Services.
+        intori helps you build and use a personal preference and context profile. Depending on the features you use, intori may help you answer questions, unlock topics, manage local context, earn or use credits, receive AI-assisted helper results, discover recommended matches, and share scoped context with connected apps you approve.
+      </p>
+      <p>
+        intori is being built around user-owned data and user-controlled consent. Your answers, preferences, local context, and personal signals are yours. We use them to provide the services you ask for, personalize your experience, and help you control where your context is used.
       </p>
 
-      <h2>Information We Collect</h2>
-      <p>We receive or collect information when we operate and provide our Services, including when you access, or use our Services.</p>
-      <p>Essentially, the personal data collected by the intori service falls into two broad categories:</p>
+      <h2>Eligibility</h2>
+      <p>
+        intori is not directed to children under 13. You must be at least 13 years old to use intori. If the law where you live requires a higher age to consent to the processing of your personal data, you must be old enough to provide that consent or use intori only with valid permission from a parent or legal guardian. If we learn that we collected personal information from a child under 13, we will take steps to delete it.
+      </p>
+
+      <h2>Information we collect</h2>
+      <p>
+        We collect information from you, from the platforms you use to sign in, from your use of intori, and from service providers that help us operate intori.
+      </p>
+
+      <h3>Account and sign-in information</h3>
+      <p>
+        intori does not use a traditional email-and-password account system. Depending on how you access intori, we may collect or process:
+      </p>
       <ul>
-        <li>Data we collect through or as part of the sign-in process; and</li>
-        <li>The personal data (including preferences, traits, and interests) that you choose to share with the intori service through Farcaster</li>
+        <li>Farcaster account identifiers, such as FID, username, display name, profile image, bio, and related public profile data.</li>
+        <li>World App, World Mini App, or wallet-based identifiers, such as wallet address, username, profile image, authentication messages, signatures, nonce records, and verification results.</li>
+        <li>Session tokens and cookies used to keep you signed in.</li>
+        <li>Information about the client app or platform through which you accessed intori.</li>
       </ul>
 
-      <h3>Information you provide:</h3>
+      <h3>Answers, preferences, and context</h3>
+      <p>
+        When you answer questions, complete onboarding, use credits, rate insights, or interact with helper surfaces, we collect the information you choose to provide. This may include:
+      </p>
       <ul>
-        <li><strong>Your Account Information</strong> - In order to track and manage user-provided data, you will provide us with a Farcaster account. In order to connect and publish data to the Base blockchain, you will provide us with an Ethereum account.</li>
-        <li><strong>Your Interests</strong> - Your preferences and traits (collectively the &quot;Interests&quot;), which you utilize to access personalized connections include the following and is indicative but not exclusive of the types of data that will be available through the intori service:
-          <ul>
-            <li>Food & Drink</li>
-            <li>Lifestyle & Wellness</li>
-            <li>Entertainment & Hobbies</li>
-            <li>Technology & Gadgets</li>
-            <li>Travel & Leisure</li>
-            <li>Values & Beliefs</li>
-          </ul>
-        </li>
-        <li><strong>Customer Support</strong> - We may collect additional information you may disclose to our customer support team.</li>
+        <li>Answers to questions about preferences, tastes, interests, values, activities, identity, and context.</li>
+        <li>Topics, groups, credit history, streaks, and other progress within intori.</li>
+        <li>Feedback, ratings, likes, skips, and other interaction signals.</li>
+        <li>Public share data when you choose to create or distribute share links or share images.</li>
       </ul>
 
-      <h2>Information We DO NOT Collect</h2>
-      <p>The first step in using the intori service is to establish a Farcaster Account and use this account to sign-in to the service. For this reason we DO NOT collect the following information:</p>
+      <h3>Local context</h3>
+      <p>
+        If you choose to add local context, we may store information such as city, region, country, place label, place source, and radius. Local context is user-declared and can be paused, updated, or deleted. The current product is designed around coarse local context, not precise GPS coordinates, raw coordinates, or inferred home or work location.
+      </p>
+
+      <h3>Derived and inferred data</h3>
+      <p>
+        intori may create derived data from your activity, such as topic signals, sensitivity tiers, visibility states, match context, vibe summaries, chemistry summaries, helper context summaries, and personalization profiles. These derived records help intori decide what questions to ask, what context to include, what to exclude, and what experiences may be relevant to you.
+      </p>
+
+      <h3>Consent and connected app records</h3>
+      <p>
+        When you grant, deny, or revoke consent, we may store consent records, scope, sensitivity level, metadata, timestamps, connected app identifiers, authorization codes, grant status, expiration, revocation status, and receipts showing when a connected app accessed a context bundle.
+      </p>
+
+      <h3>AI helper and result data</h3>
+      <p>
+        When you use AI-assisted features, we may process selected intori context, local context when active, source-search results, your displayed request, generated output, result receipts, feedback, model name, prompt version or hash, token estimates, cost estimates, duration, errors, and related metadata.
+      </p>
+      <p>
+        We use AI service providers, including OpenAI, to generate or support some results. AI outputs may be incomplete, outdated, or inaccurate, and should be checked before you rely on them.
+      </p>
+
+      <h3>Payments and credits</h3>
+      <p>
+        If you buy or activate paid credits, helper access, or similar features, we may store purchase reference, provider, token symbol, token amount, transaction ID, transaction hash, status, failure codes, failure reasons, confirmation time, activation time, and verification metadata. Payments may be processed through third-party wallets, World Pay, blockchain networks, or other supported payment rails. We do not collect your private keys.
+      </p>
+
+      <h3>Notifications</h3>
+      <p>
+        If you enable notifications, we may store notification tokens, notification URLs, opt-in status, notification campaign information, send logs, and delivery or failure metadata. You can opt out through the applicable platform or intori notification controls where available.
+      </p>
+
+      <h3>Usage, safety, and support information</h3>
+      <p>
+        We may collect technical and usage information such as device or browser information, request metadata, logs, approximate location derived from context or platform data, abuse and fraud signals, rate-limit data, red flags, quality scores, and error reports. If you contact us, we may collect your message, contact details, and any information you choose to provide.
+      </p>
+
+      <h2>Information we do not collect</h2>
+      <p>
+        We try to avoid collecting personal information that intori does not need. Unless you choose to provide it to us in a support request or another free-form message, we do not ask for or intentionally collect:
+      </p>
       <ul>
-        <li>your name;</li>
-        <li>your email address; and</li>
-        <li>a mobile or other phone number</li>
+        <li>Your legal name.</li>
+        <li>Your email address.</li>
+        <li>Your mobile or other phone number.</li>
+        <li>Government ID numbers, KYC documents, or biometric identifiers.</li>
+        <li>Private keys, recovery phrases, or wallet seed phrases.</li>
+        <li>Payment card numbers or bank account numbers.</li>
+        <li>Precise GPS coordinates, raw coordinates, or inferred home or work location.</li>
+        <li>Your device address book or phone contacts.</li>
       </ul>
+      <p>
+        Third-party platforms you use with intori, such as Farcaster, World App, wallets, payment providers, or blockchain networks, may collect information under their own policies.
+      </p>
 
-      <h2>How We Use The Information We Collect</h2>
-      <p>Our primary purpose in collecting information is to help us operate, provide, improve, customize, and support our Services. We may use your information to:</p>
+      <h2>How we use information</h2>
+      <p>We use information to:</p>
       <ul>
-        <li>Provide the Services and customer support you request;</li>
-        <li>Resolve disputes and troubleshoot problems; and</li>
-        <li>Prevent and investigate potentially prohibited or illegal activities, and/or violations of our posted User Agreement;</li>
+        <li>Provide, maintain, personalize, and improve intori.</li>
+        <li>Authenticate users and maintain sessions.</li>
+        <li>Build and update your preferences, groups, credits, answers, local context, and personalization state.</li>
+        <li>Generate recommendations, helper results, match suggestions, and context summaries.</li>
+        <li>Let you control topic, group, local context, notification, and connected app consent.</li>
+        <li>Verify paid credit or helper access transactions.</li>
+        <li>Show limited recommended match and approved friend information.</li>
+        <li>Send notifications you request or allow.</li>
+        <li>Detect, prevent, and respond to spam, abuse, fraud, security incidents, and violations of our terms.</li>
+        <li>Provide customer support and communicate with you.</li>
+        <li>Measure performance, reliability, and product usage.</li>
+        <li>Comply with law and enforce our rights.</li>
       </ul>
-      <p>We will not use your information for purposes other than those purposes we have disclosed to you, without your permission.</p>
+      <p>
+        We do not use your information for purposes that are materially different from those described in this policy without providing appropriate notice or obtaining consent where required.
+      </p>
 
-      <h2>Marketing</h2>
-      <p>We will never sell or rent your information to third parties.</p>
-      <p>We do not allow third-party banner ads on intori, but if we ever do, we will update this policy.</p>
+      <h2>How information is shared</h2>
+      <p>We share information only as described below.</p>
 
-      <h2>How Your Information Is Shared With Other intori Users</h2>
-      <p>If you use your account to submit responses to the Farcaster Frame, users with the same response will have access to your response information for those questions. Users with whom you have matching responses with may store or re-share your information with others, on or off of our Services. We, however, will never share your transaction information.</p>
+      <h3>With other intori users</h3>
+      <p>
+        intori is not designed to broadly expose your answers or personal context to other users. Recommended matches who are not approved friends may see only limited profile information, such as avatar, username, vibe, and mutual friends. If both people approve the connection, approved friends may also see a chemistry summary and groups in common.
+      </p>
+      <p>
+        Users who can see information may save or reshare it outside intori, so you should not share information that you do not want others to see.
+      </p>
 
-      <h2>How We Share Information With Third Parties</h2>
-      <p>We may share information with law enforcement, government officials, or other third parties when:</p>
+      <h3>With connected apps you approve</h3>
+      <p>
+        If you approve a connected app, intori may share a scoped context bundle with that app. For example, a music scene scope may include music preference summaries, independent-artist openness or support style, coarse active local context, and missing areas that help the app ask useful follow-up questions.
+      </p>
+      <p>
+        The current connected app design excludes raw answers, raw questions, exact location, GPS coordinates, inferred home or work location, payment data, wallet claims, KYC claims, biometric claims, and identity claims unless a future feature clearly asks for additional consent. You can revoke connected app access where the product provides revocation controls.
+      </p>
+      <p>
+        Once a connected app receives information, that app&apos;s own terms and privacy policy may apply to its handling of the information.
+      </p>
+
+      <h3>With service providers</h3>
+      <p>
+        We use service providers to host and operate intori, store data, process payments or payment verification, deliver notifications, provide AI functionality, support analytics and aggregate reporting, secure intori, and provide customer support. These providers may process information only as needed to perform services for us, subject to appropriate contractual and security obligations.
+      </p>
+      <p>
+        Service providers may include cloud hosting and database providers, Farcaster and Farcaster data providers, World App and Worldcoin services, wallet or blockchain infrastructure providers, payment verification providers, AI providers such as OpenAI, notification providers, analytics providers, and support tools.
+      </p>
+
+      <h3>With third-party platforms</h3>
+      <p>
+        When you use intori through Farcaster, World App, wallets, blockchain networks, or other third-party platforms, those platforms may process information under their own terms and privacy policies. Blockchain transactions may be public and difficult or impossible to delete.
+      </p>
+
+      <h3>For legal, safety, and business reasons</h3>
+      <p>
+        We may disclose information if we believe disclosure is reasonably necessary to comply with law, respond to legal process, protect rights or safety, investigate abuse or fraud, enforce our terms, or complete a merger, acquisition, financing, reorganization, or similar transaction.
+      </p>
+
+      <h2>Selling or sharing for advertising</h2>
+      <p>
+        We do not sell or rent your personal information. We do not currently share personal information for cross-context behavioral advertising. If this changes, we will update this policy and provide any required choices.
+      </p>
+
+      <h2>Your controls and choices</h2>
+      <p>
+        intori is designed to give you increasing control over your data and consent. Depending on the feature, you may be able to:
+      </p>
       <ul>
-        <li>We are compelled to do so by a subpoena, court order, or similar legal procedure; or</li>
-        <li>We believe in good faith that the disclosure of personal information is necessary to prevent physical harm or financial loss, to report suspected illegal activity or to investigate violations of our Terms.</li>
+        <li>Skip questions or choose what answers to provide.</li>
+        <li>Pause, edit, or delete local context.</li>
+        <li>Grant or revoke topic or group consent.</li>
+        <li>Approve or revoke connected app grants.</li>
+        <li>Enable or disable notifications through platform or intori controls.</li>
+        <li>Choose whether to create or distribute share links and share images.</li>
+        <li>Contact us to request access, correction, export, deletion, or other privacy rights.</li>
       </ul>
-      <p>Finally, we may share information with companies or other entities that we plan to merge with or be acquired by. Should such a combination occur, we will require that the new combined entity follow this Privacy Policy with respect to your personal information.</p>
+      <p>
+        Self-service export and deletion tools are still being developed. Until those tools are available, contact <a href="mailto:contact@tuum.tech">contact@tuum.tech</a>.
+      </p>
 
-      <h2>How you can access or change your information</h2>
-      <p>If you would like to delete your information, you may do so by reaching us at Contact Us.</p>
-      <p>You may delete your intori account at any time.</p>
+      <h2>Retention</h2>
+      <p>
+        We keep information for as long as needed to provide intori, maintain user controls and receipts, prevent abuse, comply with legal obligations, resolve disputes, and enforce agreements.
+      </p>
+      <p>
+        Session cookies are intended to expire after a limited period. Partner grants may expire or be revoked. Payment and transaction records may be retained for accounting, fraud prevention, charge dispute, tax, and legal reasons. Some profile, answer, consent, AI result, receipt, and derived records may remain until you delete them, revoke the relevant consent where supported, or request deletion.
+      </p>
+      <p>
+        We are continuing to define more specific retention periods for each data category.
+      </p>
 
-      <h2>Our Global Operations</h2>
-      <p>You agree to our information practices, including the collection, use, processing, and sharing of your information as described in this Privacy Policy, as well as the transfer and processing of your information to the United States and other countries globally where we have or use facilities, service providers, or partners, regardless of where you use our Services.</p>
-      <p>You acknowledge that the laws, regulations, and standards of the country in which your information is stored or processed may be different from those of your own country. However, we require our service providers to treat your information in strict confidence and use appropriate security measures to protect it. We also require them to uphold all obligations under this Privacy Policy.</p>
+      <h2>Security</h2>
+      <p>
+        We use reasonable administrative, technical, and organizational safeguards designed to protect information. No online service can guarantee absolute security. You are responsible for keeping your wallet, platform account, device, and any authentication credentials secure.
+      </p>
 
-      <h2>Updates To Our Policy</h2>
-      <p>We may amend or update our Privacy Policy from time to time and give you the opportunity to review the updated Privacy Policy before choosing to continue to use intori. We will notify you of material changes to this policy by updating the last updated date at the top of this page.</p>
+      <h2>International processing</h2>
+      <p>
+        We are based in the United States, and we and our service providers may process information in the United States and other countries. The laws of those countries may differ from the laws where you live.
+      </p>
 
-      <h2>Contact Us</h2>
-      <p>If you have any questions about our Privacy Policy, please do not hesitate to contact us at <a href="mailto:contact@tuum.tech">contact@tuum.tech</a>.</p>
-    </LegalLayout>
+      <h2>Privacy rights</h2>
+      <p>
+        Depending on where you live, you may have rights to request access, correction, deletion, portability, restriction, objection, or information about how your personal information is used and disclosed. You may also have rights to opt out of certain sales, sharing, targeted advertising, or sensitive-data uses. We do not currently sell personal information or share it for cross-context behavioral advertising.
+      </p>
+      <p>
+        To make a privacy request, contact <a href="mailto:contact@tuum.tech">contact@tuum.tech</a>. We may need to verify your identity before fulfilling a request. We will not discriminate against you for exercising privacy rights.
+      </p>
+
+      <h2>Changes to this policy</h2>
+      <p>
+        We may update this policy from time to time. If we make material changes, we will provide reasonable notice, such as by updating the date above, posting notice in intori, or using another appropriate method.
+      </p>
+
+      <h2>Contact us</h2>
+      <p>
+        For questions or privacy requests, contact us at <a href="mailto:contact@tuum.tech">contact@tuum.tech</a>.
+      </p>
+      </LegalLayout>
+    </>
   )
 }
 

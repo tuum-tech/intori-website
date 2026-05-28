@@ -41,8 +41,8 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
         <meta property="og:site_name" content="intori" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:image" content="https://www.intori.co/og/og-default.jpg" key="og-image" />
-        <meta property="og:image:width" content="1200" key="og-image-width" />
-        <meta property="og:image:height" content="630" key="og-image-height" />
+        <meta property="og:image:width" content="1800" key="og-image-width" />
+        <meta property="og:image:height" content="945" key="og-image-height" />
         <meta property="og:image:alt" content="intori" key="og-image-alt" />
         <meta name="twitter:card" content="summary_large_image" key="twitter-card" />
         <meta name="twitter:title" content="intori — Made for you. Within minutes." key="twitter-title" />

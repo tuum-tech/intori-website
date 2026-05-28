@@ -1,95 +1,112 @@
 .footer {
-  background: #171738;
-  padding: 80px 40px 40px 40px;
+  background:
+    radial-gradient(circle at 82% 14%, rgba(96, 179, 215, 0.14), transparent 30%),
+    radial-gradient(circle at 8% 100%, rgba(213, 247, 78, 0.10), transparent 34%),
+    linear-gradient(135deg, #171738 0%, #1F1F43 100%);
+  padding: 72px 48px 38px;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
 }
+
 .footer > div {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: min(100%, 1280px);
+  margin: 0 auto;
 }
 
 .footer a,
 .footer p {
-  color: #646E87;
+  color: rgba(255, 255, 255, 0.62);
   text-decoration: none;
   font-size: 13px;
-  transition: color 0.3s ease;
+  font-weight: 650;
+  transition: color 0.18s ease;
 }
 
 .footer a:hover {
   color: #D5F74E;
 }
 
-
 .contact {
+  gap: 28px;
+  margin: 28px auto 24px !important;
+  padding: 24px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  margin-bottom: 25px;
-  padding-bottom: 25px;
-
-  display: flex;
-  align-items: center;
 }
 
 .contact p,
 .legal p {
   margin: 0;
 }
+
+.contact p {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 18px;
+  font-weight: 850;
+  letter-spacing: -0.01em;
+}
+
 .sm {
   display: flex;
   align-items: center;
+  gap: 18px;
 }
+
 .sm div {
-  border-right: 1px solid #646E87;
+  width: 1px;
   height: 25px;
-  margin-left: 18px;
+  background: rgba(255, 255, 255, 0.16);
 }
-.sm > a {
-  margin-left: 18px;
-}
+
 .sm > a svg path {
-  transition: fill 0.3s ease;
+  transition: fill 0.18s ease;
 }
+
 .sm > a:hover svg path {
   fill: #D5F74E;
 }
+
 .legal a {
   margin-right: 18px;
 }
 
 @media only screen and (max-width: 900px) {
   .footer {
-    padding: 64px 20px 40px 20px;
-    text-align: left;
+    padding: 56px 24px 34px;
   }
+
   .footer > div {
     flex-direction: column;
     align-items: flex-start;
+    gap: 18px;
   }
+
+  .contact {
+    gap: 18px;
+  }
+
   .contact p {
-    margin: 18px 0;
+    font-size: 16px;
   }
-  .sm > a:first-child {
-    margin-left: 0;
-  }
+
   .legal a {
-    display: block;
-    margin-top: 18px;
-  }
-  .legal p {
-    margin-top: 50px;
+    display: inline-flex;
+    margin: 0 16px 12px 0;
   }
 }
+
 @media only screen and (max-width: 500px) {
   .sm {
     flex-wrap: wrap;
   }
+
   .sm > a:first-child {
     flex-basis: 100%;
-    margin-bottom: 32px;
   }
-  .sm > a:nth-child(3) {
-    margin-left: 0;
-  }
+
   .sm > div {
     display: none;
   }

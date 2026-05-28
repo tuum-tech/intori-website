@@ -1,7 +1,7 @@
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
-import { Footer } from '@/components/Footer'
+import { MarketingFooter, MarketingHeader } from '@/components/MarketingChrome'
 import { getAllPosts, type PostMeta } from '@/lib/news'
 import styles from './news.module.css'
 
@@ -59,15 +59,9 @@ export default function NewsIndex({
       </Head>
 
       <div className={styles.page}>
-        <div className={styles.inner}>
-          {/* Back to home */}
-          <div className={styles.topBar}>
-            <Link href="/" className={styles.backLink}>
-              <span className={styles.backArrow}>←</span>
-              intori
-            </Link>
-          </div>
+        <MarketingHeader />
 
+        <div className={styles.inner}>
           {/* Header */}
           <div className={styles.indexHeader}>
             <h1 className={styles.indexTitle}>News</h1>
@@ -115,7 +109,7 @@ export default function NewsIndex({
         </div>
       </div>
 
-      <Footer />
+      <MarketingFooter />
     </>
   )
 }

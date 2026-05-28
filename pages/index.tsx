@@ -217,12 +217,12 @@ export default function HomePage() {
               <div className={styles.heroGrid}>
 
                 <div className={styles.heroLeft}>
-                  <p className={styles.heroEyebrow}>Personalization that starts with you</p>
+                  <p className={styles.heroEyebrow}>Personalization, built from you</p>
                   <h1 className={styles.heroHeadline}>
                     Made for you.<br />Within minutes.
                   </h1>
                   <p className={styles.heroBody}>
-                    Answer a few quick questions. intori uses what it learns to give you a useful first pass: better music picks, game-day ideas, time plans, drafts, and more. No prompt writing.
+                    Answer questions, discover your identity, and power personalized experiences across apps and AI.
                   </p>
                   <div className={styles.heroCtas}>
                     <a

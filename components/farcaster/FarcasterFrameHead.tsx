@@ -1,5 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
+import { DEFAULT_OG_IMAGE, SITE_URL, absoluteUrl } from '@/lib/seo'
 
 type Props = {
   imgUrl: string
@@ -14,7 +15,7 @@ export const FarcasterFrameHead: React.FC<Props> = ({
   children,
   frameImageAspectRatio
 }) => {
-    const imageUrl = imgUrl || "https://www.intori.co/og/og-default.jpg"
+    const imageUrl = absoluteUrl(imgUrl || DEFAULT_OG_IMAGE)
     return (
       <Head>
         <meta charSet="utf-8"/>
@@ -22,8 +23,15 @@ export const FarcasterFrameHead: React.FC<Props> = ({
         <title>intori - Made for you. Within minutes.</title>
         <meta name="description" content={description} />
 
-        <meta property="og:title" content="intori - Made for you. Within minutes." />
-        <meta property="og:image" content={imageUrl} />
+        <meta property="og:title" content="intori - Made for you. Within minutes." key="og-title" />
+        <meta property="og:description" content={description} key="og-description" />
+        <meta property="og:url" content={SITE_URL} key="og-url" />
+        <meta property="og:image" content={imageUrl} key="og-image" />
+        <meta property="og:image:secure_url" content={imageUrl} key="og-image-secure-url" />
+        <meta name="twitter:card" content="summary_large_image" key="twitter-card" />
+        <meta name="twitter:title" content="intori - Made for you. Within minutes." key="twitter-title" />
+        <meta name="twitter:description" content={description} key="twitter-description" />
+        <meta name="twitter:image" content={imageUrl} key="twitter-image" />
 
         <meta property="fc:frame" content="vNext" />
         <meta property="fc:frame:image" content={imageUrl} />

@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react'
 import Link from 'next/link'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useSession, signOut } from "next-auth/react"
 import Image from 'next/image'
@@ -57,6 +58,9 @@ export const AppLayout: React.FC<Props> = ({ children }) => {
   if (session?.status !== 'authenticated') {
     return (
       <div className={styles.appLayout}>
+        <Head>
+          <meta name="robots" content="noindex,nofollow" key="robots" />
+        </Head>
         <header className={styles.header}>
           <div className={styles.headerLeft}>
             <Image src="/intorilogomark.svg" alt="Intori" width={26} height={35} />
@@ -74,6 +78,9 @@ export const AppLayout: React.FC<Props> = ({ children }) => {
 
   return (
     <div className={styles.appLayout}>
+      <Head>
+        <meta name="robots" content="noindex,nofollow" key="robots" />
+      </Head>
       <header className={styles.header}>
         <div className={styles.headerLeft}>
           <Image src="/intorilogomark.svg" alt="Intori" width={26} height={35} />
@@ -130,4 +137,3 @@ export const AppLayout: React.FC<Props> = ({ children }) => {
     </div>
   )
 }
-

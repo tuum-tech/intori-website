@@ -1,25 +1,19 @@
 import type { NextPage } from "next"
-import Head from "next/head"
 
 import { MarketingFooter, MarketingHeader } from "@/components/MarketingChrome"
 import { FAQ } from "../lib/faq"
+import { SeoHead } from "@/lib/seo"
 import styles from "./index.module.css"
 
 const FaqPage: NextPage = () => {
   return (
     <>
-      <Head>
-        <title>FAQ - intori</title>
-        <meta
-          name="description"
-          content="Questions about intori, personalization, World, Credits, and continuing in your favorite AI tool."
-        />
-        <meta property="og:title" content="FAQ - intori" />
-        <meta
-          property="og:description"
-          content="Questions about intori, personalization, World, Credits, and continuing in your favorite AI tool."
-        />
-      </Head>
+      <SeoHead
+        title="FAQ - intori"
+        description="Questions about intori, personalization, World, Credits, and continuing in your favorite AI tool."
+        canonicalPath="/faq"
+        ogImageAlt="intori FAQ preview"
+      />
 
       <div className={styles.page}>
         <MarketingHeader />

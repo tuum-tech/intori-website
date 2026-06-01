@@ -1,9 +1,9 @@
 import type { GetServerSideProps } from "next";
-import Head from 'next/head'
 import Image from 'next/image'
 import { getSession } from "next-auth/react"
 import { Fragment, type CSSProperties } from 'react'
 import { MarketingFooter, MarketingHeader } from '@/components/MarketingChrome'
+import { SeoHead } from '@/lib/seo'
 
 import styles from './index.module.css'
 
@@ -199,13 +199,13 @@ function HowVisual({ type }: { type: string }) {
 export default function HomePage() {
   return (
     <>
-      <Head>
-        <title>intori — Made for you. Within minutes.</title>
-        <meta name="description" content="Answer a few quick questions and intori gives you a useful first pass for music, sports, planning, drafts, and more. No prompt writing." />
-        <meta property="og:title" content="intori — Made for you. Within minutes." />
-        <meta property="og:description" content="Answer a little. Get a useful first pass that already knows what matters to you." />
-        <meta property="og:image" content="https://www.intori.co/og/og-default.jpg" />
-      </Head>
+      <SeoHead
+        title="intori - Made for you. Within minutes."
+        description="Answer a few quick questions and intori gives you a useful first pass for music, sports, planning, drafts, and more. No prompt writing."
+        canonicalPath="/"
+        ogDescription="Answer a little. Get a useful first pass that already knows what matters to you."
+        ogImageAlt="intori preview with personalized app signals"
+      />
 
       <div className={styles.page}>
 

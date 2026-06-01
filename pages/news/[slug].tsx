@@ -2,14 +2,13 @@ import type { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'ne
 import Head from 'next/head'
 import { MarketingFooter, MarketingHeader, WorldIcon } from '@/components/MarketingChrome'
 import { getAllSlugs, getPostBySlug, type Post } from '@/lib/news'
+import { SeoHead, SITE_URL, absoluteUrl } from '@/lib/seo'
 import styles from './news.module.css'
 
 const WORLD_APP_URL =
   'https://world.org/mini-app?app_id=app_263f86463869627f1183badc977e21a3'
 const FARCASTER_URL =
   'https://warpcast.com/~/frames/launch?domain=frame.intori.co'
-const SITE_URL = 'https://www.intori.co'
-const DEFAULT_OG_IMAGE = `${SITE_URL}/og/og-default.jpg`
 const LAUNCH_ARTICLE_SLUG = 'intori-now-live-on-world'
 const LAUNCH_OG_IMAGE = `${SITE_URL}/news/intori-world-01.png`
 
@@ -45,43 +44,29 @@ function formatDate(dateStr: string) {
   })
 }
 
-function toAbsoluteImageUrl(url: string) {
-  if (url.startsWith('http://') || url.startsWith('https://')) {
-    return url
-  }
-
-  return `${SITE_URL}${url.startsWith('/') ? '' : '/'}${url}`
-}
-
 export default function NewsPost({
   post,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const isLaunchArticle = post.slug === LAUNCH_ARTICLE_SLUG
-  const canonicalUrl = `${SITE_URL}/news/${post.slug}`
   const pageTitle = `${post.title} — intori`
   const ogImage = isLaunchArticle
     ? LAUNCH_OG_IMAGE
-    : toAbsoluteImageUrl(post.heroImage || DEFAULT_OG_IMAGE)
+    : absoluteUrl(post.heroImage || '/og/og-default.jpg')
 
   return (
     <div className={styles.newsArticleWrapper}>
+      <SeoHead
+        title={pageTitle}
+        description={post.dek}
+        canonicalPath={`/news/${post.slug}`}
+        ogType="article"
+        ogImage={ogImage}
+        ogImageWidth="3200"
+        ogImageHeight="1800"
+        ogImageAlt={post.title}
+      />
       <Head>
-        <title>{pageTitle}</title>
-        <meta name="description" content={post.dek} />
-        <link rel="canonical" href={canonicalUrl} />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={post.dek} />
-        <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:type" content="article" />
-        <meta property="og:image" content={ogImage} key="og-image" />
-        <meta property="og:image:secure_url" content={ogImage} key="og-image-secure-url" />
-        {isLaunchArticle && <meta property="og:image:width" content="1200" key="og-image-width" />}
-        {isLaunchArticle && <meta property="og:image:height" content="675" key="og-image-height" />}
         <meta property="article:published_time" content={post.date} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={post.dek} />
-        <meta name="twitter:image" content={ogImage} key="twitter-image" />
       </Head>
 
       <div className={styles.page}>

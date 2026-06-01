@@ -1,17 +1,16 @@
 import type { NextPage } from "next";
-import Head from 'next/head'
 import { LegalLayout } from '../layouts/Legal'
+import { SeoHead } from '@/lib/seo'
 
 const Terms: NextPage = () => {
   return (
     <>
-      <Head>
-        <title>Terms of Use — intori</title>
-        <meta
-          name="description"
-          content="Terms for using intori."
-        />
-      </Head>
+      <SeoHead
+        title="Terms of Use - intori"
+        description="Terms for using intori."
+        canonicalPath="/terms-of-use"
+        ogImageAlt="intori terms of use preview"
+      />
 
       <LegalLayout>
         <h1>intori Terms of Use</h1>

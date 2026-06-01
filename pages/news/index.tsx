@@ -1,8 +1,8 @@
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
-import Head from 'next/head'
 import Link from 'next/link'
 import { MarketingFooter, MarketingHeader } from '@/components/MarketingChrome'
 import { getAllPosts, type PostMeta } from '@/lib/news'
+import { SeoHead } from '@/lib/seo'
 import styles from './news.module.css'
 
 type Props = {
@@ -28,35 +28,12 @@ export default function NewsIndex({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <Head>
-        <title>News — intori</title>
-        <meta
-          name="description"
-          content="Official announcements and updates from intori."
-        />
-        <link rel="canonical" href="https://www.intori.co/news" />
-        <meta property="og:title" content="News — intori" />
-        <meta
-          property="og:description"
-          content="Official announcements and updates from intori."
-        />
-        <meta property="og:url" content="https://www.intori.co/news" />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content="https://www.intori.co/og/og-default.jpg"
-        />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="News — intori" />
-        <meta
-          name="twitter:description"
-          content="Official announcements and updates from intori."
-        />
-        <meta
-          name="twitter:image"
-          content="https://www.intori.co/og/og-default.jpg"
-        />
-      </Head>
+      <SeoHead
+        title="News - intori"
+        description="Official announcements and updates from intori."
+        canonicalPath="/news"
+        ogImageAlt="intori news preview"
+      />
 
       <div className={styles.page}>
         <MarketingHeader />

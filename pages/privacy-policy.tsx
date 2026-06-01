@@ -1,17 +1,16 @@
 import type { NextPage } from "next";
-import Head from 'next/head'
 import { LegalLayout } from '../layouts/Legal'
+import { SeoHead } from '@/lib/seo'
 
 const Privacy: NextPage = () => {
   return (
     <>
-      <Head>
-        <title>Privacy Policy — intori</title>
-        <meta
-          name="description"
-          content="How intori collects, uses, and protects information."
-        />
-      </Head>
+      <SeoHead
+        title="Privacy Policy - intori"
+        description="How intori collects, uses, and protects information."
+        canonicalPath="/privacy-policy"
+        ogImageAlt="intori privacy policy preview"
+      />
 
       <LegalLayout>
         <h1>intori Privacy Policy</h1>

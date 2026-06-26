@@ -14,7 +14,7 @@ const Privacy: NextPage = () => {
 
       <LegalLayout>
         <h1>intori Privacy Policy</h1>
-        <p><strong>Last Updated: May 22, 2026</strong></p>
+        <p><strong>Last Updated: June 26, 2026</strong></p>
 
       <h2>Who we are</h2>
       <p>
@@ -48,11 +48,14 @@ const Privacy: NextPage = () => {
 
       <h3>Account and sign-in information</h3>
       <p>
-        intori does not use a traditional email-and-password account system. Depending on how you access intori, we may collect or process:
+        Depending on how you access intori, we may collect or process:
       </p>
       <ul>
+        <li>Your email address, when you sign in on the web using a one-time email magic link.</li>
+        <li>World App, World Mini App, World ID, or wallet-based identifiers, such as wallet address, username, profile image, authentication messages, signatures, nonce records, and verification results.</li>
+        <li>Apple sign-in identifiers, where Apple sign-in is available.</li>
         <li>Farcaster account identifiers, such as FID, username, display name, profile image, bio, and related public profile data.</li>
-        <li>World App, World Mini App, or wallet-based identifiers, such as wallet address, username, profile image, authentication messages, signatures, nonce records, and verification results.</li>
+        <li>Account-linking records that connect the sign-in methods you use into a single intori account, so your credits, runs, and personalization stay unified across the web and supported platforms.</li>
         <li>Session tokens and cookies used to keep you signed in.</li>
         <li>Information about the client app or platform through which you accessed intori.</li>
       </ul>
@@ -93,7 +96,7 @@ const Privacy: NextPage = () => {
 
       <h3>Payments and credits</h3>
       <p>
-        If you buy or activate paid credits, helper access, or similar features, we may store purchase reference, provider, token symbol, token amount, transaction ID, transaction hash, status, failure codes, failure reasons, confirmation time, activation time, and verification metadata. Payments may be processed through third-party wallets, World Pay, blockchain networks, or other supported payment rails. We do not collect your private keys.
+        If you buy or activate paid credits, helper access, or similar features, we may store purchase reference, provider, token symbol, token amount, transaction ID, transaction hash, status, failure codes, failure reasons, confirmation time, activation time, and verification metadata. Payments may be processed through third-party card payment processors such as Stripe, third-party wallets, World Pay, blockchain networks, or other supported payment rails. Card payments are handled by the processor; we do not store full payment card numbers, and we do not collect your private keys.
       </p>
 
       <h3>Notifications</h3>
@@ -112,7 +115,6 @@ const Privacy: NextPage = () => {
       </p>
       <ul>
         <li>Your legal name.</li>
-        <li>Your email address.</li>
         <li>Your mobile or other phone number.</li>
         <li>Government ID numbers, KYC documents, or biometric identifiers.</li>
         <li>Private keys, recovery phrases, or wallet seed phrases.</li>

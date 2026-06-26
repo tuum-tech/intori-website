@@ -3,12 +3,9 @@ import Head from 'next/head'
 import { MarketingFooter, MarketingHeader, WorldIcon } from '@/components/MarketingChrome'
 import { getAllSlugs, getPostBySlug, type Post } from '@/lib/news'
 import { SeoHead, SITE_URL, absoluteUrl } from '@/lib/seo'
+import { APP_URL, WORLD_APP_URL } from '@/lib/appLinks'
 import styles from './news.module.css'
 
-const WORLD_APP_URL =
-  'https://world.org/mini-app?app_id=app_263f86463869627f1183badc977e21a3'
-const FARCASTER_URL =
-  'https://warpcast.com/~/frames/launch?domain=frame.intori.co'
 const LAUNCH_ARTICLE_SLUG = 'intori-now-live-on-world'
 const LAUNCH_OG_IMAGE = `${SITE_URL}/news/intori-world-01.png`
 
@@ -126,18 +123,24 @@ export default function NewsPost({
           <p className={styles.ctaTagline}>
             Made for you. Within minutes.
           </p>
-          <a href={WORLD_APP_URL} className={styles.ctaPrimary}>
-            <WorldIcon size={17} />
-            Open on World
+          <a
+            href={APP_URL}
+            className={styles.ctaPrimary}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Get started
           </a>
           <div className={styles.ctaProviders}>
             <a
-              href={FARCASTER_URL}
+              href={WORLD_APP_URL}
               className={styles.ctaProviderLink}
+              style={{ gap: 6 }}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Open on Farcaster
+              <WorldIcon size={15} />
+              Also on World App
             </a>
           </div>
         </div>

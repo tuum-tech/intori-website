@@ -9,7 +9,7 @@ export const FAQ: FaqItem[] = [
     question: "What is intori?",
     answer: [
       "intori helps you get useful personalized recommendations, plans, and drafts without starting from scratch every time.",
-      "Choose where to start, answer a few quick questions, and intori uses what it learns to shape music ideas, game-day options, time plans, drafts, and more around you."
+      "Choose where to start, answer a few quick questions, and intori uses what it learns to shape food picks, game-day options, live-music ideas, style finds, and more around you."
     ]
   },
   {
@@ -29,8 +29,8 @@ export const FAQ: FaqItem[] = [
   {
     question: "What can I start with?",
     answer: [
-      "intori starts with focused areas like better music ideas, game-day options, and planning your time.",
-      "Each area helps intori understand what you like, what you avoid, and what actually fits your life."
+      "intori starts with daily helpers like Today's Food, Game Day, live music, and Style Finds.",
+      "Each one helps intori understand what you like, what you avoid, and what actually fits your life."
     ]
   },
   {
@@ -43,8 +43,8 @@ export const FAQ: FaqItem[] = [
   {
     question: "What can intori do right now?",
     answer: [
-      "Music is the first area available.",
-      "It can help you find music ideas and live-show options that fit your taste, timing, venue comfort, and energy. Game Day and planning your time are next."
+      "Four daily helpers are live: Today's Food, Game Day, live-music ideas, and Style Finds.",
+      "Each gives you a useful first pass that fits your taste, timing, and constraints — and you can go deeper in a quick chat when you want more."
     ]
   },
   {
@@ -71,22 +71,22 @@ export const FAQ: FaqItem[] = [
   {
     question: "Where can I use intori?",
     answer: [
-      "intori is currently available through World, where it is already used by thousands of verified humans.",
-      "Broader web access is planned."
+      "intori is on the web at app.intori.co — just sign in to get started.",
+      "It is also in the World App, where it is already used by thousands of verified humans."
     ]
   },
   {
     question: "Why does intori mention verified humans?",
     answer: [
-      "World gives intori its first verified-human community.",
-      "That helps keep access fair, reduce abuse, and support trust. It is not meant to be the only way people use intori forever."
+      "World ID gives intori a verified-human trust layer and lets your personalization carry across the web and the World App.",
+      "It helps keep access fair and reduce abuse, but it is not a gate — anyone can use intori on the web."
     ]
   },
   {
     question: "What are Credits?",
     answer: [
-      "Credits are a simple way to unlock extra intori moments, like answering more questions or running more personalized recommendations.",
-      "The goal is to keep the experience easy: earn or use Credits when you want more."
+      "Credits let you run helpers and go deeper on a result.",
+      "New users get a few starter credits free, and you can buy more whenever you want."
     ]
   },
   {

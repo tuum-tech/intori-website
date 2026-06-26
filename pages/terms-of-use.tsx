@@ -14,7 +14,7 @@ const Terms: NextPage = () => {
 
       <LegalLayout>
         <h1>intori Terms of Use</h1>
-        <p><strong>Last Updated: May 22, 2026</strong></p>
+        <p><strong>Last Updated: June 26, 2026</strong></p>
 
       <p>
         These Terms of Use (&quot;Terms&quot;) are an agreement between you and Tuum Technologies, Inc. (&quot;Tuum&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) and govern your access to and use of intori, including the intori website, mini app experiences, personal preference and context profile, credits, helper results, connected app flows, APIs, and related services (together, the &quot;Services&quot;).
@@ -41,7 +41,7 @@ const Terms: NextPage = () => {
 
       <h2>3. Accounts, wallets, and platform access</h2>
       <p>
-        intori does not currently use a traditional email-and-password account system. You may access the Services through supported platforms or wallets, such as Farcaster, World App, World Mini App, or other supported sign-in methods.
+        You may access the Services on the web at app.intori.co or through supported platforms and wallets. Supported sign-in methods include email sign-in (a one-time magic link), World App or World ID, Apple sign-in where available, and other supported methods. Where you sign in through more than one method, intori may link those identities to a single intori account so your data stays unified.
       </p>
       <p>
         You are responsible for maintaining control of your wallet, platform account, device, authentication method, and private keys. We will never ask for your private keys or recovery phrase. Transactions or actions authorized through your wallet or platform account may be irreversible.

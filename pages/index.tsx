@@ -309,8 +309,8 @@ export default function HomePage() {
                         </svg>
                       </span>
                       <div className={styles.floatText}>
-                        <p className={styles.floatCardLabel}>Today's Food</p>
-                        <p className={styles.floatCardTitle}>Tonight's pick, sorted</p>
+                        <p className={styles.floatCardLabel}>Today&apos;s Food</p>
+                        <p className={styles.floatCardTitle}>Tonight&apos;s pick, sorted</p>
                       </div>
                     </div>
 

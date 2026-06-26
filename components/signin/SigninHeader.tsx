@@ -12,10 +12,10 @@ const SigninHeader: NextPage = () => {
       />
       <div className='self-stretch flex flex-col items-center justify-start gap-[12px]'>
         <div className='self-stretch relative font-semibold'>
-          Sign in to Intori with Farcaster
+          Sign in to the intori dashboard
         </div>
         <div className='w-full relative text-sm leading-[22px] font-light text-white-1 inline-block max-w-[300px]'>
-          Get paid for what you already do and earn from online activity.
+          Internal access for the intori team. To use intori, visit app.intori.co.
         </div>
       </div>
     </div>

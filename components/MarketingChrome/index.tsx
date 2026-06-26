@@ -3,8 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import styles from './styles.module.css'
-
-const WORLD_APP_URL = "https://world.org/mini-app?app_id=app_263f86463869627f1183badc977e21a3"
+import { APP_URL } from '@/lib/appLinks'
 
 export function WorldIcon({ size = 17 }: { size?: number }) {
   return (
@@ -36,13 +35,12 @@ export function MarketingHeader() {
             <Link href="/news" className={styles.navLink}>News</Link>
             <span className={styles.navLinkDisabled} aria-disabled="true">Developers</span>
             <a
-              href={WORLD_APP_URL}
+              href={APP_URL}
               className={styles.ctaPrimary}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <WorldIcon />
-              Open on World
+              Get started
             </a>
           </nav>
         </div>

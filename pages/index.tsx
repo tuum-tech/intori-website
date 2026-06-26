@@ -4,6 +4,7 @@ import { getSession } from "next-auth/react"
 import { Fragment, type CSSProperties } from 'react'
 import { MarketingFooter, MarketingHeader } from '@/components/MarketingChrome'
 import { SeoHead } from '@/lib/seo'
+import { APP_URL, WORLD_APP_URL } from '@/lib/appLinks'
 
 import styles from './index.module.css'
 
@@ -21,8 +22,6 @@ export const getServerSideProps = (async (context) => {
 
   return { props: {} }
 }) satisfies GetServerSideProps
-
-const WORLD_APP_URL = "https://world.org/mini-app?app_id=app_263f86463869627f1183badc977e21a3"
 
 const PACKS = [
   {
@@ -73,7 +72,7 @@ const HOW_STEPS = [
   {
     number: "1",
     title: "Choose where to start.",
-    body: "Start with music, sports, planning, food, travel, or another area you want intori to personalize.",
+    body: "Start with food, game day, live music, or style — the daily helpers intori personalizes for you.",
     visual: "packs",
   },
   {
@@ -85,7 +84,7 @@ const HOW_STEPS = [
   {
     number: "3",
     title: "Get picks made for you.",
-    body: "Run intori for music ideas, game-day options, time plans, drafts, and more.",
+    body: "Run intori for food picks, game-day options, live-music ideas, and style finds — then go deeper in a quick chat.",
     visual: "tools",
   },
 ]
@@ -201,7 +200,7 @@ export default function HomePage() {
     <>
       <SeoHead
         title="intori - Made for you. Within minutes."
-        description="Answer a few quick questions and intori gives you a useful first pass for music, sports, planning, drafts, and more. No prompt writing."
+        description="Answer a few quick questions and intori gives you a useful first pass for food, game day, live music, and style — then go deeper in a quick chat. On the web and in World App."
         canonicalPath="/"
         ogDescription="Answer a little. Get a useful first pass that already knows what matters to you."
         ogImageAlt="intori preview with personalized app signals"
@@ -222,20 +221,29 @@ export default function HomePage() {
                     Made for you.<br />Within minutes.
                   </h1>
                   <p className={styles.heroBody}>
-                    Answer questions, discover your identity, and power personalized experiences across apps and AI.
+                    Answer a few quick questions and intori gives you a useful first pass — for food, game day, live music, and style — then go deeper in a quick chat. On the web and in World App.
                   </p>
                   <div className={styles.heroCtas}>
                     <a
-                      href={WORLD_APP_URL}
+                      href={APP_URL}
                       className={styles.ctaPrimary}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <WorldIcon size={17} />
-                      Open on World
+                      Get started
                     </a>
                     <a href="#how-it-works" className={styles.ctaSecondary}>
                       See how it works →
+                    </a>
+                    <a
+                      href={WORLD_APP_URL}
+                      className={styles.ctaSecondary}
+                      style={{ gap: 6 }}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <WorldIcon size={16} />
+                      Also on World App
                     </a>
                   </div>
                   <div className={styles.trustRow}>
@@ -294,15 +302,15 @@ export default function HomePage() {
                     </div>
 
                     <div className={`${styles.floatCard} ${styles.floatCardThree} ${styles.floatEntranceDelay2}`}>
-                      <Image src="/brand/hero-stamps/night-owls.png" alt="" fill sizes="280px" className={styles.floatImage} />
+                      <Image src="/brand/hero-stamps/foodies.png" alt="" fill sizes="280px" className={styles.floatImage} />
                       <span className={styles.floatCheck} aria-hidden="true">
                         <svg viewBox="0 0 20 20" className={styles.floatCheckIcon}>
                           <path d="M7.8 14.2 3.7 10l1.8-1.8 2.3 2.3 6.7-6.8 1.8 1.8-8.5 8.7z" />
                         </svg>
                       </span>
                       <div className={styles.floatText}>
-                        <p className={styles.floatCardLabel}>Plan today</p>
-                        <p className={styles.floatCardTitle}>Best use of today</p>
+                        <p className={styles.floatCardLabel}>Today's Food</p>
+                        <p className={styles.floatCardTitle}>Tonight's pick, sorted</p>
                       </div>
                     </div>
 

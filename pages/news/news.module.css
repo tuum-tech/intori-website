@@ -316,6 +316,15 @@
   box-shadow: 0 16px 36px rgba(23, 23, 56, 0.07);
 }
 
+.postBody img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 28px auto;
+  border-radius: 14px;
+  border: 1px solid rgba(23, 23, 56, 0.09);
+}
+
 .postBody h2 {
   font-size: clamp(22px, 3vw, 28px);
   font-weight: 900;

@@ -5,20 +5,28 @@
 }
 
 .page {
-  --ink:      #161823;
-  --ink-dark: #171738;
-  --muted:    rgba(22, 24, 35, 0.64);
-  --faint:    rgba(22, 24, 35, 0.40);
-  --line:     rgba(23, 23, 56, 0.09);
-  --paper:    #F4F4F0;
-  --surface:  #ECEBE5;
-  --lime:     #D5F74E;
-  --lime-hover: #CAE94A;
-  --dark-bg:  #171738;
-  --dark-mid: #1F1F43;
+  --ink:       #26213E;
+  --ink-soft:  rgba(38, 33, 62, 0.62);
+  --ink-faint: rgba(38, 33, 62, 0.42);
+  --ground:    #FCF8F1;
+  --plane:     #FAF3E6;
+  --paper-soft:#F7F2E9;
+  --card:      #FFFFFF;
+  --hairline:  #E9E2D3;
+  --spark:     #93B32A;      /* non-text accent only */
+  --spark-hover:#85A226;
+  --ink-hover: #322B4E;
+  --shadow-card: 0 1px 2px rgba(38,33,62,.04), 0 15px 34px -14px rgba(38,33,62,.17);
+  --radius-card: 22px;
+  --radius-img: 16px;
+
+  /* TEMP legacy tokens — still referenced by rules converted in PR2–PR4; removed in those PRs */
+  --lime:      #D5F74E;
+  --dark-bg:   #171738;
+  --dark-mid:  #1F1F43;
 
   width: 100%;
-  background: var(--paper);
+  background: var(--ground);
   color: var(--ink);
   overflow-x: clip;
   -webkit-font-smoothing: antialiased;
@@ -40,8 +48,8 @@
   min-height: 56px;
   padding: 0 30px;
   border-radius: 8px;
-  background: var(--lime);
-  color: var(--ink-dark);
+  background: var(--ink);
+  color: var(--ground);
   font-size: 15px;
   font-weight: 800;
   line-height: 1;
@@ -51,7 +59,7 @@
 }
 
 .ctaPrimary:hover {
-  background: var(--lime-hover);
+  background: var(--ink-hover);
 }
 
 /* ─── Header ──────────────────────────────────────────── */
@@ -64,7 +72,7 @@
   background: rgba(244, 244, 240, 0.94);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--hairline);
 }
 
 .headerInner {
@@ -100,7 +108,7 @@
 }
 
 .navLinkDisabled {
-  color: var(--faint);
+  color: var(--ink-faint);
   font-size: 14px;
   font-weight: 700;
   letter-spacing: -0.01em;
@@ -118,7 +126,7 @@
 
 .heroSection {
   padding: 72px 0 64px;
-  background: var(--paper);
+  background: var(--ground);
 }
 
 .heroGrid {
@@ -145,7 +153,7 @@
   padding: 8px 14px;
   border-radius: 999px;
   background: rgba(23, 23, 56, 0.07);
-  color: var(--muted);
+  color: var(--ink-soft);
   font-size: 12px;
   font-weight: 800;
   line-height: 1;
@@ -156,7 +164,7 @@
 .heroHeadline {
   max-width: 560px;
   margin: 0;
-  color: var(--ink-dark);
+  color: var(--ink);
   font-size: 72px;
   font-weight: 900;
   letter-spacing: -0.025em;
@@ -166,7 +174,7 @@
 .heroBody {
   max-width: 480px;
   margin: 0;
-  color: var(--muted);
+  color: var(--ink-soft);
   font-size: 19px;
   font-weight: 500;
   line-height: 1.6;
@@ -181,7 +189,7 @@
 .ctaSecondary {
   display: inline-flex;
   align-items: center;
-  color: var(--ink-dark);
+  color: var(--ink);
   font-size: 15px;
   font-weight: 750;
   text-decoration: none;
@@ -212,9 +220,9 @@
   height: 38px;
   margin-left: -10px;
   overflow: hidden;
-  border: 2.5px solid var(--paper);
+  border: 2.5px solid var(--ground);
   border-radius: 999px;
-  background: var(--surface);
+  background: var(--paper-soft);
 }
 
 .avatarWrap:first-child { margin-left: 0; }
@@ -239,7 +247,7 @@
 
 .trustCopy {
   margin: 0;
-  color: var(--muted);
+  color: var(--ink-soft);
   font-size: 14px;
   font-weight: 550;
   line-height: 1.4;
@@ -247,7 +255,7 @@
 }
 
 .trustCopy strong {
-  color: var(--ink-dark);
+  color: var(--ink);
   font-weight: 800;
 }
 
@@ -484,7 +492,7 @@
 .heroResultCta {
   min-height: 42px;
   background: var(--lime);
-  color: var(--ink-dark);
+  color: var(--ink);
   font-size: 14px;
 }
 
@@ -590,7 +598,7 @@
   height: 34px;
   border-radius: 999px;
   background: var(--lime);
-  color: var(--ink-dark);
+  color: var(--ink);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
 }
 
@@ -681,13 +689,13 @@
 .howSection {
   scroll-margin-top: 104px;
   padding: 80px 0 72px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--hairline);
   background: #fff;
 }
 
 .sectionHeading {
   margin: 0 0 40px;
-  color: var(--ink-dark);
+  color: var(--ink);
   font-size: 32px;
   font-weight: 900;
   letter-spacing: -0.02em;
@@ -702,7 +710,7 @@
 }
 
 .howArrow {
-  color: var(--faint);
+  color: var(--ink-faint);
   font-size: 24px;
   font-weight: 700;
   text-align: center;
@@ -711,9 +719,9 @@
 .howCard {
   position: relative;
   min-height: 248px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--hairline);
   border-radius: 12px;
-  background: var(--paper);
+  background: var(--ground);
   padding: 26px 24px 24px;
   overflow: hidden;
   isolation: isolate;
@@ -743,7 +751,7 @@
   margin-bottom: 18px;
   border-radius: 999px;
   background: rgba(213, 247, 78, 0.35);
-  color: var(--ink-dark);
+  color: var(--ink);
   font-size: 16px;
   font-weight: 900;
 }
@@ -752,7 +760,7 @@
   position: relative;
   z-index: 2;
   margin: 0 0 10px;
-  color: var(--ink-dark);
+  color: var(--ink);
   font-size: 17px;
   font-weight: 800;
   line-height: 1.25;
@@ -763,7 +771,7 @@
   z-index: 2;
   max-width: 178px;
   margin: 0;
-  color: var(--muted);
+  color: var(--ink-soft);
   font-size: 13px;
   font-weight: 600;
   line-height: 1.55;
@@ -843,7 +851,7 @@
 
 .howCardPack .howCardStep {
   background: var(--lime);
-  color: var(--ink-dark);
+  color: var(--ink);
   box-shadow: 0 0 18px rgba(213, 247, 78, 0.28);
 }
 
@@ -921,7 +929,7 @@
   justify-content: center;
   width: 52px;
   height: 52px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--hairline);
   border-radius: 10px;
   background: #fff;
   box-shadow: 0 6px 14px rgba(23, 23, 56, 0.05);
@@ -937,14 +945,14 @@
 .packsSection {
   scroll-margin-top: 104px;
   padding: 80px 0 72px;
-  background: var(--paper);
-  border-top: 1px solid var(--line);
+  background: var(--ground);
+  border-top: 1px solid var(--hairline);
 }
 
 .packsSub {
   max-width: 520px;
   margin: -24px 0 40px;
-  color: var(--muted);
+  color: var(--ink-soft);
   font-size: 16px;
   font-weight: 500;
   line-height: 1.6;
@@ -1048,7 +1056,7 @@
 
 .packLabel {
   margin: 0 0 7px;
-  color: var(--ink-dark);
+  color: var(--ink);
   font-size: 15px;
   font-weight: 800;
   line-height: 1.2;
@@ -1083,8 +1091,8 @@
 
 .aiSection {
   padding: 80px 0 72px;
-  background: var(--paper);
-  border-top: 1px solid var(--line);
+  background: var(--ground);
+  border-top: 1px solid var(--hairline);
 }
 
 .aiInner {
@@ -1102,7 +1110,7 @@
 
 .aiHeading {
   margin: 0;
-  color: var(--ink-dark);
+  color: var(--ink);
   font-size: 36px;
   font-weight: 900;
   letter-spacing: -0.02em;
@@ -1113,7 +1121,7 @@
 .aiBody {
   max-width: 340px;
   margin: 0;
-  color: var(--muted);
+  color: var(--ink-soft);
   font-size: 15px;
   font-weight: 550;
   line-height: 1.6;
@@ -1131,10 +1139,10 @@
   gap: 16px;
   min-height: 68px;
   padding: 0 28px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--hairline);
   border-radius: 12px;
   background: #fff;
-  color: var(--ink-dark);
+  color: var(--ink);
   font-size: 18px;
   font-weight: 800;
   letter-spacing: -0.01em;
@@ -1151,7 +1159,7 @@
 
 .devBridge {
   padding: 0 0 72px;
-  background: var(--paper);
+  background: var(--ground);
 }
 
 .devBridgeGrid {
@@ -1165,7 +1173,7 @@
   background:
     radial-gradient(circle at 80% 18%, rgba(96, 179, 215, 0.16), transparent 34%),
     radial-gradient(circle at 8% 100%, rgba(213, 247, 78, 0.10), transparent 36%),
-    linear-gradient(135deg, var(--ink-dark) 0%, var(--dark-mid) 100%);
+    linear-gradient(135deg, var(--ink) 0%, var(--dark-mid) 100%);
   color: #fff;
   padding: 40px 40px 40px 44px;
   box-shadow:
@@ -1265,7 +1273,7 @@
   margin-right: 8px;
   border-radius: 4px;
   background: var(--lime);
-  color: var(--ink-dark);
+  color: var(--ink);
   font-size: 11px;
   font-weight: 900;
   vertical-align: -2px;
@@ -1298,7 +1306,7 @@
 .faqSection {
   min-height: calc(100vh - 80px);
   padding: 84px 0 88px;
-  background: var(--paper);
+  background: var(--ground);
 }
 
 .faqHero {
@@ -1308,7 +1316,7 @@
 
 .faqHeading {
   margin: 16px 0 18px;
-  color: var(--ink-dark);
+  color: var(--ink);
   font-size: 64px;
   font-weight: 900;
   letter-spacing: -0.025em;
@@ -1318,7 +1326,7 @@
 .faqIntro {
   max-width: 620px;
   margin: 0;
-  color: var(--muted);
+  color: var(--ink-soft);
   font-size: 18px;
   font-weight: 550;
   line-height: 1.6;
@@ -1332,7 +1340,7 @@
 }
 
 .faqItem {
-  border: 1px solid var(--line);
+  border: 1px solid var(--hairline);
   border-radius: 12px;
   background: #fff;
   overflow: hidden;
@@ -1345,7 +1353,7 @@
   justify-content: space-between;
   gap: 18px;
   padding: 22px 24px;
-  color: var(--ink-dark);
+  color: var(--ink);
   font-size: 16px;
   font-weight: 850;
   line-height: 1.25;
@@ -1367,7 +1375,7 @@
   height: 28px;
   border-radius: 999px;
   background: rgba(213, 247, 78, 0.34);
-  color: var(--ink-dark);
+  color: var(--ink);
   font-size: 18px;
   font-weight: 900;
   line-height: 1;
@@ -1383,7 +1391,7 @@
 
 .faqAnswer p {
   margin: 0;
-  color: var(--muted);
+  color: var(--ink-soft);
   font-size: 14px;
   font-weight: 550;
   line-height: 1.62;
@@ -1399,7 +1407,7 @@
 }
 
 .faqAnswer li {
-  color: var(--muted);
+  color: var(--ink-soft);
   font-size: 14px;
   font-weight: 550;
   line-height: 1.55;
@@ -1409,7 +1417,7 @@
 
 .footer {
   background: #fff;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--hairline);
 }
 
 .footerInner {
@@ -1426,7 +1434,7 @@
 
 .footerLink,
 .footerCopy {
-  color: var(--faint);
+  color: var(--ink-faint);
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;

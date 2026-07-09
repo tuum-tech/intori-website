@@ -9,13 +9,8 @@
 }
 
 body {
-  background-image: url('/app-bg.png');
-  background-size: cover;
-  background-position: top left;
-  background-repeat: no-repeat;
-  background-color: #000;
-  background-attachment: fixed;
-  color: #fff;
+  background: #FCF8F1;
+  color: #26213E;
 }
 
 .react-tabs__tab-list {
@@ -30,6 +25,6 @@ body {
 }
 
 .react-tabs__tab--selected {
-  background: #9664FA !important;
+  background: #26213E !important;
   font-weight: 500 !important;
 }

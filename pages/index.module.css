@@ -20,11 +20,6 @@
   --radius-card: 22px;
   --radius-img: 16px;
 
-  /* TEMP legacy tokens — still referenced by rules converted in PR2–PR4; removed in those PRs */
-  --lime:      #D5F74E;
-  --dark-bg:   #171738;
-  --dark-mid:  #1F1F43;
-
   width: 100%;
   background: var(--ground);
   color: var(--ink);
@@ -1076,32 +1071,51 @@
   line-height: 1.6;
 }
 
-.toolPills {
+.helperPeek {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  align-items: flex-start;
+  gap: 8px;
+  background: linear-gradient(180deg, #FFFFFF, #FAF3E6);
+  border: 1px solid #E9E2D3;
+  border-radius: var(--radius-card);
+  padding: 22px;
+  box-shadow: var(--shadow-card);
 }
 
-.toolPill {
+.peekBubble {
+  margin: 0;
+  background: #F3ECDD;
+  border-radius: 12px 12px 12px 4px;
+  padding: 9px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #26213E;
+  max-width: 80%;
+}
+
+.peekResult {
+  margin: 0;
+  background: #FFFFFF;
+  border: 1px solid #E9E2D3;
+  border-radius: 10px;
+  padding: 9px 12px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #26213E;
+}
+
+.peekMore {
   display: inline-flex;
   align-items: center;
-  gap: 16px;
-  min-height: 68px;
-  padding: 0 28px;
-  border: 1px solid var(--hairline);
-  border-radius: 12px;
-  background: #fff;
-  color: var(--ink);
-  font-size: 18px;
+  gap: 6px;
+  background: #FFFFFF;
+  border: 1px solid #E9E2D3;
+  border-radius: 999px;
+  padding: 7px 13px;
+  font-size: 12px;
   font-weight: 800;
-  letter-spacing: -0.01em;
-  box-shadow: 0 8px 20px rgba(23, 23, 56, 0.05);
-}
-
-.toolLogo {
-  width: 26px;
-  height: 26px;
-  flex-shrink: 0;
+  color: #26213E;
 }
 
 /* ─── Developer bridge ────────────────────────────────── */
@@ -1117,18 +1131,12 @@
   gap: 48px;
   align-items: center;
   min-height: 240px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid #EAD9C8;
   border-radius: 18px;
-  background:
-    radial-gradient(circle at 80% 18%, rgba(96, 179, 215, 0.16), transparent 34%),
-    radial-gradient(circle at 8% 100%, rgba(213, 247, 78, 0.10), transparent 36%),
-    linear-gradient(135deg, var(--ink) 0%, var(--dark-mid) 100%);
-  color: #fff;
+  background: linear-gradient(135deg, #FFFFFF, #F3ECDD);
+  color: #26213E;
   padding: 40px 40px 40px 44px;
-  box-shadow:
-    0 18px 42px rgba(23, 23, 56, 0.14),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  box-shadow: var(--shadow-card);
 }
 
 .devBridgeLeft {
@@ -1140,7 +1148,7 @@
 
 .devBridgeHeading {
   margin: 0;
-  color: #fff;
+  color: #26213E;
   font-size: 28px;
   font-weight: 900;
   letter-spacing: -0.02em;
@@ -1150,7 +1158,7 @@
 .devBridgeBody {
   max-width: 260px;
   margin: 0;
-  color: rgba(255, 255, 255, 0.68);
+  color: rgba(38, 33, 62, 0.62);
   font-size: 14px;
   font-weight: 550;
   line-height: 1.55;
@@ -1162,8 +1170,8 @@
   min-height: 44px;
   padding: 0 22px;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: rgba(255, 255, 255, 0.42);
+  border: 1px solid #E9E2D3;
+  color: rgba(38, 33, 62, 0.42);
   font-size: 14px;
   font-weight: 700;
   cursor: default;
@@ -1180,9 +1188,9 @@
 .devFlowCard,
 .devFlowCode {
   min-height: 160px;
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  border: 1px solid #EAD9C8;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.045);
+  background: #FFFFFF;
   padding: 22px;
 }
 
@@ -1194,20 +1202,20 @@
 
 .devFlowCard strong,
 .devFlowCode strong {
-  color: #fff;
+  color: #26213E;
   font-size: 13px;
   font-weight: 800;
 }
 
 .devFlowCard span:not(.checkLine) {
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(38, 33, 62, 0.62);
   font-size: 13px;
   font-weight: 550;
   line-height: 1.5;
 }
 
 .checkLine {
-  color: rgba(255, 255, 255, 0.82);
+  color: #26213E;
   font-size: 13px;
   font-weight: 650;
 }
@@ -1221,15 +1229,15 @@
   height: 16px;
   margin-right: 8px;
   border-radius: 4px;
-  background: var(--lime);
-  color: var(--ink);
+  background: #26213E;
+  color: #FCF8F1;
   font-size: 11px;
   font-weight: 900;
   vertical-align: -2px;
 }
 
 .devArrow {
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(38, 33, 62, 0.3);
   font-size: 22px;
   font-weight: 700;
   text-align: center;
@@ -1242,7 +1250,7 @@
 }
 
 .devFlowCode code {
-  color: var(--lime);
+  color: #26213E;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 12px;
   font-weight: 600;

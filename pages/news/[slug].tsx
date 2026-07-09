@@ -45,7 +45,7 @@ export default function NewsPost({
   post,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const isLaunchArticle = post.slug === LAUNCH_ARTICLE_SLUG
-  const pageTitle = `${post.title} — intori`
+  const pageTitle = `${post.title} - intori`
   const ogImage = isLaunchArticle
     ? LAUNCH_OG_IMAGE
     : absoluteUrl(post.heroImage || '/og/og-default.jpg')

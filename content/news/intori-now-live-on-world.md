@@ -5,7 +5,6 @@ date: "2026-02-26"
 author: "Donald Bullers"
 slug: "intori-now-live-on-world"
 heroImage: "/news/intori-world-01.png"
-published: false
 tags:
   - "World"
   - "Identity"

@@ -664,7 +664,7 @@
   scroll-margin-top: 104px;
   padding: 80px 0 72px;
   border-top: 1px solid var(--hairline);
-  background: #fff;
+  background: #FFFFFF;
 }
 
 .sectionHeading {
@@ -696,6 +696,7 @@
   border: 1px solid var(--hairline);
   border-radius: 12px;
   background: var(--ground);
+  box-shadow: var(--shadow-card);
   padding: 26px 24px 24px;
   overflow: hidden;
   isolation: isolate;
@@ -709,8 +710,8 @@
 
 .howCard:hover {
   z-index: 4;
-  border-color: rgba(23, 23, 56, 0.14);
-  box-shadow: 0 18px 38px rgba(23, 23, 56, 0.10);
+  border-color: rgba(38, 33, 62, 0.14);
+  box-shadow: 0 18px 38px rgba(38, 33, 62, 0.10);
   transform: translateY(-3px) scale(1.025);
 }
 
@@ -724,7 +725,7 @@
   height: 34px;
   margin-bottom: 18px;
   border-radius: 999px;
-  background: rgba(213, 247, 78, 0.35);
+  background: #FAF3E6;
   color: var(--ink);
   font-size: 16px;
   font-weight: 900;
@@ -765,25 +766,16 @@
 }
 
 .howCardPack {
-  border: 2px solid rgba(212, 103, 255, 0.74);
-  background:
-    radial-gradient(circle at 82% 34%, rgba(212, 103, 255, 0.22), transparent 34%),
-    radial-gradient(circle at 15% 100%, rgba(213, 247, 78, 0.10), transparent 38%),
-    linear-gradient(135deg, #171738 0%, #202047 58%, #2f2046 100%);
-  box-shadow:
-    0 16px 34px rgba(23, 23, 56, 0.14),
-    0 0 28px rgba(212, 103, 255, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.18),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  border: 1px solid #E9E2D3;
+  background: #FFFFFF;
+  box-shadow: var(--shadow-card);
 }
 
 .howCardPack:hover {
-  border-color: rgba(212, 103, 255, 0.92);
+  border-color: var(--hairline);
   box-shadow:
-    0 18px 42px rgba(23, 23, 56, 0.16),
-    0 0 34px rgba(212, 103, 255, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.18),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    0 1px 2px rgba(38, 33, 62, 0.05),
+    0 22px 46px -16px rgba(38, 33, 62, 0.24);
 }
 
 .howPackCardBackdrop {
@@ -798,8 +790,8 @@
 .howPackCardImage {
   object-fit: cover;
   object-position: center 24%;
-  opacity: 0.30;
-  filter: saturate(1.1) contrast(1.02);
+  opacity: 0.14;
+  filter: saturate(1.05) contrast(1.02);
 }
 
 .howPackCardVignette {
@@ -807,8 +799,8 @@
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(180deg, rgba(8, 8, 24, 0.04) 0%, rgba(8, 8, 24, 0.18) 42%, rgba(8, 8, 24, 0.78) 100%),
-    linear-gradient(90deg, rgba(8, 8, 24, 0.86) 0%, rgba(8, 8, 24, 0.55) 58%, rgba(8, 8, 24, 0.18) 100%);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.72) 100%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.86) 0%, rgba(255, 255, 255, 0.45) 58%, rgba(255, 255, 255, 0.10) 100%);
 }
 
 .howPackCardIcon {
@@ -818,24 +810,23 @@
   right: 20px;
   width: 106px;
   height: 106px;
-  opacity: 0.24;
-  filter: brightness(0) invert(1);
+  opacity: 0.08;
+  filter: brightness(0);
   transform: translateY(-50%);
 }
 
 .howCardPack .howCardStep {
-  background: var(--lime);
+  background: #FAF3E6;
   color: var(--ink);
-  box-shadow: 0 0 18px rgba(213, 247, 78, 0.28);
 }
 
 .howCardPack .howCardTitle {
-  color: rgba(255, 255, 255, 0.94);
+  color: var(--ink);
 }
 
 .howCardPack .howCardBody {
   max-width: 188px;
-  color: rgba(255, 255, 255, 0.74);
+  color: var(--ink-soft);
 }
 
 /* Step 1 phone — full shell, proportional to hero, no rotation lock */
@@ -889,28 +880,37 @@
   pointer-events: none;
 }
 
-/* Tool logos in step 3 */
+/* Step 3 "see more" mini */
 
-.toolMiniRow {
+.seeMoreMini {
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
 }
 
-.toolMini {
+.seeMoreBubble {
+  background: #FFFFFF;
+  border: 1px solid #E9E2D3;
+  border-radius: 12px 12px 12px 4px;
+  padding: 8px 11px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #26213E;
+  box-shadow: var(--shadow-card);
+}
+
+.seeMoreChip {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  border: 1px solid var(--hairline);
-  border-radius: 10px;
-  background: #fff;
-  box-shadow: 0 6px 14px rgba(23, 23, 56, 0.05);
-}
-
-.toolMini .toolLogo {
-  width: 24px;
-  height: 24px;
+  gap: 6px;
+  background: #FAF3E6;
+  border: 1px solid #E9E2D3;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #26213E;
 }
 
 /* ─── Packs section ───────────────────────────────────── */
@@ -918,7 +918,7 @@
 .packsSection {
   scroll-margin-top: 104px;
   padding: 80px 0 72px;
-  background: var(--ground);
+  background: var(--plane);
   border-top: 1px solid var(--hairline);
 }
 
@@ -940,35 +940,15 @@
 .packTile {
   position: relative;
   min-height: 248px;
-  border: 2px solid color-mix(in srgb, var(--pack-color) 34%, rgba(23, 23, 56, 0.08));
+  border: 1px solid #E9E2D3;
   border-radius: 18px;
-  background:
-    radial-gradient(circle at 88% 6%, color-mix(in srgb, var(--pack-color) 16%, transparent), transparent 38%),
-    radial-gradient(circle at 8% 100%, rgba(213, 247, 78, 0.12), transparent 42%),
-    linear-gradient(180deg, #FFFFFF 0%, #FBFBF6 58%, color-mix(in srgb, var(--pack-color) 7%, #F4F4F0) 100%);
+  background: #FFFFFF;
   padding: 0 18px 16px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   isolation: isolate;
-  box-shadow:
-    0 16px 30px rgba(23, 23, 56, 0.07),
-    0 0 22px color-mix(in srgb, var(--pack-color) 10%, transparent),
-    inset 0 1px 0 rgba(255, 255, 255, 0.84);
-}
-
-.packTile::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.72), transparent 44%),
-    linear-gradient(90deg, color-mix(in srgb, var(--pack-color) 8%, transparent), transparent 46%);
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.72),
-    inset 0 -1px 0 color-mix(in srgb, var(--pack-color) 10%, transparent);
-  border-radius: inherit;
+  box-shadow: var(--shadow-card);
 }
 
 .packIconBand {
@@ -978,9 +958,7 @@
   height: 76px;
   margin: 0 -18px 16px;
   padding: 16px 18px;
-  background:
-    radial-gradient(circle at 24px 20px, color-mix(in srgb, var(--pack-color) 18%, transparent), transparent 44px),
-    linear-gradient(180deg, color-mix(in srgb, var(--pack-color) 9%, #fff), rgba(255, 255, 255, 0));
+  background: color-mix(in srgb, var(--pack-color) 8%, #fff);
 }
 
 .packIconBand::after {
@@ -1001,14 +979,12 @@
   width: 52px;
   height: 52px;
   margin-bottom: 0;
-  border: 2px solid;
+  border: 1px solid #E9E2D3;
   border-radius: 16px;
   flex-shrink: 0;
   overflow: hidden;
   z-index: 1;
-  box-shadow:
-    0 8px 18px color-mix(in srgb, var(--pack-color) 30%, transparent),
-    inset 0 1px 0 rgba(255, 255, 255, 0.32);
+  background: color-mix(in srgb, var(--pack-color) 16%, #fff);
 }
 
 .packIconWrap::after {
@@ -1024,7 +1000,6 @@
   z-index: 1;
   width: 30px;
   height: 30px;
-  filter: brightness(0) invert(1);
 }
 
 .packLabel {
@@ -1037,7 +1012,7 @@
 
 .packDesc {
   margin: 0;
-  color: rgba(22, 24, 35, 0.66);
+  color: var(--ink-soft);
   font-size: 12.5px;
   font-weight: 550;
   line-height: 1.5;
@@ -1051,13 +1026,14 @@
   min-height: 24px;
   padding: 0 9px;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--pack-color) 12%, #FFFFFF);
+  background: #FAF3E6;
+  color: var(--ink-soft);
   margin-top: 12px;
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  border: 1px solid color-mix(in srgb, var(--pack-color) 28%, rgba(23, 23, 56, 0.08));
+  border: 1px solid #E9E2D3;
 }
 
 /* ─── AI / Use where you are ─────────────────────────── */

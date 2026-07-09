@@ -36,7 +36,7 @@ const PACKS = [
     label: 'Knows when to ask more',
     desc: 'When it needs more context, intori asks one focused question instead of guessing.',
     badge: 'No guessing',
-    color: '#60B3D7',
+    color: '#D467FF',
   },
   {
     icon: '/brand/icons/sports_fans.svg',
@@ -57,14 +57,14 @@ const PACKS = [
     label: 'Fresh where it matters',
     desc: 'Music, sports, food, and plans can include source and freshness notes.',
     badge: 'Fresh context',
-    color: '#60B3D7',
+    color: '#F76B15',
   },
   {
-    icon: '/brand/icons/travel_enthusiasts.svg',
-    label: 'Easy to continue',
-    desc: 'Take the first pass into ChatGPT, Claude, Gemini, or a trusted app.',
-    badge: 'Continue',
-    color: '#60B3D7',
+    icon: '/brand/icons/casual_socializers.svg',
+    label: 'See more, in-app',
+    desc: 'Each helper opens with a warm intro, shows picks made for you, and lets you look further.',
+    badge: 'See more',
+    color: '#FF5C8A',
   },
 ]
 
@@ -72,7 +72,7 @@ const HOW_STEPS = [
   {
     number: "1",
     title: "Choose where to start.",
-    body: "Start with food, game day, live music, or style — the daily helpers intori personalizes for you.",
+    body: "Start with food, game day, live music, or style, the daily helpers intori personalizes for you.",
     visual: "packs",
   },
   {
@@ -84,7 +84,7 @@ const HOW_STEPS = [
   {
     number: "3",
     title: "Get picks made for you.",
-    body: "Run intori for food picks, game-day options, live-music ideas, and style finds — then go deeper in a quick chat.",
+    body: "Run intori for food picks, game-day plans, live-music ideas, and style finds, then see more in a quick chat inside intori.",
     visual: "tools",
   },
 ]
@@ -178,10 +178,9 @@ function HowVisual({ type }: { type: string }) {
 
   if (type === "tools") {
     return (
-      <div className={styles.toolMiniRow} aria-hidden="true">
-        <span className={styles.toolMini}><ChatGPTLogo /></span>
-        <span className={styles.toolMini}><ClaudeLogo /></span>
-        <span className={styles.toolMini}><GeminiLogo /></span>
+      <div className={styles.seeMoreMini} aria-hidden="true">
+        <span className={styles.seeMoreBubble}>Here&rsquo;s your first pass</span>
+        <span className={styles.seeMoreChip}>See more &rarr;</span>
       </div>
     )
   }
@@ -363,7 +362,7 @@ export default function HomePage() {
             </div>
           </section>
 
-          <section id="packs" className={styles.packsSection}>
+          <section id="why" className={styles.packsSection}>
             <div className={styles.container}>
               <h2 className={styles.sectionHeading}>Why intori gets more useful</h2>
               <p className={styles.packsSub}>Your answers teach intori what matters, when to ask for more, and how to explain the first pass it gives you.</p>
@@ -375,20 +374,13 @@ export default function HomePage() {
                     style={{ '--pack-color': pack.color } as CSSProperties}
                   >
                     <div className={styles.packIconBand}>
-                      <div
-                        className={styles.packIconWrap}
-                        style={{
-                          background: pack.color,
-                          borderColor: `${pack.color}f0`,
-                          boxShadow: `0 0 22px ${pack.color}66`,
-                        }}
-                      >
+                      <div className={styles.packIconWrap}>
                         <Image src={pack.icon} alt="" width={34} height={34} className={styles.packIcon} />
                       </div>
                     </div>
                     <p className={styles.packLabel}>{pack.label}</p>
                     <p className={styles.packDesc}>{pack.desc}</p>
-                    <span className={styles.packCluster} style={{ color: pack.color }}>{pack.badge}</span>
+                    <span className={styles.packCluster}>{pack.badge}</span>
                   </div>
                 ))}
               </div>

@@ -31,7 +31,7 @@ export function MarketingHeader() {
           </Link>
           <nav className={styles.nav} aria-label="Primary navigation">
             <Link href="/#how-it-works" className={styles.navLink}>How it works</Link>
-            <Link href="/#packs" className={styles.navLink}>Why it works</Link>
+            <Link href="/#why" className={styles.navLink}>Why it works</Link>
             <Link href="/news" className={styles.navLink}>News</Link>
             <span className={styles.navLinkDisabled} aria-disabled="true">Developers</span>
             <a

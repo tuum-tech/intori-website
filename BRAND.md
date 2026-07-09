@@ -5,6 +5,39 @@
 
 ---
 
+## 0. Warm "Direction A" system (updated 2026-07-09) — AUTHORITATIVE
+
+> **The intori.co marketing site now uses the warm token system below.** The
+> crypto-neon values in the historical sections that follow (`#D5F74E` lime,
+> `#121212`/`#171738` dark grounds, `#F8F8F7` panel, `#60B3D7` blue, `#F2FD00`
+> yellow) are **superseded** and kept only for reference.
+
+| Role | Value |
+|---|---|
+| ground (page) | `#FCF8F1` |
+| warm plane (alt sections / chips) | `#FAF3E6` |
+| paper-soft (placeholders / quotes) | `#F7F2E9` |
+| card | `#FFFFFF` |
+| ink (text, headings, **CTAs**) | `#26213E` |
+| ink-hover (CTA hover) | `#322B4E` |
+| ink-soft (secondary text) | `rgba(38, 33, 62, 0.62)` |
+| ink-faint (disabled / meta) | `rgba(38, 33, 62, 0.42)` |
+| hairline (borders / dividers) | `#E9E2D3` |
+| spark (accent, **non-text only**) | `#93B32A` |
+| card shadow | `0 1px 2px rgba(38,33,62,.04), 0 15px 34px -14px rgba(38,33,62,.17)` |
+| radii | card `22px` · imagery `16px` · pill `999px` |
+
+**Contrast guardrail:** `#93B32A` fails WCAG AA as text/glyph on cream — use it
+ONLY as a non-text accent (dot, 3px rule, artwork). Every glyph, numeral, check,
+and code character on a light ground is ink `#26213E`.
+
+**Cluster accents (artwork / thumbnails ONLY — never text, fill, border, or glow):**
+sports `#F76B15` · food `#E5484D` · music `#D467FF` · style `#FF5C8A`.
+`#60B3D7` (blue) and `#F2FD00` (neon yellow) are **retired**. Other cluster
+categories in the legacy tables below still need warm accents assigned by design.
+
+---
+
 ## 1. Color Palette
 
 ### Primary Brand Colors

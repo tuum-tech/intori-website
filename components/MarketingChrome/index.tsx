@@ -25,7 +25,6 @@ export function MarketingHeader() {
               alt="intori"
               width={80}
               height={36}
-              className={styles.darkLogo}
               priority
             />
           </Link>
@@ -61,7 +60,6 @@ export function MarketingFooter() {
             alt="intori"
             width={72}
             height={32}
-            className={styles.darkLogo}
           />
           <nav className={styles.footerNav} aria-label="Footer">
             <Link href="/faq" className={styles.footerLink}>FAQ</Link>

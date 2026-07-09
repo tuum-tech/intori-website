@@ -32,10 +32,6 @@
   flex-shrink: 0;
 }
 
-.darkLogo {
-  filter: brightness(0) saturate(100%) invert(9%) sepia(24%) saturate(1997%) hue-rotate(210deg) brightness(94%) contrast(96%);
-}
-
 .nav {
   display: flex;
   align-items: center;

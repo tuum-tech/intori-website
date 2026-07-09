@@ -4,6 +4,18 @@
 
 ---
 
+> **⚠️ Updated 2026-07-09 — Warm "Direction A" reskin.** intori.co now uses the warm
+> token system (ground `#FCF8F1`, plane `#FAF3E6`, paper-soft `#F7F2E9`, card `#FFFFFF`,
+> ink/CTA `#26213E`, ink-hover `#322B4E`, ink-soft `rgba(38,33,62,.62)`, hairline
+> `#E9E2D3`, spark `#93B32A` non-text only; card shadow
+> `0 1px 2px rgba(38,33,62,.04), 0 15px 34px -14px rgba(38,33,62,.17)`). See `BRAND.md`
+> §0 for the full table. The crypto-neon values below (`#D5F74E`, `#121212`, `#F8F8F7`,
+> `#60B3D7`, `#F2FD00`) are **superseded**. Cluster accents are artwork-only: sports
+> `#F76B15` · food `#E5484D` · music `#D467FF` · style `#FF5C8A`; `#60B3D7`/`#F2FD00`
+> retired. The logo now ships ink `#26213E` fills (no dark-logo filter needed).
+
+---
+
 ## Hero Layout Proposals
 
 ### Concept A: "Stamp Cascade" (Recommended)

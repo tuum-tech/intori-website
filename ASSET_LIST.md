@@ -5,6 +5,16 @@
 
 ---
 
+> **⚠️ Updated 2026-07-09 — Warm "Direction A" reskin.** intori.co now uses the warm
+> token system (see `BRAND.md` §0). Asset notes below that reference the crypto-neon
+> palette (`#D5F74E`, `#121212`, `#F8F8F7`, `#60B3D7`, `#F2FD00`) are **superseded**.
+> Notable asset changes: `public/intori-logo-full.svg` now ships ink `#26213E` fills;
+> `public/brand/icons/*.svg` re-filled `#171738` → `#26213E`; `public/app-bg.png`
+> removed (unused). Cluster accents are artwork-only: sports `#F76B15` · food
+> `#E5484D` · music `#D467FF` · style `#FF5C8A`; `#60B3D7`/`#F2FD00` retired.
+
+---
+
 ## 1. Logo & Brand Assets
 
 | Asset | Path | Format | Size | Notes |

@@ -109,6 +109,9 @@ function HeroPhone() {
   return (
     <div className={styles.heroPhoneShell}>
       <div className={styles.heroPhoneScreenSlot}>
+        {/* TODO(PR7 asset): replace with a signed-in warm capture at
+            /brand/warm/hero-todays-checkins.jpg (Today's check-ins home, or a
+            finished Today's Food result). This src is a warm-era placeholder. */}
         <Image
           src="/brand/era2/hero-intori-music-pack-ready.jpg"
           alt="intori Today's Food result on the web app"
@@ -126,6 +129,8 @@ function HowPackPhone() {
   return (
     <div className={styles.howPackPhone} aria-hidden="true">
       <div className={styles.howPackPhoneScreen}>
+        {/* TODO(PR7 asset): replace with /brand/warm/checkin-question-music.png
+            (signed-in warm check-in question). This src is a placeholder. */}
         <Image
           src="/brand/era2/pack-question-music.png"
           alt=""
@@ -301,6 +306,9 @@ export default function HomePage() {
                     <article className={`${styles.howCard}${step.visual === 'pack-card' ? ` ${styles.howCardPack}` : ''}`}>
                       {step.visual === 'pack-card' && (
                         <div className={styles.howPackCardBackdrop} aria-hidden="true">
+                          {/* TODO(PR7 asset): swap this stamp backdrop for a warm
+                              product screenshot or neutral cluster artwork. It is
+                              washed to a faint watermark for now. */}
                           <Image
                             src="/brand/stamps/MUSIC LOVERS/MAIN.png"
                             alt=""

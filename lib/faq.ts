@@ -72,7 +72,7 @@ export const FAQ: FaqItem[] = [
     question: "Where can I use intori?",
     answer: [
       "intori is on the web at app.intori.co. Just sign in to get started.",
-      "It is also in the World App, where it is already used by more than 6,655 verified humans."
+      "It is also in the World App, where it is already used by more than 6,500 verified humans."
     ]
   },
   {

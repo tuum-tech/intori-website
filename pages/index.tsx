@@ -139,7 +139,7 @@ function HeroPhone() {
       <div className={styles.heroPhoneScreenSlot}>
         <Image
           src="/brand/era2/hero-intori-music-pack-ready.jpg"
-          alt="intori music pack ready screen"
+          alt="intori Today's Food result on the web app"
           width={1206}
           height={2622}
           className={styles.heroPhoneScreenshot}
@@ -200,7 +200,7 @@ export default function HomePage() {
     <>
       <SeoHead
         title="intori - Made for you. Within minutes."
-        description="Answer a few quick questions and intori gives you a useful first pass for food, game day, live music, and style — then go deeper in a quick chat. On the web and in World App."
+        description="Answer a few quick questions and intori gives you a useful first pass for food, game day, live music, and style, then a warm chat to see more. On the web and in World App."
         canonicalPath="/"
         ogDescription="Answer a little. Get a useful first pass that already knows what matters to you."
         ogImageAlt="intori preview with personalized app signals"
@@ -221,7 +221,7 @@ export default function HomePage() {
                     Made for you.<br />Within minutes.
                   </h1>
                   <p className={styles.heroBody}>
-                    Answer a few quick questions and intori gives you a useful first pass — for food, game day, live music, and style — then go deeper in a quick chat. On the web and in World App.
+                    Answer a few quick questions and intori gives you a useful first pass for food, game day, live music, and style, then a warm chat to see more. On the web and in World App.
                   </p>
                   <div className={styles.heroCtas}>
                     <a
@@ -263,7 +263,7 @@ export default function HomePage() {
                         className={styles.worldBadge}
                       />
                       <p className={styles.trustCopy}>
-                        Already used by <strong>5,500+</strong> verified humans on World
+                        Already used by <strong>6,655+</strong> verified humans on World
                       </p>
                     </div>
                   </div>

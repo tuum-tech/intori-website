@@ -8,15 +8,15 @@ export const FAQ: FaqItem[] = [
   {
     question: "What is intori?",
     answer: [
-      "intori helps you get useful personalized recommendations, plans, and drafts without starting from scratch every time.",
-      "Choose where to start, answer a few quick questions, and intori uses what it learns to shape food picks, game-day options, live-music ideas, style finds, and more around you."
+      "intori gives you personalized recommendations and plans without starting from scratch every time.",
+      "Choose where to start, answer a few quick questions, and intori uses what it learns to shape your food picks, game-day plans, live-music ideas, and style finds around you."
     ]
   },
   {
     question: "Why would I use intori instead of just asking AI myself?",
     answer: [
       "Because repeating yourself gets old.",
-      "Your taste, preferences, pace, budget, interests, and boundaries should not have to be explained again every time you use a new AI tool. intori helps you build that once, then use it wherever you want a more personal starting point."
+      "Your taste, budget, pace, and boundaries should not have to be explained from scratch every time you want a recommendation. intori learns them once and uses them across every helper, so each result already starts closer to you."
     ]
   },
   {
@@ -44,21 +44,21 @@ export const FAQ: FaqItem[] = [
     question: "What can intori do right now?",
     answer: [
       "Four daily helpers are live: Today's Food, Game Day, live-music ideas, and Style Finds.",
-      "Each gives you a useful first pass that fits your taste, timing, and constraints — and you can go deeper in a quick chat when you want more."
+      "Each gives you a useful first pass that fits your taste, timing, and constraints, and you can go deeper in a quick chat inside intori whenever you want more."
     ]
   },
   {
     question: "How is intori different from ChatGPT, Claude, or Gemini?",
     answer: [
-      "ChatGPT, Claude, and Gemini are great places to keep working.",
-      "intori helps with the part before that: remembering what matters to you and getting the first personalized request started. After that, you can continue in the AI tool you already use."
+      "General AI tools start you at a blank box and wait for you to explain what you want.",
+      "intori already remembers what matters to you and does the first pass for you, so you get useful food picks, game-day plans, live-music ideas, and style finds without setting the scene every time. When you want more, you go deeper in a quick chat right inside intori."
     ]
   },
   {
     question: "Will I have to keep answering the same questions?",
     answer: [
-      "No, that is one of the main problems intori is trying to solve.",
-      "Like filling out the same form over and over, repeating your preferences to every AI tool is annoying. intori helps you carry what you have already shared into future recommendations, plans, and drafts."
+      "No. That is one of the main problems intori is built to solve.",
+      "Repeating your preferences over and over is tiring. intori carries what you have already shared into every helper, so your answers keep making future recommendations and plans better instead of starting over."
     ]
   },
   {
@@ -71,15 +71,15 @@ export const FAQ: FaqItem[] = [
   {
     question: "Where can I use intori?",
     answer: [
-      "intori is on the web at app.intori.co — just sign in to get started.",
-      "It is also in the World App, where it is already used by thousands of verified humans."
+      "intori is on the web at app.intori.co. Just sign in to get started.",
+      "It is also in the World App, where it is already used by more than 6,655 verified humans."
     ]
   },
   {
     question: "Why does intori mention verified humans?",
     answer: [
       "World ID gives intori a verified-human trust layer and lets your personalization carry across the web and the World App.",
-      "It helps keep access fair and reduce abuse, but it is not a gate — anyone can use intori on the web."
+      "It helps keep access fair and reduce abuse, but it is not a gate. Anyone can use intori on the web."
     ]
   },
   {

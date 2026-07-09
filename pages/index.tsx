@@ -134,7 +134,6 @@ function HowPackPhone() {
           className={styles.howPackPhoneScreenshot}
         />
       </div>
-      <div className={styles.howPackPhoneIsland} />
     </div>
   )
 }
@@ -234,7 +233,7 @@ export default function HomePage() {
                         className={styles.worldBadge}
                       />
                       <p className={styles.trustCopy}>
-                        Already used by <strong>6,655+</strong> verified humans on World
+                        Already used by <strong>6,500+</strong> verified humans on World
                       </p>
                     </div>
                   </div>
@@ -376,9 +375,13 @@ export default function HomePage() {
                   </a>
                 </div>
                 <div className={styles.helperPeek} aria-hidden="true">
-                  <p className={styles.peekBubble}>Hi! Here&rsquo;s tonight&rsquo;s dinner, made for you.</p>
-                  <p className={styles.peekResult}>Thai basil chicken · 20 min</p>
-                  <span className={styles.peekMore}>See more picks &rarr;</span>
+                  <Image
+                    src="/brand/warm/todays-food-result.jpg"
+                    alt=""
+                    width={820}
+                    height={1782}
+                    className={styles.peekShot}
+                  />
                 </div>
               </div>
             </div>

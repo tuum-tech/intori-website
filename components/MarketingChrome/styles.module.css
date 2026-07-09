@@ -13,10 +13,10 @@
   top: 0;
   z-index: 50;
   height: 80px;
-  background: rgba(244, 244, 240, 0.94);
+  background: rgba(252, 248, 241, 0.94);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(23, 23, 56, 0.09);
+  border-bottom: 1px solid #E9E2D3;
 }
 
 .headerInner {
@@ -32,10 +32,6 @@
   flex-shrink: 0;
 }
 
-.darkLogo {
-  filter: brightness(0) saturate(100%) invert(9%) sepia(24%) saturate(1997%) hue-rotate(210deg) brightness(94%) contrast(96%);
-}
-
 .nav {
   display: flex;
   align-items: center;
@@ -44,7 +40,7 @@
 
 .navLink,
 .navLinkDisabled {
-  color: #161823;
+  color: #26213E;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0;
@@ -60,7 +56,7 @@
 }
 
 .navLinkDisabled {
-  color: rgba(22, 24, 35, 0.40);
+  color: rgba(38, 33, 62, 0.42);
   cursor: default;
   user-select: none;
 }
@@ -73,8 +69,8 @@
   min-height: 44px;
   padding: 0 22px;
   border-radius: 8px;
-  background: #D5F74E;
-  color: #171738;
+  background: #26213E;
+  color: #FCF8F1;
   font-size: 14px;
   font-weight: 800;
   line-height: 1;
@@ -84,12 +80,12 @@
 }
 
 .ctaPrimary:hover {
-  background: #CAE94A;
+  background: #322B4E;
 }
 
 .footer {
-  background: #fff;
-  border-top: 1px solid rgba(23, 23, 56, 0.09);
+  background: #FAF3E6;
+  border-top: 1px solid #E9E2D3;
 }
 
 .footerInner {
@@ -107,7 +103,7 @@
 .footerLink,
 .footerCopy {
   margin: 0;
-  color: rgba(22, 24, 35, 0.40);
+  color: rgba(38, 33, 62, 0.42);
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
@@ -115,7 +111,7 @@
 }
 
 .footerLink:hover {
-  color: #161823;
+  color: #26213E;
 }
 
 @media (max-width: 1180px) {

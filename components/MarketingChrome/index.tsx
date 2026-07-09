@@ -25,13 +25,12 @@ export function MarketingHeader() {
               alt="intori"
               width={80}
               height={36}
-              className={styles.darkLogo}
               priority
             />
           </Link>
           <nav className={styles.nav} aria-label="Primary navigation">
             <Link href="/#how-it-works" className={styles.navLink}>How it works</Link>
-            <Link href="/#packs" className={styles.navLink}>Why it works</Link>
+            <Link href="/#why" className={styles.navLink}>Why it works</Link>
             <Link href="/news" className={styles.navLink}>News</Link>
             <span className={styles.navLinkDisabled} aria-disabled="true">Developers</span>
             <a
@@ -61,7 +60,6 @@ export function MarketingFooter() {
             alt="intori"
             width={72}
             height={32}
-            className={styles.darkLogo}
           />
           <nav className={styles.footerNav} aria-label="Footer">
             <Link href="/faq" className={styles.footerLink}>FAQ</Link>

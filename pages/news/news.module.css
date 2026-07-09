@@ -11,11 +11,8 @@
 .newsArticleWrapper,
 .page {
   min-height: 100vh;
-  background:
-    radial-gradient(circle at 78% 10%, rgba(213, 247, 78, 0.10), transparent 28%),
-    radial-gradient(circle at 12% 42%, rgba(212, 103, 255, 0.08), transparent 32%),
-    #F4F4F0;
-  color: #161823;
+  background: #FCF8F1;
+  color: #26213E;
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -38,8 +35,8 @@
   top: 0;
   z-index: 20;
   height: 80px;
-  background: rgba(244, 244, 240, 0.94);
-  border-bottom: 1px solid rgba(23, 23, 56, 0.09);
+  background: rgba(252, 248, 241, 0.94);
+  border-bottom: 1px solid #E9E2D3;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
@@ -65,7 +62,7 @@
 }
 
 .nav a {
-  color: #161823;
+  color: #26213E;
   font-size: 14px;
   font-weight: 750;
   text-decoration: none;
@@ -75,8 +72,8 @@
   min-height: 44px;
   padding: 0 18px;
   border-radius: 8px;
-  background: #D5F74E;
-  color: #171738 !important;
+  background: #26213E;
+  color: #FCF8F1 !important;
   font-weight: 850 !important;
 }
 
@@ -91,7 +88,7 @@
 .indexTitle {
   font-size: clamp(36px, 5vw, 56px);
   font-weight: 900;
-  color: #171738;
+  color: #26213E;
   letter-spacing: -0.025em;
   margin: 0 0 10px;
   line-height: 1.05;
@@ -99,7 +96,7 @@
 
 .indexSubtitle {
   font-size: 16px;
-  color: rgba(22, 24, 35, 0.64);
+  color: rgba(38, 33, 62, 0.64);
   margin: 0;
   line-height: 1.5;
   font-weight: 550;
@@ -115,22 +112,28 @@
   padding: 0 0 96px;
 }
 
+.emptyNote {
+  margin: 0;
+  padding: 4px 0 64px;
+  color: rgba(38, 33, 62, 0.62);
+  font-size: 16px;
+  font-weight: 550;
+}
+
 .postCard {
   display: block;
   text-decoration: none;
-  border: 1px solid rgba(23, 23, 56, 0.09);
+  border: 1px solid #E9E2D3;
   border-radius: 18px;
-  background:
-    radial-gradient(circle at 90% 4%, rgba(96, 179, 215, 0.08), transparent 32%),
-    #FFFFFF;
-  box-shadow: 0 12px 28px rgba(23, 23, 56, 0.06);
+  background: #FFFFFF;
+  box-shadow: 0 1px 2px rgba(38, 33, 62, 0.04), 0 15px 34px -14px rgba(38, 33, 62, 0.17);
   overflow: hidden;
   transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
 }
 
 .postCard:hover {
-  border-color: rgba(23, 23, 56, 0.14);
-  box-shadow: 0 18px 38px rgba(23, 23, 56, 0.09);
+  border-color: rgba(38, 33, 62, 0.14);
+  box-shadow: 0 18px 38px rgba(38, 33, 62, 0.09);
   transform: translateY(-2px);
 }
 
@@ -157,7 +160,7 @@
 .postCardDate {
   font-size: 12px;
   font-weight: 800;
-  color: rgba(22, 24, 35, 0.44);
+  color: rgba(38, 33, 62, 0.44);
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -165,7 +168,7 @@
 .postCardTitle {
   font-size: clamp(20px, 2.5vw, 26px);
   font-weight: 900;
-  color: #171738;
+  color: #26213E;
   letter-spacing: -0.025em;
   line-height: 1.2;
   margin: 0 0 10px;
@@ -174,7 +177,7 @@
 .postCardDek {
   font-size: 15px;
   line-height: 1.6;
-  color: rgba(22, 24, 35, 0.64);
+  color: rgba(38, 33, 62, 0.64);
   margin: 0;
   font-weight: 550;
 }
@@ -185,7 +188,8 @@
   height: 107px;
   border-radius: 10px;
   object-fit: cover;
-  background: #ECEBE5;
+  background: #F7F2E9;
+  border: 1px solid #E9E2D3;
 }
 
 /* ==========================================================================
@@ -201,8 +205,8 @@
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  background: rgba(23, 23, 56, 0.07);
-  color: rgba(22, 24, 35, 0.60);
+  background: #FAF3E6;
+  color: rgba(38, 33, 62, 0.60);
   white-space: nowrap;
 }
 
@@ -225,7 +229,7 @@
 .postDate {
   font-size: 12px;
   font-weight: 800;
-  color: rgba(22, 24, 35, 0.44);
+  color: rgba(38, 33, 62, 0.44);
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -233,7 +237,7 @@
 .postTitle {
   font-size: clamp(28px, 4.5vw, 52px);
   font-weight: 900;
-  color: #171738;
+  color: #26213E;
   letter-spacing: -0.025em;
   line-height: 1.08;
   margin: 0 0 18px;
@@ -242,19 +246,19 @@
 .postDek {
   font-size: clamp(17px, 2vw, 20px);
   line-height: 1.55;
-  color: rgba(22, 24, 35, 0.64);
+  color: rgba(38, 33, 62, 0.64);
   margin: 0 0 20px;
   max-width: 680px;
 }
 
 .postAuthorLine {
   font-size: 13px;
-  color: rgba(22, 24, 35, 0.44);
+  color: rgba(38, 33, 62, 0.44);
   margin: 0;
 }
 
 .postAuthorLine strong {
-  color: rgba(22, 24, 35, 0.78);
+  color: rgba(38, 33, 62, 0.78);
   font-weight: 800;
 }
 
@@ -264,12 +268,12 @@
 
 .heroImageWrap {
   margin: 0 0 48px;
-  border: 1px solid rgba(23, 23, 56, 0.09);
+  border: 1px solid #E9E2D3;
   border-radius: 18px;
   overflow: hidden;
-  background: #ECEBE5;
+  background: #F7F2E9;
   aspect-ratio: 16 / 9;
-  box-shadow: 0 16px 36px rgba(23, 23, 56, 0.08);
+  box-shadow: 0 1px 2px rgba(38, 33, 62, 0.04), 0 15px 34px -14px rgba(38, 33, 62, 0.17);
 }
 
 .heroImage {
@@ -281,10 +285,8 @@
 
 /* Hero image fallback — dark branded block when no image is set */
 .heroImageFallback {
-  background:
-    radial-gradient(circle at 82% 20%, rgba(96, 179, 215, 0.16), transparent 34%),
-    radial-gradient(circle at 8% 100%, rgba(213, 247, 78, 0.10), transparent 36%),
-    linear-gradient(135deg, #171738 0%, #1F1F43 100%);
+  background: #FAF3E6;
+  border: 1px solid #E9E2D3;
   border-radius: 18px;
   padding: 96px 48px;
   display: flex;
@@ -297,7 +299,7 @@
   width: 140px;
   height: auto;
   display: block;
-  /* intori-logo-full.svg uses white fills — shows cleanly on dark bg */
+  /* intori-logo-full.svg now ships ink #26213E fills; no filter needed on cream */
 }
 
 /* ==========================================================================
@@ -307,19 +309,19 @@
 .postBody {
   font-size: 17px;
   line-height: 1.75;
-  color: rgba(22, 24, 35, 0.74);
-  border: 1px solid rgba(23, 23, 56, 0.09);
+  color: rgba(38, 33, 62, 0.74);
+  border: 1px solid #E9E2D3;
   border-radius: 18px;
   background: #fff;
   padding: clamp(28px, 5vw, 52px);
   margin-bottom: 80px;
-  box-shadow: 0 16px 36px rgba(23, 23, 56, 0.07);
+  box-shadow: 0 1px 2px rgba(38, 33, 62, 0.04), 0 15px 34px -14px rgba(38, 33, 62, 0.17);
 }
 
 .postBody h2 {
   font-size: clamp(22px, 3vw, 28px);
   font-weight: 900;
-  color: #171738;
+  color: #26213E;
   letter-spacing: -0.025em;
   line-height: 1.2;
   margin: 56px 0 18px;
@@ -328,7 +330,7 @@
 .postBody h3 {
   font-size: 20px;
   font-weight: 850;
-  color: #171738;
+  color: #26213E;
   letter-spacing: -0.015em;
   margin: 40px 0 14px;
 }
@@ -348,7 +350,7 @@
 }
 
 .postBody a {
-  color: #171738;
+  color: #26213E;
   font-weight: 800;
   text-underline-offset: 3px;
 }
@@ -359,7 +361,7 @@
 
 .postBody strong {
   font-weight: 850;
-  color: #171738;
+  color: #26213E;
 }
 
 .postBody em {
@@ -368,7 +370,7 @@
 
 .postBody hr {
   border: none;
-  border-top: 1px solid rgba(23, 23, 56, 0.10);
+  border-top: 1px solid rgba(38, 33, 62, 0.10);
   margin: 48px 0;
 }
 
@@ -376,15 +378,15 @@
 .postBody blockquote {
   margin: 40px 0;
   padding: 28px 32px;
-  background: #F4F4F0;
-  border-left: 4px solid #D5F74E;
+  background: #F7F2E9;
+  border-left: 3px solid #93B32A;
   border-radius: 0 12px 12px 0;
 }
 
 .postBody blockquote p {
   font-size: 18px;
   font-style: italic;
-  color: rgba(22, 24, 35, 0.74);
+  color: rgba(38, 33, 62, 0.74);
   margin: 0;
   line-height: 1.65;
 }
@@ -395,10 +397,8 @@
 
 .ctaBand {
   width: 100%;
-  background:
-    radial-gradient(circle at 80% 18%, rgba(96, 179, 215, 0.16), transparent 34%),
-    radial-gradient(circle at 8% 100%, rgba(213, 247, 78, 0.10), transparent 36%),
-    linear-gradient(135deg, #171738 0%, #1F1F43 100%);
+  background: #FAF3E6;
+  border-top: 1px solid #E9E2D3;
   margin: 0;
   padding: 64px 0;
   text-align: center;
@@ -413,7 +413,7 @@
 .ctaTagline {
   font-size: clamp(22px, 3vw, 32px);
   font-weight: 900;
-  color: #FFFFFF;
+  color: #26213E;
   letter-spacing: -0.025em;
   line-height: 1.3;
   margin: 0 0 36px;
@@ -426,24 +426,20 @@
   gap: 10px;
   min-height: 56px;
   padding: 0 30px;
-  background: #D5F74E;
-  color: #0F1419;
+  background: #26213E;
+  color: #FCF8F1;
   border-radius: 8px;
   font-size: 15px;
   font-weight: 800;
   line-height: 1;
   text-decoration: none;
   transition: transform 0.18s ease-out, box-shadow 0.18s ease-out;
-  box-shadow:
-    0 0 24px rgba(213, 247, 78, 0.35),
-    0 8px 24px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 2px rgba(38, 33, 62, 0.04), 0 15px 34px -14px rgba(38, 33, 62, 0.17);
 }
 
 .ctaPrimary:hover {
   transform: translateY(-2px);
-  box-shadow:
-    0 0 32px rgba(213, 247, 78, 0.45),
-    0 12px 32px rgba(0, 0, 0, 0.30);
+  box-shadow: 0 1px 2px rgba(38, 33, 62, 0.05), 0 20px 40px -16px rgba(38, 33, 62, 0.22);
 }
 
 .ctaProviders {
@@ -458,9 +454,9 @@
   justify-content: center;
   min-height: 42px;
   padding: 0 22px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid #E9E2D3;
   border-radius: 8px;
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(38, 33, 62, 0.62);
   font-size: 14px;
   font-weight: 800;
   text-decoration: none;
@@ -468,9 +464,9 @@
 }
 
 .ctaProviderLink:hover {
-  color: #FFFFFF;
-  border-color: rgba(213, 247, 78, 0.36);
-  background: rgba(255, 255, 255, 0.06);
+  color: #26213E;
+  border-color: #26213E;
+  background: rgba(38, 33, 62, 0.04);
 }
 
 /* ==========================================================================
@@ -479,7 +475,7 @@
 
 .divider {
   height: 1px;
-  background: rgba(18, 18, 18, 0.07);
+  background: #E9E2D3;
   margin: 0;
 }
 

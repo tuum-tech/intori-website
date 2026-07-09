@@ -49,6 +49,9 @@ export default function NewsIndex({
 
           {/* Post list */}
           <div className={styles.postList}>
+            {posts.length === 0 && (
+              <p className={styles.emptyNote}>More soon.</p>
+            )}
             {posts.map((post) => (
               <Link
                 key={post.slug}

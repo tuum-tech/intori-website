@@ -10,7 +10,7 @@ const FaqPage: NextPage = () => {
     <>
       <SeoHead
         title="FAQ - intori"
-        description="Questions about intori, personalization, World, Credits, and continuing in your favorite AI tool."
+        description="Questions about intori, personalization, World, Credits, and going deeper inside the app."
         canonicalPath="/faq"
         ogImageAlt="intori FAQ preview"
       />

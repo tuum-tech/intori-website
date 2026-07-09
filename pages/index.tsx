@@ -109,14 +109,11 @@ function HeroPhone() {
   return (
     <div className={styles.heroPhoneShell}>
       <div className={styles.heroPhoneScreenSlot}>
-        {/* TODO(PR7 asset): replace with a signed-in warm capture at
-            /brand/warm/hero-todays-checkins.jpg (Today's check-ins home, or a
-            finished Today's Food result). This src is a warm-era placeholder. */}
         <Image
-          src="/brand/era2/hero-intori-music-pack-ready.jpg"
-          alt="intori Today's Food result on the web app"
-          width={1206}
-          height={2622}
+          src="/brand/warm/hero-todays-checkins.jpg"
+          alt="intori home screen with today's check-ins and helpers"
+          width={820}
+          height={1782}
           className={styles.heroPhoneScreenshot}
           priority
         />
@@ -129,13 +126,11 @@ function HowPackPhone() {
   return (
     <div className={styles.howPackPhone} aria-hidden="true">
       <div className={styles.howPackPhoneScreen}>
-        {/* TODO(PR7 asset): replace with /brand/warm/checkin-question-music.png
-            (signed-in warm check-in question). This src is a placeholder. */}
         <Image
-          src="/brand/era2/pack-question-music.png"
+          src="/brand/warm/checkin-question-music.jpg"
           alt=""
-          width={1206}
-          height={2622}
+          width={820}
+          height={1782}
           className={styles.howPackPhoneScreenshot}
         />
       </div>

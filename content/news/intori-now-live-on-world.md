@@ -5,6 +5,11 @@ date: "2026-02-26"
 author: "Donald Bullers"
 slug: "intori-now-live-on-world"
 heroImage: "/news/intori-world-01.png"
+# Unpublished 2026-07-19: the body is an accurate Feb 2026 record (including
+# third-party quotes) of the v1 stamps/social-discovery product and its
+# verified-human framing. Both are superseded. Kept verbatim rather than
+# rewritten so the quotes stay true to what was said; hidden from the site.
+published: false
 tags:
   - "World"
   - "Identity"

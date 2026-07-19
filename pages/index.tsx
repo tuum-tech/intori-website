@@ -170,10 +170,10 @@ export default function HomePage() {
     <>
       <SeoHead
         title="intori - Made for you. Within minutes."
-        description="Answer a few quick questions and intori gives you a useful first pass for food, game day, live music, and style, then a warm chat to see more. On the web and in World App."
+        description="What's for dinner? intori hands you three picks for tonight — shaped by your household's tastes, in about 30 seconds. Game day, live music, and style come next. On the web and in World App."
         canonicalPath="/"
-        ogDescription="Answer a little. Get a useful first pass that already knows what matters to you."
-        ogImageAlt="intori preview with personalized app signals"
+        ogDescription="Three dinner picks for tonight, in about 30 seconds — built around your household's tastes."
+        ogImageAlt="intori preview showing tonight's dinner picks"
       />
 
       <div className={styles.page}>
@@ -186,12 +186,12 @@ export default function HomePage() {
               <div className={styles.heroGrid}>
 
                 <div className={styles.heroLeft}>
-                  <p className={styles.heroEyebrow}>Personalization, built from you</p>
+                  <p className={styles.heroEyebrow}>Tonight&rsquo;s dinner, sorted</p>
                   <h1 className={styles.heroHeadline}>
-                    Made for you.<br />Within minutes.
+                    Dinner,<br />decided.
                   </h1>
                   <p className={styles.heroBody}>
-                    Answer a few quick questions and intori gives you a useful first pass for food, game day, live music, and style, then a warm chat to see more. On the web and in World App.
+                    Answer a few quick questions and intori hands you three dinner picks for tonight &mdash; shaped by your household&rsquo;s tastes, in about 30 seconds. Game day, live music, and style come next, each learning as you go.
                   </p>
                   <div className={styles.heroCtas}>
                     <a
@@ -225,15 +225,8 @@ export default function HomePage() {
                       ))}
                     </div>
                     <div className={styles.trustRight}>
-                      <Image
-                        src="/brand/world/world-id-verification-badge.svg"
-                        alt="World ID verified"
-                        width={20}
-                        height={20}
-                        className={styles.worldBadge}
-                      />
                       <p className={styles.trustCopy}>
-                        Already used by <strong>6,500+</strong> verified humans on World
+                        Already used by <strong>6,500+</strong> people
                       </p>
                     </div>
                   </div>

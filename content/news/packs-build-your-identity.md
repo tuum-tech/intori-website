@@ -11,7 +11,7 @@ tags:
   - "Identity"
 ---
 
-When we first announced the [launch of intori](https://www.intori.co/news/intori-now-live-on-world), every connection started the same way: one shared set of daily questions. It worked. People showed up, answered, and discovered others through those responses. But it also revealed a limitation. Identity is not one path. It is layered, contextual, and constantly evolving.
+When we first announced the launch of intori, every connection started the same way: one shared set of daily questions. It worked. People showed up, answered, and discovered others through those responses. But it also revealed a limitation. Identity is not one path. It is layered, contextual, and constantly evolving.
 
 So we rebuilt the system.
 

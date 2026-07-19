@@ -2,12 +2,9 @@ import type { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'ne
 import Head from 'next/head'
 import { MarketingFooter, MarketingHeader, WorldIcon } from '@/components/MarketingChrome'
 import { getAllSlugs, getPostBySlug, type Post } from '@/lib/news'
-import { SeoHead, SITE_URL, absoluteUrl } from '@/lib/seo'
+import { SeoHead, absoluteUrl } from '@/lib/seo'
 import { APP_URL, WORLD_APP_URL } from '@/lib/appLinks'
 import styles from './news.module.css'
-
-const LAUNCH_ARTICLE_SLUG = 'intori-now-live-on-world'
-const LAUNCH_OG_IMAGE = `${SITE_URL}/news/intori-world-01.png`
 
 type Props = {
   post: Post
@@ -44,11 +41,8 @@ function formatDate(dateStr: string) {
 export default function NewsPost({
   post,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const isLaunchArticle = post.slug === LAUNCH_ARTICLE_SLUG
   const pageTitle = `${post.title} - intori`
-  const ogImage = isLaunchArticle
-    ? LAUNCH_OG_IMAGE
-    : absoluteUrl(post.heroImage || '/og/og-default.jpg')
+  const ogImage = absoluteUrl(post.heroImage || '/og/og-default.jpg')
 
   return (
     <div className={styles.newsArticleWrapper}>

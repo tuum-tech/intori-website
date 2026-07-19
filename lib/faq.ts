@@ -72,14 +72,8 @@ export const FAQ: FaqItem[] = [
     question: "Where can I use intori?",
     answer: [
       "intori is on the web at app.intori.co. Just sign in to get started.",
-      "It is also in the World App, where it is already used by more than 6,500 verified humans."
-    ]
-  },
-  {
-    question: "Why does intori mention verified humans?",
-    answer: [
-      "World ID gives intori a verified-human trust layer and lets your personalization carry across the web and the World App.",
-      "It helps keep access fair and reduce abuse, but it is not a gate. Anyone can use intori on the web."
+      "It is also in the World App, where it is already used by more than 6,500 people.",
+      "Your answers carry across both, so whichever one you open, intori already knows you."
     ]
   },
   {

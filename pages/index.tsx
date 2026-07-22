@@ -170,10 +170,10 @@ export default function HomePage() {
     <>
       <SeoHead
         title="intori - Made for you. Within minutes."
-        description="What's for dinner? intori hands you three picks for tonight — shaped by your household's tastes, in about 30 seconds. Game day, live music, and style come next. On the web and in World App."
+        description="What's for dinner? intori hands you three picks for tonight, shaped by your household's tastes, in about 30 seconds. Then what to watch, game day, live music, and style. On the web and in World App."
         canonicalPath="/"
-        ogDescription="Three dinner picks for tonight, in about 30 seconds — built around your household's tastes."
-        ogImageAlt="intori preview showing tonight's dinner picks"
+        ogDescription="Three dinner picks for tonight, in about 30 seconds. Then what to watch, game day, live music, and style."
+        ogImageAlt="intori card reading Dinner, decided, next to a phone showing tonight's dinner picks"
       />
 
       <div className={styles.page}>

@@ -571,7 +571,7 @@
 }
 
 .floatCardWeekend {
-  left: -48px;
+  left: -20px;
   top: 42px;
 }
 
@@ -1379,7 +1379,7 @@
 
   .floatCard { width: 184px; }
   .floatCardMusic   { right: 8px; top: 284px; transform: none; }
-  .floatCardWeekend { left: 0; top: 28px; }
+  .floatCardWeekend { left: 18px; top: 28px; }
   .floatCardThree   { left: 8px; top: 492px; }
 
   .packsGrid {
@@ -1442,14 +1442,35 @@
 
   .heroBody { font-size: 16px; }
 
-  .heroCtas { flex-wrap: wrap; gap: 16px; }
-
-  .heroCtas .ctaPrimary {
-    min-height: 48px;
-    padding: 0 20px;
+  .heroCtas {
+    width: 100%;
+    flex-wrap: nowrap;
+    gap: 16px;
   }
 
-  .trustCopy { white-space: normal; }
+  .heroCtas .ctaPrimary {
+    display: none;
+  }
+
+  .heroCtas .ctaSecondary {
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .trustRow {
+    gap: 0;
+    padding-top: 0;
+  }
+
+  .avatarStack {
+    display: none;
+  }
+
+  .trustCopy {
+    color: var(--ink-faint);
+    font-size: 13px;
+    white-space: normal;
+  }
 
   .heroVisualArea { min-height: 520px; }
 
@@ -1563,7 +1584,7 @@
   .floatImage { width: 100%; height: 100%; }
 
   .floatCardMusic   { right: 6px; top: 236px; transform: none; }
-  .floatCardWeekend { left: 6px; top: 18px; }
+  .floatCardWeekend { left: 18px; top: 18px; }
   .floatCardThree   { display: none; }
 
   .howSection,

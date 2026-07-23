@@ -191,7 +191,7 @@ export default function HomePage() {
                     Dinner,<br />decided.
                   </h1>
                   <p className={styles.heroBody}>
-                    Answer a few quick questions and intori hands you three dinner picks for tonight, shaped by your household&rsquo;s tastes, in about 30 seconds. What to watch, game day, live music, and style come next, each learning as you go.
+                    Answer a few quick questions and intori hands you three dinner picks for tonight in about 30 seconds, shaped by your household&rsquo;s tastes. What to watch, game day, live music, and style come next, each learning as you go.
                   </p>
                   <div className={styles.heroCtas}>
                     <a

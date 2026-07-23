@@ -5,6 +5,9 @@ date: "2026-03-24"
 author: "Donald Bullers"
 slug: "packs-build-your-identity"
 heroImage: "/news/intori-packs-01.png"
+# Unpublished 2026-07-23: pre-pivot Packs/Stamps/matches/identity register.
+# Historical record kept verbatim; hidden from index, routes, and sitemap.
+published: false
 tags:
   - "Product"
   - "Packs"

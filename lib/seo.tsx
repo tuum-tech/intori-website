@@ -4,7 +4,7 @@ export const SITE_URL = 'https://www.intori.co'
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og/og-default.jpg`
 export const DEFAULT_TITLE = 'intori - Made for you. Within minutes.'
 export const DEFAULT_DESCRIPTION =
-  'Choose where to start, answer a few quick questions, and intori shapes personalized food picks, game-day plans, live-music ideas, and style finds around you.'
+  'Choose where to start, answer a few quick questions, and intori shapes personalized food picks, what to watch, game-day plans, live shows, and style finds around you.'
 export const DEFAULT_SOCIAL_DESCRIPTION =
   'Choose where to start, answer quick questions, and intori gives you a more personal starting point.'
 

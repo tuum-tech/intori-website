@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, viewport-fit=cover"
         />
-        <meta name="keywords" content="intori, World, personalization, food ideas, game day, live music, style finds"/>
+        <meta name="keywords" content="intori, personalization, food ideas, what to watch, game day, live music events, style finds"/>
         <meta name="author" content="Tuum Tech"/>
       </Head>
       <SeoHead canonicalPath="/" />

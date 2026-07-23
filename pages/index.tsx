@@ -72,7 +72,7 @@ const HOW_STEPS = [
   {
     number: "1",
     title: "Choose where to start.",
-    body: "Start with food, game day, live music, or style, the daily helpers intori personalizes for you.",
+    body: "Start with food, what to watch, game day, live music, or style, the daily helpers intori personalizes for you.",
     visual: "packs",
   },
   {
@@ -84,7 +84,7 @@ const HOW_STEPS = [
   {
     number: "3",
     title: "Get picks made for you.",
-    body: "Run intori for food picks, game-day plans, live-music ideas, and style finds, then see more in a quick chat inside intori.",
+    body: "Run intori for food picks, watch-night ideas, game-day plans, live shows, and style finds, then see more in a quick chat inside intori.",
     visual: "tools",
   },
 ]
@@ -191,7 +191,7 @@ export default function HomePage() {
                     Dinner,<br />decided.
                   </h1>
                   <p className={styles.heroBody}>
-                    Answer a few quick questions and intori hands you three dinner picks for tonight &mdash; shaped by your household&rsquo;s tastes, in about 30 seconds. Game day, live music, and style come next, each learning as you go.
+                    Answer a few quick questions and intori hands you three dinner picks for tonight, shaped by your household&rsquo;s tastes, in about 30 seconds. What to watch, game day, live music, and style come next, each learning as you go.
                   </p>
                   <div className={styles.heroCtas}>
                     <a
@@ -246,8 +246,8 @@ export default function HomePage() {
                         </svg>
                       </span>
                       <div className={styles.floatText}>
-                        <p className={styles.floatCardLabel}>Music</p>
-                        <p className={styles.floatCardTitle}>Better music picks for you</p>
+                        <p className={styles.floatCardLabel}>Music Events</p>
+                        <p className={styles.floatCardTitle}>See who&rsquo;s playing near you</p>
                       </div>
                     </div>
 

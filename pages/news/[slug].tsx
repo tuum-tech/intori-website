@@ -2,7 +2,7 @@ import type { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'ne
 import Head from 'next/head'
 import { MarketingFooter, MarketingHeader, WorldIcon } from '@/components/MarketingChrome'
 import { getAllSlugs, getPostBySlug, type Post } from '@/lib/news'
-import { SeoHead, absoluteUrl } from '@/lib/seo'
+import { DEFAULT_OG_IMAGE, SeoHead, absoluteUrl } from '@/lib/seo'
 import { APP_URL, WORLD_APP_URL } from '@/lib/appLinks'
 import styles from './news.module.css'
 
@@ -42,7 +42,7 @@ export default function NewsPost({
   post,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const pageTitle = `${post.title} - intori`
-  const ogImage = absoluteUrl(post.heroImage || '/og/og-default.jpg')
+  const ogImage = absoluteUrl(post.heroImage || DEFAULT_OG_IMAGE)
 
   return (
     <div className={styles.newsArticleWrapper}>

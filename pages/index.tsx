@@ -110,10 +110,10 @@ function HeroPhone() {
     <div className={styles.heroPhoneShell}>
       <div className={styles.heroPhoneScreenSlot}>
         <Image
-          src="/brand/warm/hero-todays-checkins.jpg"
-          alt="intori home screen with today's check-ins and helpers"
-          width={820}
-          height={1782}
+          src="/brand/warm/hero-home-checkin.jpg"
+          alt="intori home screen showing today's personalized check-in and helpers"
+          width={1206}
+          height={2622}
           className={styles.heroPhoneScreenshot}
           priority
         />

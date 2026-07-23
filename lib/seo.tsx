@@ -1,7 +1,11 @@
 import Head from 'next/head'
 
 export const SITE_URL = 'https://www.intori.co'
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/og/og-default.jpg`
+// Versioned filename on purpose. X and other scrapers cache OG image bytes keyed
+// by image URL, so replacing the card in place (as #197 did) leaves stale pre-pivot
+// art in every previously-scraped preview. Ship a NEW filename whenever the card
+// art changes, and leave the old file in place so historic embeds do not 404.
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/og/og-dinner-v2.jpg`
 export const DEFAULT_TITLE = 'intori - Made for you. Within minutes.'
 export const DEFAULT_DESCRIPTION =
   'Choose where to start, answer a few quick questions, and intori shapes food picks, what to watch, game-day plans, live shows, and style finds around you.'

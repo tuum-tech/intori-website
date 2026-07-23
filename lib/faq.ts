@@ -9,11 +9,11 @@ export const FAQ: FaqItem[] = [
     question: "What is intori?",
     answer: [
       "intori gives you personalized recommendations and plans without starting from scratch every time.",
-      "Choose where to start, answer a few quick questions, and intori uses what it learns to shape your food picks, game-day plans, live-music ideas, and style finds around you."
+      "Choose where to start, answer a few quick questions, and intori uses what it learns to shape your food picks, what to watch, game-day plans, live shows, and style finds around you."
     ]
   },
   {
-    question: "Why would I use intori instead of just asking AI myself?",
+    question: "Why not just search for this stuff myself?",
     answer: [
       "Because repeating yourself gets old.",
       "Your taste, budget, pace, and boundaries should not have to be explained from scratch every time you want a recommendation. intori learns them once and uses them across every helper, so each result already starts closer to you."
@@ -29,29 +29,29 @@ export const FAQ: FaqItem[] = [
   {
     question: "What can I start with?",
     answer: [
-      "intori starts with daily helpers like Today's Food, Game Day, live music, and Style Finds.",
+      "intori starts with five daily helpers: Today's Food, Watch Radar, Game Day, Music Events, and Style Finds.",
       "Each one helps intori understand what you like, what you avoid, and what actually fits your life."
     ]
   },
   {
     question: "Do I need to write prompts?",
     answer: [
-      "No. intori is built for people who want useful AI-assisted output without having to figure out what to ask.",
+      "No. intori is built for people who want useful answers without having to figure out what to ask.",
       "You answer quick questions, and intori turns that into a useful starting point."
     ]
   },
   {
     question: "What can intori do right now?",
     answer: [
-      "Four daily helpers are live: Today's Food, Game Day, live-music ideas, and Style Finds.",
+      "Five daily helpers are live: Today's Food, Watch Radar, Game Day, Music Events, and Style Finds.",
       "Each gives you a useful first pass that fits your taste, timing, and constraints, and you can go deeper in a quick chat inside intori whenever you want more."
     ]
   },
   {
-    question: "How is intori different from ChatGPT, Claude, or Gemini?",
+    question: "What makes intori different?",
     answer: [
-      "General AI tools start you at a blank box and wait for you to explain what you want.",
-      "intori already remembers what matters to you and does the first pass for you, so you get useful food picks, game-day plans, live-music ideas, and style finds without setting the scene every time. When you want more, you go deeper in a quick chat right inside intori."
+      "Most tools start you at a blank box and wait for you to explain what you want.",
+      "intori already remembers what matters to you and does the first pass for you, so you get dinner picks, watch-night ideas, game-day plans, live shows, and style finds without setting the scene every time. When you want more, you go deeper in a quick chat right inside intori."
     ]
   },
   {

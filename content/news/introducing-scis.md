@@ -5,6 +5,9 @@ date: "2026-04-17"
 author: "Donald Bullers"
 slug: "introducing-scis"
 heroImage: "/news/intori-scis-01.png"
+# Unpublished 2026-07-23: pre-pivot Packs/Stamps/Connections register in dek
+# and body. Historical record kept verbatim; hidden from the site.
+published: false
 tags:
   - "Product"
   - "Infrastructure"

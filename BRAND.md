@@ -20,6 +20,7 @@
 | ink-faint (disabled / meta) | `rgba(38, 33, 62, 0.42)` |
 | hairline (borders / dividers) | `#E9E2D3` |
 | spark (accent, **non-text only**) | `#93B32A` |
+| spark-hover | `#85A226` |
 | card shadow | `0 1px 2px rgba(38,33,62,.04), 0 15px 34px -14px rgba(38,33,62,.17)` |
 | radii | card `22px` · imagery `16px` · pill `999px` |
 
@@ -51,9 +52,11 @@ sports `#F76B15` · food `#E5484D` · music `#D467FF` · style `#FF5C8A`.
 - `public/brand/stamps/{CREATOR,COMMUNITY BUILDER,TRAVEL}/MAIN.png` — hero trust avatars.
 - `public/brand/stamps/MUSIC LOVERS/MAIN.png` — step-2 backdrop placeholder
   (`pages/index.tsx` TODO(PR7 asset): replace with a warm asset, then delete).
-- `public/brand/icons/` — cluster line icons used on the helper cards.
+- `public/brand/icons/` — the five cluster line icons the homepage helper cards
+  use (music_lovers, casual_socializers, sports_fans, foodies, fitness_wellness).
 - `public/assets/templates/avatar_fallback.png` — dashboard avatar fallback.
 - `public/news/` — article hero images (articles currently unpublished).
 
 Everything else from the Farcaster/crypto era (frames, screenshots, references,
-landing-page, stamp/NICHE art, World ID badge) was deleted 2026-07-23.
+landing-page, stamp/NICHE art, World ID badge, bitmap frame fonts, stray logos,
+unused cluster icons) was deleted 2026-07-23.

@@ -23,7 +23,7 @@ const Privacy: NextPage = () => {
 
       <h2>What changed in this update</h2>
       <p>
-        This update covers the intori mobile app for iPhone. It describes the dietary and health-adjacent information you declare and how we use it. It names every AI processor and data provider that receives context from intori, not just OpenAI. It adds subscription and billing information. It also replaces the old note that export and deletion tools were still being built, because you can now delete your account from inside the app.
+        This update covers the intori mobile app for iPhone. It describes the dietary and health-adjacent information you declare and how we use it. It names every AI processor and data provider that receives context from intori, not just OpenAI. It adds subscription and billing information. It also replaces the old note that export and deletion tools were still being built. You can now download your data and delete your account from inside the app.
       </p>
 
       <h2>Who we are</h2>
@@ -314,7 +314,7 @@ const Privacy: NextPage = () => {
         <li>Pause, edit, or delete local context.</li>
         <li>Grant or revoke topic or group consent.</li>
         <li>Grant or withdraw permission for intori to send your context to an AI processor.</li>
-        <li>Clear what intori has learned about you, or delete your account, from the You tab.</li>
+        <li>Download a copy of your data, clear what intori has learned about you, or delete your account, from the You tab.</li>
         <li>Approve or revoke connected app grants.</li>
         <li>Enable or disable notifications through the iOS Settings app or intori notification controls.</li>
         <li>Choose whether to create or distribute share links and share images.</li>
@@ -334,7 +334,7 @@ const Privacy: NextPage = () => {
 
       <h3>Getting a copy of your data</h3>
       <p>
-        A self-service export tool is not available yet. To get a copy of your data, email <a href="mailto:contact@tuum.tech">contact@tuum.tech</a> and we will send you an export.
+        You can download a copy of your data yourself. In the app, open the You tab, go to Your data, and choose Download everything. If you would rather ask us, or you use intori on the web, email <a href="mailto:contact@tuum.tech">contact@tuum.tech</a> and we will send you an export.
       </p>
 
       <h2>Retention</h2>

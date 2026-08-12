@@ -23,7 +23,7 @@ const Terms: NextPage = () => {
 
       <h2>What changed in this update</h2>
       <p>
-        This update covers the intori mobile app for iPhone. It adds a dietary, allergen, and safety section that explains what intori does and does not promise about food. It adds subscription and auto-renewal terms, including price, billing period, and how to cancel. It retires credit packs as something you can buy and explains what happens to any balance you still hold. It notes that Apple&apos;s standard app license also applies if you got the app from the App Store. The AI processors and data providers we use are named in our <Link href="/privacy-policy">Privacy Policy</Link>.
+        This update covers the intori mobile app for iPhone. It adds a dietary, allergen, and safety section that explains what intori does and does not promise about food. It adds subscription and auto-renewal terms, including price, billing period, and how to cancel. It retires credit packs as something you can buy and explains what happens to any balance you still hold. It notes that Apple&apos;s standard app license also applies if you got the app from the App Store. It replaces the old matching and friends section, because intori no longer has social features. The AI processors and data providers we use are named in our <Link href="/privacy-policy">Privacy Policy</Link>.
       </p>
 
       <p>
@@ -112,7 +112,7 @@ const Terms: NextPage = () => {
         <li>Circumvent rate limits, access controls, consent gates, payment gates, or security measures.</li>
         <li>Reverse engineer the Services except where law prohibits this restriction.</li>
         <li>Use bots, scripts, or automated access in a way that harms the Services or violates posted rules.</li>
-        <li>Abuse AI, matching, sharing, notification, payment, subscription, or connected app features.</li>
+        <li>Abuse AI, sharing, notification, payment, subscription, or connected app features.</li>
         <li>Impersonate another person or misrepresent your affiliation with any person or entity.</li>
       </ul>
       <p>
@@ -206,12 +206,12 @@ const Terms: NextPage = () => {
         <strong>Taxes.</strong> You are responsible for any taxes, fees, or reporting obligations that apply to your purchases.
       </p>
 
-      <h2>11. Recommended matches and friends</h2>
+      <h2>11. No social features</h2>
       <p>
-        intori may show recommended matches. If you are not approved friends, the other person may see only limited profile information, such as avatar, username, vibe, and mutual friends. If both people approve the connection, approved friends may also see a chemistry summary and groups in common. Your declared dietary constraints are not shown to other users.
+        intori is not a social product. There is no matching, no friends, no chemistry summaries, no shared vibes, no mutual friends, and no profile sharing between users. Your answers, your declared preferences, and your declared dietary constraints are not shown to other intori users.
       </p>
       <p>
-        You should not share information that you do not want others to see. People who can see information through intori may save or reshare it outside intori.
+        You can create a share link or a preview image for a Helper and send it to whoever you like. Those show information about the Helper, not information about you. Anything you choose to share outside intori can be saved or reshared by whoever receives it.
       </p>
 
       <h2>12. Third-party services</h2>

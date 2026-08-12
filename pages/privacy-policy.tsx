@@ -23,7 +23,7 @@ const Privacy: NextPage = () => {
 
       <h2>What changed in this update</h2>
       <p>
-        This update covers the intori mobile app for iPhone. It describes the dietary and health-adjacent information you declare and how we use it. It names every AI processor and data provider that receives context from intori, not just OpenAI. It adds subscription and billing information. It also replaces the old note that export and deletion tools were still being built. You can now download your data and delete your account from inside the app.
+        This update covers the intori mobile app for iPhone. It describes the dietary and health-adjacent information you declare and how we use it. It names every AI processor and data provider that receives context from intori, not just OpenAI. It adds subscription and billing information. It also replaces the old note that export and deletion tools were still being built. You can now download your data and delete your account yourself. It removes the old description of matching and friends, because intori no longer has social features.
       </p>
 
       <h2>Who we are</h2>
@@ -92,7 +92,7 @@ const Privacy: NextPage = () => {
         <li>Declared household constraints, including the dietary constraints described below.</li>
         <li>Topics, groups, streaks, and other progress within intori.</li>
         <li>Feedback, ratings, likes, skips, and other interaction signals.</li>
-        <li>Public share data when you choose to create or distribute share links or share images.</li>
+        <li>Helper share links and preview images that you choose to create or distribute.</li>
       </ul>
 
       <h3>Dietary constraints and health-adjacent information</h3>
@@ -126,7 +126,7 @@ const Privacy: NextPage = () => {
 
       <h3>Derived and inferred data</h3>
       <p>
-        intori may create derived data from your activity, such as topic signals, sensitivity tiers, visibility states, match context, vibe summaries, chemistry summaries, helper context summaries, and personalization profiles. These derived records help intori decide what questions to ask, what context to include, what to exclude, and what may be relevant to you. Inferred data can change the order of your results. It cannot bind a hard filter, and it cannot override something you declared.
+        intori may create derived data from your activity, such as topic signals, sensitivity tiers, visibility states, your vibe, helper context summaries, and personalization profiles. These derived records help intori decide what questions to ask, what context to include, what to exclude, and what may be relevant to you. Inferred data can change the order of your results. It cannot bind a hard filter, and it cannot override something you declared.
       </p>
 
       <h3>Consent and connected app records</h3>
@@ -214,11 +214,10 @@ const Privacy: NextPage = () => {
         <li>Authenticate users and maintain sessions.</li>
         <li>Build and update your preferences, declared constraints, groups, answers, local context, and personalization state.</li>
         <li>Apply your declared constraints as filters, use inferred signals only to change ranking, and show you which constraints were applied to a result.</li>
-        <li>Generate suggestions, helper results, match suggestions, and context summaries.</li>
+        <li>Generate suggestions, helper results, and context summaries.</li>
         <li>Decide what to ask you next.</li>
         <li>Let you control topic, group, local context, notification, AI sharing, and connected app consent.</li>
         <li>Process subscriptions, verify purchases, and manage trials, renewals, and cancellations.</li>
-        <li>Show limited recommended match and approved friend information.</li>
         <li>Send notifications you request or allow.</li>
         <li>Detect, prevent, and respond to spam, abuse, fraud, security incidents, and violations of our terms.</li>
         <li>Provide customer support and communicate with you.</li>
@@ -254,20 +253,23 @@ const Privacy: NextPage = () => {
         <li><strong>Ticketmaster.</strong> Used for live event and ticket listings. May receive coarse local context, date ranges, and event search terms such as a genre or an artist.</li>
       </ul>
 
-      <h3>Your permission before context goes to an AI processor</h3>
+      <h3>How you control what goes to an AI processor</h3>
       <p>
-        We ask for your permission before intori sends your personal context to OpenAI or Perplexity. The first time you use a feature that needs one of them, intori explains what will be sent and asks you to agree. You can decline. If you decline, that feature will not run, and the rest of intori keeps working.
+        Context goes to OpenAI or Perplexity only when you run a feature that needs one of them. Running that feature is what sends it. Nothing goes to either company when you are not using an AI-assisted feature, and the rest of intori works without them.
       </p>
       <p>
-        You can see and change that permission at any time in Everything we hold, on the You tab, or by emailing <a href="mailto:contact@tuum.tech">contact@tuum.tech</a>. Withdrawing permission stops future sharing. It cannot undo sharing that already happened.
+        We are building a dedicated permission control for this, and it will live in Everything we hold, on the You tab. It is not in the product yet. Until it ships, you decide by choosing whether to run an AI-assisted feature. We will update this section when the control is available.
+      </p>
+      <p>
+        If you have a question or a request about your context, email <a href="mailto:contact@tuum.tech">contact@tuum.tech</a>.
       </p>
 
       <h3>With other intori users</h3>
       <p>
-        intori is not designed to broadly expose your answers or personal context to other users. Your declared dietary constraints are never shown to other users. Recommended matches who are not approved friends may see only limited profile information, such as avatar, username, vibe, and mutual friends. If both people approve the connection, approved friends may also see a chemistry summary and groups in common.
+        We do not share your information with other intori users. There is no matching, no friends, no chemistry summaries, no shared vibes, and no mutual friends. intori has no social graph. Your answers, your declared preferences, and your declared dietary constraints are not visible to anyone else using intori.
       </p>
       <p>
-        Users who can see information may save or reshare it outside intori, so you should not share information that you do not want others to see.
+        You can create a share link or a preview image for a Helper and send it to whoever you like. Those show information about the Helper. They do not carry your answers, your declared constraints, or anything else personal to you.
       </p>
 
       <h3>With connected apps you approve</h3>
@@ -275,7 +277,7 @@ const Privacy: NextPage = () => {
         If you approve a connected app, intori may share a scoped context bundle with that app. For example, a music scene scope may include music preference summaries, independent-artist openness or support style, coarse active local context, and missing areas that help the app ask useful follow-up questions.
       </p>
       <p>
-        The current connected app design excludes raw answers, raw questions, declared dietary and health-adjacent constraints, exact location, GPS coordinates, inferred home or work location, payment data, wallet claims, KYC claims, biometric claims, and identity claims unless a future feature clearly asks for additional consent. You can revoke connected app access where the product provides revocation controls.
+        The current connected app design excludes raw answers, raw questions, declared dietary and health-adjacent constraints, exact location, GPS coordinates, inferred home or work location, payment data, wallet claims, KYC claims, biometric claims, and identity claims unless a future feature clearly asks for additional consent. You can disconnect a connected app whenever you want. Open Connected apps under Your data and choose Disconnect. That stops future access.
       </p>
       <p>
         Once a connected app receives information, that app&apos;s own terms and privacy policy may apply to its handling of the information.
@@ -312,12 +314,12 @@ const Privacy: NextPage = () => {
         <li>Skip questions or choose what answers to provide.</li>
         <li>View, correct, or delete a declared dietary or household constraint.</li>
         <li>Pause, edit, or delete local context.</li>
-        <li>Grant or revoke topic or group consent.</li>
+        <li>Grant or turn off consent for sensitive topics in your permission ledger, under Everything we hold. Turning one off changes what intori may ask you next. It does not delete helper context that already exists.</li>
         <li>Grant or withdraw permission for intori to send your context to an AI processor.</li>
         <li>Download a copy of your data, clear what intori has learned about you, or delete your account, from the You tab.</li>
-        <li>Approve or revoke connected app grants.</li>
+        <li>Approve a connected app, or disconnect one, in Connected apps under Your data.</li>
         <li>Enable or disable notifications through the iOS Settings app or intori notification controls.</li>
-        <li>Choose whether to create or distribute share links and share images.</li>
+        <li>Choose whether to create or distribute Helper share links and preview images.</li>
         <li>Contact us to request access, correction, export, deletion, or other privacy rights.</li>
       </ul>
 
@@ -334,7 +336,10 @@ const Privacy: NextPage = () => {
 
       <h3>Getting a copy of your data</h3>
       <p>
-        You can download a copy of your data yourself. In the app, open the You tab, go to Your data, and choose Download everything. If you would rather ask us, or you use intori on the web, email <a href="mailto:contact@tuum.tech">contact@tuum.tech</a> and we will send you an export.
+        You can download a copy of your data yourself, in the app and on the web. Open Your data and choose Download everything. intori builds the file straight away and your device downloads it as a JSON file. There is no queue and no waiting for an email.
+      </p>
+      <p>
+        The export includes your account and sign-in details, your answers, your declared preferences, your declared dietary constraints including whether each one applies to you or to a household member, your local context, your consent records, your helpers and runs, your connected app grants and receipts, and your vibe. If you would rather ask us for it, email <a href="mailto:contact@tuum.tech">contact@tuum.tech</a>.
       </p>
 
       <h2>Retention</h2>
@@ -342,7 +347,7 @@ const Privacy: NextPage = () => {
         We keep information for as long as needed to provide intori, maintain user controls and receipts, prevent abuse, comply with legal obligations, resolve disputes, and enforce agreements.
       </p>
       <p>
-        Session cookies are intended to expire after a limited period. Partner grants may expire or be revoked. Payment, subscription, and transaction records may be retained for accounting, fraud prevention, charge dispute, tax, and legal reasons. Profile, answer, declared constraint, consent, AI result, receipt, and derived records are kept until you delete them, revoke the relevant consent where supported, delete your account, or request deletion.
+        Session cookies are intended to expire after a limited period. Partner grants may expire or be revoked. Payment, subscription, and transaction records may be retained for accounting, fraud prevention, charge dispute, tax, and legal reasons. Profile, answer, declared constraint, consent, AI result, receipt, and derived records are kept until you delete them, delete your account, or request deletion. Turning off a topic consent changes what intori may ask you next. It does not by itself delete helper context that already exists.
       </p>
       <p>
         We are continuing to define more specific retention periods for each data category.

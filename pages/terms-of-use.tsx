@@ -15,7 +15,7 @@ const Terms: NextPage = () => {
 
       <LegalLayout>
         <h1>intori Terms of Use</h1>
-        <p><strong>Last Updated: August 11, 2026</strong></p>
+        <p><strong>Last Updated: August 21, 2026</strong></p>
 
       <p>
         These terms cover the intori website and the intori mobile app. There is one set of terms for both.
@@ -23,7 +23,7 @@ const Terms: NextPage = () => {
 
       <h2>What changed in this update</h2>
       <p>
-        This update covers the intori mobile app for iPhone. It adds a dietary, allergen, and safety section that explains what intori does and does not promise about food. It adds subscription and auto-renewal terms, including price, billing period, and how to cancel. It retires credit packs as something you can buy and explains what happens to any balance you still hold. It notes that Apple&apos;s standard app license also applies if you got the app from the App Store. It replaces the old matching and friends section, because intori no longer has social features. The AI processors and data providers we use are named in our <Link href="/privacy-policy">Privacy Policy</Link>.
+        This update aligns the 14-day full-access trial with how intori works. No payment method is required to start the trial, the trial begins after your first successful personalized helper result, and it does not turn into a paid subscription automatically. It also explains Beta access, immediate billing when you choose a paid plan, and what remains available after a trial or paid period ends. The AI processors and data providers we use are named in our <Link href="/privacy-policy">Privacy Policy</Link>.
       </p>
 
       <p>
@@ -155,19 +155,19 @@ const Terms: NextPage = () => {
         intori is sold as a subscription. One subscription covers your whole household.
       </p>
       <p>
-        <strong>Free trial.</strong> New accounts get a 14 day free trial with full access to intori. The trial is the same on the web and in the iOS app, and you provide a payment method when you start it. You are not charged during the trial. If you do not cancel before the trial ends, your subscription starts and the first charge is made then.
+        <strong>Free trial.</strong> Eligible new accounts get a 14-day trial with full access to intori. No payment method is required to start it. The trial begins after intori successfully delivers your first personalized helper result, not when you create an account, complete onboarding, or view a personalized home screen. The trial does not become a paid subscription automatically. When it ends, you must choose a paid plan before intori will create or refresh another personalized helper result.
       </p>
       <p>
-        <strong>Founding year offer.</strong> We may offer a one-time founding year for $79. It covers 12 months and it has no free trial. It costs the same as a year of the annual plan, but it is not the annual plan. It is a single charge. It does not renew, it does not turn into a subscription, and we will not start billing you on a recurring basis when it ends. When the 12 months are up, your access drops to the limited free state described below. To keep paid access after that, you have to buy again yourself. Anything specific to that offer is shown to you before you buy.
+        <strong>Beta access.</strong> We may give testers full access without charge while intori is in Beta. Beta access does not start the 14-day trial. We may end the Beta period or change Beta access after reasonable notice. We may also give a particular account continued Beta or lifetime access at our discretion.
       </p>
       <p>
-        <strong>Price and billing period.</strong> After the trial, intori costs $79 per year or $8.99 per month, depending on the plan you choose. Prices are in US dollars and do not include taxes, which may be added where required. The price, the billing period, and these terms are shown to you before you buy, and you must agree to them to subscribe.
+        <strong>Price and billing period.</strong> intori costs $79 per year or $8.99 per month, depending on the plan you choose. Web prices are in US dollars and do not include taxes, which may be added where required. App Store prices may be displayed and billed in your local currency. The price, the billing period, and these terms are shown to you before you buy, and you must agree to them to subscribe.
       </p>
       <p>
         <strong>Automatic renewal.</strong> Subscriptions renew automatically until you cancel. An annual plan renews every year. A monthly plan renews every month. At the start of each new period we charge the then-current price for your plan to the payment method on file. If we change the price, we will tell you before the change takes effect, and you will have a chance to cancel first.
       </p>
       <p>
-        <strong>When you are charged.</strong> If you subscribe during the free trial, the first charge is made when the trial ends. If you subscribe without a trial, the first charge is made when you buy. Renewal charges are made at the start of each new billing period. For App Store purchases, Apple charges within 24 hours before the end of the current period.
+        <strong>When you are charged.</strong> The first charge is made when you choose and confirm a paid plan, including if you subscribe before your 14-day trial ends. Paid access begins immediately and replaces any remaining trial time. Renewal charges are made at the start of each new billing period. For App Store purchases, Apple may charge within 24 hours before the end of the current period.
       </p>
       <p>
         <strong>How to cancel.</strong> You can cancel at any time. If you subscribed in the iOS app, cancel in your Apple account subscription settings on your device. If you subscribed on the web, cancel in your intori account settings or by emailing <a href="mailto:contact@tuum.tech">contact@tuum.tech</a>. To avoid the next charge, cancel at least 24 hours before the current period ends.
@@ -176,13 +176,10 @@ const Terms: NextPage = () => {
         <strong>What cancellation does.</strong> Cancelling stops the next renewal. It does not end the period you already paid for. You keep paid access until the end of that period, and you are not charged again after that.
       </p>
       <p>
-        <strong>Cancelling during the free trial.</strong> If you cancel during the 14 day trial, you are not charged, and you keep trial access until the trial ends. To avoid being charged, cancel at least 24 hours before the trial ends.
+        <strong>What happens when full access ends.</strong> When your trial or paid period ends, intori stops creating and refreshing personalized helper results until you subscribe again. We do not delete your account, your declared preferences, your declared constraints, or your saved results just because full access ended.
       </p>
       <p>
-        <strong>What happens when paid access ends.</strong> When your trial or your subscription ends, your account moves to a limited free state. We do not delete your account, your declared preferences, or your declared constraints.
-      </p>
-      <p>
-        <strong>What the free state includes.</strong> Free keeps today&apos;s decision, recomputed each day, at one run per day, and one location. All of your declared constraints keep filtering on the free tier, including dietary and allergen constraints. Safety is never gated behind payment. Free does not keep your history and corrections, named people, travel locations, or the shareable card. A paid subscription remembers all of that and gives you three runs per day. The short version is that free forgets and paid remembers.
+        <strong>What remains available without full access.</strong> You can still sign in, review results already saved to your account, view and manage your profile and account settings, and use available export and deletion controls. These account and privacy controls do not create a new personalized result. New or refreshed personalized helper results require active trial, Beta, lifetime, or paid access.
       </p>
       <p>
         <strong>App Store purchases.</strong> If you subscribe in the intori iOS app, Apple bills you, and the purchase is governed by Apple&apos;s terms, including the Apple Media Services Terms and Conditions. You manage and cancel that subscription in your Apple account subscription settings. We cannot cancel or refund an App Store subscription for you. Send refund requests for App Store purchases to Apple.
@@ -194,7 +191,7 @@ const Terms: NextPage = () => {
         <strong>Refunds.</strong> Apple handles refunds for App Store purchases under its own policies. For web purchases, and except where the law gives you a refund right, fees already charged are not refundable, and cancelling stops future charges rather than refunding past ones. We may give a refund at our discretion.
       </p>
       <p>
-        <strong>Credits you paid for.</strong> intori used to sell credit packs. Credit packs are no longer sold, and a subscription is now the only way to buy access to intori. Credits you paid for do not expire. We will honor an unused purchased balance for as long as intori runs, and we will not revoke it on notice. We do not convert credit balances into subscription time. Purchased credits are for use within intori, have no cash value, and may not be transferred, resold, or redeemed for money unless we expressly allow it in writing.
+        <strong>Legacy paid Credit accounts.</strong> intori used to sell Credit packs. Credit packs are no longer sold. If an account completed a paid Credit purchase before packs retired, we replaced its former Credit balance with lifetime full access to intori. This lifetime access does not expire and does not require a subscription. It is tied to that intori account and may not be transferred, resold, or redeemed for money unless we expressly allow it in writing.
       </p>
       <p>
         <strong>Promotional and granted credits.</strong> Credits we gave you rather than sold you, including promotional, referral, and goodwill credits, are different. They may expire or end after we give you reasonable notice. They have no cash value and are not refundable.

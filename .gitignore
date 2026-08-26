@@ -43,3 +43,10 @@ yarn-error.log*
 .claude/public/brand/screenshots/*.mov
 .claude/
 public/brand/screenshots/*.mov
+
+# local scratch (holds DNS zone exports and other operational files that must
+# never reach this public repo)
+tmp/
+
+# internal working docs
+docs/internal/

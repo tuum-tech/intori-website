@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { getSession } from "next-auth/react"
 import { MarketingFooter, MarketingHeader } from '@/components/MarketingChrome'
 import { SeoHead } from '@/lib/seo'
-import { APP_URL, IOS_BETA_URL } from '@/lib/appLinks'
+import { APP_URL, HERO_VARIANT, IOS_BETA_URL } from '@/lib/appLinks'
 
 import styles from './index.module.css'
 
@@ -121,6 +121,20 @@ function AppCtas() {
   )
 }
 
+// Staged headline. 'forward' is built and verified but must stay off until the
+// app can guarantee a populated item for every household every week.
+function HeroHeadline() {
+  if (HERO_VARIANT === 'forward') {
+    return (
+      <h1 className={`${styles.heroHeadline} ${styles.heroHeadlineForward}`}>
+        Something to look<br />forward to.<br />Every week.
+      </h1>
+    )
+  }
+
+  return <h1 className={styles.heroHeadline}>Tonight,<br />decided.</h1>
+}
+
 function CheckIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -148,18 +162,21 @@ export default function HomePage() {
           <header className={styles.heroSection}>
             <div className={styles.container}>
               <p className={styles.heroEyebrow}>Made for busy households</p>
-              <h1 className={styles.heroHeadline}>Tonight,<br />decided.</h1>
+              <HeroHeadline />
+              <p className={styles.heroDeck}>
+                Your calendar is full of things you have to do. This is for the other half.
+              </p>
               <p className={styles.heroSub}>
-                Whether the game is worth the evening. Who&rsquo;s playing nearby this
-                weekend. What&rsquo;s worth watching after the kids are down. And yes,
-                what&rsquo;s for dinner. intori answers the small daily questions in
-                about 30&nbsp;seconds, shaped by what your household actually enjoys.
+                The game worth staying up for. Who&rsquo;s playing 15&nbsp;minutes away on
+                Saturday. The show you&rsquo;re both mid season on. And yes, what&rsquo;s for
+                dinner. intori brings them to you, shaped by what your household actually
+                likes, early enough to say yes.
               </p>
               <div className={styles.heroCtas}>
                 <AppCtas />
               </div>
               <p className={styles.heroTrust}>
-                Already used by <strong>6,500+ people</strong>
+                <strong>No ads.</strong> Nothing sold about your family. You choose what to share.
               </p>
             </div>
             <div className={styles.heroStage}>
@@ -182,9 +199,10 @@ export default function HomePage() {
           <section id="today" className={styles.todaySection}>
             <div className={styles.container}>
               <div className={styles.secHead}>
-                <h2 className={styles.secTitle}>What intori can help with today</h2>
+                <h2 className={styles.secTitle}>What intori answers today</h2>
                 <p className={styles.secSub}>
-                  Four helpers, live now. Each one learns from your answers and shows its work.
+                  Four questions, answered every day. Each one learns from what you tell it,
+                  and shows where the pick came from.
                 </p>
               </div>
               <div className={styles.todayGrid}>
@@ -222,7 +240,9 @@ export default function HomePage() {
                 Shared calendars and family displays are great at keeping the household
                 moving. What they can&rsquo;t do is step outside the loop: the game tonight,
                 the show this weekend, whether Saturday deserves a small adventure.
-                intori starts there.
+                intori starts there. It&rsquo;s the half nobody fills in, because filling it
+                in means knowing what to look for, finding the date, and remembering
+                before it passes.
               </p>
               <div className={styles.wedgeDemo}>
                 <div className={styles.demoCol}>
@@ -292,8 +312,9 @@ export default function HomePage() {
               <div>
                 <h2 className={styles.calTitle}>Keep the good ones where your family already looks</h2>
                 <p className={styles.calSub}>
-                  When a pick is worth holding onto, keep it on the calendar or household
-                  display you choose, including Skylight. One tap, your choice, every time.
+                  When something is worth holding onto, put it where the household already
+                  looks, including your Skylight. On the calendar it&rsquo;s an option, not an
+                  obligation. Nothing here has to happen. One tap, your choice, every time.
                 </p>
                 <p className={styles.calFine}>
                   intori adds only what you decide to keep. Nothing lands on the family calendar by itself.
@@ -330,13 +351,13 @@ export default function HomePage() {
               </span>
               <h2 className={styles.secTitle}>The moments worth making room for</h2>
               <p className={styles.nextBody}>
-                We&rsquo;re building a helper that surfaces timely, nearby opportunities a
+                We&rsquo;re building one that surfaces timely, nearby opportunities a
                 family would be glad to know about before they pass: the exhibit that
                 only runs one weekend, the season that ends soon, the small Saturday
                 adventure that turns an ordinary weekend into a memory. Worth putting
                 on the calendar while there&rsquo;s still time.
               </p>
-              <p className={styles.nextHonest}>Not live yet. The four helpers above are.</p>
+              <p className={styles.nextHonest}>Not live yet. The four above are.</p>
             </div>
           </section>
 

@@ -136,9 +136,31 @@
   text-wrap: balance;
 }
 
+/* Reduced from the two-line default so the three-line "forward" variant still
+   clears the 390px fold. */
+.heroHeadlineForward {
+  /* Sized so its longest line ("Something to look") holds without re-wrapping
+     inside a 390px viewport, and so three lines still clear the fold. */
+  font-size: clamp(36px, 6.6vw, 86px);
+}
+
+/* The page's single Newsreader italic moment. Sits between the headline and the
+   subhead and must stay quieter than the H1: ink-soft, not full ink. */
+.heroDeck {
+  max-width: 600px;
+  margin: 22px auto 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(18px, 2.1vw, 21px);
+  line-height: 1.35;
+  color: var(--ink-soft);
+  text-wrap: balance;
+}
+
 .heroSub {
   max-width: 620px;
-  margin: 26px auto 0;
+  margin: 18px auto 0;
   font-size: clamp(17px, 2.2vw, 21px);
   line-height: 1.55;
   color: var(--ink-soft);
@@ -346,15 +368,14 @@
   text-wrap: balance;
 }
 
-/* The single Newsreader italic moment on the page. */
+/* Copy and role unchanged. The Newsreader italic moved to the hero deck, since
+   the locked type system allows exactly one italic moment per page. */
 .wedgeLineB {
   margin: 10px 0 0;
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 500;
+  font-weight: 800;
   font-size: clamp(34px, 5vw, 56px);
   line-height: 1.12;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.032em;
   text-wrap: balance;
 }
 

@@ -1,8 +1,30 @@
+import { IOS_BETA_URL } from './appLinks'
+
 export type FaqItem = {
   question: string
   answer: string[]
   bullets?: string[]
 }
+
+// The iPhone answers read the same config as the homepage CTAs, so the FAQ
+// cannot claim the beta is open before it is, or keep saying "coming soon"
+// after it opens. Setting NEXT_PUBLIC_IOS_BETA_URL updates both surfaces at
+// once, with no copy change.
+const IOS_BETA_IS_OPEN = IOS_BETA_URL !== ''
+
+const WHERE_TO_USE_IPHONE_LINE = IOS_BETA_IS_OPEN
+  ? "It is also in the World App, and the iPhone beta is open."
+  : "It is also in the World App. An iPhone beta is coming soon."
+
+const IPHONE_ANSWER = IOS_BETA_IS_OPEN
+  ? [
+      "Yes. The iPhone beta is open, and you can join it from the homepage.",
+      "intori also works on the web at app.intori.co, with no install needed.",
+    ]
+  : [
+      "Not yet. An iPhone beta is coming soon, and the homepage will say so the moment it opens.",
+      "intori works on the web today at app.intori.co, with no install needed.",
+    ]
 
 export const FAQ: FaqItem[] = [
   {
@@ -72,9 +94,13 @@ export const FAQ: FaqItem[] = [
     question: "Where can I use intori?",
     answer: [
       "intori is on the web at app.intori.co. Just sign in to get started.",
-      "It is also in the World App.",
-      "Your answers carry across both, so whichever one you open, intori already knows you."
+      WHERE_TO_USE_IPHONE_LINE,
+      "Your answers carry over, so whichever one you open, intori already knows you."
     ]
+  },
+  {
+    question: "Is there an iPhone app?",
+    answer: IPHONE_ANSWER
   },
   {
     question: "What are Credits?",

@@ -74,12 +74,11 @@ italic-only face).
   checkin-question-music,todays-food-result}.jpg` — earlier captures, no longer
   referenced. The two `hero-*` files show parked Style Finds UI; do not reuse
   them on marketing surfaces.
-- `public/brand/hero-stamps/{music-lovers,sports-fans,foodies}.png` — hero float cards.
-- `public/brand/stamps/{CREATOR,COMMUNITY BUILDER,TRAVEL}/MAIN.png` — hero trust avatars.
-- `public/brand/stamps/MUSIC LOVERS/MAIN.png` — step-2 backdrop placeholder
-  (`pages/index.tsx` TODO(PR7 asset): replace with a warm asset, then delete).
-- `public/brand/icons/` — the five cluster line icons the homepage helper cards
-  use (music_lovers, casual_socializers, sports_fans, foodies, fitness_wellness).
+- `public/brand/hero-stamps/`, `public/brand/stamps/`, `public/brand/icons/` —
+  **no longer referenced** as of the 2026-08-26 homepage rebuild, which removed
+  the float cards, trust avatars, step backdrop, and helper-card line icons that
+  used them. The old `TODO(PR7 asset)` backdrop placeholder is resolved by that
+  removal. Safe to delete in a dedicated cleanup pass.
 - `public/assets/templates/avatar_fallback.png` — dashboard avatar fallback.
 - `public/news/` — article hero images (articles currently unpublished).
 

@@ -10,6 +10,18 @@ export const APP_URL = 'https://app.intori.co'
 // button and the web CTA drops to the ghost style. No code change required.
 export const IOS_BETA_URL = process.env.NEXT_PUBLIC_IOS_BETA_URL ?? ''
 
+// Homepage headline variant, staged the same way as IOS_BETA_URL.
+//
+// 'decided' (or unset) ships the current "Tonight, decided." headline.
+// 'forward' ships "Something to look forward to. Every week.", which is a
+// weekly-cadence promise. Do NOT enable 'forward' until the app actually
+// guarantees a populated item for every household every week; without that
+// guarantee the headline is a claim the product cannot keep.
+export type HeroVariant = 'decided' | 'forward'
+
+export const HERO_VARIANT: HeroVariant =
+  process.env.NEXT_PUBLIC_HERO_VARIANT === 'forward' ? 'forward' : 'decided'
+
 export const WORLD_APP_URL =
   'https://world.org/mini-app?app_id=app_263f86463869627f1183badc977e21a3'
 

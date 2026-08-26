@@ -29,31 +29,56 @@ ONLY as a non-text accent (dot, 3px rule, artwork). Every glyph, numeral, check,
 and code character on a light ground is ink `#26213E`.
 
 **Cluster accents (artwork / thumbnails ONLY — never text, fill, border, or glow):**
-sports `#F76B15` · food `#E5484D` · music `#D467FF` · style `#FF5C8A`.
-`#60B3D7` (blue) and `#F2FD00` (neon yellow) are **retired**.
+sports `#F76B15` · food `#E5484D` · music `#D467FF` · watch `#DD8C22`.
+`#60B3D7` (blue), `#F2FD00` (neon yellow), and `#FF5C8A` (style) are **retired**
+on marketing surfaces.
 
-## Voice / register (locked, Jul 2026)
+## Type (marketing surfaces, Aug 2026)
 
-- Umbrella tagline: "Made for you. Within minutes." Campaign hero: "Dinner, decided."
-- Five helpers, food first among five: Today's Food, Watch Radar, Game Day,
-  Music Events, Style Finds. Music is live events ("who's playing"), never
-  playlists or "music picks".
+Schibsted Grotesk for display and body (weights 400–800, headline tracking
+-0.03em to -0.035em). Newsreader italic is an editorial accent used **once per
+page**, on the homepage wedge line. Both load via `next/font` in
+`pages/_app.tsx` and are exposed as `--font-sans` / `--font-serif`; Newsreader
+needs `adjustFontFallback: false` (no Next fallback-metrics entry for the
+italic-only face).
+
+## Voice / register (updated Aug 2026)
+
+- Homepage hero: "Tonight, decided." Campaign line "Dinner, decided." now lives
+  only on the Today's Food card.
+- Four live helpers, in this order everywhere (hero subhead, Today grid,
+  supporting visuals): Game Day, Music Events, Watch Radar, Today's Food.
+  Music is live events ("who's playing"), never playlists or "music picks".
+  Food is never the lead, and never claims meal planning, recipes, or
+  shopping lists.
+- Style Finds is parked and must not appear on any marketing surface.
+- Calendar language stays user-initiated: intori keeps what you choose on the
+  calendar or household display you pick. Never claim intori reads a calendar,
+  finds free time, or sends anything unprompted.
 - No em dashes in visible copy or meta. Outcome-first; "AI" stays invisible in
   consumer copy. "Personalization, built from you" is developer/partner-only.
 - Retired vocabulary (never reintroduce): packs, stamps, matches, vault,
   "identity", "meet people", drafts, ChatGPT/"your AI tools" framing,
   World ID "verified humans / no bots", token/onchain/crypto, gifting.
 
-## Asset inventory (live, post-purge 2026-07-23)
+## Asset inventory (live, post-purge 2026-07-23; refreshed 2026-08-26)
 
-- `public/og/og-default.jpg` — the one OG image, warm (1800x945).
-- `public/brand/warm/` — hero phone + peek imagery (all referenced).
-- `public/brand/hero-stamps/{music-lovers,sports-fans,foodies}.png` — hero float cards.
-- `public/brand/stamps/{CREATOR,COMMUNITY BUILDER,TRAVEL}/MAIN.png` — hero trust avatars.
-- `public/brand/stamps/MUSIC LOVERS/MAIN.png` — step-2 backdrop placeholder
-  (`pages/index.tsx` TODO(PR7 asset): replace with a warm asset, then delete).
-- `public/brand/icons/` — the five cluster line icons the homepage helper cards
-  use (music_lovers, casual_socializers, sports_fans, foodies, fitness_wellness).
+- `public/og/og-tonight-v3.jpg` — the current OG card, warm (1800x945).
+  OG filenames are **versioned on purpose**: scrapers cache image bytes by URL,
+  so new card art always ships at a new path and older files stay in place so
+  previously-scraped embeds do not 404.
+- `public/brand/warm/home-today-gameday.jpg` — homepage hero phone capture.
+- `public/brand/warm/tile-{game-day,music-events,watch-radar,todays-food}.jpg`
+  — the four Today-grid helper captures.
+- `public/brand/warm/{hero-home-checkin,hero-todays-checkins,
+  checkin-question-music,todays-food-result}.jpg` — earlier captures, no longer
+  referenced. The two `hero-*` files show parked Style Finds UI; do not reuse
+  them on marketing surfaces.
+- `public/brand/hero-stamps/`, `public/brand/stamps/`, `public/brand/icons/` —
+  **no longer referenced** as of the 2026-08-26 homepage rebuild, which removed
+  the float cards, trust avatars, step backdrop, and helper-card line icons that
+  used them. The old `TODO(PR7 asset)` backdrop placeholder is resolved by that
+  removal. Safe to delete in a dedicated cleanup pass.
 - `public/assets/templates/avatar_fallback.png` — dashboard avatar fallback.
 - `public/news/` — article hero images (articles currently unpublished).
 

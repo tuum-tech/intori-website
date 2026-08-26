@@ -5,12 +5,12 @@ export const SITE_URL = 'https://www.intori.co'
 // by image URL, so replacing the card in place (as #197 did) leaves stale pre-pivot
 // art in every previously-scraped preview. Ship a NEW filename whenever the card
 // art changes, and leave the old file in place so historic embeds do not 404.
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/og/og-dinner-v2.jpg`
-export const DEFAULT_TITLE = 'intori - Made for you. Within minutes.'
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/og/og-tonight-v3.jpg`
+export const DEFAULT_TITLE = 'intori. Tonight, decided.'
 export const DEFAULT_DESCRIPTION =
-  'Choose where to start, answer a few quick questions, and intori shapes food picks, what to watch, game-day plans, live shows, and style finds around you.'
+  "The game tonight, a show nearby, something worth watching, and yes, dinner. intori answers a busy household's small daily questions in about 30 seconds, shaped by your answers."
 export const DEFAULT_SOCIAL_DESCRIPTION =
-  'Choose where to start, answer quick questions, and intori gives you a more personal starting point.'
+  "The game tonight, a show nearby, something worth watching, and yes, dinner. Answered in about 30 seconds, shaped by your answers."
 
 type SeoHeadProps = {
   title?: string

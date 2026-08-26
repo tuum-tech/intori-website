@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import styles from './styles.module.css'
-import { APP_URL } from '@/lib/appLinks'
+import { APP_URL, WORLD_APP_URL } from '@/lib/appLinks'
 
 export function WorldIcon({ size = 17 }: { size?: number }) {
   return (
@@ -29,17 +29,16 @@ export function MarketingHeader() {
             />
           </Link>
           <nav className={styles.nav} aria-label="Primary navigation">
-            <Link href="/#how-it-works" className={styles.navLink}>How it works</Link>
+            <Link href="/#today" className={styles.navLink}>What it helps with</Link>
             <Link href="/#why" className={styles.navLink}>Why it works</Link>
-            <Link href="/news" className={styles.navLink}>News</Link>
-            <span className={styles.navLinkDisabled} aria-disabled="true">Developers</span>
+            <Link href="/#calendar" className={styles.navLink}>Calendar</Link>
             <a
               href={APP_URL}
               className={styles.ctaPrimary}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Get started
+              Try intori
             </a>
           </nav>
         </div>
@@ -67,6 +66,15 @@ export function MarketingFooter() {
             <Link href="/privacy-policy" className={styles.footerLink}>Privacy</Link>
             <Link href="/terms-of-use" className={styles.footerLink}>Terms</Link>
             <a href="mailto:contact@tuum.tech" className={styles.footerLink}>Contact</a>
+            <a
+              href={WORLD_APP_URL}
+              className={styles.footerLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className={styles.footerLinkIcon}><WorldIcon size={13} /></span>
+              World App
+            </a>
           </nav>
           <p className={styles.footerCopy}>© {year} intori</p>
         </div>

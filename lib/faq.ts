@@ -9,7 +9,7 @@ export const FAQ: FaqItem[] = [
     question: "What is intori?",
     answer: [
       "intori gives you personalized recommendations and plans without starting from scratch every time.",
-      "Choose where to start, answer a few quick questions, and intori uses what it learns to shape your food picks, what to watch, game-day plans, live shows, and style finds around you."
+      "Choose where to start, answer a few quick questions, and intori uses what it learns to shape game-day plans, live shows, what to watch, and food picks around you."
     ]
   },
   {
@@ -29,7 +29,7 @@ export const FAQ: FaqItem[] = [
   {
     question: "What can I start with?",
     answer: [
-      "intori starts with five daily helpers: Today's Food, Watch Radar, Game Day, Music Events, and Style Finds.",
+      "intori starts with four daily helpers: Game Day, Music Events, Watch Radar, and Today's Food.",
       "Each one helps intori understand what you like, what you avoid, and what actually fits your life."
     ]
   },
@@ -43,7 +43,7 @@ export const FAQ: FaqItem[] = [
   {
     question: "What can intori do right now?",
     answer: [
-      "Five daily helpers are live: Today's Food, Watch Radar, Game Day, Music Events, and Style Finds.",
+      "Four daily helpers are live: Game Day, Music Events, Watch Radar, and Today's Food.",
       "Each gives you a useful first pass that fits your taste, timing, and constraints, and you can go deeper in a quick chat inside intori whenever you want more."
     ]
   },
@@ -51,7 +51,7 @@ export const FAQ: FaqItem[] = [
     question: "What makes intori different?",
     answer: [
       "Most tools start you at a blank box and wait for you to explain what you want.",
-      "intori already remembers what matters to you and does the first pass for you, so you get dinner picks, watch-night ideas, game-day plans, live shows, and style finds without setting the scene every time. When you want more, you go deeper in a quick chat right inside intori."
+      "intori already remembers what matters to you and does the first pass for you, so you get game-day plans, live shows, watch-night ideas, and dinner picks without setting the scene every time. When you want more, you go deeper in a quick chat right inside intori."
     ]
   },
   {

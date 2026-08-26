@@ -1,10 +1,9 @@
 import type { GetServerSideProps } from "next";
 import Image from 'next/image'
 import { getSession } from "next-auth/react"
-import { Fragment, type CSSProperties } from 'react'
 import { MarketingFooter, MarketingHeader } from '@/components/MarketingChrome'
 import { SeoHead } from '@/lib/seo'
-import { APP_URL, WORLD_APP_URL } from '@/lib/appLinks'
+import { APP_URL, IOS_BETA_URL } from '@/lib/appLinks'
 
 import styles from './index.module.css'
 
@@ -23,145 +22,110 @@ export const getServerSideProps = (async (context) => {
   return { props: {} }
 }) satisfies GetServerSideProps
 
-const PACKS = [
+// The four live helpers, in the locked order: Game Day, Music Events,
+// Watch Radar, then Today's Food. Food never leads. Promise lines come from
+// the app's helperPublicCopy.ts deks; the food card adds its meal-planner
+// deference on purpose.
+const HELPERS = [
   {
-    icon: '/brand/icons/music_lovers.svg',
-    label: 'Your answers, not guesses',
-    desc: 'intori learns from quick questions about taste, timing, constraints, and preferences you choose to share.',
-    badge: 'Your signal',
-    color: '#D467FF',
+    kicker: 'Game Day',
+    title: 'The games that matter to your crew.',
+    body: 'A short daily brief on your teams: what to watch and why it matters, with scores hidden until you want them.',
+    image: '/brand/warm/tile-game-day.jpg',
+    alt: "Game Day brief in intori listing three games worth circling on the calendar this week",
+    tint: styles.artSports,
   },
   {
-    icon: '/brand/icons/casual_socializers.svg',
-    label: 'Knows when to ask more',
-    desc: 'When it needs more context, intori asks one focused question instead of guessing.',
-    badge: 'No guessing',
-    color: '#D467FF',
+    kicker: 'Music Events',
+    title: 'See who’s playing near you.',
+    body: 'Shows, venues, and artists worth your night, shaped by your taste and the city you choose to share.',
+    image: '/brand/warm/tile-music-events.jpg',
+    alt: 'Music Events in intori showing a first look at shows people are buying tickets for right now',
+    tint: styles.artMusic,
   },
   {
-    icon: '/brand/icons/sports_fans.svg',
-    label: 'No prompt writing',
-    desc: 'intori turns what it knows into the first useful request for you.',
-    badge: 'First pass',
-    color: '#F76B15',
+    kicker: 'Watch Radar',
+    title: 'Something worth watching tonight.',
+    body: 'Returns, premieres, and what people are talking about, with spoilers kept out of sight.',
+    image: '/brand/warm/tile-watch-radar.jpg',
+    alt: 'Watch Radar in intori asking which shows you already follow',
+    tint: styles.artWatch,
   },
   {
-    icon: '/brand/icons/foodies.svg',
-    label: 'You can see why',
-    desc: 'Each answer shows what shaped it and what might still be missing.',
-    badge: 'Why it fits',
-    color: '#E5484D',
-  },
-  {
-    icon: '/brand/icons/fitness_wellness.svg',
-    label: 'Fresh where it matters',
-    desc: 'Music, sports, food, and plans can include source and freshness notes.',
-    badge: 'Fresh context',
-    color: '#F76B15',
-  },
-  {
-    icon: '/brand/icons/casual_socializers.svg',
-    label: 'See more, in-app',
-    desc: 'Each helper opens with a warm intro, shows picks made for you, and lets you look further.',
-    badge: 'See more',
-    color: '#FF5C8A',
+    kicker: 'Today’s Food',
+    title: 'Dinner, decided.',
+    body: 'Three picks shaped by your household’s tastes, budget, and effort, for the nights the plan is blank. Your meal planner keeps its job.',
+    image: '/brand/warm/tile-todays-food.jpg',
+    alt: 'Today’s Food in intori showing a first look at easy dinners worth cooking this week',
+    tint: styles.artFood,
   },
 ]
 
-const HOW_STEPS = [
+const TRUST_CARDS = [
   {
-    number: "1",
-    title: "Choose where to start.",
-    body: "Start with food, what to watch, game day, live music, or style, the daily helpers intori personalizes for you.",
-    visual: "packs",
+    title: 'Your answers do the work',
+    body: 'Quick questions about taste, timing, and constraints teach intori what a good pick looks like for your household.',
   },
   {
-    number: "2",
-    title: "Answer quick questions.",
-    body: "intori learns your taste, pace, boundaries, and preferences from what you choose to share.",
-    visual: "pack-card",
+    title: 'You can see why',
+    body: 'Every pick shows what shaped it and what might still be missing. No mystery, no black box.',
   },
   {
-    number: "3",
-    title: "Get picks made for you.",
-    body: "Run intori for food picks, watch-night ideas, game-day plans, live shows, and style finds, then see more in a quick chat inside intori.",
-    visual: "tools",
+    title: 'You choose what to share',
+    body: 'Context stays yours. Share more only when it would make the picks better, and skip anything you’d rather not answer.',
   },
 ]
 
-const TRUST_AVATARS = [
-  '/brand/stamps/CREATOR/MAIN.png',
-  '/brand/stamps/COMMUNITY BUILDER/MAIN.png',
-  '/brand/stamps/TRAVEL/MAIN.png',
-]
-
-// World App mini-globe icon (official orb shape)
-function WorldIcon({ size = 18 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="11" stroke="currentColor" strokeWidth="1.6"/>
-      <path d="M12 1C12 1 8 6 8 12s4 11 4 11M12 1c0 0 4 5 4 11s-4 11-4 11M1 12h22" stroke="currentColor" strokeWidth="1.6"/>
-    </svg>
-  )
-}
-
-function HeroPhone() {
-  return (
-    <div className={styles.heroPhoneShell}>
-      <div className={styles.heroPhoneScreenSlot}>
-        <Image
-          src="/brand/warm/hero-home-checkin.jpg"
-          alt="intori home screen showing today's personalized check-in and helpers"
-          width={1206}
-          height={2622}
-          className={styles.heroPhoneScreenshot}
-          priority
-        />
-      </div>
-    </div>
-  )
-}
-
-function HowPackPhone() {
-  return (
-    <div className={styles.howPackPhone} aria-hidden="true">
-      <div className={styles.howPackPhoneScreen}>
-        <Image
-          src="/brand/warm/checkin-question-music.jpg"
-          alt=""
-          width={820}
-          height={1782}
-          className={styles.howPackPhoneScreenshot}
-        />
-      </div>
-    </div>
-  )
-}
-
-function HowVisual({ type }: { type: string }) {
-  if (type === "pack-card") {
-    return null
-  }
-
-  if (type === "packs") {
-    return <HowPackPhone />
-  }
-
-  if (type === "tools") {
+// Staged iOS CTA. While IOS_BETA_URL is empty the beta reads as a quiet,
+// non-clickable status chip and the web stays primary. Once the env var is
+// set, the beta becomes the primary button and the web CTA drops to ghost.
+function AppCtas() {
+  if (IOS_BETA_URL) {
     return (
-      <div className={styles.seeMoreMini} aria-hidden="true">
-        <span className={styles.seeMoreBubble}>Here&rsquo;s your first pass</span>
-        <span className={styles.seeMoreChip}>See more &rarr;</span>
-      </div>
+      <>
+        <a
+          href={IOS_BETA_URL}
+          className={styles.btnPrimary}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Join the iPhone beta
+        </a>
+        <a
+          href={APP_URL}
+          className={styles.btnGhost}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Start on the web
+        </a>
+      </>
     )
   }
 
   return (
-    <div className={styles.questionMini} aria-hidden="true">
-      <span />
-      <span />
-      <span />
-    </div>
+    <>
+      <a
+        href={APP_URL}
+        className={styles.btnPrimary}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Start on the web
+      </a>
+      <span className={styles.chipQuiet}>
+        <span className={styles.chipDot} aria-hidden="true" />
+        iPhone beta coming soon
+      </span>
+    </>
+  )
+}
+
+function CheckIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M4 12.5 9.5 18 20 6.5" />
+    </svg>
   )
 }
 
@@ -169,11 +133,11 @@ export default function HomePage() {
   return (
     <>
       <SeoHead
-        title="intori - Made for you. Within minutes."
-        description="What's for dinner? intori hands you three picks for tonight, shaped by your household's tastes, in about 30 seconds. Then what to watch, game day, live music, and style. On the web and in World App."
+        title="intori. Tonight, decided."
+        description="The game tonight, a show nearby, something worth watching, and yes, dinner. intori answers a busy household's small daily questions in about 30 seconds, shaped by your answers."
         canonicalPath="/"
-        ogDescription="Three dinner picks for tonight, in about 30 seconds. Then what to watch, game day, live music, and style."
-        ogImageAlt="intori card reading Dinner, decided, next to a phone showing tonight's dinner picks"
+        ogDescription="The game tonight, a show nearby, something worth watching, and yes, dinner. Answered in about 30 seconds, shaped by your answers."
+        ogImageAlt="intori card reading Tonight, decided, with tiles for Game Day, Music Events, Watch Radar, and Today's Food"
       />
 
       <div className={styles.page}>
@@ -181,238 +145,213 @@ export default function HomePage() {
         <MarketingHeader />
 
         <main>
-          <section className={styles.heroSection}>
+          <header className={styles.heroSection}>
             <div className={styles.container}>
-              <div className={styles.heroGrid}>
-
-                <div className={styles.heroLeft}>
-                  <p className={styles.heroEyebrow}>Tonight&rsquo;s dinner, sorted</p>
-                  <h1 className={styles.heroHeadline}>
-                    Dinner,<br />decided.
-                  </h1>
-                  <p className={styles.heroBody}>
-                    Answer a few quick questions and intori hands you three dinner picks for tonight in about 30 seconds, shaped by your household&rsquo;s tastes. What to watch, game day, live music, and style come next, each learning as you go.
-                  </p>
-                  <div className={styles.heroCtas}>
-                    <a
-                      href={APP_URL}
-                      className={styles.ctaPrimary}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Get started
-                    </a>
-                    <a href="#how-it-works" className={styles.ctaSecondary}>
-                      See how it works →
-                    </a>
-                    <a
-                      href={WORLD_APP_URL}
-                      className={styles.ctaSecondary}
-                      style={{ gap: 6 }}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <WorldIcon size={16} />
-                      Also on World App
-                    </a>
-                  </div>
-                  <div className={styles.trustRow}>
-                    <div className={styles.avatarStack} aria-hidden="true">
-                      {TRUST_AVATARS.map((src, i) => (
-                        <div key={i} className={styles.avatarWrap}>
-                          <Image src={src} alt="" width={32} height={32} className={styles.avatar} />
-                        </div>
-                      ))}
-                    </div>
-                    <div className={styles.trustRight}>
-                      <p className={styles.trustCopy}>
-                        Already used by <strong>6,500+</strong> people
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className={styles.heroRight}>
-                  <div className={styles.heroVisualArea}>
-                    <div className={styles.heroWarmShape} aria-hidden="true" />
-
-                    <HeroPhone />
-
-                    <div className={`${styles.floatCard} ${styles.floatCardMusic} ${styles.floatEntrance}`}>
-                      <Image src="/brand/hero-stamps/music-lovers.png" alt="" fill sizes="280px" className={styles.floatImage} />
-                      <span className={styles.floatCheck} aria-hidden="true">
-                        <svg viewBox="0 0 20 20" className={styles.floatCheckIcon}>
-                          <path d="M7.8 14.2 3.7 10l1.8-1.8 2.3 2.3 6.7-6.8 1.8 1.8-8.5 8.7z" />
-                        </svg>
-                      </span>
-                      <div className={styles.floatText}>
-                        <p className={styles.floatCardLabel}>Music Events</p>
-                        <p className={styles.floatCardTitle}>See who&rsquo;s playing near you</p>
-                      </div>
-                    </div>
-
-                    <div className={`${styles.floatCard} ${styles.floatCardWeekend} ${styles.floatEntranceDelay}`}>
-                      <Image src="/brand/hero-stamps/sports-fans.png" alt="" fill sizes="280px" className={styles.floatImage} />
-                      <span className={styles.floatCheck} aria-hidden="true">
-                        <svg viewBox="0 0 20 20" className={styles.floatCheckIcon}>
-                          <path d="M7.8 14.2 3.7 10l1.8-1.8 2.3 2.3 6.7-6.8 1.8 1.8-8.5 8.7z" />
-                        </svg>
-                      </span>
-                      <div className={styles.floatText}>
-                        <p className={styles.floatCardLabel}>Game Day</p>
-                        <p className={styles.floatCardTitle}>Sharper sports picks today</p>
-                      </div>
-                    </div>
-
-                    <div className={`${styles.floatCard} ${styles.floatCardThree} ${styles.floatEntranceDelay2}`}>
-                      <Image src="/brand/hero-stamps/foodies.png" alt="" fill sizes="280px" className={styles.floatImage} />
-                      <span className={styles.floatCheck} aria-hidden="true">
-                        <svg viewBox="0 0 20 20" className={styles.floatCheckIcon}>
-                          <path d="M7.8 14.2 3.7 10l1.8-1.8 2.3 2.3 6.7-6.8 1.8 1.8-8.5 8.7z" />
-                        </svg>
-                      </span>
-                      <div className={styles.floatText}>
-                        <p className={styles.floatCardLabel}>Today&apos;s Food</p>
-                        <p className={styles.floatCardTitle}>Tonight&apos;s pick, sorted</p>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-
+              <p className={styles.heroEyebrow}>Made for busy households</p>
+              <h1 className={styles.heroHeadline}>Tonight,<br />decided.</h1>
+              <p className={styles.heroSub}>
+                Whether the game is worth the evening. Who&rsquo;s playing nearby this
+                weekend. What&rsquo;s worth watching after the kids are down. And yes,
+                what&rsquo;s for dinner. intori answers the small daily questions in
+                about 30&nbsp;seconds, shaped by what your household actually enjoys.
+              </p>
+              <div className={styles.heroCtas}>
+                <AppCtas />
               </div>
+              <p className={styles.heroTrust}>
+                Already used by <strong>6,500+ people</strong>
+              </p>
             </div>
-          </section>
-
-          <section id="how-it-works" className={styles.howSection}>
-            <div className={styles.container}>
-              <h2 className={styles.sectionHeading}>How it works</h2>
-              <div className={styles.howGrid}>
-                {HOW_STEPS.map((step, index) => (
-                  <Fragment key={step.number}>
-                    <article className={`${styles.howCard}${step.visual === 'pack-card' ? ` ${styles.howCardPack}` : ''}`}>
-                      {step.visual === 'pack-card' && (
-                        <div className={styles.howPackCardBackdrop} aria-hidden="true">
-                          {/* TODO(PR7 asset): swap this stamp backdrop for a warm
-                              product screenshot or neutral cluster artwork. It is
-                              washed to a faint watermark for now. */}
-                          <Image
-                            src="/brand/stamps/MUSIC LOVERS/MAIN.png"
-                            alt=""
-                            fill
-                            sizes="(max-width: 760px) 100vw, 360px"
-                            className={styles.howPackCardImage}
-                          />
-                          <div className={styles.howPackCardVignette} />
-                          <Image
-                            src="/brand/icons/music_lovers.svg"
-                            alt=""
-                            width={112}
-                            height={112}
-                            className={styles.howPackCardIcon}
-                          />
-                        </div>
-                      )}
-                      <div className={styles.howCardStep}>{step.number}</div>
-                      <h3 className={styles.howCardTitle}>{step.title}</h3>
-                      <p className={styles.howCardBody}>{step.body}</p>
-                      {step.visual !== 'pack-card' && (
-                        <div className={`${styles.howCardImageWrap}${step.visual === 'packs' ? ` ${styles.howPackWrap}` : ''}`}>
-                          <HowVisual type={step.visual} />
-                        </div>
-                      )}
-                    </article>
-                    {index < HOW_STEPS.length - 1 && <div className={styles.howArrow} aria-hidden="true">→</div>}
-                  </Fragment>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <section id="why" className={styles.packsSection}>
-            <div className={styles.container}>
-              <h2 className={styles.sectionHeading}>Why intori gets more useful</h2>
-              <p className={styles.packsSub}>Your answers teach intori what matters, when to ask for more, and how to explain the first pass it gives you.</p>
-              <div className={styles.packsGrid}>
-                {PACKS.map((pack) => (
-                  <div
-                    key={pack.label}
-                    className={styles.packTile}
-                    style={{ '--pack-color': pack.color } as CSSProperties}
-                  >
-                    <div className={styles.packIconBand}>
-                      <div className={styles.packIconWrap}>
-                        <Image src={pack.icon} alt="" width={34} height={34} className={styles.packIcon} />
-                      </div>
-                    </div>
-                    <p className={styles.packLabel}>{pack.label}</p>
-                    <p className={styles.packDesc}>{pack.desc}</p>
-                    <span className={styles.packCluster}>{pack.badge}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <section className={styles.aiSection}>
-            <div className={styles.container}>
-              <div className={styles.aiInner}>
-                <div className={styles.aiText}>
-                  <h2 className={styles.aiHeading}>A warm welcome, then picks made for you</h2>
-                  <p className={styles.aiBody}>
-                    Each helper opens with a friendly hello, gives you a first pass shaped by your answers,
-                    and lets you see more when you want it.
-                  </p>
-                  <a href={APP_URL} className={styles.ctaPrimary} target="_blank" rel="noopener noreferrer">
-                    Meet a helper
-                  </a>
-                </div>
-                <div className={styles.helperPeek} aria-hidden="true">
+            <div className={styles.heroStage}>
+              <div className={styles.heroGlow} aria-hidden="true" />
+              <div className={styles.phone}>
+                <div className={styles.phoneScreen}>
                   <Image
-                    src="/brand/warm/todays-food-result.jpg"
-                    alt=""
-                    width={820}
-                    height={1782}
-                    className={styles.peekShot}
+                    src="/brand/warm/home-today-gameday.jpg"
+                    alt="intori Today screen with a Game Day pick ready to keep or pass on, and a quick question below it"
+                    width={1206}
+                    height={2282}
+                    className={styles.phoneShot}
+                    priority
                   />
                 </div>
               </div>
             </div>
+          </header>
+
+          <section id="today" className={styles.todaySection}>
+            <div className={styles.container}>
+              <div className={styles.secHead}>
+                <h2 className={styles.secTitle}>What intori can help with today</h2>
+                <p className={styles.secSub}>
+                  Four helpers, live now. Each one learns from your answers and shows its work.
+                </p>
+              </div>
+              <div className={styles.todayGrid}>
+                {HELPERS.map((helper) => (
+                  <article key={helper.kicker} className={styles.todayCard}>
+                    <div className={`${styles.todayArt} ${helper.tint}`}>
+                      <Image
+                        src={helper.image}
+                        alt={helper.alt}
+                        fill
+                        sizes="(max-width: 900px) 100vw, 540px"
+                        className={styles.todayArtImage}
+                      />
+                    </div>
+                    <p className={styles.todayKicker}>{helper.kicker}</p>
+                    <h3 className={styles.todayTitle}>{helper.title}</h3>
+                    <p className={styles.todayBody}>{helper.body}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
           </section>
 
-          <section className={styles.devBridge}>
+          <section className={styles.wedgeSection}>
             <div className={styles.container}>
-              <div className={styles.devBridgeGrid}>
-                <div className={styles.devBridgeLeft}>
-                  <h2 className={styles.devBridgeHeading}>Building an app?</h2>
-                  <p className={styles.devBridgeBody}>
-                    intori can share user-approved personalization with apps people choose to connect. Developer access is coming soon.
-                  </p>
-                  <span className={styles.devBridgeCtaDisabled} aria-disabled="true">
-                    Developers - coming soon
-                  </span>
+              <div className={styles.wedgeState}>
+                <p className={styles.wedgeLineA}>
+                  Your family calendar keeps track of what&rsquo;s planned.
+                </p>
+                <p className={styles.wedgeLineB}>
+                  intori helps with everything that isn&rsquo;t, yet.
+                </p>
+              </div>
+              <p className={styles.wedgeBody}>
+                Shared calendars and family displays are great at keeping the household
+                moving. What they can&rsquo;t do is step outside the loop: the game tonight,
+                the show this weekend, whether Saturday deserves a small adventure.
+                intori starts there.
+              </p>
+              <div className={styles.wedgeDemo}>
+                <div className={styles.demoCol}>
+                  <h4 className={styles.demoColTitle}>Already on the calendar</h4>
+                  <div className={styles.demoRow}><time>4:00 pm</time>Soccer practice</div>
+                  <div className={styles.demoRow}><time>Thu</time>Dentist, both kids</div>
+                  <div className={styles.demoRow}><time>Fri</time>School recital</div>
+                  <div className={styles.demoRow}><time>Sat</time>&hellip;still open</div>
                 </div>
-                <div className={styles.devBridgeRight}>
-                  <div className={styles.devFlow} aria-label="Developer personalization flow">
-                    <div className={styles.devFlowCard}>
-                      <strong>User connects intori</strong>
-                      <span className={styles.checkLine}>Music taste</span>
-                      <span className={styles.checkLine}>Planning style</span>
-                      <span className={styles.checkLine}>Preferences</span>
+                <div className={styles.demoCol}>
+                  <h4 className={styles.demoColTitle}>Still open &middot; intori&rsquo;s job</h4>
+                  <div className={styles.demoPick}>
+                    <div className={`${styles.demoSwatch} ${styles.swatchSports}`} aria-hidden="true" />
+                    <div>
+                      <b>Tonight</b>
+                      <span>Your team tips off at 8, and this one is worth it</span>
                     </div>
-                    <div className={styles.devArrow}>→</div>
-                    <div className={styles.devFlowCard}>
-                      <strong>intori prepares the context</strong>
-                      <span>Approved by the user<br />Fresh where it matters</span>
+                  </div>
+                  <div className={styles.demoPick}>
+                    <div className={`${styles.demoSwatch} ${styles.swatchMusic}`} aria-hidden="true" />
+                    <div>
+                      <b>Saturday</b>
+                      <span>An outdoor show 15 minutes away, kids welcome</span>
                     </div>
-                    <div className={styles.devArrow}>→</div>
-                    <div className={styles.devFlowCode}>
-                      <strong>Your app gets a better start</strong>
-                      <code>{"Music ideas\nTiming notes\nFreshness notes"}</code>
+                  </div>
+                  <div className={styles.demoPick}>
+                    <div className={`${styles.demoSwatch} ${styles.swatchWatch}`} aria-hidden="true" />
+                    <div>
+                      <b>After bedtime</b>
+                      <span>The show you&rsquo;re both mid-season on is back</span>
+                    </div>
+                  </div>
+                  <div className={styles.demoPick}>
+                    <div className={`${styles.demoSwatch} ${styles.swatchFood}`} aria-hidden="true" />
+                    <div>
+                      <b>Dinner</b>
+                      <span>3 picks ready, one is a 20-minute sheet pan</span>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
+          </section>
+
+          <section id="why" className={styles.trustSection}>
+            <div className={styles.container}>
+              <div className={styles.secHead}>
+                <h2 className={styles.secTitle}>Built from your answers, not guesses</h2>
+                <p className={styles.secSub}>
+                  intori gets useful because you tell it what matters, a few quick questions at a time.
+                </p>
+              </div>
+              <div className={styles.trustGrid}>
+                {TRUST_CARDS.map((card) => (
+                  <div key={card.title} className={styles.trustCard}>
+                    <div className={styles.trustTick} aria-hidden="true"><CheckIcon /></div>
+                    <h3 className={styles.trustTitle}>{card.title}</h3>
+                    <p className={styles.trustBody}>{card.body}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section id="calendar" className={styles.calSection}>
+            <div className={`${styles.container} ${styles.calGrid}`}>
+              <div>
+                <h2 className={styles.calTitle}>Keep the good ones where your family already looks</h2>
+                <p className={styles.calSub}>
+                  When a pick is worth holding onto, keep it on the calendar or household
+                  display you choose, including Skylight. One tap, your choice, every time.
+                </p>
+                <p className={styles.calFine}>
+                  intori adds only what you decide to keep. Nothing lands on the family calendar by itself.
+                </p>
+              </div>
+              <div className={styles.calVisual}>
+                <div className={styles.calFlow}>
+                  <div className={styles.calPick}>
+                    <div className={`${styles.demoSwatch} ${styles.swatchMusic}`} aria-hidden="true" />
+                    <div>
+                      <b>Riverfront Live: Saturday 6 pm</b>
+                      <span>Keep this &rarr;</span>
+                    </div>
+                  </div>
+                  <div className={styles.calArrow} aria-hidden="true">&darr;</div>
+                  <div className={styles.calDest}>
+                    <small>Your household display</small>
+                    <b>Sat &middot; Riverfront Live, 6:00 pm</b>
+                    <span>On the calendar everyone sees</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Coming Next is deliberately self-contained: when Family Activities
+              ships, this section is deleted and the helper joins the Today grid
+              above as a fifth card. */}
+          <section className={styles.nextSection}>
+            <div className={`${styles.container} ${styles.nextInner}`}>
+              <span className={styles.nextTag}>
+                <span className={styles.chipDot} aria-hidden="true" />
+                Coming next
+              </span>
+              <h2 className={styles.secTitle}>The moments worth making room for</h2>
+              <p className={styles.nextBody}>
+                We&rsquo;re building a helper that surfaces timely, nearby opportunities a
+                family would be glad to know about before they pass: the exhibit that
+                only runs one weekend, the season that ends soon, the small Saturday
+                adventure that turns an ordinary weekend into a memory. Worth putting
+                on the calendar while there&rsquo;s still time.
+              </p>
+              <p className={styles.nextHonest}>Not live yet. The four helpers above are.</p>
+            </div>
+          </section>
+
+          <section id="start" className={styles.convertSection}>
+            <div className={styles.container}>
+              <h2 className={styles.convertTitle}>Start tonight.</h2>
+              <p className={styles.convertSub}>
+                {IOS_BETA_URL
+                  ? <>The iPhone beta is open. intori still works on the web too, no install needed.</>
+                  : <>intori works on the web today. The iPhone beta is next, and the button below will say so the moment it&rsquo;s real.</>}
+              </p>
+              <div className={styles.convertCtas}>
+                <AppCtas />
+              </div>
+              <p className={styles.convertNote}>Free to try. No app install needed on the web.</p>
             </div>
           </section>
 

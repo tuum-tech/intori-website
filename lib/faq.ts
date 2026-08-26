@@ -38,7 +38,7 @@ export const FAQ: FaqItem[] = [
     question: "Why not just search for this stuff myself?",
     answer: [
       "Because repeating yourself gets old.",
-      "Your taste, budget, pace, and boundaries should not have to be explained from scratch every time you want a recommendation. intori learns them once and uses them across every helper, so each result already starts closer to you."
+      "Your taste, budget, pace, and boundaries should not have to be explained from scratch every time you want a recommendation. intori learns them once and uses them every time you ask, so each result already starts closer to you."
     ]
   },
   {
@@ -51,7 +51,7 @@ export const FAQ: FaqItem[] = [
   {
     question: "What can I start with?",
     answer: [
-      "intori starts with four daily helpers: Game Day, Music Events, Watch Radar, and Today's Food.",
+      "intori answers four questions every day: Game Day, Music Events, Watch Radar, and Today's Food.",
       "Each one helps intori understand what you like, what you avoid, and what actually fits your life."
     ]
   },
@@ -65,7 +65,7 @@ export const FAQ: FaqItem[] = [
   {
     question: "What can intori do right now?",
     answer: [
-      "Four daily helpers are live: Game Day, Music Events, Watch Radar, and Today's Food.",
+      "Four are live now: Game Day, Music Events, Watch Radar, and Today's Food.",
       "Each gives you a useful first pass that fits your taste, timing, and constraints, and you can go deeper in a quick chat inside intori whenever you want more."
     ]
   },
@@ -80,7 +80,7 @@ export const FAQ: FaqItem[] = [
     question: "Will I have to keep answering the same questions?",
     answer: [
       "No. That is one of the main problems intori is built to solve.",
-      "Repeating your preferences over and over is tiring. intori carries what you have already shared into every helper, so your answers keep making future recommendations and plans better instead of starting over."
+      "Repeating your preferences over and over is tiring. intori carries what you have already shared from one answer to the next, so your answers keep making future recommendations and plans better instead of starting over."
     ]
   },
   {
@@ -105,7 +105,7 @@ export const FAQ: FaqItem[] = [
   {
     question: "What are Credits?",
     answer: [
-      "Credits let you run helpers and go deeper on a result.",
+      "Credits let you get picks and go deeper on a result.",
       "New users get a few starter credits free, and you can buy more whenever you want."
     ]
   },

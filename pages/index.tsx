@@ -148,9 +148,9 @@ export default function HomePage() {
     <>
       <SeoHead
         title="intori. Tonight, decided."
-        description="The game tonight, a show nearby, something worth watching, and yes, dinner. intori answers a busy household's small daily questions in about 30 seconds, shaped by your answers."
+        description="The game worth staying up for. Who's playing nearby. Something worth watching. And yes, dinner. intori brings them to you early enough to say yes."
         canonicalPath="/"
-        ogDescription="The game tonight, a show nearby, something worth watching, and yes, dinner. Answered in about 30 seconds, shaped by your answers."
+        ogDescription="The game, who's playing nearby, something worth watching, and yes, dinner. intori brings them to you early enough to say yes."
         ogImageAlt="intori card reading Tonight, decided, with tiles for Game Day, Music Events, Watch Radar, and Today's Food"
       />
 

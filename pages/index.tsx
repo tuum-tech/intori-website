@@ -166,10 +166,14 @@ export default function HomePage() {
               <p className={styles.heroDeck}>
                 Your calendar is full of things you have to do. This is for the other half.
               </p>
+              {/* Lane underlines are decoration under ink glyphs (F3): cluster
+                  color never becomes text color, per BRAND.md. */}
               <p className={styles.heroSub}>
-                The game worth staying up for. Who&rsquo;s playing 15&nbsp;minutes away on
-                Saturday. The show you&rsquo;re both mid season on. And yes, what&rsquo;s for
-                dinner. intori brings them to you, shaped by what your household actually
+                <span className={styles.ulSports}>The game worth staying up for.</span>{' '}
+                <span className={styles.ulMusic}>Who&rsquo;s playing 15&nbsp;minutes away on Saturday.</span>{' '}
+                <span className={styles.ulWatch}>The show you&rsquo;re both mid season on.</span>{' '}
+                <span className={styles.ulFood}>And yes, what&rsquo;s for dinner.</span>{' '}
+                intori brings them to you, shaped by what your household actually
                 likes, early enough to say yes.
               </p>
               <div className={styles.heroCtas}>
@@ -207,8 +211,8 @@ export default function HomePage() {
               </div>
               <div className={styles.todayGrid}>
                 {HELPERS.map((helper) => (
-                  <article key={helper.kicker} className={styles.todayCard}>
-                    <div className={`${styles.todayArt} ${helper.tint}`}>
+                  <article key={helper.kicker} className={`${styles.todayCard} ${helper.tint}`}>
+                    <div className={styles.todayArt}>
                       <Image
                         src={helper.image}
                         alt={helper.alt}
@@ -217,7 +221,10 @@ export default function HomePage() {
                         className={styles.todayArtImage}
                       />
                     </div>
-                    <p className={styles.todayKicker}>{helper.kicker}</p>
+                    <p className={styles.todayKicker}>
+                      <span className={styles.laneMark} aria-hidden="true" />
+                      {helper.kicker}
+                    </p>
                     <h3 className={styles.todayTitle}>{helper.title}</h3>
                     <p className={styles.todayBody}>{helper.body}</p>
                   </article>
@@ -251,6 +258,7 @@ export default function HomePage() {
                   <div className={styles.demoRow}><time>Thu</time>Dentist, both kids</div>
                   <div className={styles.demoRow}><time>Fri</time>School recital</div>
                   <div className={styles.demoRow}><time>Sat</time>&hellip;still open</div>
+                  <div className={styles.demoRow}><time>Sun</time>&hellip;also open</div>
                 </div>
                 <div className={styles.demoCol}>
                   <h4 className={styles.demoColTitle}>Still open &middot; intori&rsquo;s job</h4>
@@ -335,6 +343,11 @@ export default function HomePage() {
                     <b>Sat &middot; Riverfront Live, 6:00 pm</b>
                     <span>On the calendar everyone sees</span>
                   </div>
+                  <div className={styles.calChips}>
+                    <span className={styles.calChip}>Skylight</span>
+                    <span className={styles.calChip}>Google Calendar</span>
+                    <span className={styles.calChip}>Apple Calendar</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -363,6 +376,12 @@ export default function HomePage() {
 
           <section id="start" className={styles.convertSection}>
             <div className={styles.container}>
+              <div className={styles.convertLanes} aria-hidden="true">
+                <span className={`${styles.laneMark} ${styles.artSports}`} />
+                <span className={`${styles.laneMark} ${styles.artMusic}`} />
+                <span className={`${styles.laneMark} ${styles.artWatch}`} />
+                <span className={`${styles.laneMark} ${styles.artFood}`} />
+              </div>
               <h2 className={styles.convertTitle}>Start tonight.</h2>
               <p className={styles.convertSub}>
                 {IOS_BETA_URL

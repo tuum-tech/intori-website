@@ -16,8 +16,8 @@
 | card | `#FFFFFF` |
 | ink (text, headings, **CTAs**) | `#26213E` |
 | ink-hover (CTA hover) | `#322B4E` |
-| ink-soft (secondary text) | `rgba(38, 33, 62, 0.62)` |
-| ink-faint (disabled / meta) | `rgba(38, 33, 62, 0.42)` |
+| ink-soft (secondary text) | `rgba(38, 33, 62, 0.72)` (5.96:1 on cream, passes AA; was 0.62 at 4.36:1) |
+| ink-faint (decorative ONLY: arrows, rules, marks; 2.49:1, never running text) | `rgba(38, 33, 62, 0.42)` |
 | hairline (borders / dividers) | `#E9E2D3` |
 | spark (accent, **non-text only**) | `#93B32A` |
 | spark-hover | `#85A226` |
@@ -28,8 +28,11 @@
 ONLY as a non-text accent (dot, 3px rule, artwork). Every glyph, numeral, check,
 and code character on a light ground is ink `#26213E`.
 
-**Cluster accents (artwork / thumbnails ONLY — never text, fill, border, or glow):**
+**Cluster accents (never text color, fill, or glow):**
 sports `#F76B15` · food `#E5484D` · music `#D467FF` · watch `#DD8C22`.
+Sanctioned non-text uses on the homepage (added 2026-08-27): artwork/thumbnails,
+the 2px hero-subhead underlines at ~50% alpha, and the 8px rounded lane marks
+(card kickers, closing section). Glyphs above them stay ink.
 `#60B3D7` (blue), `#F2FD00` (neon yellow), and `#FF5C8A` (style) are **retired**
 on marketing surfaces.
 
@@ -63,7 +66,7 @@ italic-only face).
 
 ## Asset inventory (live, post-purge 2026-07-23; refreshed 2026-08-26)
 
-- `public/og/og-tonight-v3.jpg` — the current OG card, warm (1800x945).
+- `public/og/og-tonight-v4.jpg` — the current OG card, warm (1800x945).
   OG filenames are **versioned on purpose**: scrapers cache image bytes by URL,
   so new card art always ships at a new path and older files stay in place so
   previously-scraped embeds do not 404.

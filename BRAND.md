@@ -28,13 +28,18 @@
 ONLY as a non-text accent (dot, 3px rule, artwork). Every glyph, numeral, check,
 and code character on a light ground is ink `#26213E`.
 
-**Cluster accents (never text color, fill, or glow):**
-sports `#F76B15` · food `#E5484D` · music `#D467FF` · watch `#DD8C22`.
+**Cluster accents (never text color, fill, or glow).** The four lanes are
+**orange, purple, blue, red** (founder ruling 2026-08-27), matching the app's
+own cluster colors so a lane reads the same in the product and on the site:
+sports `#F76B15` · music `#D467FF` · watch `#60B3D7` · food `#E5484D`.
+The amber `#DD8C22` proposed for Watch in the redesign mockup is **replaced**,
+and `#60B3D7` is no longer retired: it IS the Watch lane color. `#F2FD00`
+(neon yellow) and `#FF5C8A` (style) remain retired.
 Sanctioned non-text uses on the homepage (added 2026-08-27): artwork/thumbnails,
-the 2px hero-subhead underlines at ~50% alpha, and the 8px rounded lane marks
-(card kickers, closing section). Glyphs above them stay ink.
-`#60B3D7` (blue), `#F2FD00` (neon yellow), and `#FF5C8A` (style) are **retired**
-on marketing surfaces.
+the 2px hero-subhead underlines, and the 8px rounded lane marks (card kickers,
+closing section). Glyphs above them stay ink. Watch blue is lighter than the
+other three, so its underline runs at 0.7 alpha where the others sit at 0.5 to
+0.55, to carry equal visual weight.
 
 ## Type (marketing surfaces, Aug 2026)
 
@@ -66,7 +71,8 @@ italic-only face).
 
 ## Asset inventory (live, post-purge 2026-07-23; refreshed 2026-08-27)
 
-- `public/og/og-tonight-v4.jpg` — the current OG card, warm (1800x945).
+- `public/og/og-tonight-v5.jpg` — the current OG card, warm (1800x945).
+  v5 recolors the Watch tile from amber to blue; v4 and earlier stay on disk.
   OG filenames are **versioned on purpose**: scrapers cache image bytes by URL,
   so new card art always ships at a new path and older files stay in place so
   previously-scraped embeds do not 404.

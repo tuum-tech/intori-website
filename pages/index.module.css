@@ -1,7 +1,7 @@
 /* intori marketing homepage — warm Direction A, "Tonight, decided." refresh
    (2026-08). Single-theme cream in every OS theme state. Tokens match BRAND.md.
-   The Watch accent #DD8C22 is site-artwork-only: the app's movie/tv cluster
-   blue (#60B3D7) is retired on the marketing surface. */
+   Lane colors are orange, purple, blue, red, matching the app's own cluster
+   colors so a lane reads the same in the product and on the site. */
 
 .page {
   --ink:        #26213E;
@@ -18,7 +18,7 @@
   --food:       #E5484D;      /* cluster accents: artwork only, never text */
   --sports:     #F76B15;
   --music:      #D467FF;
-  --watch:      #DD8C22;
+  --watch:      #60B3D7; /* app movie/tv cluster blue */
   --shadow-card: 0 1px 2px rgba(38,33,62,.04), 0 15px 34px -14px rgba(38,33,62,.17);
   --radius-card: 22px;
   --radius-img: 16px;
@@ -236,7 +236,7 @@
 }
 .ulSports { text-decoration-color: rgba(247, 107, 21, 0.55); }
 .ulMusic  { text-decoration-color: rgba(212, 103, 255, 0.5); }
-.ulWatch  { text-decoration-color: rgba(221, 140, 34, 0.55); }
+.ulWatch  { text-decoration-color: rgba(96, 179, 215, 0.7); }
 .ulFood   { text-decoration-color: rgba(229, 72, 77, 0.5); }
 
 .laneMark {
@@ -494,7 +494,7 @@
 
 .swatchSports { background: linear-gradient(135deg, #FCE4D2, var(--sports)); }
 .swatchMusic  { background: linear-gradient(135deg, #F3DFFB, var(--music)); }
-.swatchWatch  { background: linear-gradient(135deg, #F8E9CF, var(--watch)); }
+.swatchWatch  { background: linear-gradient(135deg, #DCEDF7, var(--watch)); }
 .swatchFood   { background: linear-gradient(135deg, #F9DEDF, var(--food)); }
 
 /* ─── Trust ───────────────────────────────────────────── */

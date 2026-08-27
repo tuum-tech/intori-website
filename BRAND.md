@@ -73,10 +73,12 @@ italic-only face).
 - `public/brand/warm/home-today-gameday.jpg` — homepage hero phone capture.
 - `public/brand/warm/tile-{game-day,music-events,watch-radar,todays-food}.jpg`
   — the four Today-grid helper captures.
-- `public/brand/warm/{hero-home-checkin,hero-todays-checkins,
-  checkin-question-music,todays-food-result}.jpg` — earlier captures, no longer
-  referenced. The two `hero-*` files show parked Style Finds UI; do not reuse
-  them on marketing surfaces.
+- `public/brand/warm/` now holds **only** the five live captures above. The
+  four earlier ones (`hero-home-checkin`, `hero-todays-checkins`,
+  `checkin-question-music`, `todays-food-result`) were **DELETED 2026-08-27**:
+  unreferenced since the homepage rebuild, and the two `hero-*` files showed
+  parked Style Finds UI, so keeping them around invited a reuse that would
+  breach the marketing-surface rule. Recoverable from git history.
 - `public/brand/hero-stamps/`, `public/brand/stamps/`, `public/brand/icons/` —
   **DELETED 2026-08-27**. The 2026-08-26 homepage rebuild removed the float
   cards, trust avatars, step backdrop, and helper-card line icons that used

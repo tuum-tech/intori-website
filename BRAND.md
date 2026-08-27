@@ -64,7 +64,7 @@ italic-only face).
   "identity", "meet people", drafts, ChatGPT/"your AI tools" framing,
   World ID "verified humans / no bots", token/onchain/crypto, gifting.
 
-## Asset inventory (live, post-purge 2026-07-23; refreshed 2026-08-26)
+## Asset inventory (live, post-purge 2026-07-23; refreshed 2026-08-27)
 
 - `public/og/og-tonight-v4.jpg` — the current OG card, warm (1800x945).
   OG filenames are **versioned on purpose**: scrapers cache image bytes by URL,
@@ -78,10 +78,10 @@ italic-only face).
   referenced. The two `hero-*` files show parked Style Finds UI; do not reuse
   them on marketing surfaces.
 - `public/brand/hero-stamps/`, `public/brand/stamps/`, `public/brand/icons/` —
-  **no longer referenced** as of the 2026-08-26 homepage rebuild, which removed
-  the float cards, trust avatars, step backdrop, and helper-card line icons that
-  used them. The old `TODO(PR7 asset)` backdrop placeholder is resolved by that
-  removal. Safe to delete in a dedicated cleanup pass.
+  **DELETED 2026-08-27**. The 2026-08-26 homepage rebuild removed the float
+  cards, trust avatars, step backdrop, and helper-card line icons that used
+  them, leaving 12 files (~10 MB) referenced by nothing. Recoverable from git
+  history if a future surface needs cluster line icons.
 - `public/assets/templates/avatar_fallback.png` — dashboard avatar fallback.
 - `public/news/` — article hero images (articles currently unpublished).
 

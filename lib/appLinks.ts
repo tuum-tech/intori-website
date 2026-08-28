@@ -12,15 +12,26 @@ export const IOS_BETA_URL = process.env.NEXT_PUBLIC_IOS_BETA_URL ?? ''
 
 // Homepage headline variant, staged the same way as IOS_BETA_URL.
 //
-// 'decided' (or unset) ships the current "Tonight, decided." headline.
-// 'forward' ships "Something to look forward to. Every week.", which is a
-// weekly-cadence promise. Do NOT enable 'forward' until the app actually
-// guarantees a populated item for every household every week; without that
-// guarantee the headline is a claim the product cannot keep.
-export type HeroVariant = 'decided' | 'forward'
+// 'forward' (the default) ships the locked tagline, "Something to look forward
+// to." On its own that line makes no cadence promise, so it carries no supply
+// dependency and is safe to serve to everyone.
+//
+// 'weekly' adds the second sentence, "Every week." THAT is the cadence claim.
+// Do NOT enable 'weekly' until the app actually guarantees a populated item for
+// every household every week; without that guarantee the headline is a claim
+// the product cannot keep.
+//
+// 'decided' keeps the previous "Tonight, decided." headline available.
+export type HeroVariant = 'forward' | 'weekly' | 'decided'
 
-export const HERO_VARIANT: HeroVariant =
-  process.env.NEXT_PUBLIC_HERO_VARIANT === 'forward' ? 'forward' : 'decided'
+function resolveHeroVariant(): HeroVariant {
+  const configured = process.env.NEXT_PUBLIC_HERO_VARIANT
+  if (configured === 'weekly') return 'weekly'
+  if (configured === 'decided') return 'decided'
+  return 'forward'
+}
+
+export const HERO_VARIANT: HeroVariant = resolveHeroVariant()
 
 export const WORLD_APP_URL =
   'https://world.org/mini-app?app_id=app_263f86463869627f1183badc977e21a3'

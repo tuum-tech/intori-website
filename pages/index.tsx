@@ -121,18 +121,27 @@ function AppCtas() {
   )
 }
 
-// Staged headline. 'forward' is built and verified but must stay off until the
-// app can guarantee a populated item for every household every week.
+// Staged headline. The tagline alone ('forward') makes no cadence promise and
+// is the default. 'weekly' adds "Every week.", which is a claim the app must be
+// able to keep before it ships. See lib/appLinks.ts.
 function HeroHeadline() {
-  if (HERO_VARIANT === 'forward') {
+  if (HERO_VARIANT === 'decided') {
+    return <h1 className={styles.heroHeadline}>Tonight,<br />decided.</h1>
+  }
+
+  if (HERO_VARIANT === 'weekly') {
     return (
-      <h1 className={`${styles.heroHeadline} ${styles.heroHeadlineForward}`}>
+      <h1 className={`${styles.heroHeadline} ${styles.heroHeadlineWeekly}`}>
         Something to look<br />forward to.<br />Every week.
       </h1>
     )
   }
 
-  return <h1 className={styles.heroHeadline}>Tonight,<br />decided.</h1>
+  return (
+    <h1 className={`${styles.heroHeadline} ${styles.heroHeadlineForward}`}>
+      Something to<br />look forward to.
+    </h1>
+  )
 }
 
 function CheckIcon() {
@@ -147,11 +156,11 @@ export default function HomePage() {
   return (
     <>
       <SeoHead
-        title="intori. Tonight, decided."
+        title="intori. Something to look forward to."
         description="The game worth staying up for. Who's playing nearby. Something worth watching. And yes, dinner. intori brings them to you early enough to say yes."
         canonicalPath="/"
         ogDescription="The game, who's playing nearby, something worth watching, and yes, dinner. intori brings them to you early enough to say yes."
-        ogImageAlt="intori card reading Tonight, decided, with tiles for Game Day, Music Events, Watch Radar, and Today's Food"
+        ogImageAlt="intori card reading Something to look forward to, with tiles for Game Day, Music Events, Watch Radar, and Today's Food"
       />
 
       <div className={styles.page}>
@@ -203,10 +212,10 @@ export default function HomePage() {
           <section id="today" className={styles.todaySection}>
             <div className={styles.container}>
               <div className={styles.secHead}>
-                <h2 className={styles.secTitle}>What intori answers today</h2>
+                <h2 className={styles.secTitle}>What intori brings you</h2>
                 <p className={styles.secSub}>
-                  Four questions, answered every day. Each one learns from what you tell it,
-                  and shows where the pick came from.
+                  These four are live now. Each one learns from what you tell it, and every
+                  pick shows what shaped it.
                 </p>
               </div>
               <div className={styles.todayGrid}>
@@ -323,6 +332,10 @@ export default function HomePage() {
                   When something is worth holding onto, put it where the household already
                   looks, including your Skylight. On the calendar it&rsquo;s an option, not an
                   obligation. Nothing here has to happen. One tap, your choice, every time.
+                </p>
+                <p className={styles.calSub}>
+                  Once you keep something, it leaves your list. What stays is what you have
+                  not decided yet, so an empty list means there is nothing left to decide.
                 </p>
                 <p className={styles.calFine}>
                   intori adds only what you decide to keep. Nothing lands on the family calendar by itself.

@@ -136,11 +136,17 @@
   text-wrap: balance;
 }
 
-/* Reduced from the two-line default so the three-line "forward" variant still
+/* Reduced from the "Tonight, decided." default so the longer tagline still
    clears the 390px fold. */
 .heroHeadlineForward {
-  /* Sized so its longest line ("Something to look") holds without re-wrapping
-     inside a 390px viewport, and so three lines still clear the fold. */
+  /* Two lines. Sized so its longest line ("look forward to.") holds without
+     re-wrapping inside a 390px viewport. */
+  font-size: clamp(41px, 7.4vw, 96px);
+}
+
+.heroHeadlineWeekly {
+  /* Three lines, so smaller again. Sized so its longest line ("Something to
+     look") holds at 390px and all three lines still clear the fold. */
   font-size: clamp(36px, 6.6vw, 86px);
 }
 

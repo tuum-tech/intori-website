@@ -252,6 +252,9 @@ const Privacy: NextPage = () => {
         <li><strong>Google Maps Platform and Google Places.</strong> Used to find and describe local venues such as restaurants and to display Google Maps place details. May receive coarse local context, including a city or device location rounded before it reaches intori, a search radius, and venue search terms. Google&apos;s handling of this information is governed by the <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google Privacy Policy</a>, and use of Google Maps features is subject to the <a href="https://maps.google.com/help/terms_maps/" target="_blank" rel="noreferrer">Google Maps/Google Earth Additional Terms of Service</a>.</li>
         <li><strong>Ticketmaster.</strong> Used for live event and ticket listings. May receive coarse local context, date ranges, and event search terms such as a genre or an artist.</li>
       </ul>
+      <p>
+        intori includes Google Maps features and content. Your use of those features is subject to the <a href="https://maps.google.com/help/terms_maps/" target="_blank" rel="noreferrer">Google Maps Terms of Service</a>. Google processes information under the <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google Privacy Policy</a>.
+      </p>
 
       <h3>How you control what goes to an AI processor</h3>
       <p>

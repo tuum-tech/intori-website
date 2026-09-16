@@ -15,7 +15,7 @@ const Terms: NextPage = () => {
 
       <LegalLayout>
         <h1>intori Terms of Use</h1>
-        <p><strong>Last Updated: August 21, 2026</strong></p>
+        <p><strong>Last Updated: September 16, 2026</strong></p>
 
       <p>
         These terms cover the intori website and the intori mobile app. There is one set of terms for both.
@@ -23,7 +23,7 @@ const Terms: NextPage = () => {
 
       <h2>What changed in this update</h2>
       <p>
-        This update aligns the 14-day full-access trial with how intori works. No payment method is required to start the trial, the trial begins when you complete onboarding, and it does not turn into a paid subscription automatically. It also explains Beta access, immediate billing when you choose a paid plan, and what remains available after a trial or paid period ends. The AI processors and data providers we use are named in our <Link href="/privacy-policy">Privacy Policy</Link>.
+        This update aligns the 14-day full-access trial with how intori works and adds the terms that apply when intori shows Google Maps features and content. No payment method is required to start the trial, the trial begins when you complete onboarding, and it does not turn into a paid subscription automatically. It also explains Beta access, immediate billing when you choose a paid plan, and what remains available after a trial or paid period ends. The AI processors and data providers we use are named in our <Link href="/privacy-policy">Privacy Policy</Link>.
       </p>
 
       <p>
@@ -219,7 +219,7 @@ const Terms: NextPage = () => {
         We do not control third-party services and are not responsible for their content, policies, availability, security, or actions. Information from a third-party source may be wrong, incomplete, or out of date. Your use of third-party services may be governed by their own terms and privacy policies.
       </p>
       <p>
-        intori includes Google Maps features and content. By using those features, you agree to the <a href="https://maps.google.com/help/terms_maps/" target="_blank" rel="noreferrer">Google Maps Terms of Service</a>. Google processes information under the <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google Privacy Policy</a>.
+        When you use Google Maps features and content in intori, your use is also subject to the <a href="https://maps.google.com/help/terms_maps/" target="_blank" rel="noreferrer">Google Maps/Google Earth Additional Terms of Service</a> and the <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google Privacy Policy</a>.
       </p>
 
       <h2>13. intori intellectual property</h2>

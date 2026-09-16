@@ -15,7 +15,7 @@ const Privacy: NextPage = () => {
 
       <LegalLayout>
         <h1>intori Privacy Policy</h1>
-        <p><strong>Last Updated: August 11, 2026</strong></p>
+        <p><strong>Last Updated: September 16, 2026</strong></p>
 
       <p>
         This policy covers the intori website and the intori mobile app. There is one policy for both.
@@ -23,7 +23,7 @@ const Privacy: NextPage = () => {
 
       <h2>What changed in this update</h2>
       <p>
-        This update covers the intori mobile app for iPhone. It describes the dietary and health-adjacent information you declare and how we use it. It names every AI processor and data provider that receives context from intori, not just OpenAI. It adds subscription and billing information. It also replaces the old note that export and deletion tools were still being built. You can now download your data and delete your account yourself. It removes the old description of matching and friends, because intori no longer has social features.
+        This update covers the intori mobile app for iPhone, describes the dietary and health-adjacent information you declare and how we use it, and explains how Google Maps receives coarse location and search context for nearby restaurant results. It names every AI processor and data provider that receives context from intori, not just OpenAI. It adds subscription and billing information. It also replaces the old note that export and deletion tools were still being built. You can now download your data and delete your account yourself. It removes the old description of matching and friends, because intori no longer has social features.
       </p>
 
       <h2>Who we are</h2>
@@ -249,7 +249,7 @@ const Privacy: NextPage = () => {
       </p>
       <ul>
         <li><strong>Spoonacular.</strong> Used for recipe and ingredient data. May receive recipe search terms, including dietary constraints and excluded ingredients such as allergens.</li>
-        <li><strong>Google Places.</strong> Used to find and describe local venues such as restaurants. May receive coarse local context, such as a city and a search radius, and venue search terms.</li>
+        <li><strong>Google Maps Platform and Google Places.</strong> Used to find and describe local venues such as restaurants and to display Google Maps place details. May receive coarse local context, including a city or device location rounded before it reaches intori, a search radius, and venue search terms. Google&apos;s handling of this information is governed by the <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google Privacy Policy</a>, and use of Google Maps features is subject to the <a href="https://maps.google.com/help/terms_maps/" target="_blank" rel="noreferrer">Google Maps/Google Earth Additional Terms of Service</a>.</li>
         <li><strong>Ticketmaster.</strong> Used for live event and ticket listings. May receive coarse local context, date ranges, and event search terms such as a genre or an artist.</li>
       </ul>
       <p>

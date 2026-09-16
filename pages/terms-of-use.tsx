@@ -218,6 +218,9 @@ const Terms: NextPage = () => {
       <p>
         We do not control third-party services and are not responsible for their content, policies, availability, security, or actions. Information from a third-party source may be wrong, incomplete, or out of date. Your use of third-party services may be governed by their own terms and privacy policies.
       </p>
+      <p>
+        intori includes Google Maps features and content. By using those features, you agree to the <a href="https://maps.google.com/help/terms_maps/" target="_blank" rel="noreferrer">Google Maps Terms of Service</a>. Google processes information under the <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google Privacy Policy</a>.
+      </p>
 
       <h2>13. intori intellectual property</h2>
       <p>

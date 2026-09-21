@@ -115,8 +115,8 @@ export const FAQ: FaqItem[] = [
   {
     question: "Will I have to keep answering the same questions?",
     answer: [
-      "No. That is one of the main problems intori is built to solve.",
-      "Repeating your preferences over and over is tiring. intori carries what you have already shared from one answer to the next, so your answers keep making the next pick better instead of starting over."
+      "No. Repeating your preferences over and over is tiring.",
+      "intori remembers what you have told it, so every answer makes the next pick better instead of starting over."
     ]
   },
   {
@@ -143,7 +143,7 @@ export const FAQ: FaqItem[] = [
   {
     question: "What does intori cost?",
     answer: [
-      "intori is $8.99 a month, or $79 a year. One subscription covers your whole household.",
+      "intori is $8.99 a month, or $79 a year.",
       "Before that, you get 14 days free. The trial starts when you finish setup, not when you sign up. It is a real date, and the app shows it to you, so you always know how long you have left.",
       "Choosing a plan starts billing straight away. There is no extra free period on top of your fourteen days, on the web or on iPhone."
     ]
@@ -159,7 +159,7 @@ export const FAQ: FaqItem[] = [
     question: "What happens if I stop paying?",
     answer: [
       "Everything you already added stays exactly where it is. Those events are on your own calendar, on your own device, and they do not depend on us.",
-      "What stops is the watching. intori stops finding and refreshing new picks until you subscribe again. Your answers, your preferences, and your saved results stay in your account."
+      "What stops is the watching. intori stops finding and refreshing new picks until you subscribe again. Your answers and everything you follow stay in your account."
     ]
   },
   {

@@ -358,7 +358,9 @@ export default function HomePage({ qrSvg }: InferGetServerSidePropsType<typeof g
               <p className={styles.wedgeBody}>
                 Family calendars are great at keeping the household running. What they
                 can&rsquo;t do is notice that your team plays Sunday, your show is back next
-                week, or an artist you love is in town. intori does the noticing. And
+                week, or an artist you love is in town. Keeping track of all that is one
+                more job, and it usually falls to one person, or to nobody. intori does
+                the noticing. And
                 because it remembers what you have added, it can make those plans easier
                 too, like finding dinner near the venue before the show.
               </p>
@@ -417,7 +419,7 @@ export default function HomePage({ qrSvg }: InferGetServerSidePropsType<typeof g
                 </p>
                 <p className={styles.calSub}>
                   Everything you add also shows up in intori&rsquo;s Week, and if you want a
-                  reminder, intori sends one the day before.
+                  reminder, intori sends one the day before, or two days before a concert.
                 </p>
                 <p className={styles.calFine}>
                   intori can only add events. It can&rsquo;t read, change, or delete anything

@@ -15,7 +15,7 @@ const Terms: NextPage = () => {
 
       <LegalLayout>
         <h1>intori Terms of Use</h1>
-        <p><strong>Last Updated: September 16, 2026</strong></p>
+        <p><strong>Last Updated: September 21, 2026</strong></p>
 
       <p>
         These terms cover the intori website and the intori mobile app. There is one set of terms for both.
@@ -152,7 +152,7 @@ const Terms: NextPage = () => {
 
       <h2>10. Subscriptions, purchases, and payments</h2>
       <p>
-        intori is sold as a subscription. One subscription covers your whole household.
+        intori is sold as a subscription. Each subscription covers one intori account.
       </p>
       <p>
         <strong>Free trial.</strong> Eligible new accounts get a 14-day trial with full access to intori. No payment method is required to start it. The trial begins when you complete onboarding, not when you create an account. Its end date is fixed at that point and is shown to you in the app. If you never complete onboarding, the trial does not start and intori does not produce personalized results for you. The trial does not become a paid subscription automatically. When it ends, you must choose a paid plan before intori will create or refresh another personalized result.

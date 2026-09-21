@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mock: Added, with the reminder offer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=block">
+<link rel="stylesheet" href="mock.css">
+</head>
+<body>
+<div class="screen">
+  <div data-status></div>
+
+  <main class="page">
+    <p class="day">Monday, September 28</p>
+    <h1 class="h1">Today</h1>
+
+    <!-- The upcoming saved moment -->
+    <div class="card kept lane-music">
+      <div class="date"><b>Oct</b><span>2</span></div>
+      <div class="kept-mid">
+        <span class="kept-title">Noah Kahan · PPG Paints Arena</span>
+        <span class="kept-line"><span data-icon="check" data-size="13"></span>On your calendar <span class="when">· Fri, 7:30 PM</span></span>
+      </div>
+      <span class="chev" data-icon="chev" data-size="18"></span>
+    </div>
+
+    <!-- The best current pick, with the next one peeking -->
+    <div class="shelf">
+      <article class="lead lane-sports">
+        <div class="lead-top">
+          <div class="lead-text">
+            <p class="eyebrow"><span class="dot"></span>Sports <span class="when">· Sun, Oct 4</span></p>
+            <h2 class="lead-title">Steelers at Browns</h2>
+          </div>
+          <img class="art" src="assets/sports-game-day-family.jpg" alt="">
+        </div>
+        <div class="meta">
+          <span><span data-icon="tv" data-size="15"></span>1:00 PM on CBS</span>
+        </div>
+        <p class="reason">Because you follow the Steelers.</p>
+        <div class="actions">
+          <span class="primary done"><span data-icon="check" data-size="17"></span>On your calendar</span>
+          <span class="icon-btn" data-icon="more"></span>
+        </div>
+      </article>
+      <article class="peek lane-shows">
+        <p class="eyebrow"><span class="dot"></span>Shows <span class="when">· Wed, Oct 7</span></p>
+        <h2 class="lead-title">Slow Horses returns</h2>
+      </article>
+    </div>
+    <div class="pager">
+      <span><span class="pips"><i class="on"></i><i></i><i></i><i></i><i></i></span>1 of 5</span>
+      <span class="next">Next <span data-icon="arrow" data-size="14"></span></span>
+    </div>
+
+    <!-- Makes the saved moment easier -->
+    <div class="slot lane-food">
+      <div>
+        <p class="slot-eyebrow"><strong>Food</strong> · Friday at PPG Paints Arena</p>
+        <h2>Dinner nearby before the show?</h2>
+        <p class="sub">A few places a short walk away, with a table before 7.</p>
+      </div>
+      <div class="slot-actions"><span class="outline">Find a place</span><span class="quiet">Not now</span></div>
+    </div>
+
+    <h3 class="doors-h">Explore by interest</h3>
+    <div class="doors">
+      <div class="door"><img src="assets/sports-game-day-family.jpg" alt="">Sports</div>
+      <div class="door"><img src="assets/shows-movie-night.jpg" alt="">Shows</div>
+      <div class="door"><img src="assets/music-singer.jpg" alt="">Music</div>
+      <div class="door"><img src="assets/food-table-for-four.jpg" alt="">Food</div>
+    </div>
+  </main>
+
+  <nav data-tabbar="home"></nav>
+  <div class="scrim"></div>
+  <section class="sheet">
+    <div class="grabber"></div>
+    <div class="receipt-head">
+      <span class="receipt-check" data-icon="check" data-size="20"></span>
+      <div>
+        <h2 class="receipt-title">On your calendar</h2>
+        <p class="receipt-sub">Sunday, October 4 · 1:00 PM</p>
+      </div>
+    </div>
+    <div class="rule"></div>
+    <p class="offer-q">Want a heads-up the day before?</p>
+    <div class="notif flat">
+      <img src="assets/app-icon.png" alt="">
+      <div>
+        <div class="notif-top"><b>intori</b><span>Sat 10:00 AM</span></div>
+        <p class="notif-title">Steelers at Browns</p>
+        <p class="notif-body">Tomorrow at 1:00 PM on CBS.</p>
+      </div>
+    </div>
+    <p class="offer-note">One message, the day before. Nothing else.</p>
+    <div class="btn-row"><span class="yes">Remind me</span><span class="no">No thanks</span></div>
+  </section>
+  <div class="home-indicator"></div>
+</div>
+<script src="chrome.js"></script>
+</body>
+</html>

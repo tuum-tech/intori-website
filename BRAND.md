@@ -52,17 +52,27 @@ italic-only face).
 
 ## Voice / register (updated Aug 2026)
 
-- Homepage hero: "Tonight, decided." Campaign line "Dinner, decided." now lives
-  only on the Today's Food card.
-- Four live helpers, in this order everywhere (hero subhead, Today grid,
-  supporting visuals): Game Day, Music Events, Watch Radar, Today's Food.
-  Music is live events ("who's playing"), never playlists or "music picks".
-  Food is never the lead, and never claims meal planning, recipes, or
-  shopping lists.
+- Homepage hero (App Store launch, Sept 2026): "Something to look forward to."
+  is the tagline and the H1. The positioning line is "Your calendar tells you
+  what you have to do. intori gives you something to look forward to."
+- Four live lanes, in this order everywhere (hero subhead, lane grid,
+  supporting visuals): Sports, Music, Shows, Food. Lane words only; the old
+  helper product names are retired. Music is live events ("who's playing"),
+  never playlists or "music picks". Food is never the lead, and is framed as
+  support for a plan (dinner near the venue) or a few good places near home,
+  never meal planning, recipes, or shopping lists.
 - Style Finds is parked and must not appear on any marketing surface.
-- Calendar language stays user-initiated: intori keeps what you choose on the
-  calendar or household display you pick. Never claim intori reads a calendar,
-  finds free time, or sends anything unprompted.
+- iPhone leads. The button verb is "Add to calendar" and the result is "On
+  your calendar": one tap to the iPhone's calendar, with Sign in with Apple.
+  Google Calendar and Skylight are mentioned quietly (the calendar link in
+  Settings), never as a choice the reader has to make up front.
+- Calendar language stays user-initiated: intori adds only what you tap to
+  add. It can add events and nothing else, so never claim it reads a
+  calendar, knows what is on it, or finds free time. What intori knows is
+  what you added through intori.
+- Sell the paid relationship, not the install: the product is built to be
+  useful and put down (a few picks, a named end, a few alerts a week at
+  most), and households pay for it so it never needs ads or scrolling.
 - No em dashes in visible copy or meta. Outcome-first; "AI" stays invisible in
   consumer copy. "Personalization, built from you" is developer/partner-only.
 - Retired vocabulary (never reintroduce): packs, stamps, matches, vault,
@@ -81,15 +91,20 @@ italic-only face).
   OG filenames are **versioned on purpose**: scrapers cache image bytes by URL,
   so new card art always ships at a new path and older files stay in place so
   previously-scraped embeds do not 404.
-- `public/brand/warm/home-today-gameday.jpg` — homepage hero phone capture.
-- `public/brand/warm/tile-{game-day,music-events,watch-radar,todays-food}.jpg`
-  — the four Today-grid helper captures.
-- `public/brand/warm/` now holds **only** the five live captures above. The
-  four earlier ones (`hero-home-checkin`, `hero-todays-checkins`,
-  `checkin-question-music`, `todays-food-result`) were **DELETED 2026-08-27**:
-  unreferenced since the homepage rebuild, and the two `hero-*` files showed
-  parked Style Finds UI, so keeping them around invited a reuse that would
-  breach the marketing-surface rule. Recoverable from git history.
+- `public/brand/app/{today,setup,added,lock,week}.jpg` — the iPhone screens on
+  the homepage, 1206x2622. These are **rendered mocks, not captures**: the
+  source is `design/app-mocks/*.html`, built from the app's own tokens, and
+  `scripts/render-app-mocks.sh` renders them with headless Chrome. Edit the
+  HTML and re-render rather than editing a JPEG. Every screen uses one demo
+  household so the story holds together. Before launch, hold each against the
+  shipped app and fix any mock that no longer matches.
+- `public/brand/lanes/*.jpg` — the commissioned lane photography (1024px),
+  copied from the app repo's `public/images/STAMPS/`. Casting leans toward
+  mothers, families, and a range of ages and skin tones, per the app's
+  image commission; never weapons or anything that reads as a deterrent.
+- `public/brand/warm/` — **DELETED 2026-09-21**. The Build 15 captures it held
+  showed the pre-launch Home ("View details" and "Pass"), and nothing
+  references them after the launch rebuild. Recoverable from git history.
 - `public/brand/hero-stamps/`, `public/brand/stamps/`, `public/brand/icons/` —
   **DELETED 2026-08-27**. The 2026-08-26 homepage rebuild removed the float
   cards, trust avatars, step backdrop, and helper-card line icons that used

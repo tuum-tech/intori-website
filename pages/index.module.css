@@ -112,10 +112,22 @@
 /* ─── Hero ────────────────────────────────────────────── */
 
 .heroSection {
-  padding: 88px 0 0;
-  text-align: center;
+  padding: 72px 0 96px;
   overflow: hidden;
   background: var(--ground);
+}
+
+/* Text left, phone right. The phone is the product, so it sits beside the
+   promise instead of below the fold. */
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  gap: 56px;
+  align-items: center;
+}
+
+.heroText {
+  text-align: left;
 }
 
 .heroEyebrow {
@@ -129,25 +141,16 @@
 
 .heroHeadline {
   margin: 0;
-  font-size: clamp(52px, 8.5vw, 104px);
+  font-size: clamp(46px, 6vw, 76px);
   font-weight: 800;
   letter-spacing: -0.035em;
   line-height: 1.0;
   text-wrap: balance;
 }
 
-/* Reduced from the "Tonight, decided." default so the longer tagline still
-   clears the 390px fold. */
-.heroHeadlineForward {
-  /* Two lines. Sized so its longest line ("look forward to.") holds without
-     re-wrapping inside a 390px viewport. */
-  font-size: clamp(41px, 7.4vw, 96px);
-}
-
 .heroHeadlineWeekly {
-  /* Three lines, so smaller again. Sized so its longest line ("Something to
-     look") holds at 390px and all three lines still clear the fold. */
-  font-size: clamp(36px, 6.6vw, 86px);
+  /* A longer line, so smaller again. */
+  font-size: clamp(40px, 5.6vw, 72px);
 }
 
 /* Quiet sans deck. The page's single Newsreader italic moment lives on the
@@ -155,7 +158,7 @@
    sets as two balanced lines instead of one 75-character run. */
 .heroDeck {
   max-width: 30rem;
-  margin: 22px auto 0;
+  margin: 24px 0 0;
   font-weight: 500;
   font-size: clamp(17px, 2vw, 20px);
   line-height: 1.4;
@@ -164,21 +167,81 @@
 }
 
 .heroSub {
-  max-width: 620px;
-  margin: 18px auto 0;
-  font-size: clamp(17px, 2.2vw, 21px);
+  max-width: 34rem;
+  margin: 16px 0 0;
+  font-size: clamp(16px, 1.6vw, 18px);
   line-height: 1.55;
   color: var(--ink-soft);
   text-wrap: balance;
 }
 
 .heroCtas {
+  margin-top: 34px;
+}
+
+.ctaStack {
   display: flex;
-  gap: 14px;
-  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.ctaRow {
+  display: flex;
+  gap: 18px;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 36px;
+}
+
+/* Quiet secondary path for Android and laptop visitors. */
+.btnText {
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--ink-faint);
+  text-underline-offset: 4px;
+}
+
+.btnText:hover {
+  text-decoration-color: var(--ink);
+}
+
+/* Desktop only: a phone camera can install from here, the button cannot. */
+.qr {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px 8px 8px;
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  background: var(--card);
+}
+
+.qrCode {
+  display: block;
+  width: 60px;
+  height: 60px;
+}
+
+.qrCode svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.qrLabel {
+  max-width: 8.5rem;
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+@media (max-width: 900px), (hover: none) {
+  .qr {
+    display: none;
+  }
 }
 
 .heroTrust {
@@ -194,22 +257,23 @@
 
 .heroStage {
   position: relative;
-  margin-top: 64px;
   display: flex;
   justify-content: center;
 }
 
 .heroGlow {
   position: absolute;
-  inset: auto 0 0 0;
-  height: 78%;
-  background: radial-gradient(58% 90% at 50% 100%, var(--plane) 0%, rgba(250, 243, 230, 0) 72%);
+  inset: 12% -10% -8%;
+  background: radial-gradient(50% 50% at 50% 55%, var(--plane) 0%, rgba(250, 243, 230, 0) 72%);
 }
 
+/* A whole iPhone. The screen images carry their own status bar and Dynamic
+   Island, so the frame is only the bezel. */
 .phone {
   position: relative;
-  width: 318px;
-  border-radius: 46px;
+  width: 320px;
+  max-width: 100%;
+  border-radius: 54px;
   background: var(--ink);
   padding: 10px;
   box-shadow:
@@ -217,20 +281,21 @@
     0 40px 80px -30px rgba(38, 33, 62, 0.35);
 }
 
-.phoneScreen {
-  border-radius: 37px;
-  background: var(--ground);
-  overflow: hidden;
-  height: 560px;
-  border: 1px solid var(--hairline);
+.phoneSmall {
+  width: 270px;
+  border-radius: 46px;
+  padding: 9px;
 }
 
 .phoneShot {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
+  height: auto;
+  border-radius: 44px;
+}
+
+.phoneSmall .phoneShot {
+  border-radius: 37px;
 }
 
 /* Lane accents (F3): glyphs stay ink; a 2px underline carries the lane color.
@@ -262,6 +327,13 @@
   background: var(--ground);
 }
 
+.howSection {
+  padding: 110px 0;
+  background: var(--plane);
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+
 .trustSection {
   padding: 110px 0;
   background: var(--plane);
@@ -277,9 +349,59 @@
 }
 
 .todaySection,
+.howSection,
 .trustSection,
 .calSection {
   scroll-margin-top: 72px;
+}
+
+/* ─── How it works ────────────────────────────────────── */
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stepNum {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin: 30px 0 0;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--ground);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.stepTitle {
+  margin: 14px 0 8px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.stepBody {
+  max-width: 21rem;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.55;
 }
 
 .secHead {
@@ -328,7 +450,7 @@
 
 .todayArt {
   position: relative;
-  height: 170px;
+  aspect-ratio: 4 / 3;
   border-radius: var(--radius-img);
   margin-bottom: 26px;
   overflow: hidden;
@@ -338,19 +460,7 @@
 
 .todayArtImage {
   object-fit: cover;
-  object-position: center top;
-  z-index: 0;
-}
-
-/* Warm treatment: a whisper of the cluster accent over the capture. */
-.todayArt::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background: linear-gradient(160deg, var(--art-tint) 0%, rgba(255, 255, 255, 0) 55%);
-  opacity: 0.16;
+  object-position: center;
 }
 
 .artSports { --art-tint: var(--sports); }
@@ -505,10 +615,12 @@
 
 /* ─── Trust ───────────────────────────────────────────── */
 
-.trustGrid {
+.whyGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
+  max-width: 940px;
+  margin: 0 auto;
 }
 
 .trustCard {
@@ -559,7 +671,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 64px;
-  align-items: start;
+  align-items: center;
 }
 
 .calTitle {
@@ -586,99 +698,8 @@
 }
 
 .calVisual {
-  padding: 8px;
-}
-
-.calFlow {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 14px;
-}
-
-.calPick {
-  background: var(--card);
-  border: 1px solid var(--hairline);
-  border-radius: 18px;
-  padding: 20px 22px;
-  box-shadow: var(--shadow-card);
-  display: flex;
-  gap: 14px;
-  align-items: center;
-  width: 100%;
-  max-width: 430px;
-}
-
-.calPick b {
-  display: block;
-  font-size: 15.5px;
-  font-weight: 600;
-}
-
-.calPick span {
-  display: block;
-  font-size: 13.5px;
-  color: var(--ink-soft);
-}
-
-.calArrow {
-  margin-left: 44px;
-  color: var(--ink-faint);
-  font-size: 26px;
-  line-height: 1;
-}
-
-.calDest {
-  background: var(--ink);
-  color: var(--ground);
-  border-radius: 18px;
-  padding: 20px 22px;
-  width: 100%;
-  max-width: 430px;
-  margin-left: 44px;
-  box-shadow: var(--shadow-card);
-}
-
-.calDest small {
-  display: block;
-  font-size: 11.5px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(252, 248, 241, 0.7);
-  margin-bottom: 6px;
-}
-
-.calDest b {
-  font-size: 15.5px;
-  font-weight: 600;
-}
-
-.calDest span {
-  display: block;
-  font-size: 13.5px;
-  color: rgba(252, 248, 241, 0.75);
-  margin-top: 2px;
-}
-
-/* Destinations the keep action already supports, stated quietly. */
-.calChips {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-left: 44px;
-  margin-top: 2px;
-}
-
-.calChip {
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 13px;
-  border-radius: var(--radius-pill);
-  border: 1px solid var(--hairline);
-  background: var(--card);
-  font-size: 12.5px;
-  font-weight: 600;
-  color: var(--ink-soft);
+  justify-content: center;
 }
 
 /* ─── Coming next ─────────────────────────────────────── */
@@ -730,6 +751,58 @@
   padding: 110px 0;
   background: var(--ground);
   scroll-margin-top: 72px;
+}
+
+.includes {
+  max-width: 760px;
+  margin: 0 auto 28px;
+}
+
+.includesTitle {
+  margin: 0 0 16px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.includesList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.includesList li {
+  display: flex;
+  gap: 11px;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.includesTick {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: var(--paper-soft);
+}
+
+.includesTick svg {
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .priceGrid {
@@ -889,6 +962,7 @@
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.08;
+  text-wrap: balance;
 }
 
 .convertSub {
@@ -900,11 +974,16 @@
 
 .convertCtas {
   display: flex;
-  gap: 14px;
   justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
   margin-top: 36px;
+}
+
+.convertCtas .ctaStack {
+  align-items: center;
+}
+
+.convertCtas .ctaRow {
+  justify-content: center;
 }
 
 .convertNote {
@@ -1025,37 +1104,58 @@
 /* ─── Responsive ──────────────────────────────────────── */
 
 @media (max-width: 900px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 52px;
+  }
+
+  .heroText {
+    text-align: center;
+  }
+
+  .heroDeck,
+  .heroSub {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .heroCtas .ctaStack {
+    align-items: center;
+  }
+
+  .heroCtas .ctaRow {
+    justify-content: center;
+  }
+
   .todayGrid,
   .wedgeDemo,
-  .trustGrid,
+  .whyGrid,
   .calGrid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
 
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+
+  .includesList {
+    grid-template-columns: 1fr;
+  }
+
   .calGrid {
-    gap: 40px;
+    gap: 48px;
   }
 
   .calTitle,
-  .calSub {
-    text-align: center;
-  }
-
+  .calSub,
   .calFine {
     text-align: center;
   }
 
-  .calFlow {
-    align-items: center;
-  }
-
-  .calArrow,
-  .calDest {
-    margin-left: 0;
-  }
-
   .todaySection,
+  .howSection,
   .wedgeSection,
   .trustSection,
   .calSection,
@@ -1080,28 +1180,36 @@
   }
 
   .heroSection {
-    padding-top: 52px;
+    padding: 48px 0 72px;
   }
 
   .heroCtas {
     margin-top: 30px;
   }
 
+  .heroCtas .ctaStack,
+  .heroCtas .ctaRow,
   .heroCtas .btnPrimary {
     width: 100%;
-    max-width: 340px;
   }
 
-  .heroStage {
-    margin-top: 44px;
+  .heroCtas .btnPrimary {
+    max-width: 340px;
+    margin: 0 auto;
   }
 
   .phone {
-    width: 270px;
+    width: 260px;
+    border-radius: 46px;
+    padding: 9px;
   }
 
-  .phoneScreen {
-    height: 480px;
+  .phoneShot {
+    border-radius: 37px;
+  }
+
+  .phoneSmall {
+    width: 250px;
   }
 
   .todayCard {

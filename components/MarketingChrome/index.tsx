@@ -29,17 +29,19 @@ export function MarketingHeader() {
             />
           </Link>
           <nav className={styles.nav} aria-label="Primary navigation">
-            <Link href="/#today" className={styles.navLink}>What it helps with</Link>
-            <Link href="/#why" className={styles.navLink}>Why it works</Link>
-            <Link href="/#calendar" className={styles.navLink}>Calendar</Link>
+            <Link href="/#how" className={styles.navLink}>How it works</Link>
+            <Link href="/#lanes" className={styles.navLink}>What it watches</Link>
             <Link href="/#pricing" className={styles.navLink}>Pricing</Link>
+            <Link href="/faq" className={styles.navLink}>FAQ</Link>
+            {/* Same destination as the homepage's primary button: the iPhone app
+                once IOS_CHANNEL has one, the web app until then. */}
             <a
-              href={APP_URL}
+              href={IOS_CHANNEL === 'none' ? APP_URL : IOS_URL}
               className={styles.ctaPrimary}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Try intori
+              {IOS_CHANNEL === 'appstore' ? 'Get the app' : 'Try intori'}
             </a>
           </nav>
         </div>

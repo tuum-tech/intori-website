@@ -28,7 +28,7 @@ const TOPICS: Array<{ question: string; answer: string[] }> = [
     question: "How do I delete my account?",
     answer: [
       "In the app, open the You tab, then Settings and data, and choose Delete your account. Deletion is permanent.",
-      "If you have an active subscription through Apple, cancel it first in your iPhone's Subscriptions settings. Deleting your intori account does not stop Apple billing on its own.",
+      "Deleting your account does not stop a subscription you bought through Apple. Cancel it in the Settings app on your iPhone: tap your name, then Subscriptions, then intori. A plan bought on the web is canceled for you.",
     ],
   },
   {

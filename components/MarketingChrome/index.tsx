@@ -65,6 +65,7 @@ export function MarketingFooter() {
           />
           <nav className={styles.footerNav} aria-label="Footer">
             <Link href="/faq" className={styles.footerLink}>FAQ</Link>
+            <Link href="/support" className={styles.footerLink}>Support</Link>
             <Link href="/news" className={styles.footerLink}>News</Link>
             <Link href="/privacy-policy" className={styles.footerLink}>Privacy</Link>
             <Link href="/terms-of-use" className={styles.footerLink}>Terms</Link>

@@ -15,7 +15,7 @@ const Terms: NextPage = () => {
 
       <LegalLayout>
         <h1>intori Terms of Use</h1>
-        <p><strong>Last Updated: September 21, 2026</strong></p>
+        <p><strong>Last Updated: September 24, 2026</strong></p>
 
       <p>
         These terms cover the intori website and the intori mobile app. There is one set of terms for both.
@@ -277,7 +277,7 @@ const Terms: NextPage = () => {
 
       <h2>20. Termination</h2>
       <p>
-        You may stop using the Services at any time. You can delete your account from inside the intori mobile app, on the You tab, or by contacting <a href="mailto:contact@tuum.tech">contact@tuum.tech</a>, subject to retention needed for legal, security, fraud-prevention, accounting, or operational reasons. Deleting your account does not cancel an App Store subscription. Cancel that separately in your Apple account subscription settings.
+        You may stop using the Services at any time. You can delete your account from inside the intori mobile app, on the You tab under Settings and data, or by contacting <a href="mailto:contact@tuum.tech">contact@tuum.tech</a>, subject to retention needed for legal, security, fraud-prevention, accounting, or operational reasons. Deleting your account does not cancel an App Store subscription. Cancel that separately in your Apple account subscription settings.
       </p>
       <p>
         We may suspend or terminate your access if we believe you violated these Terms, created risk, or used the Services unlawfully or abusively.

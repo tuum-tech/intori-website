@@ -109,6 +109,7 @@ export const FAQ: FaqItem[] = [
     question: "What makes intori different?",
     answer: [
       "Shared calendars and family displays are good at keeping track of what is already planned. None of them tell you what is worth looking forward to.",
+      "The assistant on your phone can add a game to your calendar when you ask. intori does the noticing, so you never have to think to ask.",
       "intori works on that half. It brings you something specific and dated, shaped by what your household likes, early enough to say yes. And because it remembers what you have added, it helps with those plans too, like finding dinner near the venue before a show."
     ]
   },

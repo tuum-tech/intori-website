@@ -263,7 +263,7 @@ export default function HomePage({ qrSvg }: InferGetServerSidePropsType<typeof g
                 <HeroHeadline />
                 <p className={styles.heroDeck}>
                   Your calendar tells you what you have to do. intori finds what you would
-                  hate to miss, and adds it in one tap.
+                  hate to miss before you think to look, and adds it in one tap.
                 </p>
                 {/* Lane underlines are decoration under ink glyphs (F3): cluster
                     color never becomes text color, per BRAND.md. */}
@@ -510,7 +510,7 @@ export default function HomePage({ qrSvg }: InferGetServerSidePropsType<typeof g
                 </p>
                 <p className={styles.priceSample}>
                   <span className={styles.priceSampleLabel}>In the app</span>
-                  Full access until 8 October 2026.
+                  Full access until October 8, 2026.
                 </p>
               </div>
 

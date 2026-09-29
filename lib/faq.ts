@@ -47,7 +47,7 @@ export const FAQ: FaqItem[] = [
     question: "What is intori?",
     answer: [
       "Your calendar tells you what you have to do. intori gives you something to look forward to.",
-      "Tell it what your household loves: your teams, your shows, the artists you would go see, the food you like. intori watches schedules, premieres, and tour dates for you, brings you a few good picks each morning and afternoon, and adds the ones you want to your calendar in one tap."
+      "Tell it what your household loves: your teams, your shows, the artists you would go see, the food you like. intori watches schedules, premieres, and tour dates for you, brings you up to five picks a day, and adds the ones you want to your calendar in one tap."
     ]
   },
   {
@@ -60,8 +60,8 @@ export const FAQ: FaqItem[] = [
   {
     question: "How does intori work?",
     answer: [
-      "Sign in with Apple and pick what your household loves. It takes a few taps for each, and you can skip anything.",
-      "From then on, intori brings you picks on Home, each with one button: Add to calendar. Tap it and the date is on your iPhone's calendar. Now and then, after you add something, intori asks one quick question so the next picks fit a little better."
+      "Sign in with Apple or your email, and pick what your household loves. It takes a few taps for each, and you can add the rest anytime.",
+      "From then on, intori brings you up to five picks a day on Home, each with the reason it is there and one button: Add to calendar. Tap it and the date is on your iPhone's calendar. Now and then, after you add something, intori asks one quick question so the next picks fit a little better."
     ]
   },
   {
@@ -88,14 +88,14 @@ export const FAQ: FaqItem[] = [
     question: "Can I use Google Calendar or a family display like Skylight?",
     answer: [
       "Yes. On iPhone, intori adds straight to your iPhone's calendar, which is the quickest way to start.",
-      "If your household lives in Google Calendar or on a display like Skylight, copy your intori calendar link from Settings and add it there. What you add in intori shows up there too."
+      "If your household lives in Google Calendar or on a display like Skylight, open Calendars and displays from intori's Week. You can connect Skylight directly, or copy a calendar link for any other calendar app. What you add in intori shows up there too."
     ]
   },
   {
     question: "Will I get a lot of notifications?",
     answer: [
       "No. intori only sends notifications about things you care about: a reminder before something you added, when you ask for one; a change to something on your calendar, like a game moving to a new time; and a new date from a team, show, or artist you follow.",
-      "That is a few a week at most, and often none. They never arrive overnight, they never nudge you to come back, and you can turn any of them off."
+      "Most weeks that is a handful or none. They never arrive overnight, they never nudge you to come back, and you can turn each kind on or off in Notifications."
     ]
   },
   {
@@ -109,8 +109,8 @@ export const FAQ: FaqItem[] = [
     question: "What makes intori different?",
     answer: [
       "Shared calendars and family displays are good at keeping track of what is already planned. None of them tell you what is worth looking forward to.",
-      "The assistant on your phone can add a game to your calendar when you ask. intori does the noticing, so you never have to think to ask.",
-      "intori works on that half. It brings you something specific and dated, shaped by what your household likes, early enough to say yes. And because it remembers what you have added, it helps with those plans too, like finding dinner near the venue before a show."
+      "intori works on that half. It brings you something specific and dated, shaped by what your household likes, early enough to say yes. And because it remembers what you have added, it helps with those plans too, like finding dinner near the venue before a show.",
+      "The assistant on your phone can add a game to your calendar when you ask. intori does the noticing, so you never have to think to ask."
     ]
   },
   {
@@ -153,7 +153,7 @@ export const FAQ: FaqItem[] = [
     question: "What do I get for my subscription?",
     answer: [
       "intori watching what your household follows, all year: every game, every new season, every tour date near you.",
-      "Fresh picks each morning and afternoon, one-tap adds to your calendar, reminders when you want them, and alerts when something you follow gets a new date. No ads, ever. You are the customer, so intori is built to be useful, not to keep you scrolling."
+      "Up to five fresh picks a day, one-tap adds to your calendar, reminders when you want them, and alerts when something you follow gets a new date. No ads, ever. You are the customer, so intori is built to be useful, not to keep you scrolling."
     ]
   },
   {

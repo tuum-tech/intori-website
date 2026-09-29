@@ -19,6 +19,11 @@
     interests: stroke('<path d="M10 4.5 11.6 9l4.4 1.6-4.4 1.6L10 16.7l-1.6-4.5L4 10.6 8.4 9 10 4.5Z"/><path d="M17.5 3v4M15.5 5h4M17 15.5v3M15.5 17h3"/>'),
     you: stroke('<circle cx="12" cy="12" r="9"/><circle cx="12" cy="10" r="3.2"/><path d="M6.2 18.4a7 7 0 0 1 11.6 0"/>'),
     bell: stroke('<path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15L6 16Z"/><path d="M10 20.5a2 2 0 0 0 4 0"/>'),
+    calcheck: stroke('<rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4M9 15l2 2 4-4"/>', 2),
+    calendar: stroke('<rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/>'),
+    x: stroke('<path d="M6 6l12 12M18 6 6 18"/>', 2.2),
+    left: stroke('<path d="m15 6-6 6 6 6"/>', 2),
+    edit: stroke('<rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4M10 16.5l4.5-4.5 1.5 1.5-4.5 4.5H10v-1.5Z"/>'),
   }
 
   const STATUS_ICONS = `

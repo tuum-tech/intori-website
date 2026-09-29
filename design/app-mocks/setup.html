@@ -2,27 +2,27 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Mock: Setup, choosing lanes</title>
+<title>Mock: Setup, choosing interests</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=block">
 <link rel="stylesheet" href="mock.css">
 </head>
 <body>
+<!-- Copy is the app's own (src/config/firstRunValueCopy.ts). -->
 <div class="screen">
   <div data-status></div>
   <main class="page">
     <span class="back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Back</span>
-    <p class="hello">Hi, I'm intori.</p>
     <h1 class="setup-h">What do I want to look forward to?</h1>
-    <p class="setup-sub">Pick what your household loves. intori finds the dates worth adding to your calendar.</p>
+    <p class="setup-sub">Pick one or more. You can add the rest anytime.</p>
 
     <div class="picks">
-      <div class="pick lane-food"><img src="assets/food-table-for-four.jpg" alt=""><b>Food</b><span class="pick-line">Dinner near your plans</span></div>
+      <div class="pick lane-food on"><img src="assets/food-table-for-four.jpg" alt=""><b>Food</b><span class="pick-line">Dinner near your plans</span><span class="tick" data-icon="check" data-size="15"></span></div>
       <div class="pick lane-sports on"><img src="assets/sports-game-day-family.jpg" alt=""><b>Sports</b><span class="pick-line">Games for your teams</span><span class="tick" data-icon="check" data-size="15"></span></div>
-      <div class="pick lane-shows on"><img src="assets/shows-movie-night.jpg" alt=""><b>Shows</b><span class="pick-line">New seasons</span><span class="tick" data-icon="check" data-size="15"></span></div>
+      <div class="pick lane-shows on"><img src="assets/shows-movie-night.jpg" alt=""><b>Shows</b><span class="pick-line">New seasons and episodes</span><span class="tick" data-icon="check" data-size="15"></span></div>
       <div class="pick lane-music on"><img src="assets/music-singer.jpg" alt=""><b>Music</b><span class="pick-line">Concerts near you</span><span class="tick" data-icon="check" data-size="15"></span></div>
     </div>
   </main>
-  <span class="continue">Continue · 3 chosen</span>
+  <span class="continue">Continue · 4 chosen</span>
   <div class="home-indicator"></div>
 </div>
 <script src="chrome.js"></script>

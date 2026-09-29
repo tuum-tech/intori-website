@@ -8,73 +8,77 @@
 <link rel="stylesheet" href="mock.css">
 </head>
 <body>
+<!-- Demo household: follows the Pittsburgh Steelers, lives near Pittsburgh,
+     has Foster The People on the calendar for Sunday. Schedule, venues and
+     times are the real ones the app showed for this household in September. -->
 <div class="screen">
   <div data-status></div>
 
   <main class="page">
-    <p class="day">Monday, September 28</p>
+    <p class="day">Tuesday, September 29</p>
     <h1 class="h1">Today</h1>
 
-    <!-- The upcoming saved moment -->
+    <!-- Next up: the saved date that is coming soonest -->
     <div class="card kept lane-music">
-      <div class="date"><b>Oct</b><span>2</span></div>
+      <div class="date"><b>Oct</b><span>4</span></div>
       <div class="kept-mid">
-        <span class="kept-title">Noah Kahan · PPG Paints Arena</span>
-        <span class="kept-line"><span data-icon="check" data-size="13"></span>On your calendar <span class="when">· Fri, 7:30 PM</span></span>
+        <span class="kept-title">Foster The People: Good Morning Sunshine Tour</span>
+        <span class="kept-line">On your calendar · Sun, 8:00 PM</span>
       </div>
       <span class="chev" data-icon="chev" data-size="18"></span>
     </div>
 
-    <!-- The best current pick, with the next one peeking -->
+    <!-- The day's picks: the lead card, the next one peeking -->
     <div class="shelf">
       <article class="lead lane-sports">
         <div class="lead-top">
           <div class="lead-text">
-            <p class="eyebrow"><span class="dot"></span>Sports <span class="when">· Sun, Oct 4</span></p>
+            <p class="eyebrow"><span class="dot"></span>Sports <span class="when">Thu, Oct 1</span></p>
             <h2 class="lead-title">Steelers at Browns</h2>
           </div>
-          <img class="art" src="assets/sports-game-day-family.jpg" alt="">
+          <div class="matchup"><span class="badge a pit">PIT</span><span class="badge b cle">CLE</span></div>
         </div>
         <div class="meta">
-          <span><span data-icon="tv" data-size="15"></span>1:00 PM on CBS</span>
+          <span><span data-icon="clock" data-size="17"></span>8:15 PM EDT</span>
+          <span><span data-icon="pin" data-size="17"></span>Huntington Bank Field</span>
         </div>
-        <p class="reason">Because you follow the Steelers.</p>
+        <p class="reason">Because you follow the Steelers</p>
         <div class="actions">
-          <span class="primary"><span data-icon="calplus" data-size="18"></span>Add to calendar</span>
-          <span class="icon-btn" data-icon="more"></span>
+          <span class="primary"><span data-icon="calplus" data-size="20"></span>Add to calendar</span>
+          <span class="more" data-icon="more"></span>
         </div>
       </article>
       <article class="peek lane-shows">
-        <p class="eyebrow"><span class="dot"></span>Shows <span class="when">· Wed, Oct 7</span></p>
-        <h2 class="lead-title">Slow Horses returns</h2>
+        <p class="eyebrow"><span class="dot"></span>Shows <span class="when">Wed, Oct 7</span></p>
+        <h2 class="lead-title">Chicago Fire</h2>
       </article>
     </div>
     <div class="pager">
-      <span><span class="pips"><i class="on"></i><i></i><i></i><i></i><i></i></span>1 of 5</span>
-      <span class="next">Next <span data-icon="arrow" data-size="14"></span></span>
+      <span>1 of 5</span>
+      <span class="next">Next <span data-icon="arrow" data-size="17"></span></span>
     </div>
 
-    <!-- Makes the saved moment easier -->
-    <div class="slot lane-food">
-      <div>
-        <p class="slot-eyebrow"><strong>Food</strong> · Noah Kahan</p>
-        <h2>Dinner near PPG Paints Arena before Friday's show?</h2>
-        <p class="sub">Your show starts at 7:30 PM.</p>
+    <!-- The slot: makes Sunday's concert easier -->
+    <aside class="slot lane-food">
+      <div class="slot-top">
+        <img src="assets/cuisine-italian.jpg" alt="">
+        <div>
+          <p class="slot-eyebrow"><span class="dot"></span><strong>Food</strong> Before Foster The People</p>
+          <h2>Dinner near Citizens Live at The Wylie before Sunday's concert?</h2>
+          <p class="sub">Your concert starts at 8:00 PM.</p>
+        </div>
       </div>
       <div class="slot-actions"><span class="outline">Find a place nearby</span><span class="quiet">Not tonight</span></div>
-    </div>
+    </aside>
 
     <h3 class="doors-h">Explore by interest</h3>
     <div class="doors">
-      <div class="door"><img src="assets/sports-game-day-family.jpg" alt="">Sports</div>
-      <div class="door"><img src="assets/shows-movie-night.jpg" alt="">Shows</div>
-      <div class="door"><img src="assets/music-singer.jpg" alt="">Music</div>
-      <div class="door"><img src="assets/food-table-for-four.jpg" alt="">Food</div>
+      <div class="door"><img src="assets/sports-game-day-family.jpg" alt=""><b>Sports</b><span>Steelers · Thu 8:15 PM</span></div>
+      <div class="door"><img src="assets/music-singer.jpg" alt=""><b>Music</b><span>Foster The People · Sun</span></div>
     </div>
   </main>
 
   <nav data-tabbar="home"></nav>
-  <div class="home-indicator"></div>
 </div>
 <script src="chrome.js"></script>
 </body>

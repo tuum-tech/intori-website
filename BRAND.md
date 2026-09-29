@@ -96,8 +96,17 @@ italic-only face).
   source is `design/app-mocks/*.html`, built from the app's own tokens, and
   `scripts/render-app-mocks.sh` renders them with headless Chrome. Edit the
   HTML and re-render rather than editing a JPEG. Every screen uses one demo
-  household so the story holds together. Before launch, hold each against the
-  shipped app and fix any mock that no longer matches.
+  household so the story holds together: a Steelers family near Pittsburgh,
+  Foster The People on the calendar, Chicago Fire followed. Rules:
+  - **Real data only.** Games, venues, times and air dates are ones the app
+    actually showed for a test household. Never invent an event for a real
+    team, artist or show.
+  - **No third-party art.** Sports uses the app's own matchup badges; lane and
+    cuisine photos are intori's. No posters, artist photos or team logos.
+  - **App wording, verbatim.** Copy comes from the app's source (receipt,
+    setup, notification templates), not paraphrase.
+  - Last matched against the launch build on 2026-09-29 (iPhone 17 Pro
+    captures). Re-check after any Home, Week, receipt or setup change.
 - `public/brand/lanes/*.jpg` — the commissioned lane photography (1024px),
   copied from the app repo's `public/images/STAMPS/`. Casting leans toward
   mothers, families, and a range of ages and skin tones, per the app's

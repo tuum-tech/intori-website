@@ -80,6 +80,8 @@ export function MarketingFooter() {
               World App
             </a>
           </nav>
+          {/* A text button rather than Apple's badge artwork, so nothing on the
+              page depends on an asset that is not in the repo. */}
           {IOS_CHANNEL === 'appstore' && (
             <a
               href={IOS_URL}
@@ -87,12 +89,7 @@ export function MarketingFooter() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Image
-                src="/brand/app-store-badge.svg"
-                alt="Download intori on the App Store"
-                width={120}
-                height={40}
-              />
+              Download on the App Store
             </a>
           )}
           <p className={styles.footerCopy}>© {year} intori</p>

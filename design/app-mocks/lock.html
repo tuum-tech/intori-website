@@ -7,10 +7,15 @@
 <link rel="stylesheet" href="mock.css">
 </head>
 <body>
+<!-- Both notifications use the app's own templates:
+     - the reminder (leadTimeReminderSender): title is the item, body is
+       "{weekday time} · {venue}", sent the day before a game;
+     - the follow alert (consumerNotificationSource): "{show} returns {date}"
+       and "Season N, episode N has a date." -->
 <div class="screen">
   <div class="lock"></div>
   <div data-status></div>
-  <div class="lock-date">Saturday, October 3</div>
+  <div class="lock-date">Wednesday, September 30</div>
   <div class="lock-time">9:41</div>
 
   <div class="lock-stack">
@@ -19,15 +24,15 @@
       <div>
         <div class="notif-top"><b>intori</b><span>now</span></div>
         <p class="notif-title">Steelers at Browns</p>
-        <p class="notif-body">Tomorrow at 1:00 PM on CBS.</p>
+        <p class="notif-body">Thursday 8:15 PM · Huntington Bank Field</p>
       </div>
     </div>
     <div class="notif">
       <img src="assets/app-icon.png" alt="">
       <div>
-        <div class="notif-top"><b>intori</b><span>Thu</span></div>
-        <p class="notif-title">Slow Horses returns Wednesday</p>
-        <p class="notif-body">The new season lands on Apple TV+. Add premiere night?</p>
+        <div class="notif-top"><b>intori</b><span>Mon</span></div>
+        <p class="notif-title">Chicago Fire returns Oct 7</p>
+        <p class="notif-body">Season 15, episode 1 has a date.</p>
       </div>
     </div>
   </div>

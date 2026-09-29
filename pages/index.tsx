@@ -26,8 +26,10 @@ export const getServerSideProps = (async (context) => {
 // App screens. These are rendered from design/app-mocks/ by
 // scripts/render-app-mocks.sh, drawn from the app's own tokens and the launch
 // Home layout. Every one uses the same demo household, so the story holds
-// together from section to section: a Steelers family in Pittsburgh who follow
-// Slow Horses and are going to see Noah Kahan on Friday.
+// together from section to section: a Steelers family near Pittsburgh who
+// follow Chicago Fire and are going to see Foster The People on Sunday. The
+// games, venues, times and air dates are the real ones the app showed for this
+// household, not invented ones.
 const SCREEN = { width: 1206, height: 2622 }
 
 // The four live lanes, in the locked order: Sports, Music, Shows, then Food.
@@ -81,35 +83,36 @@ const LANES = [
 const STEPS = [
   {
     title: 'Tell it what your household loves.',
-    body: 'Sign in with Apple, then pick your teams, your shows, the artists you would go see, and the food you like. A few taps each, and you can skip anything.',
+    body: 'Sign in with Apple or your email, then pick your teams, your shows, the artists you would go see, and the food you like. A few taps each, and you can add the rest anytime.',
     image: '/brand/app/setup.jpg',
     alt: 'intori setup asking "What do I want to look forward to?" with Sports, Shows, and Music chosen',
   },
   {
     title: 'It watches, so you don’t have to.',
-    body: 'intori keeps an eye on schedules, premieres, and tour dates. You get a few good picks each morning and afternoon, and a heads-up when something you follow gets a date.',
+    body: 'intori keeps an eye on schedules, premieres, and tour dates. You get up to five picks a day, each with the reason it is there, and a heads-up when something you follow gets a date.',
     image: '/brand/app/lock.jpg',
-    alt: 'An iPhone lock screen with two intori notifications: a game tomorrow at 1:00 PM on CBS, and a show returning Wednesday',
+    alt: 'An iPhone lock screen with two intori notifications: Steelers at Browns on Thursday at 8:15 PM, and Chicago Fire returning October 7',
   },
   {
     title: 'One tap puts it on your calendar.',
-    body: 'Tap Add to calendar and it is on your iPhone’s calendar. Want a reminder the day before? That is one more tap.',
+    body: 'Tap Add to calendar and it is on your iPhone’s calendar. Want a reminder? Flip one switch, and intori sends it the day before.',
     image: '/brand/app/added.jpg',
-    alt: 'intori confirming a game is on your calendar and offering a reminder the day before',
+    alt: 'intori confirming the Steelers game is on your calendar in Apple Calendar, with a switch to be reminded the day before',
   },
 ]
 
 // Why a household keeps paying: the product is built to be useful and then
-// get out of the way. Claims here track the app's own rules: a short edition
-// of picks with a named end, a weekly ceiling on push, one question at a time.
+// get out of the way. Claims here track the app's own rules: a daily edition of
+// up to five picks with a named end, push only inside 8 AM to 9 PM local and
+// only for what someone added or follows, one question at a time.
 const WHY_CARDS = [
   {
     title: 'A few good picks, then done.',
-    body: 'Each morning and afternoon, a short list of things worth your time. When you have seen them, intori says so, and you get on with your day.',
+    body: 'Up to five picks a day, each with the reason it is there. When you have seen them, intori says so, and you get on with your day.',
   },
   {
     title: 'Alerts you will actually want.',
-    body: 'A heads-up before something you added, a changed game time, a new date from a team, show, or artist you follow. A few a week at most, and never a nudge to come back.',
+    body: 'A heads-up before something you added, a changed game time, a new date from a team, show, or artist you follow. Never overnight, and never a nudge to come back.',
   },
   {
     title: 'Better every week.',
@@ -122,7 +125,7 @@ const WHY_CARDS = [
 ]
 
 const INCLUDES = [
-  'Fresh picks every morning and afternoon, across Sports, Music, Shows, and Food',
+  'Up to five fresh picks a day, across Sports, Music, Shows, and Food',
   'One-tap adds to your calendar, with a reminder when you want one',
   'Alerts when a team, show, or artist you follow gets a new date',
   'No ads, ever',
@@ -284,7 +287,7 @@ export default function HomePage({ qrSvg }: InferGetServerSidePropsType<typeof g
                 <div className={styles.heroGlow} aria-hidden="true" />
                 <Phone
                   src="/brand/app/today.jpg"
-                  alt="intori Today: Friday's concert already on the calendar, a Steelers game ready to add in one tap, and an offer to find dinner near the arena before the show"
+                  alt="intori Today: Sunday's concert already on the calendar, Thursday's Steelers game ready to add in one tap, and an offer to find dinner near the venue before the concert"
                   priority
                 />
               </div>
@@ -369,31 +372,31 @@ export default function HomePage({ qrSvg }: InferGetServerSidePropsType<typeof g
                   <h3 className={styles.demoColTitle}>Already on the calendar</h3>
                   <div className={styles.demoRow}><time>Mon</time>Soccer practice, 4:00</div>
                   <div className={styles.demoRow}><time>Tue</time>Dentist, both kids</div>
-                  <div className={styles.demoRow}><time>Thu</time>Parent-teacher night</div>
-                  <div className={styles.demoRow}><time>Fri</time>&hellip;still open</div>
+                  <div className={styles.demoRow}><time>Wed</time>Parent-teacher night</div>
+                  <div className={styles.demoRow}><time>Thu</time>&hellip;still open</div>
                   <div className={styles.demoRow}><time>Sun</time>&hellip;also open</div>
                 </div>
                 <div className={styles.demoCol}>
                   <h3 className={styles.demoColTitle}>Found by intori</h3>
                   <div className={styles.demoPick}>
+                    <div className={`${styles.demoSwatch} ${styles.swatchSports}`} aria-hidden="true" />
+                    <div>
+                      <b>Thursday</b>
+                      <span>Your team plays at 8:15, on the road</span>
+                    </div>
+                  </div>
+                  <div className={styles.demoPick}>
                     <div className={`${styles.demoSwatch} ${styles.swatchMusic}`} aria-hidden="true" />
                     <div>
-                      <b>Friday</b>
+                      <b>Sunday</b>
                       <span>An artist you love plays 20 minutes away</span>
                     </div>
                   </div>
                   <div className={styles.demoPick}>
                     <div className={`${styles.demoSwatch} ${styles.swatchFood}`} aria-hidden="true" />
                     <div>
-                      <b>Before the show</b>
+                      <b>Before the concert</b>
                       <span>A few places to eat near the venue</span>
-                    </div>
-                  </div>
-                  <div className={styles.demoPick}>
-                    <div className={`${styles.demoSwatch} ${styles.swatchSports}`} aria-hidden="true" />
-                    <div>
-                      <b>Sunday</b>
-                      <span>Your team plays at 1:00, and it&rsquo;s on CBS</span>
                     </div>
                   </div>
                   <div className={styles.demoPick}>
@@ -422,18 +425,18 @@ export default function HomePage({ qrSvg }: InferGetServerSidePropsType<typeof g
                   reminder, intori sends one the day before, or two days before a concert.
                 </p>
                 <p className={styles.calFine}>
-                  intori can only add events. It can&rsquo;t read, change, or delete anything
-                  else on your calendar.
+                  intori adds only the dates you choose, and never reads your other events.
                 </p>
                 <p className={styles.calFine}>
-                  Use Google Calendar or a family display like Skylight? Copy your intori
-                  calendar link from Settings, and what you add shows up there too.
+                  Use Google Calendar or a family display like Skylight? Open Calendars and
+                  displays from intori&rsquo;s Week to connect it, and what you add shows up
+                  there too.
                 </p>
               </div>
               <div className={styles.calVisual}>
                 <Phone
                   src="/brand/app/week.jpg"
-                  alt="intori Week listing a concert, a game, and a season premiere, each marked On your calendar"
+                  alt="intori Week for September 29 to October 5: the Steelers game on Thursday and a concert on Sunday, both on your calendar, with Apple Calendar connected"
                   className={styles.phoneSmall}
                 />
               </div>

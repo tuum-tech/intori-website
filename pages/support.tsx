@@ -35,12 +35,14 @@ const TOPICS: Array<{ question: string; answer: string[] }> = [
     question: "How do I remove something intori added to my calendar?",
     answer: [
       "Delete it in your Calendar app like any other event. intori can add events, and it cannot read, change, or delete anything on your calendar.",
+      "To take it off intori's list too, open it in the Week tab and choose Remove.",
     ],
   },
   {
     question: "How do I turn notifications off?",
     answer: [
-      "Open the Settings app on your iPhone, then Notifications, then intori, and turn off Allow Notifications.",
+      "In intori, open the You tab, then Notifications, and choose which kinds you get: new dates for things you follow, changes to dates you saved, and ticket sales.",
+      "To turn them all off, open the Settings app on your iPhone, then Notifications, then intori, and turn off Allow Notifications.",
     ],
   },
   {

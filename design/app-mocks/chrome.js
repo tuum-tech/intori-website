@@ -44,10 +44,13 @@
       .join('')
   })
 
+  // Only known icon names and a numeric size ever reach innerHTML.
   document.querySelectorAll('[data-icon]').forEach((el) => {
-    const svg = ICONS[el.getAttribute('data-icon')]
-    const size = el.getAttribute('data-size')
-    el.innerHTML = size ? svg.replace(/width="\d+" height="\d+"/, `width="${size}" height="${size}"`) : svg
+    const name = el.getAttribute('data-icon')
+    if (!Object.prototype.hasOwnProperty.call(ICONS, name)) return
+    const size = Number.parseInt(el.getAttribute('data-size') ?? '', 10)
+    const svg = ICONS[name]
+    el.innerHTML = Number.isFinite(size) && size > 0 ? svg.replace(/width="\d+" height="\d+"/, `width="${size}" height="${size}"`) : svg
   })
 
   if (new URLSearchParams(location.search).has('render')) document.documentElement.classList.add('render')

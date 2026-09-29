@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mock: Week</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=block">
+<link rel="stylesheet" href="mock.css">
+</head>
+<body>
+<div class="screen">
+  <div data-status></div>
+  <main class="page">
+    <h1 class="h1">Week</h1>
+
+    <div class="week-nav">
+      <span class="arrow off" data-icon="left" data-size="18"></span>
+      <div><b>This week</b><small>Sep 29 to Oct 5</small></div>
+      <span class="arrow" data-icon="chev" data-size="18"></span>
+    </div>
+
+    <div class="days">
+      <div class="dayrow"><div class="d today"><small>TUE</small><span>29</span></div><div></div></div>
+      <div class="dayrow"><div class="d"><small>WED</small><span>30</span></div><div></div></div>
+      <div class="dayrow"><div class="d"><small>THU</small><span>1</span></div>
+        <div class="entry lane-sports">
+          <b>Pittsburgh Steelers at Cleveland Browns</b>
+          <span class="when">8:15 PM EDT · <em><span data-icon="calcheck" data-size="14"></span>On your calendar</em></span>
+          <span class="chev" data-icon="chev" data-size="18"></span>
+        </div>
+      </div>
+      <div class="dayrow"><div class="d"><small>FRI</small><span>2</span></div><div></div></div>
+      <div class="dayrow"><div class="d"><small>SAT</small><span>3</span></div><div></div></div>
+      <div class="dayrow"><div class="d"><small>SUN</small><span>4</span></div>
+        <div class="entry lane-music">
+          <b>Foster The People: Good Morning Sunshine Tour</b>
+          <span class="when">8:00 PM EDT · <em><span data-icon="calcheck" data-size="14"></span>On your calendar</em></span>
+          <span class="chev" data-icon="chev" data-size="18"></span>
+        </div>
+      </div>
+      <div class="dayrow"><div class="d"><small>MON</small><span>5</span></div><div></div></div>
+    </div>
+
+    <div class="week-sum"><span>2 this week · 4 saved</span><span><span data-icon="edit" data-size="16"></span>Edit saved dates</span></div>
+
+    <div class="cal-card">
+      <div class="cal-card-top"><b>Apple Calendar</b><span class="connected"><span data-icon="check" data-size="13"></span>Connected</span></div>
+      <p>Dates you add go straight to Apple Calendar. intori checks the dates it added and never reads your other events.</p>
+    </div>
+  </main>
+  <nav data-tabbar="week"></nav>
+</div>
+<script src="chrome.js"></script>
+</body>
+</html>

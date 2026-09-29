@@ -1,9 +1,10 @@
-import type { GetServerSideProps } from "next";
+import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Image from 'next/image'
 import { getSession } from "next-auth/react"
 import { MarketingFooter, MarketingHeader } from '@/components/MarketingChrome'
 import { SeoHead } from '@/lib/seo'
 import { APP_URL, HERO_VARIANT, IOS_CHANNEL, IOS_URL } from '@/lib/appLinks'
+import { appStoreQrSvg } from '@/lib/appStoreQr'
 
 import styles from './index.module.css'
 
@@ -19,8 +20,17 @@ export const getServerSideProps = (async (context) => {
     }
   }
 
-  return { props: {} }
-}) satisfies GetServerSideProps
+  return { props: { qrSvg: await appStoreQrSvg() } }
+}) satisfies GetServerSideProps<{ qrSvg: string | null }>
+
+// App screens. These are rendered from design/app-mocks/ by
+// scripts/render-app-mocks.sh, drawn from the app's own tokens and the launch
+// Home layout. Every one uses the same demo household, so the story holds
+// together from section to section: a Steelers family near Pittsburgh who
+// follow Chicago Fire and are going to see Foster The People on Sunday. The
+// games, venues, times and air dates are the real ones the app showed for this
+// household, not invented ones.
+const SCREEN = { width: 1206, height: 2622 }
 
 // The four live lanes, in the locked order: Sports, Music, Shows, then Food.
 // Food never leads.
@@ -28,98 +38,148 @@ export const getServerSideProps = (async (context) => {
 // Lane words only. Helper product names never appear on a marketing surface,
 // and neither does the word "helper".
 //
-// Three of the four are framed as watching, because watching is what the
-// subscription sells. Food is the deliberate exception: its verbs are "save"
-// and "plan a night", never a calendar add, and it never claims meal planning,
-// recipes, or shopping lists.
+// Food is framed as support for a plan (dinner before the show) and as a few
+// good places near home. It never claims meal planning, recipes, or shopping
+// lists, and there is no cook-at-home path to describe.
 //
-// Music must never imply early, presale, or priority ticket access. There is no
-// presale relationship to back that up. It watches the same public listings you
-// could find yourself, and its value is noticing in time, not getting in first.
+// Music must never imply early, presale, or priority ticket access. It shows
+// public on-sale times from the same listings anyone could find, and its value
+// is noticing in time, not getting in first.
 const LANES = [
   {
     kicker: 'Sports',
-    title: 'The games you would hate to miss.',
-    body: 'intori follows your teams and tells you which nights are worth staying up for, with scores hidden until you want them.',
-    image: '/brand/warm/tile-game-day.jpg',
-    alt: 'Sports in intori showing an upcoming game with the date and start time, ready to keep or pass on',
+    title: 'Every game worth watching.',
+    body: 'Follow your team and add the whole season in one tap. intori flags the games that matter, tells you where to watch, and keeps scores hidden until you are ready.',
+    image: '/brand/lanes/sports-game-day-family.jpg',
+    alt: 'A mother and her son leaping with a foam finger and a ball against an orange backdrop',
     tint: styles.artSports,
   },
   {
     kicker: 'Music',
-    title: 'Who’s playing, while the date is still open.',
-    body: 'intori watches for shows near you from artists your household cares about, and tells you early enough that Saturday is still yours to plan.',
-    image: '/brand/warm/tile-music-events.jpg',
-    alt: 'Music in intori showing an upcoming show nearby with the venue and date',
+    title: 'The show in town, in time to go.',
+    body: 'intori watches for the artists you love playing near you, and tells you when tickets go on sale, while there is still time to make a night of it.',
+    image: '/brand/lanes/music-singer.jpg',
+    alt: 'A woman in sunglasses and a sequined top singing into a microphone against a lilac backdrop',
     tint: styles.artMusic,
   },
   {
     kicker: 'Shows',
-    title: 'The one you’re both waiting on.',
-    body: 'intori keeps an eye on returns and premieres, and tells you the week one lands, with spoilers kept out of sight.',
-    image: '/brand/warm/tile-watch-radar.jpg',
-    alt: 'Shows in intori asking which series you already follow',
+    title: 'Know the night it comes back.',
+    body: 'Follow the shows you watch together. intori tells you when a new season lands and where it is streaming, so premiere night makes it onto the calendar.',
+    image: '/brand/lanes/shows-movie-night.jpg',
+    alt: 'A mother and daughter sharing a blanket and a giant bowl of popcorn on a mint sofa',
     tint: styles.artWatch,
   },
   {
     kicker: 'Food',
-    title: 'Dinner, decided.',
-    body: 'Three picks shaped by your household’s tastes, budget, and effort, for the nights the plan is blank. Save the ones you like and plan a night around them.',
-    image: '/brand/warm/tile-todays-food.jpg',
-    alt: 'Food in intori showing three dinner picks for tonight',
+    title: 'Dinner that fits the plan.',
+    body: 'Headed to a show or a game? intori finds places nearby that suit your household. On a night off, it has a few good spots close to home.',
+    image: '/brand/lanes/food-table-for-four.jpg',
+    alt: 'A mother and two children passing a big bowl of pasta around a pink table',
     tint: styles.artFood,
   },
 ]
 
-const TRUST_CARDS = [
+const STEPS = [
   {
-    title: 'Your answers do the work',
-    body: 'Quick questions about taste, timing, and constraints teach intori what a good pick looks like for your household.',
+    title: 'Tell it what your household loves.',
+    body: 'Sign in with Apple or your email, then pick your teams, your shows, the artists you would go see, and the food you like. A few taps each, and you can add the rest anytime.',
+    image: '/brand/app/setup.jpg',
+    alt: 'intori setup asking "What do I want to look forward to?" with Sports, Shows, and Music chosen',
   },
   {
-    title: 'You can see why',
-    body: 'Every pick shows what shaped it and what might still be missing. No mystery, no black box.',
+    title: 'It watches, so you don’t have to.',
+    body: 'intori keeps an eye on schedules, premieres, and tour dates. You get up to five picks a day, each with the reason it is there, and a heads-up when something you follow gets a date.',
+    image: '/brand/app/lock.jpg',
+    alt: 'An iPhone lock screen with two intori notifications: Steelers at Browns on Thursday at 8:15 PM, and Chicago Fire returning October 7',
   },
   {
-    title: 'You choose what to share',
-    body: 'Context stays yours. Share more only when it would make the picks better, and skip anything you’d rather not answer.',
+    title: 'One tap puts it on your calendar.',
+    body: 'Tap Add to calendar and it is on your iPhone’s calendar. Want a reminder? Flip one switch, and intori sends it the day before.',
+    image: '/brand/app/added.jpg',
+    alt: 'intori confirming the Steelers game is on your calendar in Apple Calendar, with a switch to be reminded the day before',
   },
+]
+
+// Why a household keeps paying: the product is built to be useful and then
+// get out of the way. Claims here track the app's own rules: a daily edition of
+// up to five picks with a named end, push only inside 8 AM to 9 PM local and
+// only for what someone added or follows, one question at a time.
+const WHY_CARDS = [
+  {
+    title: 'A few good picks, then done.',
+    body: 'Up to five picks a day, each with the reason it is there. When you have seen them, intori says so, and you get on with your day.',
+  },
+  {
+    title: 'Alerts you will actually want.',
+    body: 'A heads-up before something you added, a changed game time, a new date from a team, show, or artist you follow. Never overnight, and never a nudge to come back.',
+  },
+  {
+    title: 'Better every week.',
+    body: 'Now and then, after you add something, intori asks one quick question. Tap an answer, and the next picks fit your household a little better.',
+  },
+  {
+    title: 'No ads. Nothing sold.',
+    body: 'You pay for intori, so your family is the customer, not the product. What you share stays yours, and you choose how much.',
+  },
+]
+
+const INCLUDES = [
+  'Up to five fresh picks a day, across Sports, Music, Shows, and Food',
+  'One-tap adds to your calendar, with a reminder when you want one',
+  'Alerts when a team, show, or artist you follow gets a new date',
+  'No ads, ever',
 ]
 
 // Staged iOS CTA, driven entirely by IOS_CHANNEL in lib/appLinks.ts.
 //
-//   'appstore' -> "Download on the App Store" is primary, web drops to ghost
-//   'beta'     -> "Join the iPhone beta" is primary, web drops to ghost
+//   'appstore' -> "Download on the App Store" is primary, the web is a quiet link
+//   'beta'     -> "Join the iPhone beta" is primary, the web is a quiet link
 //   'none'     -> web is primary, iPhone is a quiet non-clickable status chip
 //
-// The chip is deliberately not a link. Until there is a real destination the
-// site says so plainly rather than collecting taps on a promise.
-function AppCtas() {
+// iPhone leads because the launch promise lives there: Sign in with Apple, one
+// tap to Apple Calendar, and reminders on the lock screen. The web stays one
+// link away for anyone on Android or a laptop, and on desktop a QR code sits
+// beside the button, since the button alone cannot install anything there.
+function AppCtas({ qrSvg }: { qrSvg?: string | null }) {
   if (IOS_CHANNEL !== 'none') {
     return (
-      <>
-        <a
-          href={IOS_URL}
-          className={styles.btnPrimary}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {IOS_CHANNEL === 'appstore' ? 'Download on the App Store' : 'Join the iPhone beta'}
-        </a>
+      <div className={styles.ctaStack}>
+        <div className={styles.ctaRow}>
+          <a
+            href={IOS_URL}
+            className={styles.btnPrimary}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {IOS_CHANNEL === 'appstore' ? 'Download on the App Store' : 'Join the iPhone beta'}
+          </a>
+          {qrSvg && (
+            <div className={styles.qr}>
+              <span
+                className={styles.qrCode}
+                role="img"
+                aria-label="QR code that opens intori on your iPhone"
+                dangerouslySetInnerHTML={{ __html: qrSvg }}
+              />
+              <span className={styles.qrLabel}>Scan with your iPhone camera</span>
+            </div>
+          )}
+        </div>
         <a
           href={APP_URL}
-          className={styles.btnGhost}
+          className={styles.btnText}
           target="_blank"
           rel="noopener noreferrer"
         >
-          Start on the web
+          Or use intori in your browser
         </a>
-      </>
+      </div>
     )
   }
 
   return (
-    <>
+    <div className={styles.ctaRow}>
       <a
         href={APP_URL}
         className={styles.btnPrimary}
@@ -132,7 +192,7 @@ function AppCtas() {
         <span className={styles.chipDot} aria-hidden="true" />
         iPhone app coming soon
       </span>
-    </>
+    </div>
   )
 }
 
@@ -147,15 +207,31 @@ function HeroHeadline() {
   if (HERO_VARIANT === 'weekly') {
     return (
       <h1 className={`${styles.heroHeadline} ${styles.heroHeadlineWeekly}`}>
-        Something to look<br />forward to.<br />Every week.
+        Something to look forward to. Every week.
       </h1>
     )
   }
 
   return (
-    <h1 className={`${styles.heroHeadline} ${styles.heroHeadlineForward}`}>
-      Something to<br />look forward to.
+    <h1 className={styles.heroHeadline}>
+      Something to look forward to.
     </h1>
+  )
+}
+
+function Phone({ src, alt, priority = false, className = '' }: { src: string; alt: string; priority?: boolean; className?: string }) {
+  return (
+    <div className={`${styles.phone} ${className}`}>
+      <Image
+        src={src}
+        alt={alt}
+        width={SCREEN.width}
+        height={SCREEN.height}
+        sizes="(max-width: 640px) 250px, 320px"
+        className={styles.phoneShot}
+        priority={priority}
+      />
+    </div>
   )
 }
 
@@ -167,14 +243,14 @@ function CheckIcon() {
   )
 }
 
-export default function HomePage() {
+export default function HomePage({ qrSvg }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <>
       <SeoHead
         title="intori. Something to look forward to."
-        description="intori watches for the things your household would hate to miss. The game worth staying up for. Who's playing nearby. The show you're both waiting on. And yes, dinner. Early enough to say yes."
+        description="Your calendar tells you what you have to do. intori finds what your household would hate to miss, like the big game, a favorite show coming back, or an artist playing nearby, and adds it to your calendar in one tap."
         canonicalPath="/"
-        ogDescription="intori watches for what your household would hate to miss, and gets it to you early enough to say yes."
+        ogDescription="Your calendar tells you what you have to do. intori gives you something to look forward to."
         ogImageAlt="intori card reading Something to look forward to, with tiles for Sports, Music, Shows, and Food"
       />
 
@@ -184,53 +260,68 @@ export default function HomePage() {
 
         <main>
           <header className={styles.heroSection}>
-            <div className={styles.container}>
-              <p className={styles.heroEyebrow}>Made for busy households</p>
-              <HeroHeadline />
-              <p className={styles.heroDeck}>
-                Your calendar is full of things you have to do. This is for the other half.
-              </p>
-              {/* Lane underlines are decoration under ink glyphs (F3): cluster
-                  color never becomes text color, per BRAND.md. */}
-              <p className={styles.heroSub}>
-                <span className={styles.ulSports}>The game worth staying up for.</span>{' '}
-                <span className={styles.ulMusic}>Who&rsquo;s playing 15&nbsp;minutes away on Saturday.</span>{' '}
-                <span className={styles.ulWatch}>The show you&rsquo;re both mid season on.</span>{' '}
-                <span className={styles.ulFood}>And yes, what&rsquo;s for dinner.</span>{' '}
-                intori watches for them, shaped by what your household actually
-                likes, and tells you early enough to say yes.
-              </p>
-              <div className={styles.heroCtas}>
-                <AppCtas />
-              </div>
-              <p className={styles.heroTrust}>
-                <strong>No ads.</strong> Nothing sold about your family. You choose what to share.
-              </p>
-            </div>
-            <div className={styles.heroStage}>
-              <div className={styles.heroGlow} aria-hidden="true" />
-              <div className={styles.phone}>
-                <div className={styles.phoneScreen}>
-                  <Image
-                    src="/brand/warm/home-today-gameday.jpg"
-                    alt="intori Today screen with a Sports pick ready to keep or pass on, and a quick question below it"
-                    width={1206}
-                    height={2282}
-                    className={styles.phoneShot}
-                    priority
-                  />
+            <div className={`${styles.container} ${styles.heroGrid}`}>
+              <div className={styles.heroText}>
+                <p className={styles.heroEyebrow}>For busy households</p>
+                <HeroHeadline />
+                <p className={styles.heroDeck}>
+                  Your calendar tells you what you have to do. intori finds what you would
+                  hate to miss before you think to look, and adds it in one tap.
+                </p>
+                {/* Lane underlines are decoration under ink glyphs (F3): cluster
+                    color never becomes text color, per BRAND.md. */}
+                <p className={styles.heroSub}>
+                  <span className={styles.ulSports}>The big game on Sunday.</span>{' '}
+                  <span className={styles.ulMusic}>An artist you love, playing nearby.</span>{' '}
+                  <span className={styles.ulWatch}>Your show, back next week.</span>{' '}
+                  <span className={styles.ulFood}>Dinner before you go.</span>
+                </p>
+                <div className={styles.heroCtas}>
+                  <AppCtas qrSvg={qrSvg} />
                 </div>
+                <p className={styles.heroTrust}>
+                  <strong>14 days free, no card needed.</strong> No ads, and nothing sold about your family.
+                </p>
+              </div>
+              <div className={styles.heroStage}>
+                <div className={styles.heroGlow} aria-hidden="true" />
+                <Phone
+                  src="/brand/app/today.jpg"
+                  alt="intori Today: Sunday's concert already on the calendar, Thursday's Steelers game ready to add in one tap, and an offer to find dinner near the venue before the concert"
+                  priority
+                />
               </div>
             </div>
           </header>
 
-          <section id="today" className={styles.todaySection}>
+          <section id="how" className={styles.howSection}>
+            <div className={styles.container}>
+              <div className={styles.secHead}>
+                <h2 className={styles.secTitle}>Set it up once. It keeps looking for you.</h2>
+                <p className={styles.secSub}>
+                  No feed to scroll, no searching, nothing to type.
+                </p>
+              </div>
+              <ol className={styles.steps}>
+                {STEPS.map((step, i) => (
+                  <li key={step.title} className={styles.step}>
+                    <Phone src={step.image} alt={step.alt} className={styles.phoneSmall} />
+                    <p className={styles.stepNum} aria-hidden="true">{i + 1}</p>
+                    <h3 className={styles.stepTitle}>{step.title}</h3>
+                    <p className={styles.stepBody}>{step.body}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </section>
+
+          <section id="lanes" className={styles.todaySection}>
             <div className={styles.container}>
               <div className={styles.secHead}>
                 <h2 className={styles.secTitle}>What intori watches for</h2>
                 <p className={styles.secSub}>
-                  Four lanes, live now. intori watches them for the things you would hate
-                  to miss, and the ones you keep land on your calendar before they happen.
+                  Follow the teams, shows, and artists your household loves. intori does
+                  the rest.
                 </p>
               </div>
               <div className={styles.todayGrid}>
@@ -261,57 +352,58 @@ export default function HomePage() {
             <div className={styles.container}>
               <div className={styles.wedgeState}>
                 <p className={styles.wedgeLineA}>
-                  Your family calendar keeps track of what&rsquo;s planned.
+                  Your calendar tells you what you have to do.
                 </p>
                 <p className={styles.wedgeLineB}>
-                  intori helps with everything that isn&rsquo;t, yet.
+                  intori gives you something to look forward to.
                 </p>
               </div>
               <p className={styles.wedgeBody}>
-                Shared calendars and family displays are great at keeping the household
-                moving. What they can&rsquo;t do is step outside the loop: the game tonight,
-                the show this weekend, whether Saturday deserves a small adventure.
-                intori starts there. It&rsquo;s the half nobody fills in, because filling it
-                in means knowing what to look for, finding the date, and remembering
-                before it passes.
+                Family calendars are great at keeping the household running. What they
+                can&rsquo;t do is notice that your team plays Sunday, your show is back next
+                week, or an artist you love is in town. Keeping track of all that is one
+                more job, and it usually falls to one person, or to nobody. intori does
+                the noticing. And
+                because it remembers what you have added, it can make those plans easier
+                too, like finding dinner near the venue before the show.
               </p>
               <div className={styles.wedgeDemo}>
                 <div className={styles.demoCol}>
-                  <h4 className={styles.demoColTitle}>Already on the calendar</h4>
-                  <div className={styles.demoRow}><time>4:00 pm</time>Soccer practice</div>
-                  <div className={styles.demoRow}><time>Thu</time>Dentist, both kids</div>
-                  <div className={styles.demoRow}><time>Fri</time>School recital</div>
-                  <div className={styles.demoRow}><time>Sat</time>&hellip;still open</div>
+                  <h3 className={styles.demoColTitle}>Already on the calendar</h3>
+                  <div className={styles.demoRow}><time>Mon</time>Soccer practice, 4:00</div>
+                  <div className={styles.demoRow}><time>Tue</time>Dentist, both kids</div>
+                  <div className={styles.demoRow}><time>Wed</time>Parent-teacher night</div>
+                  <div className={styles.demoRow}><time>Thu</time>&hellip;still open</div>
                   <div className={styles.demoRow}><time>Sun</time>&hellip;also open</div>
                 </div>
                 <div className={styles.demoCol}>
-                  <h4 className={styles.demoColTitle}>Still open &middot; intori&rsquo;s job</h4>
+                  <h3 className={styles.demoColTitle}>Found by intori</h3>
                   <div className={styles.demoPick}>
                     <div className={`${styles.demoSwatch} ${styles.swatchSports}`} aria-hidden="true" />
                     <div>
-                      <b>Tonight</b>
-                      <span>Your team tips off at 8, and this one is worth it</span>
+                      <b>Thursday</b>
+                      <span>Your team plays at 8:15, on the road</span>
                     </div>
                   </div>
                   <div className={styles.demoPick}>
                     <div className={`${styles.demoSwatch} ${styles.swatchMusic}`} aria-hidden="true" />
                     <div>
-                      <b>Saturday</b>
-                      <span>An outdoor show 15 minutes away, kids welcome</span>
-                    </div>
-                  </div>
-                  <div className={styles.demoPick}>
-                    <div className={`${styles.demoSwatch} ${styles.swatchWatch}`} aria-hidden="true" />
-                    <div>
-                      <b>After bedtime</b>
-                      <span>The show you&rsquo;re both mid-season on is back</span>
+                      <b>Sunday</b>
+                      <span>An artist you love plays 20 minutes away</span>
                     </div>
                   </div>
                   <div className={styles.demoPick}>
                     <div className={`${styles.demoSwatch} ${styles.swatchFood}`} aria-hidden="true" />
                     <div>
-                      <b>Dinner</b>
-                      <span>3 picks ready, one is a 20-minute sheet pan</span>
+                      <b>Before the concert</b>
+                      <span>A few places to eat near the venue</span>
+                    </div>
+                  </div>
+                  <div className={styles.demoPick}>
+                    <div className={`${styles.demoSwatch} ${styles.swatchWatch}`} aria-hidden="true" />
+                    <div>
+                      <b>Next Wednesday</b>
+                      <span>The show you watch together is back</span>
                     </div>
                   </div>
                 </div>
@@ -319,16 +411,49 @@ export default function HomePage() {
             </div>
           </section>
 
+          <section id="calendar" className={styles.calSection}>
+            <div className={`${styles.container} ${styles.calGrid}`}>
+              <div>
+                <h2 className={styles.calTitle}>One tap, and it&rsquo;s on your calendar.</h2>
+                <p className={styles.calSub}>
+                  Tap Add to calendar and the date lands in your iPhone&rsquo;s calendar, right
+                  next to everything else. Your iPhone asks for permission once. After that,
+                  every add is instant.
+                </p>
+                <p className={styles.calSub}>
+                  Everything you add also shows up in intori&rsquo;s Week, and if you want a
+                  reminder, intori sends one the day before, or two days before a concert.
+                </p>
+                <p className={styles.calFine}>
+                  intori adds only the dates you choose, and never reads your other events.
+                </p>
+                <p className={styles.calFine}>
+                  Use Google Calendar or a family display like Skylight? Open Calendars and
+                  displays from intori&rsquo;s Week to connect it, and what you add shows up
+                  there too.
+                </p>
+              </div>
+              <div className={styles.calVisual}>
+                <Phone
+                  src="/brand/app/week.jpg"
+                  alt="intori Week for September 29 to October 5: the Steelers game on Thursday and a concert on Sunday, both on your calendar, with Apple Calendar connected"
+                  className={styles.phoneSmall}
+                />
+              </div>
+            </div>
+          </section>
+
           <section id="why" className={styles.trustSection}>
             <div className={styles.container}>
               <div className={styles.secHead}>
-                <h2 className={styles.secTitle}>Built from your answers, not guesses</h2>
+                <h2 className={styles.secTitle}>Built to give you time back</h2>
                 <p className={styles.secSub}>
-                  intori gets useful because you tell it what matters, a few quick questions at a time.
+                  intori is paid for by households, not advertisers. So it is built to be
+                  useful, not to keep you scrolling.
                 </p>
               </div>
-              <div className={styles.trustGrid}>
-                {TRUST_CARDS.map((card) => (
+              <div className={styles.whyGrid}>
+                {WHY_CARDS.map((card) => (
                   <div key={card.title} className={styles.trustCard}>
                     <div className={styles.trustTick} aria-hidden="true"><CheckIcon /></div>
                     <h3 className={styles.trustTitle}>{card.title}</h3>
@@ -339,50 +464,8 @@ export default function HomePage() {
             </div>
           </section>
 
-          <section id="calendar" className={styles.calSection}>
-            <div className={`${styles.container} ${styles.calGrid}`}>
-              <div>
-                <h2 className={styles.calTitle}>Keep the good ones where your family already looks</h2>
-                <p className={styles.calSub}>
-                  When something is worth holding onto, put it where the household already
-                  looks, including your Skylight. On the calendar it&rsquo;s an option, not an
-                  obligation. Nothing here has to happen. One tap, your choice, every time.
-                </p>
-                <p className={styles.calSub}>
-                  Once you keep something, it leaves your list. What stays is what you have
-                  not decided yet, so an empty list means there is nothing left to decide.
-                </p>
-                <p className={styles.calFine}>
-                  intori adds only what you decide to keep. Nothing lands on the family calendar by itself.
-                </p>
-              </div>
-              <div className={styles.calVisual}>
-                <div className={styles.calFlow}>
-                  <div className={styles.calPick}>
-                    <div className={`${styles.demoSwatch} ${styles.swatchMusic}`} aria-hidden="true" />
-                    <div>
-                      <b>Riverfront Live: Saturday 6 pm</b>
-                      <span>Keep this &rarr;</span>
-                    </div>
-                  </div>
-                  <div className={styles.calArrow} aria-hidden="true">&darr;</div>
-                  <div className={styles.calDest}>
-                    <small>Your household display</small>
-                    <b>Sat &middot; Riverfront Live, 6:00 pm</b>
-                    <span>On the calendar everyone sees</span>
-                  </div>
-                  <div className={styles.calChips}>
-                    <span className={styles.calChip}>Skylight</span>
-                    <span className={styles.calChip}>Google Calendar</span>
-                    <span className={styles.calChip}>Apple Calendar</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
           {/* Coming Next is deliberately self-contained: when Family Activities
-              ships, this section is deleted and the lane joins the Today grid
+              ships, this section is deleted and the lane joins the lane grid
               above as a fifth card. */}
           <section className={styles.nextSection}>
             <div className={`${styles.container} ${styles.nextInner}`}>
@@ -411,9 +494,6 @@ export default function HomePage() {
 
               The previous first-keep trigger was REMOVED on 2026-09-11
               (intori-app #2864). Do not reintroduce first-keep language here.
-              It was never true for three of the four lanes: saving a meal,
-              planning a night, and following a team, artist or series all
-              failed to start a clock.
 
               Nothing here may imply that subscribing starts a free period.
               There is deliberately no Apple introductory offer and no Stripe
@@ -433,8 +513,20 @@ export default function HomePage() {
                 </p>
                 <p className={styles.priceSample}>
                   <span className={styles.priceSampleLabel}>In the app</span>
-                  Full access until 25 September 2026.
+                  Full access until October 8, 2026.
                 </p>
+              </div>
+
+              <div className={styles.includes}>
+                <h3 className={styles.includesTitle}>Every plan includes</h3>
+                <ul className={styles.includesList}>
+                  {INCLUDES.map((item) => (
+                    <li key={item}>
+                      <span className={styles.includesTick} aria-hidden="true"><CheckIcon /></span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               <div className={styles.priceGrid}>
@@ -456,7 +548,7 @@ export default function HomePage() {
                   <p className={styles.priceAmount}>
                     $79<span className={styles.pricePer}>/year</span>
                   </p>
-                  <p className={styles.priceNote}>About $28 less than twelve months at the monthly price.</p>
+                  <p className={styles.priceNote}>About $6.58 a month, and $28 less than paying monthly for a year.</p>
                 </div>
               </div>
 
@@ -470,9 +562,9 @@ export default function HomePage() {
               <div className={styles.priceLapse}>
                 <h3 className={styles.priceLapseTitle}>If you stop paying</h3>
                 <p className={styles.priceLapseBody}>
-                  Everything you already kept stays exactly where it is. Those events live
-                  on your own calendar, on your own device, and they do not depend on us.
-                  What stops is the watching.
+                  Everything you added stays exactly where it is. Those events live on your
+                  own calendar, on your own device, and they do not depend on us. What stops
+                  is the watching.
                 </p>
               </div>
             </div>
@@ -486,16 +578,16 @@ export default function HomePage() {
                 <span className={`${styles.laneMark} ${styles.artWatch}`} />
                 <span className={`${styles.laneMark} ${styles.artFood}`} />
               </div>
-              <h2 className={styles.convertTitle}>Start tonight.</h2>
+              <h2 className={styles.convertTitle}>Your first pick is a few minutes away.</h2>
               <p className={styles.convertSub}>
                 {IOS_CHANNEL === 'appstore'
-                  ? <>intori is on the App Store, and it works on the web too, no install needed.</>
+                  ? <>Download intori, sign in with Apple, and choose what your household loves. intori takes it from there.</>
                   : IOS_CHANNEL === 'beta'
-                    ? <>The iPhone beta is open. intori still works on the web too, no install needed.</>
+                    ? <>Join the iPhone beta, sign in with Apple, and choose what your household loves. intori takes it from there.</>
                     : <>intori works on the web today. The iPhone app is next, and the button below will say so the moment it&rsquo;s real.</>}
               </p>
               <div className={styles.convertCtas}>
-                <AppCtas />
+                <AppCtas qrSvg={qrSvg} />
               </div>
               <p className={styles.convertNote}>
                 14 days free, starting when you finish setup. Then $8.99 a month or $79
@@ -506,7 +598,6 @@ export default function HomePage() {
 
           <MarketingFooter />
         </main>
-
       </div>
     </>
   )

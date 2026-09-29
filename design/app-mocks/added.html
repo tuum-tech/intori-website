@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mock: Added, with the reminder switch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=block">
+<link rel="stylesheet" href="mock.css">
+</head>
+<body>
+<!-- Demo household: follows the Pittsburgh Steelers, lives near Pittsburgh,
+     has Foster The People on the calendar for Sunday. Schedule, venues and
+     times are the real ones the app showed for this household in September. -->
+<div class="screen">
+  <div data-status></div>
+
+  <main class="page">
+    <p class="day">Tuesday, September 29</p>
+    <h1 class="h1">Today</h1>
+
+    <!-- Next up: the saved date that is coming soonest -->
+    <div class="card kept lane-music">
+      <div class="date"><b>Oct</b><span>4</span></div>
+      <div class="kept-mid">
+        <span class="kept-title">Foster The People: Good Morning Sunshine Tour</span>
+        <span class="kept-line">On your calendar · Sun, 8:00 PM</span>
+      </div>
+      <span class="chev" data-icon="chev" data-size="18"></span>
+    </div>
+
+    <!-- The day's picks: the lead card, the next one peeking -->
+    <div class="shelf">
+      <article class="lead lane-sports">
+        <div class="lead-top">
+          <div class="lead-text">
+            <p class="eyebrow"><span class="dot"></span>Sports <span class="when">Thu, Oct 1</span></p>
+            <h2 class="lead-title">Steelers at Browns</h2>
+          </div>
+          <div class="matchup"><span class="badge a pit">PIT</span><span class="badge b cle">CLE</span></div>
+        </div>
+        <div class="meta">
+          <span><span data-icon="clock" data-size="17"></span>8:15 PM EDT</span>
+          <span><span data-icon="pin" data-size="17"></span>Huntington Bank Field</span>
+        </div>
+        <p class="reason">Because you follow the Steelers</p>
+        <div class="actions">
+          <span class="primary done"><span data-icon="calcheck" data-size="20"></span>On your calendar</span>
+          <span class="more" data-icon="more"></span>
+        </div>
+      </article>
+      <article class="peek lane-shows">
+        <p class="eyebrow"><span class="dot"></span>Shows <span class="when">Wed, Oct 7</span></p>
+        <h2 class="lead-title">Chicago Fire</h2>
+      </article>
+    </div>
+    <div class="pager">
+      <span>1 of 5</span>
+      <span class="next">Next <span data-icon="arrow" data-size="17"></span></span>
+    </div>
+
+    <!-- The slot: makes Sunday's concert easier -->
+    <aside class="slot lane-food">
+      <div class="slot-top">
+        <img src="assets/cuisine-italian.jpg" alt="">
+        <div>
+          <p class="slot-eyebrow"><span class="dot"></span><strong>Food</strong> Before Foster The People</p>
+          <h2>Dinner near Citizens Live at The Wylie before Sunday's concert?</h2>
+          <p class="sub">Your concert starts at 8:00 PM.</p>
+        </div>
+      </div>
+      <div class="slot-actions"><span class="outline">Find a place nearby</span><span class="quiet">Not tonight</span></div>
+    </aside>
+
+    <h3 class="doors-h">Explore by interest</h3>
+    <div class="doors">
+      <div class="door"><img src="assets/sports-game-day-family.jpg" alt=""><b>Sports</b><span>Steelers · Thu 8:15 PM</span></div>
+      <div class="door"><img src="assets/music-singer.jpg" alt=""><b>Music</b><span>Foster The People · Sun</span></div>
+    </div>
+  </main>
+
+  <nav data-tabbar="home"></nav>
+
+  <!-- The add receipt: what, when and where, then one reminder switch -->
+  <div class="scrim"></div>
+  <section class="sheet">
+    <div class="grabber"></div>
+    <div class="receipt-head">
+      <div class="matchup sm"><span class="badge a pit">PIT</span><span class="badge b cle">CLE</span></div>
+      <div>
+        <h2 class="receipt-title">On your calendar</h2>
+        <p class="receipt-sub">Pittsburgh Steelers at Cleveland Browns · Thu, Oct 1 · 8:15 PM EDT</p>
+      </div>
+      <span class="x" data-icon="x" data-size="24"></span>
+    </div>
+    <span class="chip-cal"><span data-icon="calcheck" data-size="17"></span>Apple Calendar</span>
+    <div class="remind"><span data-icon="bell" data-size="20"></span><span class="grow">Remind me the day before</span><span class="switch"></span></div>
+    <div class="done-btn">Done</div>
+    <span class="week-link">See it in Week</span>
+  </section>
+</div>
+<script src="chrome.js"></script>
+</body>
+</html>

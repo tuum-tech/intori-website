@@ -29,17 +29,19 @@ export function MarketingHeader() {
             />
           </Link>
           <nav className={styles.nav} aria-label="Primary navigation">
-            <Link href="/#today" className={styles.navLink}>What it helps with</Link>
-            <Link href="/#why" className={styles.navLink}>Why it works</Link>
-            <Link href="/#calendar" className={styles.navLink}>Calendar</Link>
+            <Link href="/#how" className={styles.navLink}>How it works</Link>
+            <Link href="/#lanes" className={styles.navLink}>What it watches</Link>
             <Link href="/#pricing" className={styles.navLink}>Pricing</Link>
+            <Link href="/faq" className={styles.navLink}>FAQ</Link>
+            {/* Same destination as the homepage's primary button: the iPhone app
+                once IOS_CHANNEL has one, the web app until then. */}
             <a
-              href={APP_URL}
+              href={IOS_CHANNEL === 'none' ? APP_URL : IOS_URL}
               className={styles.ctaPrimary}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Try intori
+              {IOS_CHANNEL === 'appstore' ? 'Get the app' : 'Try intori'}
             </a>
           </nav>
         </div>
@@ -63,6 +65,7 @@ export function MarketingFooter() {
           />
           <nav className={styles.footerNav} aria-label="Footer">
             <Link href="/faq" className={styles.footerLink}>FAQ</Link>
+            <Link href="/support" className={styles.footerLink}>Support</Link>
             <Link href="/news" className={styles.footerLink}>News</Link>
             <Link href="/privacy-policy" className={styles.footerLink}>Privacy</Link>
             <Link href="/terms-of-use" className={styles.footerLink}>Terms</Link>
@@ -77,6 +80,8 @@ export function MarketingFooter() {
               World App
             </a>
           </nav>
+          {/* A text button rather than Apple's badge artwork, so nothing on the
+              page depends on an asset that is not in the repo. */}
           {IOS_CHANNEL === 'appstore' && (
             <a
               href={IOS_URL}
@@ -84,12 +89,7 @@ export function MarketingFooter() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Image
-                src="/brand/app-store-badge.svg"
-                alt="Download intori on the App Store"
-                width={120}
-                height={40}
-              />
+              Download on the App Store
             </a>
           )}
           <p className={styles.footerCopy}>© {year} intori</p>

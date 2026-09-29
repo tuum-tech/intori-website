@@ -15,7 +15,7 @@ const Privacy: NextPage = () => {
 
       <LegalLayout>
         <h1>intori Privacy Policy</h1>
-        <p><strong>Last Updated: September 16, 2026</strong></p>
+        <p><strong>Last Updated: September 24, 2026</strong></p>
 
       <p>
         This policy covers the intori website and the intori mobile app. There is one policy for both.
@@ -24,6 +24,7 @@ const Privacy: NextPage = () => {
       <h2>What changed in this update</h2>
       <p>
         This update covers the intori mobile app for iPhone, describes the dietary and health-adjacent information you declare and how we use it, and explains how Google Maps receives coarse location and search context for nearby restaurant results. It names every AI processor and data provider that receives context from intori, not just OpenAI. It adds subscription and billing information. It also replaces the old note that export and deletion tools were still being built. You can now download your data and delete your account yourself. It removes the old description of matching and friends, because intori no longer has social features.
+       It also corrects the diagnostics section (the app has no crash reporting) and the steps to delete your account.
       </p>
 
       <h2>Who we are</h2>
@@ -196,7 +197,7 @@ const Privacy: NextPage = () => {
 
       <h3>Device and diagnostic information</h3>
       <p>
-        The app collects device model, operating system version, app version, language and region, and crash and performance diagnostics. We use this to keep the app working and to fix problems, and it may be linked to your account for support and abuse prevention.
+        The app collects device model, operating system version, app version, language and region, and performance and error diagnostics, such as how long a screen took to load or a request that did not go through. We use this to keep the app working and to fix problems, and it may be linked to your account for support and abuse prevention.
       </p>
       <p>
         intori collects all of this itself and writes it to our own records. The app contains no third-party analytics, crash reporting, attribution, or advertising software development kits. Nothing about your use of the app is sent to an analytics company. The app does not use the device advertising identifier and does not track you across other companies&apos; apps or websites. If we ever add a third-party diagnostics tool, we will update this policy and the App Store privacy label before it ships.
@@ -328,7 +329,7 @@ const Privacy: NextPage = () => {
 
       <h3>Deleting your account</h3>
       <p>
-        You can delete your intori account yourself. In the app, open the You tab and choose Delete your account. You can also reach it from Everything we hold. On the web, email <a href="mailto:contact@tuum.tech">contact@tuum.tech</a> and we will delete the account.
+        You can delete your intori account yourself. In the app, open the You tab, then Settings and data, and choose Delete your account. You can also reach it from Everything we hold. On the web, email <a href="mailto:contact@tuum.tech">contact@tuum.tech</a> and we will delete the account.
       </p>
       <p>
         Deleting your account removes your answers, declared preferences, declared dietary constraints, local context, results, and connected app grants, except for records we must keep for legal, accounting, security, or fraud-prevention reasons. If you signed in with Apple, deleting your account also revokes the Sign in with Apple token, so intori no longer holds an active sign-in relationship with your Apple ID.

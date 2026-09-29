@@ -15,7 +15,7 @@ const Terms: NextPage = () => {
 
       <LegalLayout>
         <h1>intori Terms of Use</h1>
-        <p><strong>Last Updated: September 16, 2026</strong></p>
+        <p><strong>Last Updated: September 24, 2026</strong></p>
 
       <p>
         These terms cover the intori website and the intori mobile app. There is one set of terms for both.
@@ -152,7 +152,7 @@ const Terms: NextPage = () => {
 
       <h2>10. Subscriptions, purchases, and payments</h2>
       <p>
-        intori is sold as a subscription. One subscription covers your whole household.
+        intori is sold as a subscription. Each subscription covers one intori account.
       </p>
       <p>
         <strong>Free trial.</strong> Eligible new accounts get a 14-day trial with full access to intori. No payment method is required to start it. The trial begins when you complete onboarding, not when you create an account. Its end date is fixed at that point and is shown to you in the app. If you never complete onboarding, the trial does not start and intori does not produce personalized results for you. The trial does not become a paid subscription automatically. When it ends, you must choose a paid plan before intori will create or refresh another personalized result.
@@ -277,7 +277,7 @@ const Terms: NextPage = () => {
 
       <h2>20. Termination</h2>
       <p>
-        You may stop using the Services at any time. You can delete your account from inside the intori mobile app, on the You tab, or by contacting <a href="mailto:contact@tuum.tech">contact@tuum.tech</a>, subject to retention needed for legal, security, fraud-prevention, accounting, or operational reasons. Deleting your account does not cancel an App Store subscription. Cancel that separately in your Apple account subscription settings.
+        You may stop using the Services at any time. You can delete your account from inside the intori mobile app, on the You tab under Settings and data, or by contacting <a href="mailto:contact@tuum.tech">contact@tuum.tech</a>, subject to retention needed for legal, security, fraud-prevention, accounting, or operational reasons. Deleting your account does not cancel an App Store subscription. Cancel that separately in your Apple account subscription settings.
       </p>
       <p>
         We may suspend or terminate your access if we believe you violated these Terms, created risk, or used the Services unlawfully or abusively.

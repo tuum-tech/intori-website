@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mock: Lock screen</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=block">
+<link rel="stylesheet" href="mock.css">
+</head>
+<body>
+<!-- Both notifications use the app's own templates:
+     - the reminder (leadTimeReminderSender): title is the item, body is
+       "{weekday time} · {venue}", sent the day before a game;
+     - the follow alert (consumerNotificationSource): "{show} returns {date}"
+       and "Season N, episode N has a date." -->
+<div class="screen">
+  <div class="lock"></div>
+  <div data-status></div>
+  <div class="lock-date">Wednesday, September 30</div>
+  <div class="lock-time">9:41</div>
+
+  <div class="lock-stack">
+    <div class="notif">
+      <img src="assets/app-icon.png" alt="">
+      <div>
+        <div class="notif-top"><b>intori</b><span>now</span></div>
+        <p class="notif-title">Steelers at Browns</p>
+        <p class="notif-body">Thursday 8:15 PM · Huntington Bank Field</p>
+      </div>
+    </div>
+    <div class="notif">
+      <img src="assets/app-icon.png" alt="">
+      <div>
+        <div class="notif-top"><b>intori</b><span>Mon</span></div>
+        <p class="notif-title">Chicago Fire returns Oct 7</p>
+        <p class="notif-body">Season 15, episode 1 has a date.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="lock-btns">
+    <span><svg width="20" height="22" viewBox="0 0 20 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M5 2h10l-1.5 6h-7L5 2Z"/><path d="M6.5 8h7v13a1.5 1.5 0 0 1-1.5 1.5H8A1.5 1.5 0 0 1 6.5 21V8Z"/></svg></span>
+    <span><svg width="24" height="20" viewBox="0 0 26 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M2 6.5A2.5 2.5 0 0 1 4.5 4H8l2-3h6l2 3h3.5A2.5 2.5 0 0 1 24 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-17A2.5 2.5 0 0 1 2 17.5v-11Z"/><circle cx="13" cy="12" r="4.2"/></svg></span>
+  </div>
+  <div class="home-indicator"></div>
+</div>
+<script src="chrome.js"></script>
+</body>
+</html>

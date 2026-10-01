@@ -1,7 +1,7 @@
 # Intori App
 > Your data, connected
 
-[intori.co](https://www.intori.co/)
+[intori.com](https://intori.com/)
 
 ## Getting Started
 

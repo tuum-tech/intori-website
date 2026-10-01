@@ -3,4 +3,4 @@ Allow: /
 Disallow: /api/
 Disallow: /dashboard/
 
-Sitemap: https://www.intori.co/sitemap.xml
+Sitemap: https://intori.com/sitemap.xml

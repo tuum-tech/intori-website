@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export const SITE_URL = 'https://www.intori.co'
+export const SITE_URL = 'https://intori.com'
 // Versioned filename on purpose. X and other scrapers cache OG image bytes keyed
 // by image URL, so replacing the card in place (as #197 did) leaves stale pre-pivot
 // art in every previously-scraped preview. Ship a NEW filename whenever the card

@@ -54,6 +54,7 @@ const SERVICES: Source[] = [
   { name: "National Park Service", adds: "Ranger programs and events at national park sites", url: "https://www.nps.gov/" },
   { name: "TMDB", adds: "Films and series, and where to watch them", url: "https://www.themoviedb.org/", credit: "Where to watch: JustWatch. This product uses the TMDB API but is not endorsed or certified by TMDB." },
   { name: "Google Maps", adds: "Season places such as pumpkin patches, orchards and tree farms, shown with Google's own place card", url: "https://maps.google.com/" },
+  { name: "U.S. Census Bureau Geocoder", adds: "Places the street addresses that public calendars and race listings print, so a venue sits at its building", url: "https://geocoding.geo.census.gov/", credit: "Public US government data." },
 ]
 
 const RULES: Array<{ title: string; body: string }> = [

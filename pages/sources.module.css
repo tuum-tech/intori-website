@@ -1,0 +1,155 @@
+/* The sources page. Tokens come from .page in index.module.css. */
+
+.rules {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 56px;
+}
+
+.rule {
+  padding: 22px 24px;
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+  background: var(--card);
+  box-shadow: 0 8px 20px rgba(23, 23, 56, 0.04);
+}
+
+.ruleTitle {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.ruleBody {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.62;
+}
+
+.removal {
+  max-width: 720px;
+  margin-bottom: 56px;
+  padding: 26px 28px;
+  border-radius: 16px;
+  background: var(--plane);
+}
+
+.removal .sectionHeading {
+  margin-top: 0;
+}
+
+.removal a {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.sectionHeading {
+  margin: 0 0 18px;
+  color: var(--ink);
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.group {
+  margin-bottom: 28px;
+}
+
+.region {
+  margin: 0 0 10px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.list {
+  display: grid;
+  gap: 0;
+  margin: 0 0 40px;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+  background: var(--card);
+  overflow: hidden;
+}
+
+.group .list {
+  margin-bottom: 0;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+  column-gap: 24px;
+  row-gap: 4px;
+  padding: 16px 24px;
+}
+
+.item + .item {
+  border-top: 1px solid var(--hairline);
+}
+
+.name {
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-decoration: underline;
+  text-decoration-color: var(--hairline);
+  text-underline-offset: 3px;
+}
+
+.name:hover {
+  text-decoration-color: var(--ink);
+}
+
+.adds {
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.credit {
+  grid-column: 2;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.updated {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.updated a {
+  color: var(--ink);
+}
+
+@media (max-width: 720px) {
+  .rules {
+    grid-template-columns: 1fr;
+  }
+
+  .item {
+    grid-template-columns: 1fr;
+    padding: 16px 18px;
+  }
+
+  .credit {
+    grid-column: 1;
+  }
+
+  .removal {
+    padding: 22px 20px;
+  }
+}

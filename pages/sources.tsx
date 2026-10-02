@@ -17,6 +17,12 @@ type Source = { name: string; adds: string; url: string; credit?: string }
 
 const ORGANIZERS: Array<{ region: string; sources: Source[] }> = [
   {
+    region: "Atlanta, Georgia",
+    sources: [
+      { name: "Fulton County Library System", adds: "Story times, classes and events at its branches", url: "https://fulcolibrary.bibliocommons.com/v2/events" },
+    ],
+  },
+  {
     region: "Orlando, Florida",
     sources: [
       { name: "Orange County Library System", adds: "Story times, classes and events at its branches", url: "https://attend.ocls.org/" },

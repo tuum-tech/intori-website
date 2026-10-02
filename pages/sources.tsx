@@ -20,12 +20,18 @@ const ORGANIZERS: Array<{ region: string; sources: Source[] }> = [
     region: "Atlanta, Georgia",
     sources: [
       { name: "Fulton County Library System", adds: "Story times, classes and events at its branches", url: "https://fulcolibrary.bibliocommons.com/v2/events" },
+      { name: "Gwinnett County Public Library", adds: "Story times, classes and events at its branches", url: "https://gwinnettpl.libnet.info/events" },
+      { name: "DeKalb County Public Library", adds: "Story times, classes and events at its branches", url: "https://events.dekalblibrary.org/events" },
+      { name: "City of Marietta", adds: "City events and programs", url: "https://www.mariettaga.gov/calendar.aspx" },
     ],
   },
   {
     region: "Orlando, Florida",
     sources: [
       { name: "Orange County Library System", adds: "Story times, classes and events at its branches", url: "https://attend.ocls.org/" },
+      { name: "City of Oviedo", adds: "City events and programs", url: "https://www.cityofoviedo.net/calendar.aspx" },
+      { name: "City of Ocoee", adds: "City events and programs", url: "https://www.ocoee.org/calendar.aspx" },
+      { name: "City of Maitland", adds: "City events and programs", url: "https://maitlandfl.gov/calendar.aspx" },
     ],
   },
   {
@@ -34,6 +40,7 @@ const ORGANIZERS: Array<{ region: string; sources: Source[] }> = [
       { name: "New Hanover County Public Library", adds: "Story times, classes and events at its branches", url: "https://libcal.nhcgov.com/" },
       { name: "New Hanover County", adds: "County events, museum and parks programs", url: "https://www.nhcgov.com/" },
       { name: "Pender County", adds: "County events and programs", url: "https://www.pendercountync.gov/" },
+      { name: "Brunswick County", adds: "County events and programs", url: "https://www.brunswickcountync.gov/calendar.aspx" },
     ],
   },
 ]

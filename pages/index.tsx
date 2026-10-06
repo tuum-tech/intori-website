@@ -280,7 +280,7 @@ export default function HomePage({ qrSvg }: InferGetServerSidePropsType<typeof g
                   <AppCtas qrSvg={qrSvg} />
                 </div>
                 <p className={styles.heroTrust}>
-                  <strong>14 days free, no card needed.</strong> No ads, and nothing sold about your family.
+                  <strong>21 days free, no card needed.</strong> No ads, and nothing sold about your family.
                 </p>
               </div>
               <div className={styles.heroStage}>
@@ -495,19 +495,18 @@ export default function HomePage({ qrSvg }: InferGetServerSidePropsType<typeof g
               The previous first-keep trigger was REMOVED on 2026-09-11
               (intori-app #2864). Do not reintroduce first-keep language here.
 
-              Nothing here may imply that subscribing starts a free period.
-              There is deliberately no Apple introductory offer and no Stripe
-              trial period; the app-side 14 days IS the trial, and choosing a
-              plan begins billing immediately.
+              The app-managed 21 days start without a payment method.
+              Web buyers with at least 48 hours left keep that end date before
+              their first charge. Apple bills on purchase; no intro is configured.
 
               Amounts mirror src/config/stripeSubscriptionPlans.ts in the app
-              repo: 899 monthly, 7_900 annual. If those move, this moves. */}
+              repo: 899 monthly, 5_999 annual. If those move, this moves. */}
           <section id="pricing" className={styles.priceSection}>
             <div className={styles.container}>
               <div className={styles.secHead}>
-                <h2 className={styles.secTitle}>Fourteen days, then you decide</h2>
+                <h2 className={styles.secTitle}>Twenty-one days, then you decide</h2>
                 <p className={styles.secSub}>
-                  Your 14 days start when you finish setup, not when you sign up. It is a
+                  Your 21 days start when you finish setup, not when you sign up. It is a
                   real date, and the app shows it to you, so you are never guessing how
                   long you have left.
                 </p>
@@ -543,28 +542,29 @@ export default function HomePage({ qrSvg }: InferGetServerSidePropsType<typeof g
                 <div className={`${styles.priceCard} ${styles.priceCardFeature}`}>
                   <p className={styles.pricePlan}>
                     Annual
-                    <span className={styles.priceTag}>Save $28</span>
+                    <span className={styles.priceTag}>Save 44%</span>
                   </p>
                   <p className={styles.priceAmount}>
-                    $79<span className={styles.pricePer}>/year</span>
+                    $59.99<span className={styles.pricePer}>/year</span>
                   </p>
-                  <p className={styles.priceNote}>About $6.58 a month, and $28 less than paying monthly for a year.</p>
+                  <p className={styles.priceNote}>$5 a month. Save 44% compared with paying monthly for a year.</p>
                 </div>
               </div>
 
               <p className={styles.priceFine}>
-                No card up front, and nothing charges itself when the 14 days are up.
-                Choosing a plan starts billing straight away, so there is no second free
-                period on top of your fourteen days. Setup is what starts the clock, so
-                an account that never finishes it never starts one.
+                No card up front, and nothing charges itself when the 21 days are up.
+                On the web, choose a plan with at least 48 hours left and your first
+                charge waits until your free days end. Cancel before then and you
+                won&rsquo;t be charged. With less time left, web billing starts today.
+                On iPhone, Apple bills when you confirm your purchase.
               </p>
 
               <div className={styles.priceLapse}>
                 <h3 className={styles.priceLapseTitle}>If you stop paying</h3>
                 <p className={styles.priceLapseBody}>
-                  Everything you added stays exactly where it is. Those events live on your
-                  own calendar, on your own device, and they do not depend on us. What stops
-                  is the watching.
+                  Everything you added stays visible in intori and on your calendar.
+                  Followed-season dates keep their last saved details. New picks, adds,
+                  updates and reminders pause until you choose a plan again.
                 </p>
               </div>
             </div>
@@ -590,7 +590,7 @@ export default function HomePage({ qrSvg }: InferGetServerSidePropsType<typeof g
                 <AppCtas qrSvg={qrSvg} />
               </div>
               <p className={styles.convertNote}>
-                14 days free, starting when you finish setup. Then $8.99 a month or $79
+                21 days free, starting when you finish setup. Then $8.99 a month or $59.99
                 a year. <a href="#pricing" className={styles.convertNoteLink}>See what a lapse does</a>.
               </p>
             </div>

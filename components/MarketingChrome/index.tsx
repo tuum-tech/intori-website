@@ -67,6 +67,7 @@ export function MarketingFooter() {
             <Link href="/faq" className={styles.footerLink}>FAQ</Link>
             <Link href="/support" className={styles.footerLink}>Support</Link>
             <Link href="/news" className={styles.footerLink}>News</Link>
+            <Link href="/sources" className={styles.footerLink}>Sources</Link>
             <Link href="/privacy-policy" className={styles.footerLink}>Privacy</Link>
             <Link href="/terms-of-use" className={styles.footerLink}>Terms</Link>
             <a href="mailto:contact@tuum.tech" className={styles.footerLink}>Contact</a>

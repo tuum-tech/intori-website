@@ -37,6 +37,6 @@ Home shows up to five picks a day, each with the reason it is there. When you ha
 
 ## Try it
 
-Full access is free for 14 days after setup, with no payment needed to start. After that, intori is $8.99 a month or $79 a year.
+Full access is free for 21 days after setup, with no payment needed to start. After that, intori is $8.99 a month or $59.99 a year.
 
 Download intori from the App Store, or tap Get the app at the top of this page. We would love to hear what you think at [contact@tuum.tech](mailto:contact@tuum.tech).

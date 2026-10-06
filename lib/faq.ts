@@ -144,9 +144,9 @@ export const FAQ: FaqItem[] = [
   {
     question: "What does intori cost?",
     answer: [
-      "intori is $8.99 a month, or $79 a year.",
-      "Before that, you get 14 days free. The trial starts when you finish setup, not when you sign up. It is a real date, and the app shows it to you, so you always know how long you have left.",
-      "Choosing a plan starts billing straight away. There is no extra free period on top of your fourteen days, on the web or on iPhone."
+      "intori is $8.99 a month, or $59.99 a year.",
+      "Before that, you get 21 days free. The trial starts when you finish setup, not when you sign up. It is a real date, and the app shows it to you, so you always know how long you have left.",
+      "On the web, choose a plan with at least 48 hours left and your first charge waits until your free days end. Cancel before then and you will not be charged. With less time left, web billing starts immediately. On iPhone, Apple bills when you confirm your purchase."
     ]
   },
   {
@@ -159,8 +159,8 @@ export const FAQ: FaqItem[] = [
   {
     question: "What happens if I stop paying?",
     answer: [
-      "Everything you already added stays exactly where it is. Those events are on your own calendar, on your own device, and they do not depend on us.",
-      "What stops is the watching. intori stops finding and refreshing new picks until you subscribe again. Your answers and everything you follow stay in your account."
+      "Everything you already added stays visible in intori and on your calendar. Followed-season dates keep their last saved details.",
+      "New picks, calendar adds, Holds, date updates and reminders pause until you subscribe again. Your answers and everything you follow stay in your account."
     ]
   },
   {

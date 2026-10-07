@@ -7,7 +7,7 @@ import styles from "./index.module.css"
 
 // The App Store Support URL. Every answer here describes what the app does
 // today; paths name the app's own labels (You tab, Settings and data).
-const SUPPORT_EMAIL = "contact@tuum.tech"
+const SUPPORT_EMAIL = "contact@intori.com"
 
 const TOPICS: Array<{ question: string; answer: string[] }> = [
   {

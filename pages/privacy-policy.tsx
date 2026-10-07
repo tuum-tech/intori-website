@@ -31,7 +31,7 @@ const Privacy: NextPage = () => {
       <p>
         The intori service is owned by Tuum Technologies, Inc. (&quot;Tuum&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;).
       </p>
-      <p>You can contact us by email at <a href="mailto:contact@tuum.tech">contact@tuum.tech</a>.</p>
+      <p>You can contact us by email at <a href="mailto:contact@intori.com">contact@intori.com</a>.</p>
       <p>In writing to:</p>
       <address>
         Tuum Technologies, Inc.<br />
@@ -265,7 +265,7 @@ const Privacy: NextPage = () => {
         We are building a dedicated permission control for this, and it will live in Everything we hold, on the You tab. It is not in the product yet. Until it ships, you decide by choosing whether to run an AI-assisted feature. We will update this section when the control is available.
       </p>
       <p>
-        If you have a question or a request about your context, email <a href="mailto:contact@tuum.tech">contact@tuum.tech</a>.
+        If you have a question or a request about your context, email <a href="mailto:contact@intori.com">contact@intori.com</a>.
       </p>
 
       <h3>With other intori users</h3>
@@ -329,7 +329,7 @@ const Privacy: NextPage = () => {
 
       <h3>Deleting your account</h3>
       <p>
-        You can delete your intori account yourself. In the app, open the You tab, then Settings and data, and choose Delete your account. You can also reach it from Everything we hold. On the web, email <a href="mailto:contact@tuum.tech">contact@tuum.tech</a> and we will delete the account.
+        You can delete your intori account yourself. In the app, open the You tab, then Settings and data, and choose Delete your account. You can also reach it from Everything we hold. On the web, email <a href="mailto:contact@intori.com">contact@intori.com</a> and we will delete the account.
       </p>
       <p>
         Deleting your account removes your answers, declared preferences, declared dietary constraints, local context, results, and connected app grants, except for records we must keep for legal, accounting, security, or fraud-prevention reasons. If you signed in with Apple, deleting your account also revokes the Sign in with Apple token, so intori no longer holds an active sign-in relationship with your Apple ID.
@@ -343,7 +343,7 @@ const Privacy: NextPage = () => {
         You can download a copy of your data yourself, in the app and on the web. Open Your data and choose Download everything. intori builds the file straight away and your device downloads it as a JSON file. There is no queue and no waiting for an email.
       </p>
       <p>
-        The export includes your account and sign-in details, your answers, your declared preferences, your declared dietary constraints including whether each one applies to you or to a household member, your local context, your consent records, your results and runs, your connected app grants and receipts, and your vibe. If you would rather ask us for it, email <a href="mailto:contact@tuum.tech">contact@tuum.tech</a>.
+        The export includes your account and sign-in details, your answers, your declared preferences, your declared dietary constraints including whether each one applies to you or to a household member, your local context, your consent records, your results and runs, your connected app grants and receipts, and your vibe. If you would rather ask us for it, email <a href="mailto:contact@intori.com">contact@intori.com</a>.
       </p>
 
       <h2>Retention</h2>
@@ -372,7 +372,7 @@ const Privacy: NextPage = () => {
         Depending on where you live, you may have rights to request access, correction, deletion, portability, restriction, objection, or information about how your personal information is used and disclosed. You may also have rights to limit the use of sensitive personal information, or to opt out of certain sales, sharing, or targeted advertising. Declared dietary and health-adjacent information is treated as sensitive. We use it only to provide intori, and we do not sell it or share it for advertising.
       </p>
       <p>
-        To make a privacy request, contact <a href="mailto:contact@tuum.tech">contact@tuum.tech</a>. We may need to verify your identity before fulfilling a request. We will not discriminate against you for exercising privacy rights.
+        To make a privacy request, contact <a href="mailto:contact@intori.com">contact@intori.com</a>. We may need to verify your identity before fulfilling a request. We will not discriminate against you for exercising privacy rights.
       </p>
 
       <h2>Changes to this policy</h2>
@@ -382,7 +382,7 @@ const Privacy: NextPage = () => {
 
       <h2>Contact us</h2>
       <p>
-        For questions or privacy requests, contact us at <a href="mailto:contact@tuum.tech">contact@tuum.tech</a>.
+        For questions or privacy requests, contact us at <a href="mailto:contact@intori.com">contact@intori.com</a>.
       </p>
       </LegalLayout>
     </>

@@ -16,8 +16,8 @@ export const Footer: React.FC = () => {
       <div className={styles.contact}>
         <p>Answer a little. Get picks made for you.</p>
         <div className={styles.sm}>
-          <a href="mailto:contact@tuum.tech" target="_blank" rel="noopener noreferrer">
-            contact@tuum.tech
+          <a href="mailto:contact@intori.com" target="_blank" rel="noopener noreferrer">
+            contact@intori.com
           </a>
 
           <a href="https://x.com/intoriHQ" target="_blank" rel="noopener noreferrer">
@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
           <Link href="/privacy-policy">
             Privacy
           </Link>
-          <a href="mailto:contact@tuum.tech" target="_blank" rel="noopener noreferrer">
+          <a href="mailto:contact@intori.com" target="_blank" rel="noopener noreferrer">
             Contact
           </a>
         </div>

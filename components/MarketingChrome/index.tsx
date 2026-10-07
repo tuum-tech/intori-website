@@ -70,7 +70,7 @@ export function MarketingFooter() {
             <Link href="/sources" className={styles.footerLink}>Sources</Link>
             <Link href="/privacy-policy" className={styles.footerLink}>Privacy</Link>
             <Link href="/terms-of-use" className={styles.footerLink}>Terms</Link>
-            <a href="mailto:contact@tuum.tech" className={styles.footerLink}>Contact</a>
+            <a href="mailto:contact@intori.com" className={styles.footerLink}>Contact</a>
             <a
               href={WORLD_APP_URL}
               className={styles.footerLink}

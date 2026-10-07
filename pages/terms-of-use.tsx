@@ -170,7 +170,7 @@ const Terms: NextPage = () => {
         <strong>When you are charged.</strong> On the web, if you choose a plan while at least 48 hours of your app-managed trial remain, you provide a payment method at checkout and authorize the first charge for the trial end date shown there. Cancel before that date through Manage billing in the app and you will not be charged. If less than 48 hours remain, or your trial has ended, the first web charge is made when you confirm your purchase. App Store purchases are billed by Apple when you confirm your purchase, unless Apple presents a separate offer for which you are eligible. The app-managed trial is not an Apple introductory offer. Renewal charges are made at the start of each new billing period; Apple may charge within 24 hours before the current period ends. The amount, billing period and first-charge timing are shown before you confirm.
       </p>
       <p>
-        <strong>How to cancel.</strong> You can cancel at any time. If you subscribed in the iOS app, cancel in your Apple account subscription settings on your device. If you subscribed on the web, cancel in your intori account settings or by emailing <a href="mailto:contact@tuum.tech">contact@tuum.tech</a>. To avoid the next charge, cancel at least 24 hours before the current period ends.
+        <strong>How to cancel.</strong> You can cancel at any time. If you subscribed in the iOS app, cancel in your Apple account subscription settings on your device. If you subscribed on the web, cancel in your intori account settings or by emailing <a href="mailto:contact@intori.com">contact@intori.com</a>. To avoid the next charge, cancel at least 24 hours before the current period ends.
       </p>
       <p>
         <strong>What cancellation does.</strong> Cancelling stops the next renewal. It does not end the period you already paid for. You keep paid access until the end of that period, and you are not charged again after that.
@@ -185,7 +185,7 @@ const Terms: NextPage = () => {
         <strong>App Store purchases.</strong> If you subscribe in the intori iOS app, Apple bills you, and the purchase is governed by Apple&apos;s terms, including the Apple Media Services Terms and Conditions. You manage and cancel that subscription in your Apple account subscription settings. We cannot cancel or refund an App Store subscription for you. Send refund requests for App Store purchases to Apple.
       </p>
       <p>
-        <strong>Web purchases.</strong> If you subscribe on the intori website, Stripe processes the payment and we manage the subscription. Cancel in your intori account settings or by emailing <a href="mailto:contact@tuum.tech">contact@tuum.tech</a>. Send refund requests for web purchases to us at the same address.
+        <strong>Web purchases.</strong> If you subscribe on the intori website, Stripe processes the payment and we manage the subscription. Cancel in your intori account settings or by emailing <a href="mailto:contact@intori.com">contact@intori.com</a>. Send refund requests for web purchases to us at the same address.
       </p>
       <p>
         <strong>Refunds.</strong> Apple handles refunds for App Store purchases under its own policies. For web purchases, and except where the law gives you a refund right, fees already charged are not refundable, and cancelling stops future charges rather than refunding past ones. We may give a refund at our discretion.
@@ -248,7 +248,7 @@ const Terms: NextPage = () => {
         We use reasonable safeguards designed to protect the Services, but no online service is perfectly secure. You are responsible for securing your devices, wallets, platform accounts, and authentication methods.
       </p>
       <p>
-        You must promptly notify us at <a href="mailto:contact@tuum.tech">contact@tuum.tech</a> if you believe your account, wallet, session, grant credential, API key, or access has been compromised.
+        You must promptly notify us at <a href="mailto:contact@intori.com">contact@intori.com</a> if you believe your account, wallet, session, grant credential, API key, or access has been compromised.
       </p>
 
       <h2>17. Disclaimers</h2>
@@ -277,7 +277,7 @@ const Terms: NextPage = () => {
 
       <h2>20. Termination</h2>
       <p>
-        You may stop using the Services at any time. You can delete your account from inside the intori mobile app, on the You tab under Settings and data, or by contacting <a href="mailto:contact@tuum.tech">contact@tuum.tech</a>, subject to retention needed for legal, security, fraud-prevention, accounting, or operational reasons. Deleting your account does not cancel an App Store subscription. Cancel that separately in your Apple account subscription settings.
+        You may stop using the Services at any time. You can delete your account from inside the intori mobile app, on the You tab under Settings and data, or by contacting <a href="mailto:contact@intori.com">contact@intori.com</a>, subject to retention needed for legal, security, fraud-prevention, accounting, or operational reasons. Deleting your account does not cancel an App Store subscription. Cancel that separately in your Apple account subscription settings.
       </p>
       <p>
         We may suspend or terminate your access if we believe you violated these Terms, created risk, or used the Services unlawfully or abusively.
@@ -296,7 +296,7 @@ const Terms: NextPage = () => {
         These Terms are governed by the laws of the State of North Carolina, without regard to conflict-of-law rules, except where applicable law requires otherwise.
       </p>
       <p>
-        Before filing a claim, you and Tuum agree to try to resolve the dispute informally by contacting the other party. Contact us at <a href="mailto:contact@tuum.tech">contact@tuum.tech</a>.
+        Before filing a claim, you and Tuum agree to try to resolve the dispute informally by contacting the other party. Contact us at <a href="mailto:contact@intori.com">contact@intori.com</a>.
       </p>
 
       <h2>23. General terms</h2>
@@ -312,7 +312,7 @@ const Terms: NextPage = () => {
         Tuum Technologies, Inc.<br />
         4030 Wake Forest Road, STE 349<br />
         Raleigh, NC 27609<br />
-        <a href="mailto:contact@tuum.tech">contact@tuum.tech</a>
+        <a href="mailto:contact@intori.com">contact@intori.com</a>
       </p>
       </LegalLayout>
     </>

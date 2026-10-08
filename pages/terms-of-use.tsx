@@ -15,7 +15,7 @@ const Terms: NextPage = () => {
 
       <LegalLayout>
         <h1>intori Terms of Use</h1>
-        <p><strong>Last Updated: October 5, 2026</strong></p>
+        <p><strong>Last Updated: October 8, 2026</strong></p>
 
       <p>
         These terms cover the intori website and the intori mobile app. There is one set of terms for both.
@@ -23,7 +23,7 @@ const Terms: NextPage = () => {
 
       <h2>What changed in this update</h2>
       <p>
-        This update extends the app-managed full-access trial to 21 days, changes the annual plan to $59.99, explains when early web subscribers are first charged, and clarifies what remains available after full access ends. No payment method is required to start the trial, and it does not become a paid subscription on its own. The AI processors and data providers we use are named in our <Link href="/privacy-policy">Privacy Policy</Link>.
+        This update limits accounts to adults 18 and older, with no accounts for household children. It also extends the app-managed full-access trial to 21 days, changes the annual plan to $59.99, explains when early web subscribers are first charged, and clarifies what remains available after full access ends. No payment method is required to start the trial, and it does not become a paid subscription on its own. The AI processors and data providers we use are named in our <Link href="/privacy-policy">Privacy Policy</Link>.
       </p>
 
       <p>
@@ -35,7 +35,7 @@ const Terms: NextPage = () => {
 
       <h2>1. Eligibility</h2>
       <p>
-        You must be at least 13 years old to use the Services. If the law where you live requires a higher age to consent to online services or personal data processing, you must be old enough to provide that consent or use the Services only with valid permission from a parent or legal guardian.
+        You must be at least 18 years old to create an account or use the Services. An adult may use their own account to plan for their household, including children. Children and teenagers under 18 may not create or use an intori account, even with parental permission. We check account eligibility before sign-in and may request an age range from Apple where required.
       </p>
       <p>
         If you use the Services on behalf of another person or organization, you represent that you have authority to accept these Terms on their behalf. If you declare a constraint that applies to someone else in your household, you represent that you are allowed to do so.

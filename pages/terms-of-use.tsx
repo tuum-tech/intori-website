@@ -15,7 +15,7 @@ const Terms: NextPage = () => {
 
       <LegalLayout>
         <h1>intori Terms of Use</h1>
-        <p><strong>Last Updated: October 5, 2026</strong></p>
+        <p><strong>Last Updated: October 9, 2026</strong></p>
 
       <p>
         These terms cover the intori website and the intori mobile app. There is one set of terms for both.
@@ -23,7 +23,7 @@ const Terms: NextPage = () => {
 
       <h2>What changed in this update</h2>
       <p>
-        This update extends the app-managed full-access trial to 21 days, changes the annual plan to $59.99, explains when early web subscribers are first charged, and clarifies what remains available after full access ends. No payment method is required to start the trial, and it does not become a paid subscription on its own. The AI processors and data providers we use are named in our <Link href="/privacy-policy">Privacy Policy</Link>.
+        This update explains how intori checks age where the law requires it and says that people under 18 need a parent or legal guardian&apos;s permission to buy a subscription. It also extends the app-managed full-access trial to 21 days, changes the annual plan to $59.99, explains when early web subscribers are first charged, and clarifies what remains available after full access ends. No payment method is required to start the trial, and it does not become a paid subscription on its own. The AI processors and data providers we use are named in our <Link href="/privacy-policy">Privacy Policy</Link>.
       </p>
 
       <p>
@@ -36,6 +36,9 @@ const Terms: NextPage = () => {
       <h2>1. Eligibility</h2>
       <p>
         You must be at least 13 years old to use the Services. If the law where you live requires a higher age to consent to online services or personal data processing, you must be old enough to provide that consent or use the Services only with valid permission from a parent or legal guardian.
+      </p>
+      <p>
+        If you are under 18, you need a parent or legal guardian&apos;s permission to buy a subscription. Where the law requires it, the intori iOS app asks Apple for your age range when you sign in, and a person Apple reports as under 13 cannot create an account. If we learn that a child under 13 has an account, we will close it and delete its data.
       </p>
       <p>
         If you use the Services on behalf of another person or organization, you represent that you have authority to accept these Terms on their behalf. If you declare a constraint that applies to someone else in your household, you represent that you are allowed to do so.

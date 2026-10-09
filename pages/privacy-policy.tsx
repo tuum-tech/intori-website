@@ -15,7 +15,7 @@ const Privacy: NextPage = () => {
 
       <LegalLayout>
         <h1>intori Privacy Policy</h1>
-        <p><strong>Last Updated: September 24, 2026</strong></p>
+        <p><strong>Last Updated: October 9, 2026</strong></p>
 
       <p>
         This policy covers the intori website and the intori mobile app. There is one policy for both.
@@ -24,7 +24,7 @@ const Privacy: NextPage = () => {
       <h2>What changed in this update</h2>
       <p>
         This update covers the intori mobile app for iPhone, describes the dietary and health-adjacent information you declare and how we use it, and explains how Google Maps receives coarse location and search context for nearby restaurant results. It names every AI processor and data provider that receives context from intori, not just OpenAI. It adds subscription and billing information. It also replaces the old note that export and deletion tools were still being built. You can now download your data and delete your account yourself. It removes the old description of matching and friends, because intori no longer has social features.
-       It also corrects the diagnostics section (the app has no crash reporting) and the steps to delete your account.
+       It also corrects the diagnostics section (the app has no crash reporting) and the steps to delete your account. The October 9, 2026 update explains the age range Apple shares with intori in some states, and the information Google receives when place details load.
       </p>
 
       <h2>Who we are</h2>
@@ -60,6 +60,9 @@ const Privacy: NextPage = () => {
       <h2>Eligibility</h2>
       <p>
         intori is not directed to children under 13. You must be at least 13 years old to use intori. If the law where you live requires a higher age to consent to the processing of your personal data, you must be old enough to provide that consent or use intori only with valid permission from a parent or legal guardian. If we learn that we collected personal information from a child under 13, we will take steps to delete it.
+      </p>
+      <p>
+        In states whose laws require app age checks, the intori iOS app asks Apple for an age range when you sign in, using Apple&apos;s Declared Age Range feature. intori receives only a range, such as 13 to 17 or 18 and older. It never receives your birth date or exact age. We use the range only to decide whether an account can be created, and we do not sell it.
       </p>
       <p>
         Children in your household are treated differently from children who use intori. A parent or guardian may declare a dietary constraint that applies to a child in the household, for example a nut allergy. intori does not collect the child&apos;s name, age, birthdate, photo, or any other direct identifier. The constraint is stored as an unnamed household constraint. There is no profile for that child and no account for that child. See &quot;Dietary constraints and health-adjacent information&quot; below.
@@ -254,7 +257,7 @@ const Privacy: NextPage = () => {
         <li><strong>Ticketmaster.</strong> Used for live event and ticket listings. May receive coarse local context, date ranges, and event search terms such as a genre or an artist.</li>
       </ul>
       <p>
-        intori includes Google Maps features and content. Your use of those features is subject to the <a href="https://maps.google.com/help/terms_maps/" target="_blank" rel="noreferrer">Google Maps Terms of Service</a>. Google processes information under the <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google Privacy Policy</a>.
+        intori includes Google Maps features and content. Your use of those features is subject to the <a href="https://maps.google.com/help/terms_maps/" target="_blank" rel="noreferrer">Google Maps Terms of Service</a>. When Google place details load, your device connects directly to Google, which receives your IP address and request information. Google&apos;s widget may also request fonts from Google Fonts servers. intori&apos;s own application font is served locally. Google processes information under the <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google Privacy Policy</a>.
       </p>
 
       <h3>How you control what goes to an AI processor</h3>

@@ -47,7 +47,7 @@ export const FAQ: FaqItem[] = [
     question: "What is intori?",
     answer: [
       "Your calendar tells you what you have to do. intori gives you something to look forward to.",
-      "Tell it what your household loves: your teams, your shows, the artists you would go see, the food you like. intori watches schedules, premieres, and tour dates for you, brings you up to five picks a day, and adds the ones you want to your calendar in one tap."
+      "Tell it what your household loves: outings near you, time outside, your teams, your shows, the artists you would go see, the food you like. intori watches local events, the forecast, schedules, premieres, and tour dates for you, brings you up to five picks a day, and adds the ones you want to your calendar in one tap."
     ]
   },
   {
@@ -67,13 +67,15 @@ export const FAQ: FaqItem[] = [
   {
     question: "What does intori watch for?",
     answer: [
-      "Four things are live today, and you can choose any of them during setup."
+      "Six things are live today, and you can turn any of them on during setup or later in Interests."
     ],
     bullets: [
+      "Outings: library programs, museum days, fun runs and family shows near you. What intori finds depends on your area; the Sources page lists who it reads.",
+      "Outdoors: parks, playgrounds, trails and beaches close to home, with the hours the forecast looks good.",
       "Sports: your teams' games, the big ones worth watching, and where to watch them. Scores stay hidden until you are ready.",
-      "Music: artists you love playing near you, and when tickets go on sale.",
       "Shows: new seasons and premieres for the shows you follow, and where they are streaming.",
-      "Food: places to eat near a show or game you have added, and a few good spots close to home."
+      "Music: artists you love playing near you, and when tickets go on sale.",
+      "Food: places to eat near a game or show you have added, and a few good spots close to home."
     ]
   },
   {
@@ -125,12 +127,6 @@ export const FAQ: FaqItem[] = [
     answer: [
       "You still get picks. Until intori knows your household, it shows what is popular this week and labels it that way, never as picked for you.",
       "Follow a team or add a show, and the picks become yours. A quick question here and there makes them better still."
-    ]
-  },
-  {
-    question: "What's coming next?",
-    answer: [
-      "We are working on one more, for the timely, nearby things a family would be glad to know about before they pass. That one is not live yet, and the site will say so until it is."
     ]
   },
   {

@@ -22,10 +22,14 @@ Most apps that help a family run help with what you have to do: practice, appoin
 
 Tell intori what your household loves, once. Then it keeps watch, so you don't have to ask.
 
+- **Outings:** library programs, museum days, fun runs and family shows near you.
+- **Outdoors:** parks, playgrounds, trails and beaches close to home, with the hours the forecast looks good.
 - **Sports:** your teams' next games, on your local day and time.
-- **Music:** concerts near you from the artists you like, and when tickets go on sale.
 - **Shows:** the date your show comes back, and where it is streaming.
+- **Music:** concerts near you from the artists you like, and when tickets go on sale.
 - **Food:** dinner spots near the plans you already have.
+
+What intori finds near you depends on your area. The [Sources](/sources) page lists who it reads.
 
 ## One tap to your calendar
 

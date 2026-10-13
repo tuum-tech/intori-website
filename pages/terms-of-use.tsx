@@ -46,7 +46,7 @@ const Terms: NextPage = () => {
 
       <h2>2. What intori does</h2>
       <p>
-        intori is a household personalization service. You declare preferences and constraints for your household. intori uses those declared signals to produce daily suggestions with sources attached: what to cook or eat, what to watch, live music and events, and sports. The features that produce those suggestions are organized into lanes: Food, Sports, Shows, and Music.
+        intori is a household personalization service. You declare preferences and constraints for your household. intori uses those declared signals to produce daily suggestions with sources attached: local outings and events, outdoor places and good times to go, sports, what to watch, live music and events, and what to cook or eat. The features that produce those suggestions are organized into lanes: Outings, Outdoors, Sports, Shows, Music, and Food.
       </p>
       <p>How your declarations are used:</p>
       <ul>

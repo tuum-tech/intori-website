@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>intori OG card, v8</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<!--
+  Source for public/og/og-forward-v8.jpg. 1800 x 945, matching the
+  ogImageWidth / ogImageHeight defaults in lib/seo.tsx.
+
+  v8 replaces v7's four lane tiles with the six live lanes, each shown with
+  its commissioned lane photo from public/brand/lanes/. Same headline, deck
+  and layout grid as v7 otherwise.
+
+  To regenerate:
+    1. npm run dev
+    2. open http://localhost:3000/og/templates/og-forward-v8.html
+    3. capture the .card element at exactly 1800 x 945, no device pixel scaling
+    4. save as public/og/og-forward-v8.jpg
+
+  OG filenames are versioned on purpose. Scrapers cache image bytes by URL, so
+  new art always ships at a NEW path and older files stay on disk so previously
+  scraped embeds do not 404. Do not overwrite v7 or v6.
+
+  Tokens are copied from BRAND.md / pages/index.module.css. Lane accents are
+  artwork only here, never text color.
+-->
+<style>
+  :root {
+    --ink:        #26213E;
+    --ink-soft:   rgba(38, 33, 62, 0.72);
+    --ground:     #FCF8F1;
+    --card:       #FFFFFF;
+    --hairline:   #E9E2D3;
+    --outings:    #6C63D9;
+    --outdoors:   #00A884;
+    --sports:     #F76B15;
+    --music:      #D467FF;
+    --shows:      #60B3D7;
+    --food:       #E5484D;
+    --radius-card: 22px;
+    --sans: 'Schibsted Grotesk', -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #E5E1D8; /* only visible outside the card in a browser window */
+  }
+
+  * { box-sizing: border-box; font-family: var(--sans); }
+
+  /* The capture target. Fixed pixel size: this is an image, not a responsive
+     layout, so nothing here should scale with the viewport. */
+  .card {
+    position: relative;
+    width: 1800px;
+    height: 945px;
+    background: var(--ground);
+    display: grid;
+    grid-template-columns: 1fr 780px;
+    align-items: center;
+    gap: 64px;
+    padding: 0 104px 0 120px;
+    overflow: hidden;
+  }
+
+  /* ── Left column ───────────────────────────────────── */
+
+  .logo {
+    width: 210px;
+    height: auto;
+    display: block;
+    margin-bottom: 76px;
+  }
+
+  .headline {
+    margin: 0;
+    font-size: 86px;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+    color: var(--ink);
+  }
+
+  .deck {
+    margin: 44px 0 0;
+    max-width: 700px;
+    font-size: 29px;
+    font-weight: 400;
+    line-height: 1.42;
+    color: var(--ink-soft);
+  }
+
+  .deck strong {
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  /* ── Lane grid ─────────────────────────────────────── */
+
+  /* Six tiles, three across, in the homepage hero strip order: Outings,
+     Outdoors, Sports, Shows, Music, Food. Food never leads. Every tile is the
+     same fixed size and the photo and label rows are fixed heights, so the
+     six labels sit on two shared baselines. */
+  .lanes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .lane {
+    display: grid;
+    grid-template-rows: 232px 70px;
+    overflow: hidden;
+    background: var(--card);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-card);
+    box-shadow: 0 1px 2px rgba(38,33,62,.04), 0 15px 34px -14px rgba(38,33,62,.17);
+  }
+
+  /* Square lane art, cropped top-weighted so faces stay in frame. The tint
+     behind it shows only while the photo loads. */
+  .photo {
+    width: 100%;
+    height: 232px;
+    object-fit: cover;
+    object-position: 50% 22%;
+    display: block;
+    background: var(--tint);
+  }
+
+  .label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0 24px;
+  }
+
+  .dot {
+    flex: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 6px;
+    background: var(--tint);
+  }
+
+  .lane-title {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: var(--ink);
+  }
+
+  .lane-outings  { --tint: var(--outings); }
+  .lane-outdoors { --tint: var(--outdoors); }
+  .lane-sports   { --tint: var(--sports); }
+  .lane-shows    { --tint: var(--shows); }
+  .lane-music    { --tint: var(--music); }
+  .lane-food     { --tint: var(--food); }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="left">
+    <img class="logo" src="/intori-logo-full.svg" alt="intori" />
+    <h1 class="headline">Something to<br />look forward to.</h1>
+    <p class="deck">
+      Your calendar is full of things you have to do.<br />
+      This is for <strong>the other half</strong>.
+    </p>
+  </div>
+
+  <!-- Locked lane order (matches the homepage hero strip). Food never leads. -->
+  <div class="lanes">
+    <div class="lane lane-outings">
+      <img class="photo" src="/brand/lanes/outings-out-there.jpg" alt="" />
+      <div class="label"><span class="dot"></span><h2 class="lane-title">Outings</h2></div>
+    </div>
+    <div class="lane lane-outdoors">
+      <img class="photo" src="/brand/lanes/outdoors-green-light.jpg" alt="" />
+      <div class="label"><span class="dot"></span><h2 class="lane-title">Outdoors</h2></div>
+    </div>
+    <div class="lane lane-sports">
+      <img class="photo" src="/brand/lanes/sports-game-day-family.jpg" alt="" />
+      <div class="label"><span class="dot"></span><h2 class="lane-title">Sports</h2></div>
+    </div>
+    <div class="lane lane-shows">
+      <img class="photo" src="/brand/lanes/shows-movie-night.jpg" alt="" />
+      <div class="label"><span class="dot"></span><h2 class="lane-title">Shows</h2></div>
+    </div>
+    <div class="lane lane-music">
+      <img class="photo" src="/brand/lanes/music-singer.jpg" alt="" />
+      <div class="label"><span class="dot"></span><h2 class="lane-title">Music</h2></div>
+    </div>
+    <div class="lane lane-food">
+      <img class="photo" src="/brand/lanes/food-table-for-four.jpg" alt="" />
+      <div class="label"><span class="dot"></span><h2 class="lane-title">Food</h2></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

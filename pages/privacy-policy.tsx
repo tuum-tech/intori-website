@@ -15,7 +15,7 @@ const Privacy: NextPage = () => {
 
       <LegalLayout>
         <h1>intori Privacy Policy</h1>
-        <p><strong>Last Updated: October 9, 2026</strong></p>
+        <p><strong>Last Updated: October 13, 2026</strong></p>
 
       <p>
         This policy covers the intori website and the intori mobile app. There is one policy for both.
@@ -24,7 +24,7 @@ const Privacy: NextPage = () => {
       <h2>What changed in this update</h2>
       <p>
         This update covers the intori mobile app for iPhone, describes the dietary and health-adjacent information you declare and how we use it, and explains how Google Maps receives coarse location and search context for nearby restaurant results. It names every AI processor and data provider that receives context from intori, not just OpenAI. It adds subscription and billing information. It also replaces the old note that export and deletion tools were still being built. You can now download your data and delete your account yourself. It removes the old description of matching and friends, because intori no longer has social features.
-       It also corrects the diagnostics section (the app has no crash reporting) and the steps to delete your account. The October 9, 2026 update explains the age range Apple shares with intori in some states, and the information Google receives when place details load.
+       It also corrects the diagnostics section (the app has no crash reporting) and the steps to delete your account. The October 9, 2026 update explains the age range Apple shares with intori in some states, and the information Google receives when place details load. The October 13, 2026 update adds the Outings and Outdoors lanes to the description of intori.
       </p>
 
       <h2>Who we are</h2>

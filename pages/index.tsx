@@ -11,13 +11,19 @@ import styles from './index.module.css'
 
 // The trial sample in Pricing is a real date: today plus 21 days, in the
 // household's likely zone, so the page never shows a date that has passed.
+// Calendar-day arithmetic on the New York date, so a daylight saving change
+// inside the 21 days cannot shift the label by a day.
 function trialSampleLabel(now = new Date()): string {
-  const end = new Date(now.getTime() + 21 * 24 * 60 * 60 * 1000)
+  const [month, day, year] = now
+    .toLocaleDateString('en-US', { timeZone: 'America/New_York', year: 'numeric', month: 'numeric', day: 'numeric' })
+    .split('/')
+    .map(Number)
+  const end = new Date(Date.UTC(year, month - 1, day + 21))
   return end.toLocaleDateString('en-US', {
     month: 'long',
     day: 'numeric',
     year: 'numeric',
-    timeZone: 'America/New_York',
+    timeZone: 'UTC',
   })
 }
 
@@ -66,7 +72,7 @@ const NEAR_YOU: Lane[] = [
     title: 'Story time, festivals, family shows.',
     body: 'Library programs, museum days, fun runs and family shows near you, each with the date, the place, and who it suits.',
     image: '/brand/lanes/outings-out-there.jpg',
-    alt: 'A family looking through a telescope together against a purple backdrop',
+    alt: 'A mother and child on the roof of a lilac station wagon, looking out through binoculars against a purple backdrop',
     tint: styles.artOutings,
     isNew: true,
   },

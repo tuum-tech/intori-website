@@ -15,7 +15,7 @@ const Privacy: NextPage = () => {
 
       <LegalLayout>
         <h1>intori Privacy Policy</h1>
-        <p><strong>Last Updated: October 13, 2026</strong></p>
+        <p><strong>Last Updated: October 14, 2026</strong></p>
 
       <p>
         This policy covers the intori website and the intori mobile app. There is one policy for both.
@@ -24,7 +24,7 @@ const Privacy: NextPage = () => {
       <h2>What changed in this update</h2>
       <p>
         This update covers the intori mobile app for iPhone, describes the dietary and health-adjacent information you declare and how we use it, and explains how Google Maps receives coarse location and search context for nearby restaurant results. It names every AI processor and data provider that receives context from intori, not just OpenAI. It adds subscription and billing information. It also replaces the old note that export and deletion tools were still being built. You can now download your data and delete your account yourself. It removes the old description of matching and friends, because intori no longer has social features.
-       It also corrects the diagnostics section (the app has no crash reporting) and the steps to delete your account. The October 9, 2026 update explains the age range Apple shares with intori in some states, and the information Google receives when place details load. The October 13, 2026 update adds the Outings and Outdoors lanes to the description of intori.
+       It also corrects the diagnostics section (the app has no crash reporting) and the steps to delete your account. The October 9, 2026 update explains the age range Apple shares with intori in some states, and the information Google receives when place details load. The October 13, 2026 update adds the Outings and Outdoors lanes to the description of intori. The October 14, 2026 update explains how we learn whether an ad or a campaign link brought a new account to intori, what we keep, and when we delete it.
       </p>
 
       <h2>Who we are</h2>
@@ -86,6 +86,11 @@ const Privacy: NextPage = () => {
         <li>Session tokens and cookies used to keep you signed in.</li>
         <li>Information about the client app or platform through which you accessed intori.</li>
       </ul>
+
+      <h3>Campaign links</h3>
+      <p>
+        If you arrive at intori on the web from a link that carries a campaign tag, such as a utm_source or utm_campaign value, or a referral code, and you create an account soon after, we keep that tag or code with your new account. Until then, your browser remembers the tag on your device for up to 30 days, so it can be matched when you sign up. We use it only to learn which campaigns and partners bring new accounts. We do not keep the page you came from or your browsing history, we do not share the tag, and it follows the same deletion rules as Apple Ads attribution below: it is deleted with your account, and after 13 months only totals that are not tied to anyone remain.
+      </p>
 
       <h3>Answers, preferences, and context</h3>
       <p>
@@ -203,7 +208,18 @@ const Privacy: NextPage = () => {
         The app collects device model, operating system version, app version, language and region, and performance and error diagnostics, such as how long a screen took to load or a request that did not go through. We use this to keep the app working and to fix problems, and it may be linked to your account for support and abuse prevention.
       </p>
       <p>
-        intori collects all of this itself and writes it to our own records. The app contains no third-party analytics, crash reporting, attribution, or advertising software development kits. Nothing about your use of the app is sent to an analytics company. The app does not use the device advertising identifier and does not track you across other companies&apos; apps or websites. If we ever add a third-party diagnostics tool, we will update this policy and the App Store privacy label before it ships.
+        intori collects all of this itself and writes it to our own records. The app contains no third-party analytics, crash reporting, attribution, or advertising software development kits. Apple Ads attribution, described below, uses Apple&apos;s own AdServices framework and no third-party software. Nothing about your use of the app is sent to an analytics company. The app does not use the device advertising identifier and does not track you across other companies&apos; apps or websites. If we ever add a third-party diagnostics tool, we will update this policy and the App Store privacy label before it ships.
+      </p>
+
+      <h3>Apple Ads attribution</h3>
+      <p>
+        intori advertises in the App Store with Apple Ads. After you sign in to the iPhone app, the app asks Apple&apos;s AdServices framework for an attribution token and sends it to intori, and we send it to Apple. Apple tells us whether an Apple Ads campaign led to this download and, if one did, which campaign, ad group, and search keyword. This does not use the device advertising identifier, does not ask for App Tracking Transparency permission, and Apple&apos;s answer contains no personal information.
+      </p>
+      <p>
+        We keep only the campaign, ad group, and keyword numbers, whether you tapped the ad or only saw it, or a note that no ad was involved. We do not keep the token, the date you saw the ad, or which ad you saw. We check only for accounts created in the last 30 days, so opening intori on a new iPhone never relabels an older account.
+      </p>
+      <p>
+        We use this only to learn which ads bring families who find intori useful, so we can stop paying for ads that do not. We do not share it with anyone, and we do not use it to target ads to you or anyone else. It is deleted when you delete your account. Thirteen months after we record it, we delete it from your account and keep only totals that are not tied to anyone.
       </p>
 
       <h3>Deleting your account in the app</h3>
@@ -226,6 +242,7 @@ const Privacy: NextPage = () => {
         <li>Detect, prevent, and respond to spam, abuse, fraud, security incidents, and violations of our terms.</li>
         <li>Provide customer support and communicate with you.</li>
         <li>Measure performance, reliability, and product usage.</li>
+        <li>Learn which of our ads and campaign links bring new accounts, as described under Apple Ads attribution and Campaign links.</li>
         <li>Comply with law and enforce our rights.</li>
       </ul>
       <p>
@@ -354,7 +371,7 @@ const Privacy: NextPage = () => {
         We keep information for as long as needed to provide intori, maintain user controls and receipts, prevent abuse, comply with legal obligations, resolve disputes, and enforce agreements.
       </p>
       <p>
-        Session cookies are intended to expire after a limited period. Partner grants may expire or be revoked. Payment, subscription, and transaction records may be retained for accounting, fraud prevention, charge dispute, tax, and legal reasons. Profile, answer, declared constraint, consent, AI result, receipt, and derived records are kept until you delete them, delete your account, or request deletion. Turning off a topic consent changes what intori may ask you next. It does not by itself delete result context that already exists.
+        Session cookies are intended to expire after a limited period. Ad attribution and campaign tags kept on an account are deleted 13 months after we record them, and only totals that are not tied to anyone remain. Partner grants may expire or be revoked. Payment, subscription, and transaction records may be retained for accounting, fraud prevention, charge dispute, tax, and legal reasons. Profile, answer, declared constraint, consent, AI result, receipt, and derived records are kept until you delete them, delete your account, or request deletion. Turning off a topic consent changes what intori may ask you next. It does not by itself delete result context that already exists.
       </p>
       <p>
         We are continuing to define more specific retention periods for each data category.

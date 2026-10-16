@@ -33,7 +33,7 @@ What intori finds near you depends on your area. The [Sources](/sources) page li
 
 ## One tap to your calendar
 
-Every pick has one button: Add to calendar. Tap it, and the date is on your iPhone's calendar. intori adds only the dates you choose and never reads your other events. Want a nudge? Turn on a reminder: the day before a game or a show, two days before a concert.
+A game, a show or a dated outing has one button: Add to calendar. Tap it, and the date is on your iPhone's calendar. A flexible day, like good hours at the park, has Hold the day, which keeps it in intori until you choose a time. intori adds only the dates you choose and never reads your other events. Want a nudge? Turn on a reminder: the day before a game or a show, two days before a concert.
 
 ## A few good picks, then done
 

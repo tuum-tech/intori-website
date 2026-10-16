@@ -61,7 +61,7 @@ export const FAQ: FaqItem[] = [
     question: "How does intori work?",
     answer: [
       "Sign in with Apple or your email, and pick what your household loves. It takes a few taps for each, and you can add the rest anytime.",
-      "From then on, intori brings you up to five picks a day on Home, each with the reason it is there and one button: Add to calendar. Tap it and the date is on your iPhone's calendar. Now and then, after you add something, intori asks one quick question so the next picks fit a little better."
+      "From then on, intori brings you up to five picks a day on Home, each with the reason it is there. A game, a show or a dated outing has Add to calendar: tap it and the date is on your iPhone's calendar. A flexible day, like good hours at the park, has Hold the day, which keeps it in intori until you choose a time. Now and then, after you add something, intori asks one quick question so the next picks fit a little better."
     ]
   },
   {
@@ -81,7 +81,7 @@ export const FAQ: FaqItem[] = [
   {
     question: "Will this mess up my family calendar?",
     answer: [
-      "No. intori only adds what you tap to add. Nothing lands on your calendar by itself.",
+      "No. intori only adds what you tap to add. Nothing lands on your calendar by itself, and a day you hold stays in intori until you choose a time.",
       "On iPhone, intori asks for permission to add events, and that is all it can do. It cannot read, change, or delete anything else on your calendar.",
       "Everything you add also shows up in intori's Week, so what you are looking forward to is in one place."
     ]

@@ -42,8 +42,8 @@ export const getServerSideProps = (async (context) => {
   return { props: { qrSvg: await appStoreQrSvg(), trialEnds: trialSampleLabel() } }
 }) satisfies GetServerSideProps<{ qrSvg: string | null; trialEnds: string }>
 
-// App screens are unedited Build 24 captures from the App Store storefront
-// package (Oct 11 2026): the same Wilmington, NC test household on every
+// App screens are unedited Build 25 captures from the App Store storefront
+// package (Oct 16 2026): the same Raleigh, NC test household on every
 // screen, so the story holds together from section to section.
 const SCREEN = { width: 1206, height: 2622 }
 
@@ -134,20 +134,20 @@ const STEPS = [
   {
     title: 'Turn on what your household enjoys.',
     body: 'Sign in with Apple or your email, then pick from six interests. Follow a team or a show, choose the outings you like, and add the rest anytime.',
-    image: '/brand/app-b24/04-interests.jpg',
-    alt: 'intori Interests with Food, Sports, Outings and Outdoors turned on, and the Steelers followed',
+    image: '/brand/app-b25/04-interests.jpg',
+    alt: 'intori Interests for a family with kids under 5 and 5 to 8, with all six turned on: Outings, Outdoors, Sports, Shows, Music and Food',
   },
   {
     title: 'A few good picks, with the reason.',
-    body: 'Up to five picks a day on Home. Each one has the date, the place, and why it fits, like free story time for the kids tomorrow morning.',
-    image: '/brand/app-b24/02-detail.jpg',
-    alt: 'intori details for Baby & Me at Northeast Library: Monday, October 12 at 10:15 AM, free, for kids, with Add to calendar',
+    body: 'Up to five picks a day on Home. Each one says when, where, and why it fits, like good playground hours on Sunday, with the forecast checked.',
+    image: '/brand/app-b25/02-detail.jpg',
+    alt: 'intori details for Lenoir Street Park playground: Sunday, October 18, good hours 11:00 AM to 6:00 PM, 51 to 58°F, 15% chance of rain, for kids, with Hold the day',
   },
   {
-    title: 'One tap puts it on your calendar.',
-    body: 'Tap Add to calendar and it is on your iPhone’s calendar, next to everything else. Want a reminder? intori sends one the day before.',
-    image: '/brand/app-b24/06-calendar.jpg',
-    alt: 'intori confirming Baby & Me at Northeast Library is on your calendar in Apple Calendar, with See it in Week',
+    title: 'Keep the dates you choose.',
+    body: 'Games, shows and dated outings go on your iPhone’s calendar in one tap. For a flexible day, Hold the day keeps it in intori until you choose a time. Want a reminder? intori sends one the day before.',
+    image: '/brand/app-b25/06-calendar.jpg',
+    alt: 'intori confirming Lenoir Street Park playground is on your calendar for Sunday, October 18 at 2:00 PM in Apple Calendar, with a reminder the day before turned on',
   },
 ]
 
@@ -359,8 +359,8 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
                   <Image src="/brand/lanes/outings-out-there.jpg" alt="" fill sizes="420px" className={styles.heroPhotoImg} priority />
                 </div>
                 <Phone
-                  src="/brand/app-b24/01-home.jpg"
-                  alt="intori Today: Baby & Me story time at Northeast Library tomorrow at 10:15 AM, ready to add, with the Steelers game already on the calendar"
+                  src="/brand/app-b25/01-home.jpg"
+                  alt="intori Today: apple picking at a nearby farm tomorrow, 8 AM to 5 PM, ready to hold, with Marbles Courtyard already on the calendar for Sunday at 11:00 AM"
                   priority
                   className={styles.heroPhone}
                 />
@@ -368,7 +368,7 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
                   <span className={styles.momentIcon}><CalendarIcon /></span>
                   <span>
                     <b>On your calendar</b>
-                    <span>Baby &amp; Me · Mon 10:15 AM</span>
+                    <span>Marbles Courtyard · Sun 11:00 AM</span>
                   </span>
                 </div>
               </div>
@@ -521,8 +521,8 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
               </div>
               <div className={styles.calVisual}>
                 <Phone
-                  src="/brand/app-b24/03-week.jpg"
-                  alt="intori Week for October 11 to 17: Baby & Me on Monday morning, a ball game Monday evening, and apple picking held for Saturday, with Apple Calendar connected"
+                  src="/brand/app-b25/03-week.jpg"
+                  alt="intori Week for October 18 to 24: Marbles Courtyard and Lenoir Street Park playground on Sunday, the Hurricanes at the Flames Sunday night, and Abbott Elementary on Wednesday"
                   className={styles.phoneSmall}
                 />
               </div>

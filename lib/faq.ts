@@ -96,7 +96,7 @@ export const FAQ: FaqItem[] = [
   {
     question: "Will I get a lot of notifications?",
     answer: [
-      "No. intori only sends notifications about things you care about: a reminder before something you added, when you ask for one; a change to something on your calendar, like a game moving to a new time; and a new date from a team, show, or artist you follow.",
+      "No. intori only sends notifications about things you care about: a reminder before something you added, when you ask for one; a note the evening before a day you held; a change to something on your calendar, like a game moving to a new time; and a new date from a team, show, or artist you follow.",
       "Most weeks that is a handful or none. They never arrive overnight, they never nudge you to come back, and you can turn each kind on or off in Notifications."
     ]
   },

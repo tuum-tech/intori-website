@@ -41,7 +41,7 @@ const TOPICS: Array<{ question: string; answer: string[] }> = [
   {
     question: "How do I turn notifications off?",
     answer: [
-      "In intori, open the You tab, then Notifications, and choose which kinds you get: new dates for things you follow, changes to dates you saved, and ticket sales.",
+      "In intori, open the You tab, then Notifications, and choose which kinds you get: new dates for things you follow, changes to dates you saved, a note the evening before a day you held, ticket sales, and reminders before your free days end.",
       "To turn them all off, open the Settings app on your iPhone, then Notifications, then intori, and turn off Allow Notifications.",
     ],
   },

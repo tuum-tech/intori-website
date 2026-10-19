@@ -23,7 +23,7 @@ const Privacy: NextPage = () => {
 
       <h2>What changed in this update</h2>
       <p>
-        This update clarifies email-code sign-in, the household age bands you may choose to share, the AI-sharing controls already available in the app, and retention of first-party usage records. Our Apple Ads and campaign-link attribution practices are unchanged.
+        This update clarifies optional precise location for Food, email-code sign-in, the household age bands you may choose to share, the AI-sharing controls already available in the app, and retention of first-party usage records. Our Apple Ads and campaign-link attribution practices are unchanged.
       </p>
 
       <h2>Who we are</h2>
@@ -129,7 +129,7 @@ const Privacy: NextPage = () => {
 
       <h3>Local context</h3>
       <p>
-        If you choose to add local context, we may store information such as city, region, country, place label, place source, and radius. Local context is user-declared and can be paused, updated, or deleted. The current product is designed around coarse local context, not precise GPS coordinates, raw coordinates, or inferred home or work location.
+        If you choose to add local context, we may store information such as city, region, country, place label, place source, and radius. Local context can be paused, updated, or deleted. Saved local context is approximate. If you choose Use my location for Food and allow location access, intori and Google Maps may process a precise point to find nearby places for that request. We do not save those precise coordinates in your profile, result records, or a location history, and we do not infer your home or work address.
       </p>
 
       <h3>Derived and inferred data</h3>
@@ -180,7 +180,7 @@ const Privacy: NextPage = () => {
         <li>Government ID numbers, KYC documents, or biometric identifiers.</li>
         <li>Private keys, recovery phrases, or wallet seed phrases.</li>
         <li>Payment card numbers or bank account numbers.</li>
-        <li>Precise GPS coordinates, raw coordinates, or inferred home or work location.</li>
+        <li>Background location history or an inferred home or work address. Optional location processing for Food is described above.</li>
         <li>Your device address book, phone contacts, photos, calendar, or microphone.</li>
       </ul>
       <p>
@@ -197,9 +197,12 @@ const Privacy: NextPage = () => {
         If you allow notifications, we store a device push token so we can send the reminders and daily suggestions you asked for, along with your opt-in status, send logs, and delivery or failure information. Notifications are delivered through Apple Push Notification service. You can turn notifications off at any time in the iOS Settings app, under Notifications, and in intori wherever the app offers a notification control. Turning them off in iOS stops delivery.
       </p>
 
-      <h3>Approximate location</h3>
+      <h3>Optional current location</h3>
       <p>
-        The app may ask permission to use your approximate location. If you allow it, we use it to fill in your local context, so intori can suggest nearby restaurants, venues, and events. The app asks for approximate location, not precise location. We do not track you in the background, we do not build a location history, and we do not infer your home or work address. You can deny the request and type a city instead, and you can change the permission later in the iOS Settings app. The app works either way.
+        The app asks for location only when you choose Use my location. For Food, it can request a more accurate point to find nearby restaurants. Device coordinates are rounded to four decimal places before being sent to intori; that is still precise location, not an anonymous or approximate area. Other location setup uses a point rounded to two decimal places. Your device may provide a less accurate location if you turn Precise Location off. We do not track you in the background or infer your home or work address. You can deny location access and type a city or ZIP code instead, or change permission later in iOS Settings.
+      </p>
+      <p>
+        The request can leave a coarse search-area record and a one-way run signature used to avoid reusing the wrong results. We do not save the request&apos;s precise latitude and longitude in those records. Google&apos;s processing is governed by its own policy, linked below. The App Store privacy label includes Precise Location for this optional Food feature; it is used for app functionality, not advertising or tracking.
       </p>
 
       <h3>Device and diagnostic information</h3>
@@ -269,7 +272,7 @@ const Privacy: NextPage = () => {
       </p>
       <ul>
         <li><strong>Spoonacular.</strong> Used for recipe and ingredient data. May receive recipe search terms, including dietary constraints and excluded ingredients such as allergens.</li>
-        <li><strong>Google Maps Platform and Google Places.</strong> Used to find and describe local venues such as restaurants and to display Google Maps place details. May receive coarse local context, including a city or device location rounded before it reaches intori, a search radius, and venue search terms. Google&apos;s handling of this information is governed by the <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google Privacy Policy</a>, and use of Google Maps features is subject to the <a href="https://maps.google.com/help/terms_maps/" target="_blank" rel="noreferrer">Google Maps/Google Earth Additional Terms of Service</a>.</li>
+        <li><strong>Google Maps Platform and Google Places.</strong> Used to find and describe local venues such as restaurants and to display Google Maps place details. May receive a city or approximate area, a search radius, and venue search terms. When you choose Use my location for Food, it may also receive the precise point described above, through intori, to answer that request. Google&apos;s handling of this information is governed by the <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google Privacy Policy</a>, and use of Google Maps features is subject to the <a href="https://maps.google.com/help/terms_maps/" target="_blank" rel="noreferrer">Google Maps/Google Earth Additional Terms of Service</a>.</li>
         <li><strong>Ticketmaster.</strong> Used for live event and ticket listings. May receive coarse local context, date ranges, and event search terms such as a genre or an artist.</li>
       </ul>
       <p>

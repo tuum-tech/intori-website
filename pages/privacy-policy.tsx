@@ -15,7 +15,7 @@ const Privacy: NextPage = () => {
 
       <LegalLayout>
         <h1>intori Privacy Policy</h1>
-        <p><strong>Last Updated: October 14, 2026</strong></p>
+        <p><strong>Last Updated: October 19, 2026</strong></p>
 
       <p>
         This policy covers the intori website and the intori mobile app. There is one policy for both.
@@ -23,8 +23,7 @@ const Privacy: NextPage = () => {
 
       <h2>What changed in this update</h2>
       <p>
-        This update covers the intori mobile app for iPhone, describes the dietary and health-adjacent information you declare and how we use it, and explains how Google Maps receives coarse location and search context for nearby restaurant results. It names every AI processor and data provider that receives context from intori, not just OpenAI. It adds subscription and billing information. It also replaces the old note that export and deletion tools were still being built. You can now download your data and delete your account yourself. It removes the old description of matching and friends, because intori no longer has social features.
-       It also corrects the diagnostics section (the app has no crash reporting) and the steps to delete your account. The October 9, 2026 update explains the age range Apple shares with intori in some states, and the information Google receives when place details load. The October 13, 2026 update adds the Outings and Outdoors lanes to the description of intori. The October 14, 2026 update explains how we learn whether an ad or a campaign link brought a new account to intori, what we keep, and when we delete it.
+        This update clarifies email-code sign-in, the household age bands you may choose to share, the AI-sharing controls already available in the app, and retention of first-party usage records. Our Apple Ads and campaign-link attribution practices are unchanged.
       </p>
 
       <h2>Who we are</h2>
@@ -65,7 +64,7 @@ const Privacy: NextPage = () => {
         In states whose laws require app age checks, the intori iOS app asks Apple for an age range when you sign in, using Apple&apos;s Declared Age Range feature. intori receives only a range, such as 13 to 17 or 18 and older. It never receives your birth date or exact age. We use the range only to decide whether an account can be created, and we do not sell it.
       </p>
       <p>
-        Children in your household are treated differently from children who use intori. A parent or guardian may declare a dietary constraint that applies to a child in the household, for example a nut allergy. intori does not collect the child&apos;s name, age, birthdate, photo, or any other direct identifier. The constraint is stored as an unnamed household constraint. There is no profile for that child and no account for that child. See &quot;Dietary constraints and health-adjacent information&quot; below.
+        Children in your household are treated differently from children who use intori. A parent or guardian may share household size, broad children&apos;s age bands, and a dietary constraint that applies to someone in the household, for example a nut allergy. We use these details to suggest suitable plans. We do not ask for a child&apos;s name, exact age, birthdate, photo, or other direct identifier, and we do not create an account for that child. Dietary constraints are stored without naming the household member. See &quot;Dietary constraints and health-adjacent information&quot; below.
       </p>
 
       <h2>Information we collect</h2>
@@ -78,7 +77,7 @@ const Privacy: NextPage = () => {
         Depending on how you access intori, we may collect or process:
       </p>
       <ul>
-        <li>Your email address, when you sign in on the web using a one-time email magic link.</li>
+        <li>Your email address, when you sign in in the app or on the web using a one-time email code or sign-in link.</li>
         <li>Sign in with Apple identifiers, including the user identifier Apple gives us and the email address Apple passes along, which may be a private relay address if you chose to hide your email.</li>
         <li>World App, World Mini App, World ID, or wallet-based identifiers, such as wallet address, username, profile image, authentication messages, signatures, nonce records, and verification results.</li>
         <li>Farcaster account identifiers, such as FID, username, display name, profile image, bio, and related public profile data.</li>
@@ -122,7 +121,7 @@ const Privacy: NextPage = () => {
         We use declared dietary constraints to filter and rank what intori suggests, to explain why a suggestion was included or left out, and to decide what to ask you next. We do not use them for advertising. We do not sell them. We do not show them to other intori users.
       </p>
       <p>
-        We store the constraint and whether it applies to you or to someone else in your household. We do not store the names, ages, birthdates, photos, relationships, or any other identifying details of the people in your household. A constraint is recorded as something like &quot;severe peanut allergy, applies to a household member&quot;, not as a profile of that person. intori does not have household member profiles.
+        We store the constraint and whether it applies to you or to someone else in your household. A constraint is recorded as something like &quot;severe peanut allergy, applies to a household member&quot;, not with that person&apos;s name. Separately, we may store household size and broad children&apos;s age bands you choose to provide. We do not ask for individual household members&apos; names, exact ages, birthdates, or photos.
       </p>
       <p>
         You can view, correct, and delete your declared dietary constraints at any time in intori. Deleting a constraint stops intori from applying it to future suggestions.
@@ -176,7 +175,7 @@ const Privacy: NextPage = () => {
       <ul>
         <li>Your legal name.</li>
         <li>Your mobile or other phone number.</li>
-        <li>The names, ages, birthdates, or identities of the people in your household.</li>
+        <li>The names, exact ages, birthdates, or direct identifiers of children in your household. Broad age bands and household size are described above.</li>
         <li>Medical records, clinical diagnoses, prescriptions, or data from Apple Health or any other health app.</li>
         <li>Government ID numbers, KYC documents, or biometric identifiers.</li>
         <li>Private keys, recovery phrases, or wallet seed phrases.</li>
@@ -282,7 +281,7 @@ const Privacy: NextPage = () => {
         Context goes to OpenAI or Perplexity only when you run a feature that needs one of them. Running that feature is what sends it. Nothing goes to either company when you are not using an AI-assisted feature, and the rest of intori works without them.
       </p>
       <p>
-        We are building a dedicated permission control for this, and it will live in Everything we hold, on the You tab. It is not in the product yet. Until it ships, you decide by choosing whether to run an AI-assisted feature. We will update this section when the control is available.
+        You can allow or turn off AI sharing in You, then What intori knows, under Permissions. Turning it off stops new personal context from reaching OpenAI or Perplexity; it does not erase results already created. Features that need this permission explain the sharing before asking you to allow it. Event and place data services are separate from AI processing and follow the provider disclosures above.
       </p>
       <p>
         If you have a question or a request about your context, email <a href="mailto:contact@intori.com">contact@intori.com</a>.
@@ -338,7 +337,7 @@ const Privacy: NextPage = () => {
         <li>Skip questions or choose what answers to provide.</li>
         <li>View, correct, or delete a declared dietary or household constraint.</li>
         <li>Pause, edit, or delete local context.</li>
-        <li>Grant or turn off consent for sensitive topics in your permission ledger, under Everything we hold. Turning one off changes what intori may ask you next. It does not delete result context that already exists.</li>
+        <li>Grant or turn off consent for sensitive topics under Permissions in What intori knows. Turning one off changes what intori may ask you next. It does not delete result context that already exists.</li>
         <li>Grant or withdraw permission for intori to send your context to an AI processor.</li>
         <li>Download a copy of your data, clear what intori has learned about you, or delete your account, from the You tab.</li>
         <li>Approve a connected app, or disconnect one, in Connected apps under Your data.</li>
@@ -349,7 +348,7 @@ const Privacy: NextPage = () => {
 
       <h3>Deleting your account</h3>
       <p>
-        You can delete your intori account yourself. In the app, open the You tab, then Settings and data, and choose Delete your account. You can also reach it from Everything we hold. On the web, email <a href="mailto:contact@intori.com">contact@intori.com</a> and we will delete the account.
+        You can delete your intori account yourself. Open the You tab, then Settings and data, and choose Delete your account. What intori knows also links to Settings and data. For help with deletion, email <a href="mailto:contact@intori.com">contact@intori.com</a>.
       </p>
       <p>
         Deleting your account removes your answers, declared preferences, declared dietary constraints, local context, results, and connected app grants, except for records we must keep for legal, accounting, security, or fraud-prevention reasons. If you signed in with Apple, deleting your account also revokes the Sign in with Apple token, so intori no longer holds an active sign-in relationship with your Apple ID.
@@ -360,7 +359,7 @@ const Privacy: NextPage = () => {
 
       <h3>Getting a copy of your data</h3>
       <p>
-        You can download a copy of your data yourself, in the app and on the web. Open Your data and choose Download everything. intori builds the file straight away and your device downloads it as a JSON file. There is no queue and no waiting for an email.
+        You can download a copy of your data yourself, in the app and on the web. Open You, then Settings and data, and choose Download your data. intori builds the file straight away and your device downloads it as a JSON file. There is no queue and no waiting for an email.
       </p>
       <p>
         The export includes your account and sign-in details, your answers, your declared preferences, your declared dietary constraints including whether each one applies to you or to a household member, your local context, your consent records, your results and runs, your connected app grants and receipts, and your vibe. If you would rather ask us for it, email <a href="mailto:contact@intori.com">contact@intori.com</a>.
@@ -374,7 +373,7 @@ const Privacy: NextPage = () => {
         Session cookies are intended to expire after a limited period. Ad attribution and campaign tags kept on an account are deleted 13 months after we record them, and only totals that are not tied to anyone remain. Partner grants may expire or be revoked. Payment, subscription, and transaction records may be retained for accounting, fraud prevention, charge dispute, tax, and legal reasons. Profile, answer, declared constraint, consent, AI result, receipt, and derived records are kept until you delete them, delete your account, or request deletion. Turning off a topic consent changes what intori may ask you next. It does not by itself delete result context that already exists.
       </p>
       <p>
-        We are continuing to define more specific retention periods for each data category.
+        First-party transport observations from our current measurement system are normally removed after 90 days. Daily maintenance is bounded, so a backlog may take additional time to clear. Account-owned activity, action and replay records are removed when you delete your account. Anonymous aggregate statistics may remain after deletion. Financial transaction references may remain for accounting, disputes and replay prevention; we do not use them to recognize a deleted account or decide whether a new account can start a trial. Older operational and security records follow the purpose-based retention described above, not an automatic 90-day rule.
       </p>
 
       <h2>Security</h2>

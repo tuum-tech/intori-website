@@ -354,7 +354,7 @@ const Privacy: NextPage = () => {
         You can delete your intori account yourself. Open the You tab, then Settings and data, and choose Delete your account. What intori knows also links to Settings and data. For help with deletion, email <a href="mailto:contact@intori.com">contact@intori.com</a>.
       </p>
       <p>
-        Deleting your account removes your answers, declared preferences, declared dietary constraints, local context, results, and connected app grants, except for records we must keep for legal, accounting, security, or fraud-prevention reasons. If you signed in with Apple, deleting your account also revokes the Sign in with Apple token, so intori no longer holds an active sign-in relationship with your Apple ID.
+        Deleting your account removes your answers, declared preferences, declared dietary constraints, local context, results, and connected app grants, except for records we must keep for legal, accounting, security, or fraud-prevention reasons. If you signed in with Apple, we ask Apple to revoke your Sign in with Apple token. If Apple is temporarily unavailable, your intori account deletion still proceeds and intori removes its stored Apple credentials.
       </p>
       <p>
         Deletion is permanent. We cannot restore a deleted account. Deleting your intori account does not cancel an App Store subscription. Cancel that separately in your Apple account subscription settings.

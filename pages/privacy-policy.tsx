@@ -15,7 +15,7 @@ const Privacy: NextPage = () => {
 
       <LegalLayout>
         <h1>intori Privacy Policy</h1>
-        <p><strong>Last Updated: October 19, 2026</strong></p>
+        <p><strong>Last Updated: October 23, 2026</strong></p>
 
       <p>
         This policy covers the intori website and the intori mobile app. There is one policy for both.
@@ -23,7 +23,7 @@ const Privacy: NextPage = () => {
 
       <h2>What changed in this update</h2>
       <p>
-        This update clarifies optional precise location for Food, email-code sign-in, the household age bands you may choose to share, the AI-sharing controls already available in the app, and retention of first-party usage records. Our Apple Ads and campaign-link attribution practices are unchanged.
+        This update adds a Meta ads section: what we send Meta when someone who arrived from a Facebook or Instagram ad signs up on the web or starts a trial there, what we never send, that none of it runs inside the iPhone app, and how to turn it off. Our Apple Ads and campaign-link attribution practices are unchanged.
       </p>
 
       <h2>Who we are</h2>
@@ -89,6 +89,17 @@ const Privacy: NextPage = () => {
       <h3>Campaign links</h3>
       <p>
         If you arrive at intori on the web from a link that carries a campaign tag, such as a utm_source or utm_campaign value, or a referral code, and you create an account soon after, we keep that tag or code with your new account. Until then, your browser remembers the tag on your device for up to 30 days, so it can be matched when you sign up. We use it only to learn which campaigns and partners bring new accounts. We do not keep the page you came from or your browsing history, we do not share the tag, and it follows the same deletion rules as Apple Ads attribution below: it is deleted with your account, and after 13 months only totals that are not tied to anyone remain.
+      </p>
+
+      <h3>Meta ads</h3>
+      <p>
+        intori advertises on Facebook and Instagram, which Meta runs. When you arrive at intori on the web from one of those ads, the link carries a Meta click id, and Meta&apos;s pixel on our web pages sets a browser id in a cookie. On the web pages where the pixel runs, Meta learns that a page was viewed, with its address, your IP address, and your browser type, the way any Meta pixel does. If you create an account soon after arriving, we keep the click id and the browser id with your new account, in the same place as a campaign tag. When you sign up, and when your free trial starts, we tell Meta that a sign-up or a trial start happened, with the click id, the browser id, and the IP address and browser type of the request that made it. That is all we send. We do not tell Meta about purchases or subscriptions. We do not send your name, email address, or phone number, in plain or hashed form, and we do not send what you do inside intori.
+      </p>
+      <p>
+        Meta uses this to tell which of its ads bring families who sign up, so that we can stop paying for ads that do not. All of this happens on the web, in a browser. The pixel never runs inside the iPhone app, which loads the same web pages, and never on our internal pages, and nothing you do inside the iPhone app is ever sent to Meta, even if your account first arrived from a Meta ad. If your browser sends the Global Privacy Control signal, the pixel does not load and we keep nothing and send nothing to Meta about you. We keep the ids only for accounts that arrived from a Meta link; every other account has none, and nothing about those accounts goes to Meta.
+      </p>
+      <p>
+        The ids follow the same deletion rules as Apple Ads attribution and campaign tags: they are deleted with your account, and 13 months after we record them we delete them from your account and keep only totals that are not tied to anyone. To have them removed sooner, email <a href="mailto:contact@intori.com">contact@intori.com</a> from the address on your account, and we will delete them and send nothing further about your account to Meta. Meta&apos;s handling of what it receives is governed by the <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noreferrer">Meta Privacy Policy</a>.
       </p>
 
       <h3>Answers, preferences, and context</h3>
@@ -244,7 +255,7 @@ const Privacy: NextPage = () => {
         <li>Detect, prevent, and respond to spam, abuse, fraud, security incidents, and violations of our terms.</li>
         <li>Provide customer support and communicate with you.</li>
         <li>Measure performance, reliability, and product usage.</li>
-        <li>Learn which of our ads and campaign links bring new accounts, as described under Apple Ads attribution and Campaign links.</li>
+        <li>Learn which of our ads and campaign links bring new accounts, as described under Apple Ads attribution, Campaign links, and Meta ads.</li>
         <li>Comply with law and enforce our rights.</li>
       </ul>
       <p>
@@ -329,7 +340,7 @@ const Privacy: NextPage = () => {
 
       <h2>Selling or sharing for advertising</h2>
       <p>
-        We do not sell or rent your personal information. We do not share personal information for cross-context behavioral advertising. We do not sell, rent, or share your declared dietary and health-adjacent information for any advertising purpose, and we do not use it to target ads to you. If any of this changes, we will update this policy and provide any required choices.
+        We do not sell or rent your personal information. Apart from the Meta ads measurement described above, we do not share personal information for cross-context behavioral advertising. Depending on the law where you live, telling Meta about a sign-up or trial start may count as sharing for advertising; you can turn it off for your browser with Global Privacy Control, which we honor, or ask us to remove the ids at any time. We do not sell, rent, or share your declared dietary and health-adjacent information for any advertising purpose, and we do not use it to target ads to you. If any of this changes, we will update this policy and provide any required choices.
       </p>
 
       <h2>Your controls and choices</h2>
@@ -373,7 +384,7 @@ const Privacy: NextPage = () => {
         We keep information for as long as needed to provide intori, maintain user controls and receipts, prevent abuse, comply with legal obligations, resolve disputes, and enforce agreements.
       </p>
       <p>
-        Session cookies are intended to expire after a limited period. Ad attribution and campaign tags kept on an account are deleted 13 months after we record them, and only totals that are not tied to anyone remain. Partner grants may expire or be revoked. Payment, subscription, and transaction records may be retained for accounting, fraud prevention, charge dispute, tax, and legal reasons. Profile, answer, declared constraint, consent, AI result, receipt, and derived records are kept until you delete them, delete your account, or request deletion. Turning off a topic consent changes what intori may ask you next. It does not by itself delete result context that already exists.
+        Session cookies are intended to expire after a limited period. Ad attribution, campaign tags, and Meta click and browser ids kept on an account are deleted 13 months after we record them, and only totals that are not tied to anyone remain. Partner grants may expire or be revoked. Payment, subscription, and transaction records may be retained for accounting, fraud prevention, charge dispute, tax, and legal reasons. Profile, answer, declared constraint, consent, AI result, receipt, and derived records are kept until you delete them, delete your account, or request deletion. Turning off a topic consent changes what intori may ask you next. It does not by itself delete result context that already exists.
       </p>
       <p>
         First-party transport observations from our current measurement system are normally removed after 90 days. Daily maintenance is bounded, so a backlog may take additional time to clear. Account-owned activity, action and replay records are removed when you delete your account. Anonymous aggregate statistics may remain after deletion. Financial transaction references may remain for accounting, disputes and replay prevention; we do not use them to recognize a deleted account or decide whether a new account can start a trial. Older operational and security records follow the purpose-based retention described above, not an automatic 90-day rule.

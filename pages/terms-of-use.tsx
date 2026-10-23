@@ -23,7 +23,7 @@ const Terms: NextPage = () => {
 
       <h2>What changed in this update</h2>
       <p>
-        This update explains how intori checks age where the law requires it and says that people under 18 need a parent or legal guardian&apos;s permission to buy a subscription. It also extends the app-managed full-access trial to 21 days, changes the annual plan to $59.99, explains when early web subscribers are first charged, and clarifies what remains available after full access ends. No payment method is required to start the trial, and it does not become a paid subscription on its own. The AI processors and data providers we use are named in our <Link href="/privacy-policy">Privacy Policy</Link>. The October 13, 2026 update adds the Outings and Outdoors lanes to the description of the Services. The October 23, 2026 update changes our contact address to hello@intori.com.
+        This update explains how intori checks age where the law requires it and says that people under 18 need a parent or legal guardian&apos;s permission to buy a subscription. It also extends the app-managed full-access trial to 21 days, changes the annual plan to $59.99, explains when early web subscribers are first charged, and clarifies what remains available after full access ends. No payment method is required to start the trial, and it does not become a paid subscription on its own. The AI processors and data providers we use are named in our <Link href="/privacy-policy">Privacy Policy</Link>. The October 13, 2026 update adds Outings and Outdoors to the description of the Services. The October 23, 2026 update changes our contact address to hello@intori.com, says when we refund web purchases, and calls Outings, Outdoors, Sports, Shows, Music and Food interests, as the app does.
       </p>
 
       <p>
@@ -46,7 +46,7 @@ const Terms: NextPage = () => {
 
       <h2>2. What intori does</h2>
       <p>
-        intori is a household personalization service. You declare preferences and constraints for your household. intori uses those declared signals to produce daily suggestions with sources attached: local outings and events, outdoor places and good times to go, sports, what to watch, live music and events, and what to cook or eat. The features that produce those suggestions are organized into lanes: Outings, Outdoors, Sports, Shows, Music, and Food.
+        intori is a household personalization service. You declare preferences and constraints for your household. intori uses those declared signals to produce daily suggestions with sources attached: local outings and events, outdoor places and good times to go, sports, what to watch, live music and events, and what to cook or eat. The features that produce those suggestions are organized into six interests: Outings, Outdoors, Sports, Shows, Music, and Food.
       </p>
       <p>How your declarations are used:</p>
       <ul>
@@ -89,7 +89,7 @@ const Terms: NextPage = () => {
 
       <h2>5. Consent and connected apps</h2>
       <p>
-        Some Services depend on your consent. You may be asked to grant consent for topics, groups, local context, lane access, sharing context with an AI processor, connected app sharing, or other scopes. You may also revoke consent through intori controls.
+        Some Services depend on your consent. You may be asked to grant consent for topics, groups, local context, access to an interest, sharing context with an AI processor, connected app sharing, or other scopes. You may also revoke consent through intori controls.
       </p>
       <p>
         If you approve a connected app, intori may share a scoped context bundle with that app. Connected apps are independent services, and their own terms and privacy policies may apply after they receive information. We are not responsible for a connected app&apos;s use of information after you authorize sharing, except to the extent required by law or a written agreement with that app.
@@ -191,7 +191,7 @@ const Terms: NextPage = () => {
         <strong>Web purchases.</strong> If you subscribe on the intori website, Stripe processes the payment and we manage the subscription. Cancel in your intori account settings or by emailing <a href="mailto:hello@intori.com">hello@intori.com</a>. Send refund requests for web purchases to us at the same address.
       </p>
       <p>
-        <strong>Refunds.</strong> Apple handles refunds for App Store purchases under its own policies. For web purchases, and except where the law gives you a refund right, fees already charged are not refundable, and cancelling stops future charges rather than refunding past ones. We may give a refund at our discretion.
+        <strong>Refunds.</strong> Apple handles refunds for App Store purchases under its own policies. For web purchases, except as described below or where the law gives you a refund right, fees already charged are not refundable, and cancelling stops future charges rather than refunding past ones. For web purchases we refund an annual charge in full when you ask within 30 days of it, and a monthly charge within 7 days, by email to <a href="mailto:hello@intori.com">hello@intori.com</a>. Billing mistakes are always refunded in full.
       </p>
       <p>
         <strong>Legacy paid Credit accounts.</strong> intori used to sell Credit packs. Credit packs are no longer sold. If an account completed a paid Credit purchase before packs retired, we replaced its former Credit balance with lifetime full access to intori. This lifetime access does not expire and does not require a subscription. It is tied to that intori account and may not be transferred, resold, or redeemed for money unless we expressly allow it in writing.

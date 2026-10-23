@@ -18,8 +18,32 @@ export const APP_URL = 'https://app.intori.co'
 //                                 > Generate Campaign Link, the "pt" value. It
 //                                 lets App Analytics attribute installs to this
 //                                 website. "000000" is a PLACEHOLDER: replace it.
+//
+// App Store Connect cannot generate the provider token until the app is live
+// (the app is "currently unavailable for Analytics" before then), so this PR
+// can merge with the placeholder still in place. While it is the placeholder,
+// appStoreUrl() returns the plain listing link with no pt, ct or mt at all,
+// never a link carrying a fake token. The moment a real token is set here,
+// every link gains ?pt=...&ct=<surface>&mt=8 with no other change.
 export const APP_STORE_ID = '6801558369'
-export const APP_ANALYTICS_PROVIDER_TOKEN = '000000'
+export const APP_ANALYTICS_PROVIDER_TOKEN: string = '000000'
+
+const PLACEHOLDER_PROVIDER_TOKEN = '000000'
+
+// Build-time assertion (this module loads during `next build`, when /faq is
+// prerendered): a pasted "pt=123456", a trailing space or a whole campaign URL
+// would otherwise ship as a broken link.
+if (!/^[A-Za-z0-9_-]+$/.test(APP_ANALYTICS_PROVIDER_TOKEN)) {
+  throw new Error(
+    `APP_ANALYTICS_PROVIDER_TOKEN must be only the "pt" value from App Store Connect, got ${JSON.stringify(APP_ANALYTICS_PROVIDER_TOKEN)}`,
+  )
+}
+
+// The bare listing, with no campaign parameters.
+export const APP_STORE_LISTING_URL = `https://apps.apple.com/us/app/intori/id${APP_STORE_ID}`
+
+// True once a real provider token has replaced the placeholder.
+export const HAS_APP_ANALYTICS_TOKEN = APP_ANALYTICS_PROVIDER_TOKEN !== PLACEHOLDER_PROVIDER_TOKEN
 
 // One "ct" campaign token per surface, so App Analytics can tell a hero tap
 // from a footer tap from a FAQ tap.
@@ -31,7 +55,8 @@ export type AppStoreSurface =
   | 'faq' // the FAQ answer
 
 export function appStoreUrl(ct: AppStoreSurface = 'website'): string {
-  return `https://apps.apple.com/us/app/intori/id${APP_STORE_ID}?pt=${APP_ANALYTICS_PROVIDER_TOKEN}&ct=${ct}&mt=8`
+  if (!HAS_APP_ANALYTICS_TOKEN) return APP_STORE_LISTING_URL
+  return `${APP_STORE_LISTING_URL}?pt=${APP_ANALYTICS_PROVIDER_TOKEN}&ct=${ct}&mt=8`
 }
 
 // The single iPhone switch that the homepage buttons, the header, the footer,

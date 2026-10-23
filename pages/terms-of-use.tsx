@@ -15,7 +15,7 @@ const Terms: NextPage = () => {
 
       <LegalLayout>
         <h1>intori Terms of Use</h1>
-        <p><strong>Last Updated: October 13, 2026</strong></p>
+        <p><strong>Last Updated: October 23, 2026</strong></p>
 
       <p>
         These terms cover the intori website and the intori mobile app. There is one set of terms for both.
@@ -23,7 +23,7 @@ const Terms: NextPage = () => {
 
       <h2>What changed in this update</h2>
       <p>
-        This update explains how intori checks age where the law requires it and says that people under 18 need a parent or legal guardian&apos;s permission to buy a subscription. It also extends the app-managed full-access trial to 21 days, changes the annual plan to $59.99, explains when early web subscribers are first charged, and clarifies what remains available after full access ends. No payment method is required to start the trial, and it does not become a paid subscription on its own. The AI processors and data providers we use are named in our <Link href="/privacy-policy">Privacy Policy</Link>. The October 13, 2026 update adds the Outings and Outdoors lanes to the description of the Services.
+        This update explains how intori checks age where the law requires it and says that people under 18 need a parent or legal guardian&apos;s permission to buy a subscription. It also extends the app-managed full-access trial to 21 days, changes the annual plan to $59.99, explains when early web subscribers are first charged, and clarifies what remains available after full access ends. No payment method is required to start the trial, and it does not become a paid subscription on its own. The AI processors and data providers we use are named in our <Link href="/privacy-policy">Privacy Policy</Link>. The October 13, 2026 update adds the Outings and Outdoors lanes to the description of the Services. The October 23, 2026 update changes our contact address to hello@intori.com.
       </p>
 
       <p>

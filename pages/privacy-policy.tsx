@@ -23,7 +23,7 @@ const Privacy: NextPage = () => {
 
       <h2>What changed in this update</h2>
       <p>
-        This update adds a Meta ads section: what we send Meta when someone who arrived from a Facebook or Instagram ad signs up on the web or starts a trial there, what we never send, that none of it runs inside the iPhone app, and how to turn it off. Our Apple Ads and campaign-link attribution practices are unchanged.
+        This update adds a Meta ads section: what we send Meta when someone who arrived from a Facebook or Instagram ad signs up on the web or starts a trial there, what we never send, that none of it runs inside the iPhone app, and how to turn it off. Our Apple Ads and campaign-link attribution practices are unchanged. It also changes our contact address to hello@intori.com.
       </p>
 
       <h2>Who we are</h2>

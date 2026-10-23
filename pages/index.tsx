@@ -5,7 +5,7 @@ import { getSession } from "next-auth/react"
 import { MarketingFooter, MarketingHeader } from '@/components/MarketingChrome'
 import { SeoHead } from '@/lib/seo'
 import { APP_STORE_BADGE, APP_STORE_BADGE_ALT, APP_URL, HERO_VARIANT, IOS_CHANNEL, appStoreUrl } from '@/lib/appLinks'
-import { appStoreQrSvg } from '@/lib/appStoreQr'
+import { appStoreQr, type AppStoreQr } from '@/lib/appStoreQr'
 
 import styles from './index.module.css'
 
@@ -39,8 +39,8 @@ export const getServerSideProps = (async (context) => {
     }
   }
 
-  return { props: { qrSvg: await appStoreQrSvg(), trialEnds: trialSampleLabel() } }
-}) satisfies GetServerSideProps<{ qrSvg: string | null; trialEnds: string }>
+  return { props: { qr: await appStoreQr(), trialEnds: trialSampleLabel() } }
+}) satisfies GetServerSideProps<{ qr: AppStoreQr | null; trialEnds: string }>
 
 // App screens are unedited Build 25 captures from the App Store storefront
 // package (Oct 16 2026): the same Raleigh, NC test household on every
@@ -185,8 +185,10 @@ const INCLUDES = [
 // iPhone leads because the launch promise lives there: Sign in with Apple, one
 // tap to Apple Calendar, and reminders on the lock screen. The web stays one
 // link away for anyone on Android or a laptop, and on desktop a QR code sits
-// beside the button, since the button alone cannot install anything there.
-function AppCtas({ qrSvg }: { qrSvg?: string | null }) {
+// beside the badge, since the badge alone cannot install anything there. The
+// code is ink straight on the cream, its ink the same height as the badge; the
+// SVG's own quiet zone is pulled out of the layout by --qr-scale (see .qrCode).
+function AppCtas({ qr }: { qr?: AppStoreQr | null }) {
   if (IOS_CHANNEL === 'appstore') {
     return (
       <div className={styles.ctaStack}>
@@ -199,13 +201,14 @@ function AppCtas({ qrSvg }: { qrSvg?: string | null }) {
           >
             <Image src={APP_STORE_BADGE} alt={APP_STORE_BADGE_ALT} width={120} height={40} />
           </a>
-          {qrSvg && (
+          {qr && (
             <div className={styles.qr}>
               <span
                 className={styles.qrCode}
+                style={{ '--qr-scale': qr.scale } as React.CSSProperties}
                 role="img"
                 aria-label="QR code that opens intori on your iPhone"
-                dangerouslySetInnerHTML={{ __html: qrSvg }}
+                dangerouslySetInnerHTML={{ __html: qr.svg }}
               />
               <span className={styles.qrLabel}>Scan with your iPhone camera</span>
             </div>
@@ -317,7 +320,7 @@ function LaneCard({ lane }: { lane: Lane }) {
   )
 }
 
-export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function HomePage({ qr, trialEnds }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <>
       <SeoHead
@@ -343,7 +346,7 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
                   household would love to do, and puts it on your calendar.
                 </p>
                 <div className={styles.heroCtas}>
-                  <AppCtas qrSvg={qrSvg} />
+                  <AppCtas qr={qr} />
                 </div>
                 <p className={styles.heroTrust}>
                   <strong>21 days free, no card needed.</strong> No ads, and nothing sold about your family.
@@ -630,7 +633,7 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
                   : <>intori works on the web today. The iPhone app is next, and the button below will say so the moment it&rsquo;s real.</>}
               </p>
               <div className={styles.convertCtas}>
-                <AppCtas qrSvg={qrSvg} />
+                <AppCtas qr={qr} />
               </div>
               <p className={styles.convertNote}>
                 21 days free, starting when you finish setup. Then $8.99 a month or $59.99

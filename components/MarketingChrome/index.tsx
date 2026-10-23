@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import styles from './styles.module.css'
-import { APP_URL, IOS_CHANNEL, WORLD_APP_URL, appStoreUrl } from '@/lib/appLinks'
+import { APP_STORE_BADGE, APP_STORE_BADGE_ALT, APP_URL, IOS_CHANNEL, WORLD_APP_URL, appStoreUrl } from '@/lib/appLinks'
 
 export function WorldIcon({ size = 17 }: { size?: number }) {
   return (
@@ -81,8 +81,8 @@ export function MarketingFooter() {
               World App
             </a>
           </nav>
-          {/* A text button rather than Apple's badge artwork, so nothing on the
-              page depends on an asset that is not in the repo. */}
+          {/* Apple's official badge, black on the cream footer. Only rendered on
+              the 'appstore' channel. */}
           {IOS_CHANNEL === 'appstore' && (
             <a
               href={appStoreUrl('website-footer')}
@@ -90,7 +90,7 @@ export function MarketingFooter() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Download on the App Store
+              <Image src={APP_STORE_BADGE} alt={APP_STORE_BADGE_ALT} width={120} height={40} />
             </a>
           )}
           <p className={styles.footerCopy}>© {year} intori</p>

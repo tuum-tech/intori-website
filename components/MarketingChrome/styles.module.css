@@ -160,24 +160,20 @@
 }
 
 /* App Store badge, footer. Only rendered on the 'appstore' iOS channel. Apple's
-   identity guidelines set a minimum badge size and require clear space around
-   it, so this reserves both rather than letting the flex row squeeze it. */
+   guidelines set a 40px minimum height and clear space of a quarter of the
+   badge height around it: the badge is 40px tall, the row's 20px gap (16px when
+   stacked) gives it that space, and flex: none keeps the row from squeezing it.
+   Never stretched, recolored or outlined. */
 .footerBadge {
   display: inline-flex;
   flex: none;
   align-items: center;
-  min-height: 40px;
   margin: 0 4px;
-  padding: 0 18px;
-  border-radius: 999px;
-  background: #26213E;
-  color: #FCF8F1;
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  white-space: nowrap;
+  line-height: 0;
 }
 
-.footerBadge:hover {
-  background: #322B4E;
+.footerBadge img {
+  display: block;
+  height: 40px;
+  width: auto;
 }

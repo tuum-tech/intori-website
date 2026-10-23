@@ -1,4 +1,5 @@
 import type { NextPage } from "next"
+import Image from "next/image"
 
 import { MarketingFooter, MarketingHeader } from "@/components/MarketingChrome"
 import { FAQ } from "../lib/faq"
@@ -48,11 +49,15 @@ const FaqPage: NextPage = () => {
                         <p className={styles.faqAction}>
                           <a
                             href={item.link.href}
-                            className={styles.faqLink}
+                            className={item.link.badge ? `${styles.badgeLink} ${styles.badgeLinkSmall}` : styles.faqLink}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            {item.link.label}
+                            {item.link.badge ? (
+                              <Image src={item.link.badge} alt={item.link.label} width={120} height={40} />
+                            ) : (
+                              item.link.label
+                            )}
                           </a>
                         </p>
                       )}

@@ -89,6 +89,27 @@
   border-color: var(--ink-faint);
 }
 
+/* Apple's "Download on the App Store" badge, used as-is: at least 40px tall,
+   never stretched (height set, width auto, so the SVG keeps its own ratio),
+   never recolored or outlined, and with clear space of at least a quarter of
+   its height on every side. The flex gaps around it (16-18px in the CTA stack,
+   16px above it in the FAQ card) are wider than that quarter. */
+.badgeLink {
+  display: inline-flex;
+  flex: none;
+  line-height: 0;
+}
+
+.badgeLink img {
+  display: block;
+  height: 54px;
+  width: auto;
+}
+
+.badgeLinkSmall img {
+  height: 48px;
+}
+
 /* Quiet status chip: intentionally not a button, must not look clickable. */
 .chipQuiet {
   display: inline-flex;
@@ -1063,8 +1084,8 @@
   line-height: 1.55;
 }
 
-/* The App Store button under "Is there an iPhone app?". A text button in the
-   footer's shape, since Apple's badge artwork is not in the repo. */
+/* The App Store badge under "Is there an iPhone app?". .faqLink is the text
+   fallback for an FAQ link that has no badge artwork. */
 .faqAnswer .faqAction {
   margin-top: 16px;
 }

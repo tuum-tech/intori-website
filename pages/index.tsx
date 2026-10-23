@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { getSession } from "next-auth/react"
 import { MarketingFooter, MarketingHeader } from '@/components/MarketingChrome'
 import { SeoHead } from '@/lib/seo'
-import { APP_URL, HERO_VARIANT, IOS_CHANNEL, appStoreUrl } from '@/lib/appLinks'
+import { APP_STORE_BADGE, APP_STORE_BADGE_ALT, APP_URL, HERO_VARIANT, IOS_CHANNEL, appStoreUrl } from '@/lib/appLinks'
 import { appStoreQrSvg } from '@/lib/appStoreQr'
 
 import styles from './index.module.css'
@@ -179,7 +179,7 @@ const INCLUDES = [
 
 // Staged iOS CTA, driven entirely by IOS_CHANNEL in lib/appLinks.ts.
 //
-//   'appstore' -> "Download on the App Store" is primary, the web is a quiet link
+//   'appstore' -> Apple's "Download on the App Store" badge is primary, the web is a quiet link
 //   'none'     -> web is primary, iPhone is a quiet non-clickable status chip
 //
 // iPhone leads because the launch promise lives there: Sign in with Apple, one
@@ -193,11 +193,11 @@ function AppCtas({ qrSvg }: { qrSvg?: string | null }) {
         <div className={styles.ctaRow}>
           <a
             href={appStoreUrl('website')}
-            className={styles.btnPrimary}
+            className={styles.badgeLink}
             target="_blank"
             rel="noopener noreferrer"
           >
-            Download on the App Store
+            <Image src={APP_STORE_BADGE} alt={APP_STORE_BADGE_ALT} width={120} height={40} />
           </a>
           {qrSvg && (
             <div className={styles.qr}>

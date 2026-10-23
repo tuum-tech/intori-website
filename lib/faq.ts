@@ -1,12 +1,13 @@
-import { IOS_CHANNEL, appStoreUrl } from './appLinks'
+import { APP_STORE_BADGE, APP_STORE_BADGE_ALT, IOS_CHANNEL, appStoreUrl } from './appLinks'
 
 export type FaqItem = {
   question: string
   answer: string[]
   bullets?: string[]
   // An optional button under the answer, for the one answer that has somewhere
-  // to send people (the App Store listing).
-  link?: { href: string; label: string }
+  // to send people (the App Store listing). With `badge`, the button is that
+  // image and `label` is its alt text; without it, `label` is the button text.
+  link?: { href: string; label: string; badge?: string }
 }
 
 // The iPhone answers read the same switch as the homepage CTAs, so the FAQ
@@ -35,11 +36,11 @@ const IPHONE_ANSWER =
         "intori works on the web today at app.intori.co, with no install needed.",
       ]
 
-// The App Store button under that answer. Its own campaign token, so App
+// The App Store badge under that answer. Its own campaign token, so App
 // Analytics can count installs that started on the FAQ.
 const IPHONE_LINK =
   IOS_CHANNEL === 'appstore'
-    ? { href: appStoreUrl('faq'), label: 'Download on the App Store' }
+    ? { href: appStoreUrl('faq'), label: APP_STORE_BADGE_ALT, badge: APP_STORE_BADGE }
     : undefined
 
 export const FAQ: FaqItem[] = [

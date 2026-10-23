@@ -42,6 +42,14 @@ if (!/^[A-Za-z0-9_-]+$/.test(APP_ANALYTICS_PROVIDER_TOKEN)) {
 // The bare listing, with no campaign parameters.
 export const APP_STORE_LISTING_URL = `https://apps.apple.com/us/app/intori/id${APP_STORE_ID}`
 
+// Apple's official "Download on the App Store" badge (en-US, black, unmodified,
+// from Apple's badge service). Black reads best on the site's cream surfaces,
+// including the footer. Per Apple's App Store Marketing Guidelines it renders
+// at least 40px tall, never stretched, recolored or outlined, with clear space
+// of a quarter of its height on every side. The alt text is the badge's words.
+export const APP_STORE_BADGE = '/brand/app-store-badge-black.svg'
+export const APP_STORE_BADGE_ALT = 'Download on the App Store'
+
 // True once a real provider token has replaced the placeholder.
 export const HAS_APP_ANALYTICS_TOKEN = APP_ANALYTICS_PROVIDER_TOKEN !== PLACEHOLDER_PROVIDER_TOKEN
 

@@ -20,7 +20,7 @@ Most apps that help a family run help with what you have to do: practice, appoin
 
 ## What it does
 
-Tell intori what your household loves, once. Then it keeps watch, so you don't have to ask.
+Tell intori what your family loves, once. Then it keeps watch, so you don't have to ask.
 
 - **Outings:** library programs, museum days, fun runs and family shows near you.
 - **Outdoors:** parks, playgrounds, trails and beaches close to home, with the hours the forecast looks good.

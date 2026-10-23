@@ -30,7 +30,7 @@ export function MarketingHeader() {
           </Link>
           <nav className={styles.nav} aria-label="Primary navigation">
             <Link href="/#how" className={styles.navLink}>How it works</Link>
-            <Link href="/#lanes" className={styles.navLink}>What it watches</Link>
+            <Link href="/#what-it-watches" className={styles.navLink}>What it watches</Link>
             <Link href="/#pricing" className={styles.navLink}>Pricing</Link>
             <Link href="/faq" className={styles.navLink}>FAQ</Link>
             {/* Same destination as the homepage's primary button: the iPhone app

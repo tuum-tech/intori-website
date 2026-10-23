@@ -98,7 +98,7 @@ const SourcesPage: NextPage = () => {
                 <p className={styles.heroEyebrow}>Sources</p>
                 <h1 className={styles.faqHeading}>Where intori&apos;s picks come from</h1>
                 <p className={styles.faqIntro}>
-                  intori finds things to do near a household: a story time at the library, a show
+                  intori finds things to do near you: a story time at the library, a show
                   downtown, a good morning for the beach, a pumpkin patch in October. Here is who we
                   read, and how we treat what they publish.
                 </p>

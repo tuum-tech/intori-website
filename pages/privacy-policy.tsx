@@ -30,7 +30,7 @@ const Privacy: NextPage = () => {
       <p>
         The intori service is owned by Tuum Technologies, Inc. (&quot;Tuum&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;).
       </p>
-      <p>You can contact us by email at <a href="mailto:contact@intori.com">contact@intori.com</a>.</p>
+      <p>You can contact us by email at <a href="mailto:hello@intori.com">hello@intori.com</a>.</p>
       <p>In writing to:</p>
       <address>
         Tuum Technologies, Inc.<br />
@@ -99,7 +99,7 @@ const Privacy: NextPage = () => {
         Meta uses this to tell which of its ads bring families who sign up, so that we can stop paying for ads that do not. All of this happens on the web, in a browser. The pixel never runs inside the iPhone app, which loads the same web pages, and never on our internal pages, and nothing you do inside the iPhone app is ever sent to Meta, even if your account first arrived from a Meta ad. If your browser sends the Global Privacy Control signal, the pixel does not load and we keep nothing and send nothing to Meta about you. We keep the ids only for accounts that arrived from a Meta link; every other account has none, and nothing about those accounts goes to Meta.
       </p>
       <p>
-        The ids follow the same deletion rules as Apple Ads attribution and campaign tags: they are deleted with your account, and 13 months after we record them we delete them from your account and keep only totals that are not tied to anyone. To have them removed sooner, email <a href="mailto:contact@intori.com">contact@intori.com</a> from the address on your account, and we will delete them and send nothing further about your account to Meta. Meta&apos;s handling of what it receives is governed by the <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noreferrer">Meta Privacy Policy</a>.
+        The ids follow the same deletion rules as Apple Ads attribution and campaign tags: they are deleted with your account, and 13 months after we record them we delete them from your account and keep only totals that are not tied to anyone. To have them removed sooner, email <a href="mailto:hello@intori.com">hello@intori.com</a> from the address on your account, and we will delete them and send nothing further about your account to Meta. Meta&apos;s handling of what it receives is governed by the <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noreferrer">Meta Privacy Policy</a>.
       </p>
 
       <h3>Answers, preferences, and context</h3>
@@ -298,7 +298,7 @@ const Privacy: NextPage = () => {
         You can allow or turn off AI sharing in You, then What intori knows, under Permissions. Turning it off stops new personal context from reaching OpenAI or Perplexity; it does not erase results already created. Features that need this permission explain the sharing before asking you to allow it. Event and place data services are separate from AI processing and follow the provider disclosures above.
       </p>
       <p>
-        If you have a question or a request about your context, email <a href="mailto:contact@intori.com">contact@intori.com</a>.
+        If you have a question or a request about your context, email <a href="mailto:hello@intori.com">hello@intori.com</a>.
       </p>
 
       <h3>With other intori users</h3>
@@ -362,7 +362,7 @@ const Privacy: NextPage = () => {
 
       <h3>Deleting your account</h3>
       <p>
-        You can delete your intori account yourself. Open the You tab, then Settings and data, and choose Delete your account. What intori knows also links to Settings and data. For help with deletion, email <a href="mailto:contact@intori.com">contact@intori.com</a>.
+        You can delete your intori account yourself. Open the You tab, then Settings and data, and choose Delete your account. What intori knows also links to Settings and data. For help with deletion, email <a href="mailto:hello@intori.com">hello@intori.com</a>.
       </p>
       <p>
         Deleting your account removes your answers, declared preferences, declared dietary constraints, local context, results, and connected app grants, except for records we must keep for legal, accounting, security, or fraud-prevention reasons. If you signed in with Apple, we ask Apple to revoke your Sign in with Apple token. If Apple is temporarily unavailable, your intori account deletion still proceeds and intori removes its stored Apple credentials.
@@ -376,7 +376,7 @@ const Privacy: NextPage = () => {
         You can download a copy of your data yourself, in the app and on the web. Open You, then Settings and data, and choose Download your data. intori builds the file straight away and your device downloads it as a JSON file. There is no queue and no waiting for an email.
       </p>
       <p>
-        The export includes your account and sign-in details, your answers, your declared preferences, your declared dietary constraints including whether each one applies to you or to a household member, your local context, your consent records, your results and runs, your connected app grants and receipts, and your vibe. If you would rather ask us for it, email <a href="mailto:contact@intori.com">contact@intori.com</a>.
+        The export includes your account and sign-in details, your answers, your declared preferences, your declared dietary constraints including whether each one applies to you or to a household member, your local context, your consent records, your results and runs, your connected app grants and receipts, and your vibe. If you would rather ask us for it, email <a href="mailto:hello@intori.com">hello@intori.com</a>.
       </p>
 
       <h2>Retention</h2>
@@ -405,7 +405,7 @@ const Privacy: NextPage = () => {
         Depending on where you live, you may have rights to request access, correction, deletion, portability, restriction, objection, or information about how your personal information is used and disclosed. You may also have rights to limit the use of sensitive personal information, or to opt out of certain sales, sharing, or targeted advertising. Declared dietary and health-adjacent information is treated as sensitive. We use it only to provide intori, and we do not sell it or share it for advertising.
       </p>
       <p>
-        To make a privacy request, contact <a href="mailto:contact@intori.com">contact@intori.com</a>. We may need to verify your identity before fulfilling a request. We will not discriminate against you for exercising privacy rights.
+        To make a privacy request, contact <a href="mailto:hello@intori.com">hello@intori.com</a>. We may need to verify your identity before fulfilling a request. We will not discriminate against you for exercising privacy rights.
       </p>
 
       <h2>Changes to this policy</h2>
@@ -415,7 +415,7 @@ const Privacy: NextPage = () => {
 
       <h2>Contact us</h2>
       <p>
-        For questions or privacy requests, contact us at <a href="mailto:contact@intori.com">contact@intori.com</a>.
+        For questions or privacy requests, contact us at <a href="mailto:hello@intori.com">hello@intori.com</a>.
       </p>
       </LegalLayout>
     </>

@@ -90,7 +90,7 @@ const NEAR_YOU: Lane[] = [
     id: 'food',
     kicker: 'Food',
     title: 'Dinner that fits the plan.',
-    body: 'Headed to a game or a show? A few places nearby that suit your household, and a few good spots close to home.',
+    body: 'Headed to a game or a show? A few places nearby that suit your family, and a few good spots close to home.',
     image: '/brand/lanes/food-table-for-four.jpg',
     alt: 'A mother and two children passing a big bowl of pasta around a pink table',
     tint: styles.artFood,
@@ -132,7 +132,7 @@ const ALL_LANES = [NEAR_YOU[0], NEAR_YOU[1], ...FOLLOWED, NEAR_YOU[2]]
 
 const STEPS = [
   {
-    title: 'Turn on what your household enjoys.',
+    title: 'Turn on what you enjoy.',
     body: 'Sign in with Apple or your email, then pick from six interests. Follow a team or a show, choose the outings you like, and add the rest anytime.',
     image: '/brand/app-b25/04-interests.jpg',
     alt: 'intori Interests for a family with kids under 5 and 5 to 8, with all six turned on: Outings, Outdoors, Sports, Shows, Music and Food',
@@ -297,7 +297,7 @@ function CalendarIcon() {
 
 function LaneCard({ lane }: { lane: Lane }) {
   return (
-    <article id={`lane-${lane.id}`} tabIndex={-1} className={`${styles.laneCard} ${lane.tint}`}>
+    <article id={lane.id} tabIndex={-1} className={`${styles.laneCard} ${lane.tint}`}>
       <div className={styles.laneArt}>
         <Image
           src={lane.image}
@@ -323,7 +323,7 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
     <>
       <SeoHead
         title="intori. Something to look forward to."
-        description="Your calendar tells you what you have to do. intori finds what your household would love to do, from story time and good park hours to the big game, a show coming back, or an artist playing nearby, and adds it to your calendar in one tap."
+        description="Your calendar tells you what you have to do. intori finds what your family would love to do, from story time and good park hours to the big game, a show coming back, or an artist playing nearby, and adds it to your calendar in one tap."
         canonicalPath="/"
         ogDescription="Your calendar tells you what you have to do. intori gives you something to look forward to."
         ogImageAlt="intori card reading Something to look forward to, with tiles for Outings, Outdoors, Sports, Shows, Music and Food"
@@ -337,11 +337,11 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
           <header className={styles.heroSection}>
             <div className={`${styles.container} ${styles.heroGrid}`}>
               <div className={styles.heroText}>
-                <p className={styles.heroEyebrow}>For busy households</p>
+                <p className={styles.heroEyebrow}>For busy families</p>
                 <HeroHeadline />
                 <p className={styles.heroDeck}>
                   Your calendar tells you what you have to do. intori finds what your
-                  household would love to do, and adds it in one tap.
+                  family would love to do, and adds it in one tap.
                 </p>
                 <div className={styles.heroCtas}>
                   <AppCtas qrSvg={qrSvg} />
@@ -376,7 +376,7 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
             <div className={styles.container}>
               <nav className={styles.laneStrip} aria-label="What intori watches for">
                 {ALL_LANES.map((lane) => (
-                  <a key={lane.id} href={`#lane-${lane.id}`} className={`${styles.laneChip} ${lane.tint}`}>
+                  <a key={lane.id} href={`#${lane.id}`} className={`${styles.laneChip} ${lane.tint}`}>
                     <span className={styles.laneChipImg}>
                       <Image src={lane.image} alt="" fill sizes="40px" className={styles.todayArtImage} />
                     </span>
@@ -388,12 +388,12 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
             </div>
           </header>
 
-          <section id="lanes" className={styles.todaySection}>
+          <section id="what-it-watches" className={styles.todaySection}>
             <div className={styles.container}>
               <div className={styles.secHead}>
                 <h2 className={styles.secTitle}>Six things intori watches for</h2>
                 <p className={styles.secSub}>
-                  Turn on the ones your household enjoys. intori does the looking.
+                  Turn on the ones you enjoy. intori does the looking.
                 </p>
               </div>
 
@@ -456,7 +456,7 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
                 </p>
               </div>
               <p className={styles.wedgeBody}>
-                Family calendars keep the household running. They can&rsquo;t notice that
+                Family calendars keep the week running. They can&rsquo;t notice that
                 the library has story time Saturday, the park looks perfect Sunday, or your
                 team plays Thursday. intori does the noticing, and fills the open days.
               </p>
@@ -627,9 +627,9 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
               <h2 className={styles.convertTitle}>Your first pick is a few minutes away.</h2>
               <p className={styles.convertSub}>
                 {IOS_CHANNEL === 'appstore'
-                  ? <>Download intori, sign in with Apple, and choose what your household enjoys. intori takes it from there.</>
+                  ? <>Download intori, sign in with Apple, and choose what you enjoy. intori takes it from there.</>
                   : IOS_CHANNEL === 'beta'
-                    ? <>Join the iPhone beta, sign in with Apple, and choose what your household enjoys. intori takes it from there.</>
+                    ? <>Join the iPhone beta, sign in with Apple, and choose what you enjoy. intori takes it from there.</>
                     : <>intori works on the web today. The iPhone app is next, and the button below will say so the moment it&rsquo;s real.</>}
               </p>
               <div className={styles.convertCtas}>
@@ -637,7 +637,7 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
               </div>
               <p className={styles.convertNote}>
                 21 days free, starting when you finish setup. Then $8.99 a month or $59.99
-                a year. <a href="#pricing" className={styles.convertNoteLink}>See what a lapse does</a>.
+                a year. <a href="#pricing" className={styles.convertNoteLink}>See what happens if you stop paying</a>.
               </p>
             </div>
           </section>

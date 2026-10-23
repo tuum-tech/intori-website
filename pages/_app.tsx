@@ -52,7 +52,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, viewport-fit=cover"
         />
-        <meta name="keywords" content="intori, busy households, family outings, things to do with kids, parks and playgrounds, game day, live music events, what to watch, family calendar"/>
+        <meta name="keywords" content="intori, busy families, family outings, things to do with kids, parks and playgrounds, game day, live music events, what to watch, family calendar"/>
         <meta name="author" content="Tuum Tech"/>
       </Head>
       <SeoHead canonicalPath="/" />

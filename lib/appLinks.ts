@@ -4,35 +4,51 @@
 // mini-app is a secondary path; the Farcaster frame is legacy/test only.
 export const APP_URL = 'https://app.intori.co'
 
-// iPhone beta destination (TestFlight or invite link). Superseded by
-// IOS_APP_STORE_URL once the App Store listing is live, but kept so the beta
-// can stay staged independently and so an unset App Store var never silently
-// drops an already-working TestFlight link.
-export const IOS_BETA_URL = process.env.NEXT_PUBLIC_IOS_BETA_URL ?? ''
-
-// Public App Store listing. Takes precedence over the beta link: once this is
-// set the iPhone CTA reads "Download on the App Store" everywhere it appears.
-export const IOS_APP_STORE_URL = process.env.NEXT_PUBLIC_IOS_APP_STORE_URL ?? ''
-
-// The single iPhone destination the CTAs and the FAQ both read, so the two
-// surfaces cannot disagree about whether iOS is available or what it is called.
+// App Store
 //
-//   'appstore' -> primary button, "Download on the App Store"
-//   'beta'     -> primary button, "Join the iPhone beta"
-//   'none'     -> quiet non-clickable "iPhone app coming soon" chip
+// FILL FROM APP STORE CONNECT BEFORE MERGING. These two constants are the only
+// place either value lives. Every App Store link on the site, the desktop QR
+// code and the Smart App Banner are built from them.
 //
-// Staged entirely by configuration. No code change required to promote either.
-export type IosChannel = 'appstore' | 'beta' | 'none'
+//   APP_STORE_ID                  App Store Connect > App Information > Apple ID
+//                                 (the number after "id" in the listing's URL).
+//                                 Filled: 6801558369 is intori's. The listing
+//                                 is not live until Apple releases the build.
+//   APP_ANALYTICS_PROVIDER_TOKEN  App Store Connect > App Analytics > Campaigns
+//                                 > Generate Campaign Link, the "pt" value. It
+//                                 lets App Analytics attribute installs to this
+//                                 website. "000000" is a PLACEHOLDER: replace it.
+export const APP_STORE_ID = '6801558369'
+export const APP_ANALYTICS_PROVIDER_TOKEN = '000000'
 
-export const IOS_CHANNEL: IosChannel = IOS_APP_STORE_URL
-  ? 'appstore'
-  : IOS_BETA_URL
-    ? 'beta'
-    : 'none'
+// One "ct" campaign token per surface, so App Analytics can tell a hero tap
+// from a footer tap from a FAQ tap.
+export type AppStoreSurface =
+  | 'website' // homepage buttons (hero and the closing section)
+  | 'website-header' // "Get the app" in the site header
+  | 'website-qr' // the desktop QR code beside the hero button
+  | 'website-footer' // the footer link
+  | 'faq' // the FAQ answer
 
-export const IOS_URL = IOS_APP_STORE_URL || IOS_BETA_URL
+export function appStoreUrl(ct: AppStoreSurface = 'website'): string {
+  return `https://apps.apple.com/us/app/intori/id${APP_STORE_ID}?pt=${APP_ANALYTICS_PROVIDER_TOKEN}&ct=${ct}&mt=8`
+}
 
-// Homepage headline variant, staged the same way as IOS_BETA_URL.
+// The single iPhone switch that the homepage buttons, the header, the footer,
+// the FAQ, the QR code and the Smart App Banner all read, so no two surfaces
+// can disagree about whether iPhone is available.
+//
+//   'appstore' -> "Download on the App Store" leads, every iPhone link opens
+//                 the listing, and Safari on iPhone shows the Smart App Banner
+//   'none'     -> the web app leads, iPhone is a quiet non-clickable
+//                 "coming soon" chip, and no App Store link renders anywhere
+//
+// Release day, 2026-10: flipped to 'appstore'. 'none' stays as the kill switch.
+export type IosChannel = 'appstore' | 'none'
+
+export const IOS_CHANNEL: IosChannel = 'appstore'
+
+// Homepage headline variant, staged by configuration.
 //
 // 'forward' (the default) ships the locked tagline, "Something to look forward
 // to." On its own that line makes no cadence promise, so it carries no supply

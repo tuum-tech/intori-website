@@ -44,6 +44,18 @@ const FaqPage: NextPage = () => {
                           ))}
                         </ul>
                       )}
+                      {item.link && (
+                        <p className={styles.faqAction}>
+                          <a
+                            href={item.link.href}
+                            className={styles.faqLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {item.link.label}
+                          </a>
+                        </p>
+                      )}
                     </div>
                   </details>
                 ))}

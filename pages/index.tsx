@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { getSession } from "next-auth/react"
 import { MarketingFooter, MarketingHeader } from '@/components/MarketingChrome'
 import { SeoHead } from '@/lib/seo'
-import { APP_URL, HERO_VARIANT, IOS_CHANNEL, IOS_URL } from '@/lib/appLinks'
+import { APP_URL, HERO_VARIANT, IOS_CHANNEL, appStoreUrl } from '@/lib/appLinks'
 import { appStoreQrSvg } from '@/lib/appStoreQr'
 
 import styles from './index.module.css'
@@ -180,7 +180,6 @@ const INCLUDES = [
 // Staged iOS CTA, driven entirely by IOS_CHANNEL in lib/appLinks.ts.
 //
 //   'appstore' -> "Download on the App Store" is primary, the web is a quiet link
-//   'beta'     -> "Join the iPhone beta" is primary, the web is a quiet link
 //   'none'     -> web is primary, iPhone is a quiet non-clickable status chip
 //
 // iPhone leads because the launch promise lives there: Sign in with Apple, one
@@ -188,17 +187,17 @@ const INCLUDES = [
 // link away for anyone on Android or a laptop, and on desktop a QR code sits
 // beside the button, since the button alone cannot install anything there.
 function AppCtas({ qrSvg }: { qrSvg?: string | null }) {
-  if (IOS_CHANNEL !== 'none') {
+  if (IOS_CHANNEL === 'appstore') {
     return (
       <div className={styles.ctaStack}>
         <div className={styles.ctaRow}>
           <a
-            href={IOS_URL}
+            href={appStoreUrl('website')}
             className={styles.btnPrimary}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {IOS_CHANNEL === 'appstore' ? 'Download on the App Store' : 'Join the iPhone beta'}
+            Download on the App Store
           </a>
           {qrSvg && (
             <div className={styles.qr}>
@@ -628,9 +627,7 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
               <p className={styles.convertSub}>
                 {IOS_CHANNEL === 'appstore'
                   ? <>Download intori, sign in with Apple, and choose what your household enjoys. intori takes it from there.</>
-                  : IOS_CHANNEL === 'beta'
-                    ? <>Join the iPhone beta, sign in with Apple, and choose what your household enjoys. intori takes it from there.</>
-                    : <>intori works on the web today. The iPhone app is next, and the button below will say so the moment it&rsquo;s real.</>}
+                  : <>intori works on the web today. The iPhone app is next, and the button below will say so the moment it&rsquo;s real.</>}
               </p>
               <div className={styles.convertCtas}>
                 <AppCtas qrSvg={qrSvg} />

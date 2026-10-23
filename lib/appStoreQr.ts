@@ -1,6 +1,6 @@
 import QRCode from 'qrcode'
 
-import { IOS_URL } from './appLinks'
+import { IOS_CHANNEL, appStoreUrl } from './appLinks'
 
 // A scannable code for the iPhone destination, shown beside the App Store
 // button on desktop, where the button alone cannot install anything. Built on
@@ -11,8 +11,8 @@ import { IOS_URL } from './appLinks'
 let cached: Promise<string | null> | null = null
 
 export function appStoreQrSvg(): Promise<string | null> {
-  if (!IOS_URL) return Promise.resolve(null)
-  cached ??= QRCode.toString(IOS_URL, {
+  if (IOS_CHANNEL !== 'appstore') return Promise.resolve(null)
+  cached ??= QRCode.toString(appStoreUrl('website-qr'), {
     type: 'svg',
     margin: 0,
     errorCorrectionLevel: 'M',

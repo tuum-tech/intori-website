@@ -1,46 +1,46 @@
-import { IOS_CHANNEL } from './appLinks'
+import { IOS_CHANNEL, appStoreUrl } from './appLinks'
 
 export type FaqItem = {
   question: string
   answer: string[]
   bullets?: string[]
+  // An optional button under the answer, for the one answer that has somewhere
+  // to send people (the App Store listing).
+  link?: { href: string; label: string }
 }
 
-// The iPhone answers read the same config as the homepage CTAs, so the FAQ
+// The iPhone answers read the same switch as the homepage CTAs, so the FAQ
 // cannot claim iOS is available before it is, or keep saying "coming soon"
-// after it ships. Setting NEXT_PUBLIC_IOS_APP_STORE_URL (or the older
-// NEXT_PUBLIC_IOS_BETA_URL) updates both surfaces at once, with no copy change.
+// after it ships. IOS_CHANNEL in lib/appLinks.ts updates both surfaces at
+// once, with no copy change.
 const WHERE_TO_USE_ANSWER =
   IOS_CHANNEL === 'appstore'
     ? [
         "intori is on the App Store for iPhone, and that is the best way to use it: Sign in with Apple, one tap to your calendar, and reminders on your lock screen.",
         "It also works in any browser at app.intori.co, and in the World App. Sign in with the same account and intori already knows you, whichever one you open.",
       ]
-    : IOS_CHANNEL === 'beta'
-      ? [
-          "The iPhone beta is open, and it is the best way to use intori: Sign in with Apple, one tap to your calendar, and reminders on your lock screen.",
-          "intori also works in any browser at app.intori.co, and in the World App. Sign in with the same account and intori already knows you, whichever one you open.",
-        ]
-      : [
-          "intori works in any browser at app.intori.co, and in the World App. An iPhone app is coming soon.",
-          "Sign in with the same account and intori already knows you, whichever one you open.",
-        ]
+    : [
+        "intori works in any browser at app.intori.co, and in the World App. An iPhone app is coming soon.",
+        "Sign in with the same account and intori already knows you, whichever one you open.",
+      ]
 
 const IPHONE_ANSWER =
   IOS_CHANNEL === 'appstore'
     ? [
-        "Yes. intori is on the App Store, and you can download it from the homepage.",
+        "Yes. intori is on the App Store for iPhone.",
         "intori also works on the web at app.intori.co, with no install needed.",
       ]
-    : IOS_CHANNEL === 'beta'
-      ? [
-          "The iPhone beta is open, and you can join it from the homepage.",
-          "intori also works on the web at app.intori.co, with no install needed.",
-        ]
-      : [
-          "Not yet. An iPhone app is coming soon, and the homepage will say so the moment it is live.",
-          "intori works on the web today at app.intori.co, with no install needed.",
-        ]
+    : [
+        "Not yet. An iPhone app is coming soon, and the homepage will say so the moment it is live.",
+        "intori works on the web today at app.intori.co, with no install needed.",
+      ]
+
+// The App Store button under that answer. Its own campaign token, so App
+// Analytics can count installs that started on the FAQ.
+const IPHONE_LINK =
+  IOS_CHANNEL === 'appstore'
+    ? { href: appStoreUrl('faq'), label: 'Download on the App Store' }
+    : undefined
 
 export const FAQ: FaqItem[] = [
   {
@@ -135,7 +135,8 @@ export const FAQ: FaqItem[] = [
   },
   {
     question: "Is there an iPhone app?",
-    answer: IPHONE_ANSWER
+    answer: IPHONE_ANSWER,
+    link: IPHONE_LINK
   },
   {
     question: "What does intori cost?",

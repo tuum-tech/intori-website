@@ -1063,6 +1063,31 @@
   line-height: 1.55;
 }
 
+/* The App Store button under "Is there an iPhone app?". A text button in the
+   footer's shape, since Apple's badge artwork is not in the repo. */
+.faqAnswer .faqAction {
+  margin-top: 16px;
+}
+
+.faqLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 18px;
+  border-radius: var(--radius-pill);
+  background: var(--ink);
+  color: var(--ground);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.faqLink:hover {
+  background: var(--ink-hover);
+}
+
 /* ─── Responsive ──────────────────────────────────────── */
 
 @media (max-width: 900px) {

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import styles from './styles.module.css'
-import { APP_URL, IOS_CHANNEL, IOS_URL, WORLD_APP_URL } from '@/lib/appLinks'
+import { APP_URL, IOS_CHANNEL, WORLD_APP_URL, appStoreUrl } from '@/lib/appLinks'
 
 export function WorldIcon({ size = 17 }: { size?: number }) {
   return (
@@ -36,7 +36,7 @@ export function MarketingHeader() {
             {/* Same destination as the homepage's primary button: the iPhone app
                 once IOS_CHANNEL has one, the web app until then. */}
             <a
-              href={IOS_CHANNEL === 'none' ? APP_URL : IOS_URL}
+              href={IOS_CHANNEL === 'appstore' ? appStoreUrl('website-header') : APP_URL}
               className={styles.ctaPrimary}
               target="_blank"
               rel="noopener noreferrer"
@@ -85,7 +85,7 @@ export function MarketingFooter() {
               page depends on an asset that is not in the repo. */}
           {IOS_CHANNEL === 'appstore' && (
             <a
-              href={IOS_URL}
+              href={appStoreUrl('website-footer')}
               className={styles.footerBadge}
               target="_blank"
               rel="noopener noreferrer"

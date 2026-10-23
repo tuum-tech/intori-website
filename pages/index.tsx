@@ -4,8 +4,8 @@ import Link from 'next/link'
 import { getSession } from "next-auth/react"
 import { MarketingFooter, MarketingHeader } from '@/components/MarketingChrome'
 import { SeoHead } from '@/lib/seo'
-import { APP_URL, HERO_VARIANT, IOS_CHANNEL, IOS_URL } from '@/lib/appLinks'
-import { appStoreQrSvg } from '@/lib/appStoreQr'
+import { APP_STORE_BADGE, APP_STORE_BADGE_ALT, APP_URL, HERO_VARIANT, IOS_CHANNEL, appStoreUrl } from '@/lib/appLinks'
+import { appStoreQr, type AppStoreQr } from '@/lib/appStoreQr'
 
 import styles from './index.module.css'
 
@@ -39,8 +39,8 @@ export const getServerSideProps = (async (context) => {
     }
   }
 
-  return { props: { qrSvg: await appStoreQrSvg(), trialEnds: trialSampleLabel() } }
-}) satisfies GetServerSideProps<{ qrSvg: string | null; trialEnds: string }>
+  return { props: { qr: await appStoreQr(), trialEnds: trialSampleLabel() } }
+}) satisfies GetServerSideProps<{ qr: AppStoreQr | null; trialEnds: string }>
 
 // App screens are unedited Build 25 captures from the App Store storefront
 // package (Oct 16 2026): the same Raleigh, NC test household on every
@@ -102,7 +102,7 @@ const FOLLOWED: Lane[] = [
     id: 'sports',
     kicker: 'Sports',
     title: 'Every game worth watching.',
-    body: 'Follow your team and add the season in one tap. Where to watch, and scores hidden until you are ready.',
+    body: 'Follow your team and put the season on your calendar. Where to watch, and scores hidden until you are ready.',
     image: '/brand/lanes/sports-game-day-family.jpg',
     alt: 'A mother and her son leaping with a foam finger and a ball against an orange backdrop',
     tint: styles.artSports,
@@ -145,7 +145,7 @@ const STEPS = [
   },
   {
     title: 'Keep the dates you choose.',
-    body: 'Games, shows and dated outings go on your iPhone’s calendar in one tap. For a flexible day, Hold the day keeps it in intori until you choose a time. Want a reminder? intori sends one the day before.',
+    body: 'Games, shows and dated outings go straight on your iPhone’s calendar. For a flexible day, Hold the day keeps it in intori until you choose a time. Want a reminder? intori sends one the day before.',
     image: '/brand/app-b25/06-calendar.jpg',
     alt: 'intori confirming Lenoir Street Park playground is on your calendar for Sunday, October 18 at 2:00 PM in Apple Calendar, with a reminder the day before turned on',
   },
@@ -172,41 +172,43 @@ const WHY_CARDS = [
 
 const INCLUDES = [
   'Up to five fresh picks a day, across all six interests',
-  'One-tap adds to your calendar, with a reminder when you want one',
+  'The picks you add go on your calendar, with a reminder when you want one',
   'Alerts when a team, show, or artist you follow gets a new date',
   'No ads, ever',
 ]
 
 // Staged iOS CTA, driven entirely by IOS_CHANNEL in lib/appLinks.ts.
 //
-//   'appstore' -> "Download on the App Store" is primary, the web is a quiet link
-//   'beta'     -> "Join the iPhone beta" is primary, the web is a quiet link
+//   'appstore' -> Apple's "Download on the App Store" badge is primary, the web is a quiet link
 //   'none'     -> web is primary, iPhone is a quiet non-clickable status chip
 //
 // iPhone leads because the launch promise lives there: Sign in with Apple, one
 // tap to Apple Calendar, and reminders on the lock screen. The web stays one
 // link away for anyone on Android or a laptop, and on desktop a QR code sits
-// beside the button, since the button alone cannot install anything there.
-function AppCtas({ qrSvg }: { qrSvg?: string | null }) {
-  if (IOS_CHANNEL !== 'none') {
+// beside the badge, since the badge alone cannot install anything there. The
+// code is ink straight on the cream, its ink the same height as the badge; the
+// SVG's own quiet zone is pulled out of the layout by --qr-scale (see .qrCode).
+function AppCtas({ qr }: { qr?: AppStoreQr | null }) {
+  if (IOS_CHANNEL === 'appstore') {
     return (
       <div className={styles.ctaStack}>
         <div className={styles.ctaRow}>
           <a
-            href={IOS_URL}
-            className={styles.btnPrimary}
+            href={appStoreUrl('website')}
+            className={styles.badgeLink}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {IOS_CHANNEL === 'appstore' ? 'Download on the App Store' : 'Join the iPhone beta'}
+            <Image src={APP_STORE_BADGE} alt={APP_STORE_BADGE_ALT} width={120} height={40} />
           </a>
-          {qrSvg && (
+          {qr && (
             <div className={styles.qr}>
               <span
                 className={styles.qrCode}
+                style={{ '--qr-scale': qr.scale } as React.CSSProperties}
                 role="img"
                 aria-label="QR code that opens intori on your iPhone"
-                dangerouslySetInnerHTML={{ __html: qrSvg }}
+                dangerouslySetInnerHTML={{ __html: qr.svg }}
               />
               <span className={styles.qrLabel}>Scan with your iPhone camera</span>
             </div>
@@ -318,12 +320,12 @@ function LaneCard({ lane }: { lane: Lane }) {
   )
 }
 
-export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function HomePage({ qr, trialEnds }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <>
       <SeoHead
         title="intori. Something to look forward to."
-        description="Your calendar tells you what you have to do. intori finds what your household would love to do, from story time and good park hours to the big game, a show coming back, or an artist playing nearby, and adds it to your calendar in one tap."
+        description="Your calendar tells you what you have to do. intori finds what your household would love to do, from story time and good park hours to the big game, a show coming back, or an artist playing nearby, and puts it on your calendar."
         canonicalPath="/"
         ogDescription="Your calendar tells you what you have to do. intori gives you something to look forward to."
         ogImageAlt="intori card reading Something to look forward to, with tiles for Outings, Outdoors, Sports, Shows, Music and Food"
@@ -341,10 +343,10 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
                 <HeroHeadline />
                 <p className={styles.heroDeck}>
                   Your calendar tells you what you have to do. intori finds what your
-                  household would love to do, and adds it in one tap.
+                  household would love to do, and puts it on your calendar.
                 </p>
                 <div className={styles.heroCtas}>
-                  <AppCtas qrSvg={qrSvg} />
+                  <AppCtas qr={qr} />
                 </div>
                 <p className={styles.heroTrust}>
                   <strong>21 days free, no card needed.</strong> No ads, and nothing sold about your family.
@@ -628,12 +630,10 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
               <p className={styles.convertSub}>
                 {IOS_CHANNEL === 'appstore'
                   ? <>Download intori, sign in with Apple, and choose what your household enjoys. intori takes it from there.</>
-                  : IOS_CHANNEL === 'beta'
-                    ? <>Join the iPhone beta, sign in with Apple, and choose what your household enjoys. intori takes it from there.</>
-                    : <>intori works on the web today. The iPhone app is next, and the button below will say so the moment it&rsquo;s real.</>}
+                  : <>intori works on the web today. The iPhone app is next, and the button below will say so the moment it&rsquo;s real.</>}
               </p>
               <div className={styles.convertCtas}>
-                <AppCtas qrSvg={qrSvg} />
+                <AppCtas qr={qr} />
               </div>
               <p className={styles.convertNote}>
                 21 days free, starting when you finish setup. Then $8.99 a month or $59.99

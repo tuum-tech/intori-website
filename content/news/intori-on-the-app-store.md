@@ -7,7 +7,7 @@ slug: "intori-on-the-app-store"
 heroImage: "/og/og-forward-v7.jpg"
 # Launch post. Publish the day the App Store listing goes live: set the date,
 # then flip published to true. The body names no App Store URL on purpose; the
-# header's button follows NEXT_PUBLIC_IOS_APP_STORE_URL like every other CTA.
+# header's button follows IOS_CHANNEL in lib/appLinks.ts like every other CTA.
 published: false
 tags:
   - "Launch"
@@ -31,7 +31,7 @@ Tell intori what your household loves, once. Then it keeps watch, so you don't h
 
 What intori finds near you depends on your area. The [Sources](/sources) page lists who it reads.
 
-## One tap to your calendar
+## On your calendar
 
 A game, a show or a dated outing has one button: Add to calendar. Tap it, and the date is on your iPhone's calendar. A flexible day, like good hours at the park, has Hold the day, which keeps it in intori until you choose a time. intori adds only the dates you choose and never reads your other events. Want a nudge? Turn on a reminder: the day before a game or a show, two days before a concert.
 

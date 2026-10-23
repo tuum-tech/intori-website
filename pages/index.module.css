@@ -89,6 +89,35 @@
   border-color: var(--ink-faint);
 }
 
+/* Apple's "Download on the App Store" badge, used as-is: at least 40px tall,
+   never stretched (height set, width auto, so the SVG keeps its own ratio),
+   never recolored or outlined, and with clear space of at least a quarter of
+   its height on every side. The flex gaps around it (16-18px in the CTA stack,
+   16px above it in the FAQ card) are wider than that quarter. */
+.badgeLink {
+  display: inline-flex;
+  flex: none;
+  line-height: 0;
+}
+
+.badgeLink img {
+  display: block;
+  height: 54px;
+  width: auto;
+}
+
+.badgeLinkSmall img {
+  height: 48px;
+}
+
+/* Desktop: the CTA badge rises to 64px to match the QR code beside it (Apple's
+   minimum is 40px). The FAQ (48px) and footer (40px) badges are unchanged. */
+@media (min-width: 901px) {
+  .ctaRow .badgeLink img {
+    height: 64px;
+  }
+}
+
 /* Quiet status chip: intentionally not a button, must not look clickable. */
 .chipQuiet {
   display: inline-flex;
@@ -209,21 +238,24 @@
   text-decoration-color: var(--ink);
 }
 
-/* Desktop only: a phone camera can install from here, the button cannot. */
+/* Desktop only: a phone camera can install from here, the badge cannot. Ink
+   modules straight on the cream: no card, no border, no padding. */
 .qr {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 8px 16px 8px 8px;
-  border: 1px solid var(--hairline);
-  border-radius: 16px;
-  background: var(--card);
+  gap: 14px;
 }
 
+/* The SVG carries its own 4-module quiet zone, so the box is --qr-scale times
+   the ink. The negative margin pulls that quiet zone out of the layout: the ink
+   is exactly --qr-size tall, level with the badge beside it, and the quiet zone
+   is transparent cream around it. */
 .qrCode {
+  --qr-size: 64px;
   display: block;
-  width: 60px;
-  height: 60px;
+  width: calc(var(--qr-size) * var(--qr-scale, 1));
+  height: calc(var(--qr-size) * var(--qr-scale, 1));
+  margin: calc(var(--qr-size) * (1 - var(--qr-scale, 1)) / 2);
 }
 
 .qrCode svg {
@@ -1061,6 +1093,31 @@
   color: var(--ink-soft);
   font-size: 14px;
   line-height: 1.55;
+}
+
+/* The App Store badge under "Is there an iPhone app?". .faqLink is the text
+   fallback for an FAQ link that has no badge artwork. */
+.faqAnswer .faqAction {
+  margin-top: 16px;
+}
+
+.faqLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 18px;
+  border-radius: var(--radius-pill);
+  background: var(--ink);
+  color: var(--ground);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.faqLink:hover {
+  background: var(--ink-hover);
 }
 
 /* ─── Responsive ──────────────────────────────────────── */

@@ -17,7 +17,7 @@ export type FaqItem = {
 const WHERE_TO_USE_ANSWER =
   IOS_CHANNEL === 'appstore'
     ? [
-        "intori is on the App Store for iPhone, and that is the best way to use it: Sign in with Apple, one tap to your calendar, and reminders on your lock screen.",
+        "intori is on the App Store for iPhone, and that is the best way to use it: Sign in with Apple, picks that go on your calendar, and reminders on your lock screen.",
         "It also works in any browser at app.intori.co, and in the World App. Sign in with the same account and intori already knows you, whichever one you open.",
       ]
     : [
@@ -48,7 +48,7 @@ export const FAQ: FaqItem[] = [
     question: "What is intori?",
     answer: [
       "Your calendar tells you what you have to do. intori gives you something to look forward to.",
-      "Tell it what your household loves: outings near you, time outside, your teams, your shows, the artists you would go see, the food you like. intori watches local events, the forecast, schedules, premieres, and tour dates for you, brings you up to five picks a day, and adds the ones you want to your calendar in one tap."
+      "Tell it what your household loves: outings near you, time outside, your teams, your shows, the artists you would go see, the food you like. intori watches local events, the forecast, schedules, premieres, and tour dates for you, brings you up to five picks a day, and puts the ones you want on your calendar."
     ]
   },
   {
@@ -151,7 +151,7 @@ export const FAQ: FaqItem[] = [
     question: "What do I get for my subscription?",
     answer: [
       "intori watching what your household follows, all year: every game, every new season, every tour date near you.",
-      "Up to five fresh picks a day, one-tap adds to your calendar, reminders when you want them, and alerts when something you follow gets a new date. No ads, ever. You are the customer, so intori is built to be useful, not to keep you scrolling."
+      "Up to five fresh picks a day, the ones you want on your calendar, reminders when you want them, and alerts when something you follow gets a new date. No ads, ever. You are the customer, so intori is built to be useful, not to keep you scrolling."
     ]
   },
   {

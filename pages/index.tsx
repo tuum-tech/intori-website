@@ -102,7 +102,7 @@ const FOLLOWED: Lane[] = [
     id: 'sports',
     kicker: 'Sports',
     title: 'Every game worth watching.',
-    body: 'Follow your team and add the season in one tap. Where to watch, and scores hidden until you are ready.',
+    body: 'Follow your team and put the season on your calendar. Where to watch, and scores hidden until you are ready.',
     image: '/brand/lanes/sports-game-day-family.jpg',
     alt: 'A mother and her son leaping with a foam finger and a ball against an orange backdrop',
     tint: styles.artSports,
@@ -145,7 +145,7 @@ const STEPS = [
   },
   {
     title: 'Keep the dates you choose.',
-    body: 'Games, shows and dated outings go on your iPhone’s calendar in one tap. For a flexible day, Hold the day keeps it in intori until you choose a time. Want a reminder? intori sends one the day before.',
+    body: 'Games, shows and dated outings go straight on your iPhone’s calendar. For a flexible day, Hold the day keeps it in intori until you choose a time. Want a reminder? intori sends one the day before.',
     image: '/brand/app-b25/06-calendar.jpg',
     alt: 'intori confirming Lenoir Street Park playground is on your calendar for Sunday, October 18 at 2:00 PM in Apple Calendar, with a reminder the day before turned on',
   },
@@ -172,7 +172,7 @@ const WHY_CARDS = [
 
 const INCLUDES = [
   'Up to five fresh picks a day, across all six interests',
-  'One-tap adds to your calendar, with a reminder when you want one',
+  'The picks you add go on your calendar, with a reminder when you want one',
   'Alerts when a team, show, or artist you follow gets a new date',
   'No ads, ever',
 ]
@@ -322,7 +322,7 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
     <>
       <SeoHead
         title="intori. Something to look forward to."
-        description="Your calendar tells you what you have to do. intori finds what your household would love to do, from story time and good park hours to the big game, a show coming back, or an artist playing nearby, and adds it to your calendar in one tap."
+        description="Your calendar tells you what you have to do. intori finds what your household would love to do, from story time and good park hours to the big game, a show coming back, or an artist playing nearby, and puts it on your calendar."
         canonicalPath="/"
         ogDescription="Your calendar tells you what you have to do. intori gives you something to look forward to."
         ogImageAlt="intori card reading Something to look forward to, with tiles for Outings, Outdoors, Sports, Shows, Music and Food"
@@ -340,7 +340,7 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
                 <HeroHeadline />
                 <p className={styles.heroDeck}>
                   Your calendar tells you what you have to do. intori finds what your
-                  household would love to do, and adds it in one tap.
+                  household would love to do, and puts it on your calendar.
                 </p>
                 <div className={styles.heroCtas}>
                   <AppCtas qrSvg={qrSvg} />

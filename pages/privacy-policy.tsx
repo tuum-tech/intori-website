@@ -23,7 +23,7 @@ const Privacy: NextPage = () => {
 
       <h2>What changed in this update</h2>
       <p>
-        This update adds a Meta ads section: what we send Meta when someone who arrived from a Facebook or Instagram ad signs up on the web, starts a trial, or subscribes, what we never send, that none of it runs inside the iPhone app, and how to turn it off. Our Apple Ads and campaign-link attribution practices are unchanged.
+        This update adds a Meta ads section: what we send Meta when someone who arrived from a Facebook or Instagram ad signs up on the web or starts a trial there, what we never send, that none of it runs inside the iPhone app, and how to turn it off. Our Apple Ads and campaign-link attribution practices are unchanged.
       </p>
 
       <h2>Who we are</h2>
@@ -93,10 +93,10 @@ const Privacy: NextPage = () => {
 
       <h3>Meta ads</h3>
       <p>
-        intori advertises on Facebook and Instagram, which Meta runs. When you arrive at intori on the web from one of those ads, the link carries a Meta click id, and Meta&apos;s pixel on our web pages sets a browser id in a cookie. On the web pages where the pixel runs, Meta learns that a page was viewed, with its address, your IP address, and your browser type, the way any Meta pixel does. If you create an account soon after arriving, we keep the click id and the browser id with your new account, in the same place as a campaign tag. If you then start a free trial or buy a subscription, we tell Meta that a sign-up, a trial start, or a purchase happened, with the click id, the browser id, the IP address and browser type of the request that made it, and for a purchase the amount paid. That is all we send. We do not send your name, email address, or phone number, in plain or hashed form, and we do not send what you do inside intori.
+        intori advertises on Facebook and Instagram, which Meta runs. When you arrive at intori on the web from one of those ads, the link carries a Meta click id, and Meta&apos;s pixel on our web pages sets a browser id in a cookie. On the web pages where the pixel runs, Meta learns that a page was viewed, with its address, your IP address, and your browser type, the way any Meta pixel does. If you create an account soon after arriving, we keep the click id and the browser id with your new account, in the same place as a campaign tag. When you sign up, and when your free trial starts, we tell Meta that a sign-up or a trial start happened, with the click id, the browser id, and the IP address and browser type of the request that made it. That is all we send. We do not tell Meta about purchases or subscriptions. We do not send your name, email address, or phone number, in plain or hashed form, and we do not send what you do inside intori.
       </p>
       <p>
-        Meta uses this to tell which of its ads bring families who sign up, so that we can stop paying for ads that do not. The pixel never runs inside the iPhone app, which loads the same web pages, and never on our internal pages. If your browser sends the Global Privacy Control signal, the pixel does not load and we keep nothing and send nothing to Meta about you. We keep the ids only for accounts that arrived from a Meta link; every other account has none, and nothing about those accounts goes to Meta.
+        Meta uses this to tell which of its ads bring families who sign up, so that we can stop paying for ads that do not. All of this happens on the web, in a browser. The pixel never runs inside the iPhone app, which loads the same web pages, and never on our internal pages, and nothing you do inside the iPhone app is ever sent to Meta, even if your account first arrived from a Meta ad. If your browser sends the Global Privacy Control signal, the pixel does not load and we keep nothing and send nothing to Meta about you. We keep the ids only for accounts that arrived from a Meta link; every other account has none, and nothing about those accounts goes to Meta.
       </p>
       <p>
         The ids follow the same deletion rules as Apple Ads attribution and campaign tags: they are deleted with your account, and 13 months after we record them we delete them from your account and keep only totals that are not tied to anyone. To have them removed sooner, email <a href="mailto:contact@intori.com">contact@intori.com</a> from the address on your account, and we will delete them and send nothing further about your account to Meta. Meta&apos;s handling of what it receives is governed by the <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noreferrer">Meta Privacy Policy</a>.
@@ -340,7 +340,7 @@ const Privacy: NextPage = () => {
 
       <h2>Selling or sharing for advertising</h2>
       <p>
-        We do not sell or rent your personal information. Apart from the Meta ads measurement described above, we do not share personal information for cross-context behavioral advertising. Depending on the law where you live, telling Meta about a sign-up, trial start, or purchase may count as sharing for advertising; you can turn it off for your browser with Global Privacy Control, which we honor, or ask us to remove the ids at any time. We do not sell, rent, or share your declared dietary and health-adjacent information for any advertising purpose, and we do not use it to target ads to you. If any of this changes, we will update this policy and provide any required choices.
+        We do not sell or rent your personal information. Apart from the Meta ads measurement described above, we do not share personal information for cross-context behavioral advertising. Depending on the law where you live, telling Meta about a sign-up or trial start may count as sharing for advertising; you can turn it off for your browser with Global Privacy Control, which we honor, or ask us to remove the ids at any time. We do not sell, rent, or share your declared dietary and health-adjacent information for any advertising purpose, and we do not use it to target ads to you. If any of this changes, we will update this policy and provide any required choices.
       </p>
 
       <h2>Your controls and choices</h2>

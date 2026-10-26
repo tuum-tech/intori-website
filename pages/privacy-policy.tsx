@@ -15,7 +15,7 @@ const Privacy: NextPage = () => {
 
       <LegalLayout>
         <h1>intori Privacy Policy</h1>
-        <p><strong>Last Updated: October 23, 2026</strong></p>
+        <p><strong>Last Updated: October 26, 2026</strong></p>
 
       <p>
         This policy covers the intori website and the intori mobile app. There is one policy for both.
@@ -365,7 +365,7 @@ const Privacy: NextPage = () => {
         You can delete your intori account yourself. Open the You tab, then Settings and data, and choose Delete your account. What intori knows also links to Settings and data. For help with deletion, email <a href="mailto:hello@intori.com">hello@intori.com</a>.
       </p>
       <p>
-        Deleting your account removes your answers, declared preferences, declared dietary constraints, local context, results, and connected app grants, except for records we must keep for legal, accounting, security, or fraud-prevention reasons. If you signed in with Apple, we ask Apple to revoke your Sign in with Apple token. If Apple is temporarily unavailable, your intori account deletion still proceeds and intori removes its stored Apple credentials.
+        Deleting your account removes your answers, declared preferences, declared dietary constraints, local context, results, and connected app grants, except for records we must keep for legal, accounting, security, or fraud-prevention reasons. If you signed in with Apple, we ask Apple to revoke your Sign in with Apple token. If Apple is temporarily unavailable, your intori account deletion still proceeds and intori removes its stored Apple credentials. So that the free trial is one per person, we keep one thing after deletion: a one-way code made from how you signed in (your email address with any +tag removed and, for Gmail, its dots, or your Apple, World or Farcaster sign-in), with the dates your free trial started and ended. The code is not your email address, cannot be turned back into it, and is not linked to anything else about you. We use it only to tell whether a new account belongs to someone who already had the free trial.
       </p>
       <p>
         Deletion is permanent. We cannot restore a deleted account. Deleting your intori account does not cancel an App Store subscription. Cancel that separately in your Apple account subscription settings.
@@ -387,7 +387,7 @@ const Privacy: NextPage = () => {
         Session cookies are intended to expire after a limited period. Ad attribution, campaign tags, and Meta click and browser ids kept on an account are deleted 13 months after we record them, and only totals that are not tied to anyone remain. Partner grants may expire or be revoked. Payment, subscription, and transaction records may be retained for accounting, fraud prevention, charge dispute, tax, and legal reasons. Profile, answer, declared constraint, consent, AI result, receipt, and derived records are kept until you delete them, delete your account, or request deletion. Turning off a topic consent changes what intori may ask you next. It does not by itself delete result context that already exists.
       </p>
       <p>
-        First-party transport observations from our current measurement system are normally removed after 90 days. Daily maintenance is bounded, so a backlog may take additional time to clear. Account-owned activity, action and replay records are removed when you delete your account. Anonymous aggregate statistics may remain after deletion. Financial transaction references may remain for accounting, disputes and replay prevention; we do not use them to recognize a deleted account or decide whether a new account can start a trial. Older operational and security records follow the purpose-based retention described above, not an automatic 90-day rule.
+        First-party transport observations from our current measurement system are normally removed after 90 days. Daily maintenance is bounded, so a backlog may take additional time to clear. Account-owned activity, action and replay records are removed when you delete your account. Anonymous aggregate statistics may remain after deletion. Financial transaction references may remain for accounting, disputes and replay prevention; we do not use them to recognize a deleted account or decide whether a new account can start a trial. Only the one-way trial code described above is used for that. Older operational and security records follow the purpose-based retention described above, not an automatic 90-day rule.
       </p>
 
       <h2>Security</h2>

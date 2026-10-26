@@ -1,6 +1,25 @@
 import type { GetServerSideProps } from 'next'
 import { getAllPosts } from '@/lib/news'
+import { PICKS_BASE_PATH, type PicksUrlEntry, collectIndexablePicksUrls } from '@/lib/publicPicks'
 import { SITE_URL } from '@/lib/seo'
+
+// The picks pages come from the app's endpoint. A short read keeps the
+// sitemap fast; if the endpoint is down, the static routes and the picks hub
+// still render.
+const PICKS_SITEMAP_TIMEOUT_MS = 4_000
+
+async function picksEntries(today: string): Promise<PicksUrlEntry[]> {
+  try {
+    return await collectIndexablePicksUrls({ timeoutMs: PICKS_SITEMAP_TIMEOUT_MS, max: 45_000 })
+  } catch {
+    return [{ path: PICKS_BASE_PATH, lastmod: today }]
+  }
+}
+
+function picksPriority(path: string): string {
+  if (path === PICKS_BASE_PATH) return '0.7'
+  return path.split('/').length === 3 ? '0.8' : '0.5'
+}
 
 const staticRoutes = [
   { path: '/', priority: '1.0', changefreq: 'weekly' },
@@ -45,6 +64,7 @@ function sitemapEntry({
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const today = new Date().toISOString().slice(0, 10)
   const posts = getAllPosts()
+  const picks = await picksEntries(today)
   const entries = [
     ...staticRoutes.map((route) =>
       sitemapEntry({
@@ -60,6 +80,14 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
         priority: '0.7',
       })
     ),
+    ...picks.map((entry) =>
+      sitemapEntry({
+        path: entry.path,
+        lastmod: entry.lastmod,
+        changefreq: 'daily',
+        priority: picksPriority(entry.path),
+      })
+    ),
   ]
 
   const sitemap = [
@@ -70,6 +98,8 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   ].join('\n')
 
   res.setHeader('Content-Type', 'application/xml')
+  // Picks change through the day; a half-hour edge copy spares the endpoint.
+  res.setHeader('Cache-Control', 'public, s-maxage=1800, stale-while-revalidate=3600')
   res.write(sitemap)
   res.end()
 

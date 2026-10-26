@@ -2,7 +2,8 @@ import type { NextPage } from "next"
 
 import { MarketingFooter, MarketingHeader } from "@/components/MarketingChrome"
 import { FAQ } from "../lib/faq"
-import { SeoHead } from "@/lib/seo"
+import { JsonLd, SeoHead } from "@/lib/seo"
+import { faqJsonLd } from "@/lib/structuredData"
 import styles from "./index.module.css"
 
 const FaqPage: NextPage = () => {
@@ -14,6 +15,7 @@ const FaqPage: NextPage = () => {
         canonicalPath="/faq"
         ogImageAlt="intori FAQ preview"
       />
+      <JsonLd id="faq" data={faqJsonLd()} />
 
       <div className={styles.page}>
         <MarketingHeader />

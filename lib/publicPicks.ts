@@ -68,6 +68,7 @@ export type PicksMetroInfo = { slug: string; name: string; timeZone: string; sta
 
 export const PICKS_METROS: readonly PicksMetroInfo[] = [
   { slug: 'raleigh-durham', name: 'Raleigh-Durham', timeZone: 'America/New_York', state: 'NC' },
+  { slug: 'charlotte', name: 'Charlotte', timeZone: 'America/New_York', state: 'NC' },
   { slug: 'wilmington', name: 'Wilmington', timeZone: 'America/New_York', state: 'NC' },
   { slug: 'greensboro', name: 'Greensboro area', timeZone: 'America/New_York', state: 'NC' },
   { slug: 'atlanta', name: 'Atlanta', timeZone: 'America/New_York', state: 'GA' },

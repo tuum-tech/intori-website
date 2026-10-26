@@ -3,7 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { getSession } from "next-auth/react"
 import { MarketingFooter, MarketingHeader } from '@/components/MarketingChrome'
-import { SeoHead } from '@/lib/seo'
+import { JsonLd, SeoHead } from '@/lib/seo'
+import { applicationJsonLd, organizationJsonLd } from '@/lib/structuredData'
 import { APP_URL, HERO_VARIANT, IOS_CHANNEL, IOS_URL } from '@/lib/appLinks'
 import { appStoreQrSvg } from '@/lib/appStoreQr'
 
@@ -328,6 +329,8 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
         ogDescription="Your calendar tells you what you have to do. intori gives you something to look forward to."
         ogImageAlt="intori card reading Something to look forward to, with tiles for Outings, Outdoors, Sports, Shows, Music and Food"
       />
+      <JsonLd id="organization" data={organizationJsonLd()} />
+      <JsonLd id="application" data={applicationJsonLd()} />
 
       <div className={styles.page}>
 

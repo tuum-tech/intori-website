@@ -138,6 +138,28 @@ export const FAQ: FaqItem[] = [
     answer: IPHONE_ANSWER
   },
   {
+    question: "Is there an Android app?",
+    answer: [
+      "Not yet. On an Android phone, intori works in the browser at app.intori.co, with nothing to install.",
+      "Sign in with the same account on any device and everything you follow is already there."
+    ]
+  },
+  {
+    question: "Does intori work where I live?",
+    answer: [
+      "Your teams, your shows and artists on tour work anywhere in the US.",
+      "For outings and time outside, intori prepares these areas ahead of time: Raleigh-Durham, Charlotte, the Greensboro area, Wilmington, Fayetteville, Atlanta, Orlando, Tampa Bay, Jacksonville, Charleston, Richmond, the Nashville suburbs, the northern Dallas-Fort Worth suburbs, and Minneapolis-St. Paul.",
+      "Anywhere else, intori starts with the parks, playgrounds and good outdoor hours near you."
+    ]
+  },
+  {
+    question: "Can my partner or family share it?",
+    answer: [
+      "Yes, through your calendar. Everything you add in intori can show up where your family already looks: open Calendars and displays from intori's Week to connect a Skylight display, or copy a calendar link your partner can add to their own calendar app.",
+      "A subscription covers one intori account, with its own picks."
+    ]
+  },
+  {
     question: "What does intori cost?",
     answer: [
       "intori is $8.99 a month, or $59.99 a year.",

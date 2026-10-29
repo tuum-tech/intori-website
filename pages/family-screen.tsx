@@ -11,7 +11,11 @@ import guideStyles from "./family-screen.module.css"
 // name another product: Skylight, in factual setup steps only (no logo, no
 // device picture, no screenshots of its app, nothing that suggests a
 // partnership). Its steps are the options the founder tapped on Oct 29 2026
-// ("Subscribed calendar"). Everywhere else the site says "family screen" or
+// ("Subscribed calendar"); Skylight's own help names the same option
+// "Calendar URL", so both are given. The same in-app screen offers "Paste
+// the URL or mail to:" the frame's own address (founder's screenshots, Oct 29),
+// so the email option points to that screen rather than naming an address. Google's note promises only the phone:
+// Google's own displays do not show calendars added by URL. Everywhere else the site says "family screen" or
 // "wall calendar". The app links here for screen-by-screen steps, so keep the
 // path /family-screen stable.
 
@@ -24,8 +28,9 @@ const GUIDES: Guide[] = [
     steps: [
       "Open the Skylight app and tap My Skylight.",
       "Tap Synced Calendars, then Sync New Calendar.",
-      "Choose Subscribed calendar, paste your intori link, and tap Done.",
-      "Pick a profile and a color there if you like.",
+      "Choose Subscribed calendar or Calendar URL (the name depends on your app version), paste your intori link, and tap Done.",
+      "Or, on that same screen, email your intori link to the address Skylight shows there.",
+      "Give it a color, and add it to a label or to the profiles it is for.",
     ],
   },
   {
@@ -39,7 +44,7 @@ const GUIDES: Guide[] = [
   {
     id: "google",
     title: "Google Calendar",
-    note: "Needs a computer, once. After that it shows on your phone and on any screen that reads your Google Calendar.",
+    note: "Needs a computer, once. After that it shows on your phone too.",
     steps: [
       "On a computer, open calendar.google.com.",
       "Next to Other calendars, click the plus sign, then From URL.",

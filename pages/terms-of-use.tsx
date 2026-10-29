@@ -15,7 +15,7 @@ const Terms: NextPage = () => {
 
       <LegalLayout>
         <h1>intori Terms of Use</h1>
-        <p><strong>Last Updated: October 23, 2026</strong></p>
+        <p><strong>Last Updated: October 29, 2026</strong></p>
 
       <p>
         These terms cover the intori website and the intori mobile app. There is one set of terms for both.
@@ -23,7 +23,7 @@ const Terms: NextPage = () => {
 
       <h2>What changed in this update</h2>
       <p>
-        This update explains how intori checks age where the law requires it and says that people under 18 need a parent or legal guardian&apos;s permission to buy a subscription. It also extends the app-managed full-access trial to 21 days, changes the annual plan to $59.99, explains when early web subscribers are first charged, and clarifies what remains available after full access ends. No payment method is required to start the trial, and it does not become a paid subscription on its own. The AI processors and data providers we use are named in our <Link href="/privacy-policy">Privacy Policy</Link>. The October 13, 2026 update adds Outings and Outdoors to the description of the Services. The October 23, 2026 update changes our contact address to hello@intori.com, says when we refund web purchases, and calls Outings, Outdoors, Sports, Shows, Music and Food interests, as the app does.
+        This update explains how intori checks age where the law requires it and says that people under 18 need a parent or legal guardian&apos;s permission to buy a subscription. It also extends the app-managed full-access trial to 21 days, changes the annual plan to $59.99, explains when early web subscribers are first charged, and clarifies what remains available after full access ends. No payment method is required to start the trial, and it does not become a paid subscription on its own. The AI processors and data providers we use are named in our <Link href="/privacy-policy">Privacy Policy</Link>. The October 13, 2026 update adds Outings and Outdoors to the description of the Services. The October 23, 2026 update changes our contact address to hello@intori.com, says when we refund web purchases, and calls Outings, Outdoors, Sports, Shows, Music and Food interests, as the app does. The October 29, 2026 update removes Spoonacular and recipe databases from the sources intori uses, and describes Food as places to eat.
       </p>
 
       <p>
@@ -46,7 +46,7 @@ const Terms: NextPage = () => {
 
       <h2>2. What intori does</h2>
       <p>
-        intori is a household personalization service. You declare preferences and constraints for your household. intori uses those declared signals to produce daily suggestions with sources attached: local outings and events, outdoor places and good times to go, sports, what to watch, live music and events, and what to cook or eat. The features that produce those suggestions are organized into six interests: Outings, Outdoors, Sports, Shows, Music, and Food.
+        intori is a household personalization service. You declare preferences and constraints for your household. intori uses those declared signals to produce daily suggestions with sources attached: local outings and events, outdoor places and good times to go, sports, what to watch, live music and events, and places to eat. The features that produce those suggestions are organized into six interests: Outings, Outdoors, Sports, Shows, Music, and Food.
       </p>
       <p>How your declarations are used:</p>
       <ul>
@@ -135,7 +135,7 @@ const Terms: NextPage = () => {
         Read this section carefully if you or anyone in your household has a food allergy, celiac disease, or another medical dietary condition.
       </p>
       <p>
-        When you declare a dietary constraint, intori applies it as a filter against the information available from its sources. Those sources include recipe databases, venue and menu listings, event listings, and web search. intori reports what those sources say. It does not verify what they say.
+        When you declare a dietary constraint, intori applies it as a filter against the information available from its sources. Those sources include venue and menu listings, event listings, and web search. intori reports what those sources say. It does not verify what they say.
       </p>
       <p>
         intori is not a food safety service. We do not inspect kitchens, test food, audit suppliers, or observe how a dish is prepared. We cannot detect cross-contact, shared fryers, shared equipment, ingredient substitutions, recipe changes, or mislabeled products. A menu that says a dish is gluten free may be wrong. Independent testing has repeatedly found gluten in restaurant food sold as gluten free, and the same risk applies to any allergen.
@@ -216,7 +216,7 @@ const Terms: NextPage = () => {
 
       <h2>12. Third-party services</h2>
       <p>
-        The Services may interact with or depend on third-party services, including Apple, Stripe, OpenAI, Perplexity, Spoonacular, Google Places, Ticketmaster, Farcaster, World App, Worldcoin services, wallets, blockchain networks, RPC providers, notification providers, hosting providers, and connected apps.
+        The Services may interact with or depend on third-party services, including Apple, Stripe, OpenAI, Perplexity, Google Places, Ticketmaster, Farcaster, World App, Worldcoin services, wallets, blockchain networks, RPC providers, notification providers, hosting providers, and connected apps.
       </p>
       <p>
         We do not control third-party services and are not responsible for their content, policies, availability, security, or actions. Information from a third-party source may be wrong, incomplete, or out of date. Your use of third-party services may be governed by their own terms and privacy policies.

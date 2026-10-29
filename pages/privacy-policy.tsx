@@ -15,7 +15,7 @@ const Privacy: NextPage = () => {
 
       <LegalLayout>
         <h1>intori Privacy Policy</h1>
-        <p><strong>Last Updated: October 26, 2026</strong></p>
+        <p><strong>Last Updated: October 29, 2026</strong></p>
 
       <p>
         This policy covers the intori website and the intori mobile app. There is one policy for both.
@@ -23,7 +23,7 @@ const Privacy: NextPage = () => {
 
       <h2>What changed in this update</h2>
       <p>
-        This update adds a Meta ads section: what we send Meta when someone who arrived from a Facebook or Instagram ad signs up on the web or starts a trial there, what we never send, that none of it runs inside the iPhone app, and how to turn it off. Our Apple Ads and campaign-link attribution practices are unchanged. It also changes our contact address to hello@intori.com, and calls Outings, Outdoors, Sports, Shows, Music and Food interests, as the app does.
+        This update adds a Meta ads section: what we send Meta when someone who arrived from a Facebook or Instagram ad signs up on the web or starts a trial there, what we never send, that none of it runs inside the iPhone app, and how to turn it off. Our Apple Ads and campaign-link attribution practices are unchanged. It also changes our contact address to hello@intori.com, and calls Outings, Outdoors, Sports, Shows, Music and Food interests, as the app does. The October 29, 2026 update removes Spoonacular, which intori no longer uses, and describes Food as places to eat.
       </p>
 
       <h2>Who we are</h2>
@@ -40,7 +40,7 @@ const Privacy: NextPage = () => {
 
       <h2>What intori is</h2>
       <p>
-        intori is a household personalization service. You declare preferences and constraints for your household, and intori uses those declared signals to produce daily suggestions with sources attached: local outings and events, outdoor places and good times to go, sports, what to watch, live music and events, and what to cook or eat. The features that produce those suggestions are organized into six interests: Outings, Outdoors, Sports, Shows, Music, and Food.
+        intori is a household personalization service. You declare preferences and constraints for your household, and intori uses those declared signals to produce daily suggestions with sources attached: local outings and events, outdoor places and good times to go, sports, what to watch, live music and events, and places to eat. The features that produce those suggestions are organized into six interests: Outings, Outdoors, Sports, Shows, Music, and Food.
       </p>
       <p>How your declarations are used:</p>
       <ul>
@@ -282,7 +282,6 @@ const Privacy: NextPage = () => {
         The following are data APIs, not AI services. intori queries them for facts and listings. They do not generate results, and they do not receive your intori account.
       </p>
       <ul>
-        <li><strong>Spoonacular.</strong> Used for recipe and ingredient data. May receive recipe search terms, including dietary constraints and excluded ingredients such as allergens.</li>
         <li><strong>Google Maps Platform and Google Places.</strong> Used to find and describe local venues such as restaurants and to display Google Maps place details. May receive a city or approximate area, a search radius, and venue search terms. When you choose Use my location for Food, it may also receive the precise point described above, through intori, to answer that request. Google&apos;s handling of this information is governed by the <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google Privacy Policy</a>, and use of Google Maps features is subject to the <a href="https://maps.google.com/help/terms_maps/" target="_blank" rel="noreferrer">Google Maps/Google Earth Additional Terms of Service</a>.</li>
         <li><strong>Ticketmaster.</strong> Used for live event and ticket listings. May receive coarse local context, date ranges, and event search terms such as a genre or an artist.</li>
       </ul>
@@ -325,7 +324,7 @@ const Privacy: NextPage = () => {
         We use service providers to host and operate intori, store data, process payments, deliver notifications, provide AI processing and source data, secure intori, and provide customer support. These providers may process information only as needed to perform services for us, subject to appropriate contractual and security obligations.
       </p>
       <p>
-        Service providers include cloud hosting and database providers, Apple for app distribution, sign-in, push notifications, and App Store billing, Stripe for web payments, OpenAI and Perplexity for AI processing, Spoonacular, Google Places, and Ticketmaster for recipe, venue, and event data, Farcaster and Farcaster data providers, World App and Worldcoin services, wallet or blockchain infrastructure providers, and support tools.
+        Service providers include cloud hosting and database providers, Apple for app distribution, sign-in, push notifications, and App Store billing, Stripe for web payments, OpenAI and Perplexity for AI processing, Google Places and Ticketmaster for venue and event data, Farcaster and Farcaster data providers, World App and Worldcoin services, wallet or blockchain infrastructure providers, and support tools.
       </p>
 
       <h3>With third-party platforms</h3>

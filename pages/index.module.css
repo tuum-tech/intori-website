@@ -1401,3 +1401,87 @@
 }
 .worksWithLink:hover { text-decoration-color: var(--ink); }
 .worksWithLink:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; border-radius: 4px; }
+
+/* ─── Hero: the PULL line over a family's week ─────────────────────── */
+
+/* The first half of the line, set as a quiet lead-in above the headline. */
+.heroLead {
+  margin: 0 0 14px;
+  text-wrap: balance;
+  color: var(--ink-soft);
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.heroHeadlinePull {
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1.02;
+}
+
+.heroStageScreen {
+  display: block;
+  min-height: 0;
+  padding-bottom: 290px;
+}
+
+.heroScreen {
+  position: relative;
+  z-index: 0;
+}
+
+/* The phone stands just below the screen's lower left corner, over the
+   frame only, so it never hides a pick: a pick on the phone, the same week
+   on the wall. */
+.heroPhoneFront {
+  position: absolute;
+  z-index: 1;
+  left: 8px;
+  bottom: 0;
+  width: 150px;
+  padding: 5px;
+  border-radius: 30px;
+}
+
+.heroPhoneFront .phoneShot {
+  border-radius: 25px;
+}
+
+/* The screen needs more of the row than a lone phone did. */
+.heroGridScreen {
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 48px;
+}
+
+/* Below 1100px the screen needs the full row, so the hero stacks and the
+   screen carries the picture alone. */
+@media (max-width: 1100px) {
+  .heroGridScreen {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  .heroStageScreen {
+    padding-bottom: 0;
+  }
+
+  .heroPhoneFront {
+    display: none;
+  }
+}
+
+/* Tablets and phones: the screen alone, full width under the words. */
+@media (max-width: 900px) {
+  .heroGridScreen {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  .heroStageScreen {
+    padding-bottom: 0;
+  }
+
+  .heroPhoneFront {
+    display: none;
+  }
+}

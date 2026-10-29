@@ -9,7 +9,8 @@ import styles from "./FamilyScreenWeek.module.css"
 // illustration, so it stays generic on purpose: no maker's shape, marks or UI,
 // no faces, and no team, league, show or artist names. On phones the week
 // becomes a day-by-day list that keeps every intori item and one family item
-// per day.
+// per day. In compact mode (the homepage hero) phones show Friday to Sunday
+// only, so the hero stays short.
 
 type Lane = "outings" | "outdoors" | "sports" | "shows" | "music" | "food"
 type Item = { time: string; title: string; lane?: Lane; tone?: "b" | "c"; wideOnly?: boolean }
@@ -28,7 +29,7 @@ const LANE_COLOR: Record<Lane, string> = {
 const WEEK: Day[] = [
   { name: "Mon", items: [
     { time: "3 to 4 PM", title: "Carpool" },
-    { time: "6 to 7 PM", title: "Gymnastics", tone: "b", wideOnly: true },
+    { time: "6 to 7 PM", title: "Swim", tone: "b", wideOnly: true },
     { time: "9 PM", title: "Season premiere", lane: "shows" },
   ] },
   { name: "Tue", items: [
@@ -65,7 +66,9 @@ const WEEK: Day[] = [
 const LABEL =
   "Illustration of a family's week on a wall screen. Carpool, practices, a test and appointments fill the school days. intori's picks are mixed in: a season premiere Monday night, a new taco spot Tuesday, a movie in the park Friday, then a fall festival, a college football game and a concert on Saturday, and a trail walk, a pro football game and a new episode on Sunday."
 
-export default function FamilyScreenWeek({ className = "" }: { className?: string }) {
+const WEEKEND = new Set(["Fri", "Sat", "Sun"])
+
+export default function FamilyScreenWeek({ className = "", compact = false }: { className?: string; compact?: boolean }) {
   return (
     <figure className={`${styles.figure} ${className}`}>
       <div className={styles.screen} role="img" aria-label={LABEL}>
@@ -79,7 +82,7 @@ export default function FamilyScreenWeek({ className = "" }: { className?: strin
           </div>
           <div className={styles.days}>
             {WEEK.map((day) => (
-              <div key={day.name} className={styles.day}>
+              <div key={day.name} className={`${styles.day} ${compact && !WEEKEND.has(day.name) ? styles.wideOnlyDay : ""}`}>
                 <span className={styles.dayName}>{day.name}</span>
                 {day.items.map((item) => (
                   <span

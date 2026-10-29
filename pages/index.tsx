@@ -2,10 +2,11 @@ import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Image from 'next/image'
 import Link from 'next/link'
 import { getSession } from "next-auth/react"
+import FamilyScreenWeek from '@/components/FamilyScreenWeek'
 import { MarketingFooter, MarketingHeader } from '@/components/MarketingChrome'
 import { JsonLd, SeoHead } from '@/lib/seo'
 import { applicationJsonLd, organizationJsonLd } from '@/lib/structuredData'
-import { APP_URL, HERO_VARIANT, IOS_CHANNEL, IOS_URL } from '@/lib/appLinks'
+import { APP_URL, IOS_CHANNEL, IOS_URL } from '@/lib/appLinks'
 import { appStoreQrSvg } from '@/lib/appStoreQr'
 
 import styles from './index.module.css'
@@ -243,26 +244,6 @@ function AppCtas({ qrSvg }: { qrSvg?: string | null }) {
   )
 }
 
-function HeroHeadline() {
-  if (HERO_VARIANT === 'decided') {
-    return <h1 className={styles.heroHeadline}>Tonight,<br />decided.</h1>
-  }
-
-  if (HERO_VARIANT === 'weekly') {
-    return (
-      <h1 className={`${styles.heroHeadline} ${styles.heroHeadlineWeekly}`}>
-        Something to look forward to. Every week.
-      </h1>
-    )
-  }
-
-  return (
-    <h1 className={styles.heroHeadline}>
-      Something to look forward to.
-    </h1>
-  )
-}
-
 function Phone({ src, alt, priority = false, className = '' }: { src: string; alt: string; priority?: boolean; className?: string }) {
   return (
     <div className={`${styles.phone} ${className}`}>
@@ -338,13 +319,15 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
 
         <main>
           <header className={styles.heroSection}>
-            <div className={`${styles.container} ${styles.heroGrid}`}>
+            <div className={`${styles.container} ${styles.heroGrid} ${styles.heroGridScreen}`}>
               <div className={styles.heroText}>
-                <p className={styles.heroEyebrow}>For busy families</p>
-                <HeroHeadline />
+                <p className={styles.heroLead}>Your calendar tells you what you have to do.</p>
+                <h1 className={`${styles.heroHeadline} ${styles.heroHeadlinePull}`}>
+                  intori gives you something to look forward to.
+                </h1>
                 <p className={styles.heroDeck}>
-                  Your calendar tells you what you have to do. intori finds what your
-                  family would love to do, and adds it in one tap.
+                  Follow a team, a show or an artist, pick a few outings, and they land on the
+                  calendar your family already uses, on every phone and the screen in the kitchen.
                 </p>
                 <div className={styles.heroCtas}>
                   <AppCtas qrSvg={qrSvg} />
@@ -360,23 +343,14 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
                   </span>
                 </p>
               </div>
-              <div className={styles.heroStage}>
-                <div className={styles.heroPhoto} aria-hidden="true">
-                  <Image src="/brand/lanes/outings-out-there.jpg" alt="" fill sizes="420px" className={styles.heroPhotoImg} priority />
-                </div>
+              <div className={`${styles.heroStage} ${styles.heroStageScreen}`}>
+                <FamilyScreenWeek compact className={styles.heroScreen} />
                 <Phone
                   src="/brand/app-b25/01-home.jpg"
                   alt="intori Today: apple picking at a nearby farm tomorrow, 8 AM to 5 PM, ready to hold, with Marbles Courtyard already on the calendar for Sunday at 11:00 AM"
                   priority
-                  className={styles.heroPhone}
+                  className={styles.heroPhoneFront}
                 />
-                <div className={styles.momentCard} aria-hidden="true">
-                  <span className={styles.momentIcon}><CalendarIcon /></span>
-                  <span>
-                    <b>On your calendar</b>
-                    <span>Marbles Courtyard · Sun 11:00 AM</span>
-                  </span>
-                </div>
               </div>
             </div>
             <div className={styles.container}>
@@ -455,10 +429,10 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
             <div className={styles.container}>
               <div className={styles.wedgeState}>
                 <p className={styles.wedgeLineA}>
-                  Your calendar tells you what you have to do.
+                  The family calendar shows what is planned.
                 </p>
                 <p className={styles.wedgeLineB}>
-                  intori gives you something to look forward to.
+                  intori finds what is worth planning.
                 </p>
               </div>
               <p className={styles.wedgeBody}>

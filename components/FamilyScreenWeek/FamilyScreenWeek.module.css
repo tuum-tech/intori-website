@@ -186,6 +186,14 @@
     font-size: 11.5px;
   }
 
+  .day.wideOnlyDay {
+    display: none;
+  }
+
+  .wideOnlyDay + .day {
+    border-top: 0;
+  }
+
   /* After the flex rule above, so it wins. */
   .own.wideOnly,
   .pick.wideOnly {

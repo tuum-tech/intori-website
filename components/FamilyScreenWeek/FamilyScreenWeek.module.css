@@ -36,7 +36,7 @@
 .withRail {
   grid-template-columns: minmax(0, 0.24fr) minmax(0, 1fr);
   gap: 2.2cqi;
-  aspect-ratio: 2.15 / 1;
+  aspect-ratio: 2.3 / 1;
   padding: 2.4cqi;
 }
 
@@ -208,7 +208,13 @@
 .pick time {
   display: block;
   font-size: 10.5px;
-  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Two-line titles break evenly, never leaving one word alone. */
+.title {
+  display: block;
+  text-wrap: balance;
 }
 
 .own {

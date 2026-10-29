@@ -1442,14 +1442,14 @@
    of its lower left corner, over the date rail, so no pick is hidden. */
 .showcaseWrap {
   margin-top: 56px;
-  padding-bottom: 64px;
+  padding-bottom: 80px;
 }
 
 .showcase {
   position: relative;
-  max-width: 860px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 0 0 0 8%;
+  padding: 0 0 0 11%;
 }
 
 .showcaseScreen {
@@ -1461,9 +1461,9 @@
   position: absolute;
   z-index: 1;
   left: 0;
-  bottom: -14%;
-  width: 16%;
-  min-width: 104px;
+  bottom: -16%;
+  width: 21%;
+  min-width: 120px;
   padding: 6px;
   border-radius: 34px;
   box-shadow:
@@ -1490,18 +1490,29 @@
   }
 }
 
-/* Phones: the screen alone, showing the weekend. */
+/* Phones: the weekend list on the left, the phone in front of the
+   screen's right edge. The app is what we sell, so it stays in view. */
 @media (max-width: 640px) {
   .showcase {
-    padding: 0;
+    padding: 0 30% 0 0;
   }
 
   .showcasePhone {
-    display: none;
+    left: auto;
+    right: 0;
+    bottom: -10%;
+    width: 33%;
+    min-width: 0;
+    padding: 4px;
+    border-radius: 22px;
+  }
+
+  .showcasePhone .phoneShot {
+    border-radius: 18px;
   }
 
   .showcaseWrap {
     margin-top: 36px;
-    padding-bottom: 0;
+    padding-bottom: 36px;
   }
 }

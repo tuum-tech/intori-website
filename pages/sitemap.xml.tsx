@@ -25,6 +25,7 @@ const staticRoutes = [
   { path: '/', priority: '1.0', changefreq: 'weekly' },
   { path: '/faq', priority: '0.7', changefreq: 'monthly' },
   { path: '/support', priority: '0.6', changefreq: 'monthly' },
+  { path: '/family-screen', priority: '0.7', changefreq: 'monthly' },
   { path: '/sources', priority: '0.5', changefreq: 'monthly' },
   { path: '/privacy-policy', priority: '0.3', changefreq: 'yearly' },
   { path: '/terms-of-use', priority: '0.3', changefreq: 'yearly' },

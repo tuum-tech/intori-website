@@ -87,10 +87,10 @@ export const FAQ: FaqItem[] = [
     ]
   },
   {
-    question: "Can I use Google Calendar or a family display like Skylight?",
+    question: "Does intori work with my wall calendar?",
     answer: [
-      "Yes. On iPhone, intori adds straight to your iPhone's calendar, which is the quickest way to start.",
-      "If your family lives in Google Calendar or on a display like Skylight, open Calendars and displays from intori's Week. You can connect Skylight directly, or copy a calendar link for any other calendar app. What you add in intori shows up there too."
+      "Yes, if it can add a calendar by link, as most wall calendars and family screens can. In intori, open Week, then Calendars and displays, and copy your private link. Add it to your screen as a subscribed calendar, and the plans you choose show up beside the rest of your week.",
+      "The same link works in Google Calendar and Apple Calendar. Step-by-step help for each one is at intori.com/family-screen."
     ]
   },
   {
@@ -155,7 +155,7 @@ export const FAQ: FaqItem[] = [
   {
     question: "Can my partner or family share it?",
     answer: [
-      "Yes, through your calendar. Everything you add in intori can show up where your family already looks: open Calendars and displays from intori's Week to connect a Skylight display, or copy a calendar link your partner can add to their own calendar app.",
+      "Yes, through your calendar. Everything you add in intori can show up where your family already looks: open Calendars and displays from intori's Week to connect your family screen, or copy a calendar link your partner can add to their own calendar app.",
       "A subscription covers one intori account, with its own picks."
     ]
   },

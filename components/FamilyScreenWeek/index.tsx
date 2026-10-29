@@ -9,8 +9,9 @@ import styles from "./FamilyScreenWeek.module.css"
 // illustration, so it stays generic on purpose: no maker's shape, marks or UI,
 // no faces, and no team, league, show or artist names. On phones the week
 // becomes a day-by-day list that keeps every intori item and one family item
-// per day. In compact mode (the homepage hero) phones show Friday to Sunday
-// only, so the hero stays short.
+// per day. In compact mode phones show Friday to Sunday only. The rail adds
+// the date column a wall calendar shows at its left edge; in the homepage
+// hero the phone stands in front of it, so the phone never hides a pick.
 
 type Lane = "outings" | "outdoors" | "sports" | "shows" | "music" | "food"
 type Item = { time: string; title: string; lane?: Lane; tone?: "b" | "c"; wideOnly?: boolean }
@@ -68,11 +69,19 @@ const LABEL =
 
 const WEEKEND = new Set(["Fri", "Sat", "Sun"])
 
-export default function FamilyScreenWeek({ className = "", compact = false }: { className?: string; compact?: boolean }) {
+export default function FamilyScreenWeek({ className = "", compact = false, rail = false }: { className?: string; compact?: boolean; rail?: boolean }) {
   return (
     <figure className={`${styles.figure} ${className}`}>
       <div className={styles.screen} role="img" aria-label={LABEL}>
-        <div className={styles.inner}>
+        <div className={`${styles.inner} ${rail ? styles.withRail : ""}`}>
+          {rail ? (
+            <div className={styles.rail} aria-hidden="true">
+              <span className={styles.railDay}>Friday</span>
+              <span className={styles.railDate}>30</span>
+              <span className={styles.railMonth}>October</span>
+            </div>
+          ) : null}
+          <div className={styles.main}>
           <div className={styles.top}>
             <b>This week</b>
             <span className={styles.legend}>
@@ -100,6 +109,7 @@ export default function FamilyScreenWeek({ className = "", compact = false }: { 
                 ))}
               </div>
             ))}
+          </div>
           </div>
         </div>
       </div>

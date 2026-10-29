@@ -1231,15 +1231,6 @@
 
 /* ─── Six lanes: hero photo, lane strip, lane groups ─────────────── */
 
-.worksWith {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 14px 0 0;
-  color: var(--ink-soft);
-  font-size: 14px;
-}
-.calIcon { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; flex: none; }
 
 .heroStage { min-height: 640px; align-items: center; }
 .heroPhoto {
@@ -1381,8 +1372,6 @@
   .heroPhoto { display: none; }
   .heroPhone { margin-right: 0; }
   .momentCard { left: auto; right: 4%; }
-  .worksWith { display: block; text-align: center; }
-  .worksWith .calIcon { display: inline-block; vertical-align: -4px; margin-right: 6px; }
 }
 @media (max-width: 640px) {
   .whyGrid { grid-template-columns: 1fr; }
@@ -1402,86 +1391,117 @@
 .worksWithLink:hover { text-decoration-color: var(--ink); }
 .worksWithLink:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; border-radius: 4px; }
 
-/* ─── Hero: the PULL line over a family's week ─────────────────────── */
+/* ─── Hero: one message over a family's week ───────────────────────── */
 
-/* The first half of the line, set as a quiet lead-in above the headline. */
-.heroLead {
-  margin: 0 0 14px;
+/* One headline, the buttons, one short line. Burnt-out parents read the
+   headline and look at the picture, so nothing else competes. */
+.heroCentered {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.heroPull {
+  max-width: 880px;
+  margin: 0;
+  font-size: clamp(30px, 4.2vw, 56px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.04;
   text-wrap: balance;
-  color: var(--ink-soft);
-  font-size: clamp(18px, 2vw, 22px);
-  font-weight: 600;
-  line-height: 1.3;
 }
 
-.heroHeadlinePull {
-  font-size: clamp(40px, 5vw, 64px);
-  line-height: 1.02;
+/* The first sentence sets up; the second is the promise. */
+.heroPullA,
+.heroPullB {
+  font-weight: 800; /* a site rule resets span weight */
 }
 
-.heroStageScreen {
-  display: block;
-  min-height: 0;
-  padding-bottom: 290px;
+.heroPullA {
+  color: rgba(38, 33, 62, 0.5);
 }
 
-.heroScreen {
+.heroPullB {
+  color: var(--ink);
+}
+
+.heroCentered .heroCtas {
+  margin-top: 34px;
+}
+
+.heroCentered .heroCtas > div {
+  justify-content: center;
+  align-items: center;
+}
+
+.heroCentered .heroTrust {
+  margin-top: 16px;
+}
+
+/* The picture: the family's week on the wall, the phone standing in front
+   of its lower left corner, over the date rail, so no pick is hidden. */
+.showcaseWrap {
+  margin-top: 56px;
+  padding-bottom: 64px;
+}
+
+.showcase {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 0 0 8%;
+}
+
+.showcaseScreen {
   position: relative;
   z-index: 0;
 }
 
-/* The phone stands just below the screen's lower left corner, over the
-   frame only, so it never hides a pick: a pick on the phone, the same week
-   on the wall. */
-.heroPhoneFront {
+.showcasePhone {
   position: absolute;
   z-index: 1;
-  left: 8px;
-  bottom: 0;
-  width: 150px;
-  padding: 5px;
-  border-radius: 30px;
+  left: 0;
+  bottom: -14%;
+  width: 16%;
+  min-width: 104px;
+  padding: 6px;
+  border-radius: 34px;
+  box-shadow:
+    0 2px 6px rgba(38, 33, 62, 0.12),
+    0 40px 70px -24px rgba(38, 33, 62, 0.45);
 }
 
-.heroPhoneFront .phoneShot {
-  border-radius: 25px;
+.showcasePhone .phoneShot {
+  border-radius: 28px;
 }
 
-/* The screen needs more of the row than a lone phone did. */
-.heroGridScreen {
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  gap: 48px;
-}
-
-/* Below 1100px the screen needs the full row, so the hero stacks and the
-   screen carries the picture alone. */
-@media (max-width: 1100px) {
-  .heroGridScreen {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 40px;
-  }
-
-  .heroStageScreen {
-    padding-bottom: 0;
-  }
-
-  .heroPhoneFront {
-    display: none;
-  }
-}
-
-/* Tablets and phones: the screen alone, full width under the words. */
 @media (max-width: 900px) {
-  .heroGridScreen {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 40px;
+  .showcaseWrap {
+    margin-top: 44px;
   }
 
-  .heroStageScreen {
-    padding-bottom: 0;
+  .showcasePhone {
+    border-radius: 26px;
+    padding: 5px;
   }
 
-  .heroPhoneFront {
+  .showcasePhone .phoneShot {
+    border-radius: 21px;
+  }
+}
+
+/* Phones: the screen alone, showing the weekend. */
+@media (max-width: 640px) {
+  .showcase {
+    padding: 0;
+  }
+
+  .showcasePhone {
     display: none;
+  }
+
+  .showcaseWrap {
+    margin-top: 36px;
+    padding-bottom: 0;
   }
 }

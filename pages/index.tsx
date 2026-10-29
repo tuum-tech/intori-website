@@ -268,15 +268,6 @@ function CheckIcon() {
   )
 }
 
-function CalendarIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.calIcon}>
-      <rect x="3.5" y="5" width="17" height="15" rx="3" />
-      <path d="M3.5 10h17M8 3v4M16 3v4" />
-    </svg>
-  )
-}
-
 function LaneCard({ lane }: { lane: Lane }) {
   return (
     <article id={lane.id} tabIndex={-1} className={`${styles.laneCard} ${lane.tint}`}>
@@ -319,37 +310,26 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
 
         <main>
           <header className={styles.heroSection}>
-            <div className={`${styles.container} ${styles.heroGrid} ${styles.heroGridScreen}`}>
-              <div className={styles.heroText}>
-                <p className={styles.heroLead}>Your calendar tells you what you have to do.</p>
-                <h1 className={`${styles.heroHeadline} ${styles.heroHeadlinePull}`}>
-                  intori gives you something to look forward to.
-                </h1>
-                <p className={styles.heroDeck}>
-                  Follow a team, a show or an artist, pick a few outings, and they land on the
-                  calendar your family already uses, on every phone and the screen in the kitchen.
-                </p>
-                <div className={styles.heroCtas}>
-                  <AppCtas qrSvg={qrSvg} />
-                </div>
-                <p className={styles.heroTrust}>
-                  <strong>21 days free, no card needed.</strong> No ads, and nothing sold about your family.
-                </p>
-                <p className={styles.worksWith}>
-                  <CalendarIcon />
-                  <span>
-                    Works with Apple Calendar, Google Calendar, and{" "}
-                    <Link href="/family-screen" className={styles.worksWithLink}>family screens and wall calendars</Link>
-                  </span>
-                </p>
+            <div className={`${styles.container} ${styles.heroCentered}`}>
+              <h1 className={styles.heroPull}>
+                <span className={styles.heroPullA}>Your calendar tells you what you have to do. </span>
+                <span className={styles.heroPullB}>intori gives you something to look forward to.</span>
+              </h1>
+              <div className={styles.heroCtas}>
+                <AppCtas qrSvg={qrSvg} />
               </div>
-              <div className={`${styles.heroStage} ${styles.heroStageScreen}`}>
-                <FamilyScreenWeek compact className={styles.heroScreen} />
+              <p className={styles.heroTrust}>
+                <strong>21 days free, no card needed.</strong>
+              </p>
+            </div>
+            <div className={`${styles.container} ${styles.showcaseWrap}`}>
+              <div className={styles.showcase}>
+                <FamilyScreenWeek compact rail className={styles.showcaseScreen} />
                 <Phone
                   src="/brand/app-b25/01-home.jpg"
                   alt="intori Today: apple picking at a nearby farm tomorrow, 8 AM to 5 PM, ready to hold, with Marbles Courtyard already on the calendar for Sunday at 11:00 AM"
                   priority
-                  className={styles.heroPhoneFront}
+                  className={styles.showcasePhone}
                 />
               </div>
             </div>
@@ -427,14 +407,6 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
 
           <section className={styles.wedgeSection}>
             <div className={styles.container}>
-              <div className={styles.wedgeState}>
-                <p className={styles.wedgeLineA}>
-                  The family calendar shows what is planned.
-                </p>
-                <p className={styles.wedgeLineB}>
-                  intori finds what is worth planning.
-                </p>
-              </div>
               <p className={styles.wedgeBody}>
                 Family calendars keep the week running. They can&rsquo;t notice that
                 the library has story time Saturday, the park looks perfect Sunday, or your

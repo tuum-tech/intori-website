@@ -356,7 +356,7 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
                   <CalendarIcon />
                   <span>
                     Works with Apple Calendar, Google Calendar, and{" "}
-                    <Link href="/family-screen" className={styles.worksWithLink}>family screens like Skylight</Link>
+                    <Link href="/family-screen" className={styles.worksWithLink}>family screens and wall calendars</Link>
                   </span>
                 </p>
               </div>
@@ -521,7 +521,8 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
                 </p>
                 <p className={styles.calFine}>
                   intori adds only the dates you choose, and never reads your other events.
-                  Use Google Calendar or a family display like Skylight? Connect it from Week,
+                  Use Google Calendar or a family screen?{" "}
+                  <Link href="/family-screen" className={styles.worksWithLink}>Connect it from Week</Link>,
                   and what you add shows up there too.
                 </p>
               </div>

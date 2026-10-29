@@ -89,7 +89,7 @@ export const FAQ: FaqItem[] = [
   {
     question: "Does intori work with my wall calendar?",
     answer: [
-      "Yes, if it can add a calendar by link, as Skylight and most wall calendars can. In intori, open Week, then Calendars and displays, and copy your private link. Add it to your screen as a subscribed calendar, and the plans you choose show up beside the rest of your week.",
+      "Yes, if it can add a calendar by link, as most wall calendars and family screens can. In intori, open Week, then Calendars and displays, and copy your private link. Add it to your screen as a subscribed calendar, and the plans you choose show up beside the rest of your week.",
       "The same link works in Google Calendar and Apple Calendar. Step-by-step help for each one is at intori.com/family-screen."
     ]
   },
@@ -155,7 +155,7 @@ export const FAQ: FaqItem[] = [
   {
     question: "Can my partner or family share it?",
     answer: [
-      "Yes, through your calendar. Everything you add in intori can show up where your family already looks: open Calendars and displays from intori's Week to connect a Skylight display, or copy a calendar link your partner can add to their own calendar app.",
+      "Yes, through your calendar. Everything you add in intori can show up where your family already looks: open Calendars and displays from intori's Week to connect your family screen, or copy a calendar link your partner can add to their own calendar app.",
       "A subscription covers one intori account, with its own picks."
     ]
   },

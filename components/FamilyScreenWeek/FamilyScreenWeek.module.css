@@ -1,5 +1,6 @@
 /* A generic wall screen. Tokens come from .page in pages/index.module.css.
-   The Outings purple is a bar and a wash only, never text colour. */
+   Interest colours (--lane, set per item) are a stripe and a faint wash
+   only, never text colour. */
 
 .figure {
   margin: 0;
@@ -56,10 +57,11 @@
   background: #EEE8DC;
 }
 
+/* One key for every interest: the six stripe colours in a row. */
 .keyPick {
+  width: 18px;
   margin-left: 8px;
-  background: #EEEBFB;
-  box-shadow: inset 3px 0 0 var(--outings);
+  background: linear-gradient(90deg, #6C63D9 0 16.6%, #00A884 0 33.3%, #F76B15 0 50%, #60B3D7 0 66.6%, #D467FF 0 83.3%, #E5484D 0);
 }
 
 .days {
@@ -113,10 +115,14 @@
 .own.c { background: #F2E7DD; }
 
 .pick {
-  background: #EEEBFB;
+  background: color-mix(in srgb, var(--lane) 11%, #FFFFFF);
   color: var(--ink);
   font-weight: 700;
-  box-shadow: inset 3px 0 0 var(--outings);
+  box-shadow: inset 3px 0 0 var(--lane);
+}
+
+.pick .title {
+  font-weight: 700;
 }
 
 .pick time {
@@ -133,22 +139,56 @@
   opacity: 0.85;
 }
 
-/* Phones: Friday to Sunday, so the weekend reads without a sideways scroll. */
+/* Phones: the week as a day-by-day list. Every intori item stays; each day
+   keeps one family item so the contrast still reads. */
 @media (max-width: 640px) {
-  .days {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .wideOnly {
-    display: none;
-  }
-
   .inner {
     padding: 12px;
   }
 
+  .days {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .day {
+    grid-template-columns: 40px minmax(0, 1fr);
+    column-gap: 8px;
+    row-gap: 4px;
+    padding: 7px 0;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .day:first-child {
+    border-top: 0;
+  }
+
+  .dayName {
+    grid-row: 1;
+    padding: 4px 0 0;
+    border-bottom: 0;
+  }
+
   .own,
   .pick {
-    font-size: 12px;
+    grid-column: 2;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+    padding: 4px 8px;
+    font-size: 12.5px;
+  }
+
+  .own time,
+  .pick time {
+    flex: none;
+    min-width: 76px;
+    font-size: 11.5px;
+  }
+
+  /* After the flex rule above, so it wins. */
+  .own.wideOnly,
+  .pick.wideOnly {
+    display: none;
   }
 }

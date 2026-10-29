@@ -1,0 +1,161 @@
+/* The family screen guide. Tokens come from .page in index.module.css. */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.3fr);
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 56px;
+}
+
+.steps {
+  display: grid;
+  gap: 14px;
+  max-width: 760px;
+  margin: 0 0 22px;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.stepNum {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--card);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.stepTitle {
+  margin: 4px 0 6px;
+  color: var(--ink);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+.stepBody {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.guides {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0 0 48px 50px;
+}
+
+.guide {
+  padding: 22px 24px;
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+  background: var(--card);
+  box-shadow: 0 8px 20px rgba(23, 23, 56, 0.04);
+  scroll-margin-top: 88px;
+}
+
+.guideTitle {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.guideNote {
+  margin: 0 0 10px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.guideSteps {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding-left: 20px;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.guideSteps li::marker {
+  color: var(--ink-soft);
+  font-weight: 700;
+}
+
+.after {
+  max-width: 760px;
+  margin-bottom: 40px;
+  padding: 26px 28px;
+  border-radius: 16px;
+  background: var(--plane);
+}
+
+.afterTitle {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+}
+
+.afterList {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 14px;
+  padding-left: 20px;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.afterNote,
+.more {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.more a,
+.afterNote a {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .guides {
+    grid-template-columns: minmax(0, 1fr);
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .guide {
+    padding: 18px 18px;
+  }
+
+  .after {
+    padding: 22px 20px;
+  }
+}

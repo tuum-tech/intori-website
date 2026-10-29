@@ -1,0 +1,154 @@
+/* A generic wall screen. Tokens come from .page in pages/index.module.css.
+   The Outings purple is a bar and a wash only, never text colour. */
+
+.figure {
+  margin: 0;
+  width: 100%;
+}
+
+.screen {
+  background: #3A3546;
+  border-radius: 18px;
+  padding: 10px;
+  box-shadow: var(--shadow-card);
+}
+
+.inner {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 10px;
+  background: var(--card);
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 12px;
+}
+
+.top b {
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.keyFamily,
+.keyPick {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+.keyFamily {
+  background: #EEE8DC;
+}
+
+.keyPick {
+  margin-left: 8px;
+  background: #EEEBFB;
+  box-shadow: inset 3px 0 0 var(--outings);
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.day {
+  display: grid;
+  align-content: start;
+  gap: 5px;
+  min-width: 0;
+}
+
+.dayName {
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--hairline);
+  color: var(--ink-soft);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.own,
+.pick {
+  min-width: 0;
+  padding: 5px 6px;
+  border-radius: 6px;
+  font-size: 11.5px;
+  line-height: 1.25;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+.own time,
+.pick time {
+  display: block;
+  font-size: 10.5px;
+  font-variant-numeric: tabular-nums;
+}
+
+.own {
+  background: #EEE8DC;
+  color: rgba(38, 33, 62, 0.78);
+}
+
+.own.b { background: #E3ECE7; }
+.own.c { background: #F2E7DD; }
+
+.pick {
+  background: #EEEBFB;
+  color: var(--ink);
+  font-weight: 700;
+  box-shadow: inset 3px 0 0 var(--outings);
+}
+
+.pick time {
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.stand {
+  width: 30%;
+  height: 10px;
+  margin: 0 auto;
+  border-radius: 0 0 10px 10px;
+  background: #3A3546;
+  opacity: 0.85;
+}
+
+/* Phones: Friday to Sunday, so the weekend reads without a sideways scroll. */
+@media (max-width: 640px) {
+  .days {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .wideOnly {
+    display: none;
+  }
+
+  .inner {
+    padding: 12px;
+  }
+
+  .own,
+  .pick {
+    font-size: 12px;
+  }
+}

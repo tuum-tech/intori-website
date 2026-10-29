@@ -1390,3 +1390,14 @@
   .laneStrip::-webkit-scrollbar { display: none; }
   .momentCard { display: none; }
 }
+
+/* The hero's "Works with" line links to the family screen guide. */
+.worksWithLink {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--hairline);
+  text-underline-offset: 3px;
+}
+.worksWithLink:hover { text-decoration-color: var(--ink); }
+.worksWithLink:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; border-radius: 4px; }

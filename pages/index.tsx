@@ -354,7 +354,10 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
                 </p>
                 <p className={styles.worksWith}>
                   <CalendarIcon />
-                  Works with Apple Calendar, Google Calendar, and family displays like Skylight
+                  <span>
+                    Works with Apple Calendar, Google Calendar, and{" "}
+                    <Link href="/family-screen" className={styles.worksWithLink}>family screens like Skylight</Link>
+                  </span>
                 </p>
               </div>
               <div className={styles.heroStage}>

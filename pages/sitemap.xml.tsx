@@ -23,7 +23,6 @@ function picksPriority(path: string): string {
 
 const staticRoutes = [
   { path: '/', priority: '1.0', changefreq: 'weekly' },
-  { path: '/news', priority: '0.8', changefreq: 'weekly' },
   { path: '/faq', priority: '0.7', changefreq: 'monthly' },
   { path: '/support', priority: '0.6', changefreq: 'monthly' },
   { path: '/sources', priority: '0.5', changefreq: 'monthly' },

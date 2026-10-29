@@ -3,59 +3,30 @@ import Link from "next/link"
 
 import { MarketingFooter, MarketingHeader } from "@/components/MarketingChrome"
 import { SeoHead } from "@/lib/seo"
+import { metroPath, picksMetroInfo } from "@/lib/publicPicks"
+import sourcesData from "@/content/sources.json"
 import styles from "./index.module.css"
 import sourceStyles from "./sources.module.css"
 
-// Who intori reads for Outings, Outdoors and movie night, and how an organizer
-// is taken off. Keep this list in step with the app's source registry
-// (MomentSource): add an organizer when its source is read, and take it off
-// when it is switched off.
+// Who intori reads for Outings, Outdoors, shows and movie night, and how an
+// organizer is taken off. The list lives in content/sources.json, built from
+// the app's source registry (MomentSource rows that are switched on), so an
+// update is a data change: add an organizer when its source is read, take it
+// off when it is switched off, and move "updated" to that day.
 const SOURCES_EMAIL = "sources@intori.com"
-const UPDATED = "October 2, 2026"
 
-type Source = { name: string; adds: string; url: string; credit?: string }
+type Source = { id: string; name: string; adds: string; url: string; credit?: string }
+type Area = { metro: string; name: string; picks: boolean; sources: Source[] }
 
-const ORGANIZERS: Array<{ region: string; sources: Source[] }> = [
-  {
-    region: "Atlanta, Georgia",
-    sources: [
-      { name: "Fulton County Library System", adds: "Story times, classes and events at its branches", url: "https://fulcolibrary.bibliocommons.com/v2/events" },
-      { name: "Gwinnett County Public Library", adds: "Story times, classes and events at its branches", url: "https://gwinnettpl.libnet.info/events" },
-      { name: "DeKalb County Public Library", adds: "Story times, classes and events at its branches", url: "https://events.dekalblibrary.org/events" },
-      { name: "City of Marietta", adds: "City events and programs", url: "https://www.mariettaga.gov/calendar.aspx" },
-    ],
-  },
-  {
-    region: "Orlando, Florida",
-    sources: [
-      { name: "Orange County Library System", adds: "Story times, classes and events at its branches", url: "https://attend.ocls.org/" },
-      { name: "City of Oviedo", adds: "City events and programs", url: "https://www.cityofoviedo.net/calendar.aspx" },
-      { name: "City of Ocoee", adds: "City events and programs", url: "https://www.ocoee.org/calendar.aspx" },
-      { name: "City of Maitland", adds: "City events and programs", url: "https://maitlandfl.gov/calendar.aspx" },
-    ],
-  },
-  {
-    region: "Wilmington and Southeastern North Carolina",
-    sources: [
-      { name: "New Hanover County Public Library", adds: "Story times, classes and events at its branches", url: "https://libcal.nhcgov.com/" },
-      { name: "New Hanover County", adds: "County events, museum and parks programs", url: "https://www.nhcgov.com/" },
-      { name: "Pender County", adds: "County events and programs", url: "https://www.pendercountync.gov/" },
-      { name: "Brunswick County", adds: "County events and programs", url: "https://www.brunswickcountync.gov/calendar.aspx" },
-    ],
-  },
-]
-
-const SERVICES: Source[] = [
-  { name: "Ticketmaster", adds: "Theater, comedy and family shows near you, with a link to buy on Ticketmaster", url: "https://www.ticketmaster.com/" },
-  { name: "RunSignup", adds: "Races and fun runs, with a link to sign up", url: "https://runsignup.com/" },
-  { name: "National Weather Service", adds: "The forecast behind the outdoor hours intori suggests", url: "https://www.weather.gov/" },
-  { name: "OpenStreetMap", adds: "Parks, playgrounds, beaches, gardens and courts", url: "https://www.openstreetmap.org/copyright", credit: "© OpenStreetMap contributors, available under the Open Database License" },
-  { name: "NASA", adds: "Meteor showers and other nights worth looking up", url: "https://www.nasa.gov/" },
-  { name: "National Park Service", adds: "Ranger programs and events at national park sites", url: "https://www.nps.gov/" },
-  { name: "TMDB", adds: "Films and series, and where to watch them", url: "https://www.themoviedb.org/", credit: "Where to watch: JustWatch. This product uses the TMDB API but is not endorsed or certified by TMDB." },
-  { name: "Google Maps", adds: "Season places such as pumpkin patches, orchards and tree farms, shown with Google's own place card", url: "https://maps.google.com/" },
-  { name: "U.S. Census Bureau Geocoder", adds: "Places the street addresses that public calendars and race listings print, so a venue sits at its building", url: "https://geocoding.geo.census.gov/", credit: "Public US government data." },
-]
+const AREAS: Area[] = sourcesData.areas
+const SERVICES: Source[] = sourcesData.services
+const LOCAL_COUNT = AREAS.reduce((sum, area) => sum + area.sources.length, 0)
+const UPDATED = new Date(`${sourcesData.updated}T12:00:00Z`).toLocaleDateString("en-US", {
+  month: "long",
+  day: "numeric",
+  year: "numeric",
+  timeZone: "UTC",
+})
 
 const RULES: Array<{ title: string; body: string }> = [
   { title: "Facts only", body: "From a local calendar we keep what it is, when, where, who it is for, what it costs, and the link. Never its description, its photos or a staff contact." },
@@ -68,7 +39,7 @@ function SourceList({ sources }: { sources: Source[] }) {
   return (
     <ul className={sourceStyles.list}>
       {sources.map((source) => (
-        <li key={source.name} className={sourceStyles.item}>
+        <li key={source.id} className={sourceStyles.item}>
           <a href={source.url} target="_blank" rel="noopener noreferrer" className={sourceStyles.name}>{source.name}</a>
           <span className={sourceStyles.adds}>{source.adds}</span>
           {source.credit ? <span className={sourceStyles.credit}>{source.credit}</span> : null}
@@ -123,12 +94,31 @@ const SourcesPage: NextPage = () => {
               </div>
 
               <h2 className={sourceStyles.sectionHeading}>Local organizers</h2>
-              {ORGANIZERS.map((group) => (
-                <div key={group.region} className={sourceStyles.group}>
-                  <h3 className={sourceStyles.region}>{group.region}</h3>
-                  <SourceList sources={group.sources} />
-                </div>
-              ))}
+              <p className={sourceStyles.sectionIntro}>
+                {LOCAL_COUNT} libraries, towns, museums, gardens and parks departments in{" "}
+                {AREAS.length} areas. Open yours to see who intori reads there.
+              </p>
+              <div className={sourceStyles.areas}>
+                {AREAS.map((area) => {
+                  const picks = area.picks ? picksMetroInfo(area.metro) : null
+                  return (
+                    <details key={area.metro} className={sourceStyles.area}>
+                      <summary className={sourceStyles.areaSummary}>
+                        <span className={sourceStyles.areaName}>{area.name}</span>
+                        <span className={sourceStyles.areaCount}>{area.sources.length}</span>
+                      </summary>
+                      <div className={sourceStyles.areaBody}>
+                        <SourceList sources={area.sources} />
+                        {picks ? (
+                          <p className={sourceStyles.areaPicks}>
+                            <Link href={metroPath(picks.slug)}>This week&apos;s things to do with kids in {picks.name}</Link>
+                          </p>
+                        ) : null}
+                      </div>
+                    </details>
+                  )
+                })}
+              </div>
 
               <h2 className={sourceStyles.sectionHeading}>Services everywhere</h2>
               <SourceList sources={SERVICES} />

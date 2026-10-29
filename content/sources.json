@@ -1,0 +1,822 @@
+{
+  "updated": "2026-10-29",
+  "areas": [
+    {
+      "metro": "raleigh-durham",
+      "name": "Raleigh-Durham, North Carolina",
+      "picks": true,
+      "sources": [
+        {
+          "id": "apex-parks-civic",
+          "name": "Apex Parks Recreation and Cultural Resources",
+          "adds": "Parks and recreation programs and events",
+          "url": "https://www.apexnc.org/calendar.aspx"
+        },
+        {
+          "id": "durham-libcal",
+          "name": "Durham County Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://durhamcountylibrary.libcal.com/calendar"
+        },
+        {
+          "id": "durham-parks-civic",
+          "name": "Durham Parks and Recreation",
+          "adds": "Parks and recreation programs and events",
+          "url": "https://www.dprplaymore.org/calendar.aspx"
+        },
+        {
+          "id": "morehead-tribe",
+          "name": "Morehead Planetarium and Science Center",
+          "adds": "Planetarium shows and science programs",
+          "url": "https://moreheadplanetarium.org/calendar/"
+        },
+        {
+          "id": "nc-natural-sciences-tribe",
+          "name": "NC Museum of Natural Sciences",
+          "adds": "Exhibits, programs and family days",
+          "url": "https://www.naturalsciences.org/calendar/"
+        },
+        {
+          "id": "nc-dncr-localist",
+          "name": "North Carolina Department of Natural and Cultural Resources",
+          "adds": "Events at North Carolina's state museums, historic sites and parks",
+          "url": "https://events.dncr.nc.gov/"
+        },
+        {
+          "id": "ncma-tribe",
+          "name": "North Carolina Museum of Art",
+          "adds": "Exhibits, programs and family days",
+          "url": "https://ncartmuseum.org/events/"
+        },
+        {
+          "id": "carrboro-civic",
+          "name": "Town of Carrboro",
+          "adds": "Town events and programs",
+          "url": "https://www.carrboronc.gov/calendar.aspx"
+        },
+        {
+          "id": "chapelhill-opencities",
+          "name": "Town of Chapel Hill",
+          "adds": "Town events and programs",
+          "url": "https://www.chapelhillnc.gov/Events-directory"
+        },
+        {
+          "id": "clayton-civic",
+          "name": "Town of Clayton",
+          "adds": "Town events and programs",
+          "url": "https://www.claytonnc.gov/calendar.aspx"
+        },
+        {
+          "id": "fuquay-varina-civic",
+          "name": "Town of Fuquay-Varina",
+          "adds": "Town events and programs",
+          "url": "https://www.fuquay-varina.org/calendar.aspx"
+        },
+        {
+          "id": "holly-springs-civic",
+          "name": "Town of Holly Springs",
+          "adds": "Town events and programs",
+          "url": "https://www.hollyspringsnc.gov/calendar.aspx"
+        },
+        {
+          "id": "morrisville-opencities",
+          "name": "Town of Morrisville",
+          "adds": "Town events and programs",
+          "url": "https://www.morrisvillenc.gov/Events-directory"
+        }
+      ]
+    },
+    {
+      "metro": "charlotte",
+      "name": "Charlotte, North Carolina",
+      "picks": true,
+      "sources": [
+        {
+          "id": "monroe-civic",
+          "name": "City of Monroe",
+          "adds": "City events and programs",
+          "url": "https://www.monroenc.org/calendar.aspx"
+        },
+        {
+          "id": "tegacay-civic",
+          "name": "City of Tega Cay",
+          "adds": "City events and programs",
+          "url": "https://www.tegacaysc.org/calendar.aspx"
+        },
+        {
+          "id": "gaston-county-civic",
+          "name": "Gaston County",
+          "adds": "County events and programs",
+          "url": "https://www.gastongov.com/calendar.aspx"
+        },
+        {
+          "id": "gaston-library-civic",
+          "name": "Gaston County Public Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://www.gastonlibrary.org/calendar.aspx"
+        },
+        {
+          "id": "iredell-libcal",
+          "name": "Iredell County Public Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://iredell-lib-nc.libcal.com/calendar"
+        },
+        {
+          "id": "rowan-library-civic",
+          "name": "Rowan Public Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://www.rowancountync.gov/calendar.aspx"
+        },
+        {
+          "id": "davidson-civic",
+          "name": "Town of Davidson",
+          "adds": "Town events and programs",
+          "url": "https://www.townofdavidson.org/calendar.aspx"
+        },
+        {
+          "id": "fortmill-civic",
+          "name": "Town of Fort Mill",
+          "adds": "Town events and programs",
+          "url": "https://www.fortmillsc.gov/calendar.aspx"
+        },
+        {
+          "id": "indiantrail-civic",
+          "name": "Town of Indian Trail",
+          "adds": "Town events and programs",
+          "url": "https://www.indiantrail.org/calendar.aspx"
+        },
+        {
+          "id": "whitewater-tribe",
+          "name": "U.S. National Whitewater Center",
+          "adds": "Festivals, races and outdoor events",
+          "url": "https://whitewater.org/calendar/"
+        }
+      ]
+    },
+    {
+      "metro": "wilmington",
+      "name": "Wilmington, North Carolina",
+      "picks": true,
+      "sources": [
+        {
+          "id": "wilmington-arts-tribe",
+          "name": "Arts Council of Wilmington & New Hanover County",
+          "adds": "Arts events around Wilmington",
+          "url": "https://www.artswilmington.org/events/"
+        },
+        {
+          "id": "battleship-tribe",
+          "name": "Battleship North Carolina",
+          "adds": "Programs and events aboard the battleship",
+          "url": "https://battleshipnc.com/programs-and-events/"
+        },
+        {
+          "id": "brunswick-civic",
+          "name": "Brunswick County",
+          "adds": "County events and programs",
+          "url": "https://www.brunswickcountync.gov/calendar.aspx"
+        },
+        {
+          "id": "cameron-art-tribe",
+          "name": "Cameron Art Museum",
+          "adds": "Exhibits, programs and family days",
+          "url": "https://cameronartmuseum.org/events/"
+        },
+        {
+          "id": "wilmington-opencities",
+          "name": "City of Wilmington",
+          "adds": "City events and programs",
+          "url": "https://www.wilmingtonnc.gov/Events-directory"
+        },
+        {
+          "id": "nhc-civic",
+          "name": "New Hanover County",
+          "adds": "County events and programs",
+          "url": "https://www.nhcgov.com/calendar.aspx"
+        },
+        {
+          "id": "nhc-libcal",
+          "name": "New Hanover County Public Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://libcal.nhcgov.com/calendar"
+        },
+        {
+          "id": "pender-civic",
+          "name": "Pender County",
+          "adds": "County events and programs",
+          "url": "https://www.pendercountync.gov/calendar.aspx"
+        },
+        {
+          "id": "leland-civic",
+          "name": "Town of Leland",
+          "adds": "Town events and programs",
+          "url": "https://www.townofleland.com/calendar.aspx"
+        },
+        {
+          "id": "wrightsville-beach-civic",
+          "name": "Town of Wrightsville Beach",
+          "adds": "Town events and programs",
+          "url": "https://www.townofwrightsvillebeach.com/calendar.aspx"
+        }
+      ]
+    },
+    {
+      "metro": "greensboro",
+      "name": "Greensboro area, North Carolina",
+      "picks": true,
+      "sources": [
+        {
+          "id": "burlington-parks-civic",
+          "name": "Burlington Parks and Recreation",
+          "adds": "Parks and recreation programs and events",
+          "url": "https://www.burlingtonnc.gov/calendar.aspx"
+        },
+        {
+          "id": "high-point-library-civic",
+          "name": "High Point Public Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://www.highpointnc.gov/calendar.aspx"
+        },
+        {
+          "id": "winston-salem-parks-civic",
+          "name": "Winston Salem Recreation and Parks",
+          "adds": "Parks and recreation programs and events",
+          "url": "https://www.cityofws.org/calendar.aspx"
+        }
+      ]
+    },
+    {
+      "metro": "atlanta",
+      "name": "Atlanta, Georgia",
+      "picks": true,
+      "sources": [
+        {
+          "id": "atlanta-botanical-tribe",
+          "name": "Atlanta Botanical Garden",
+          "adds": "Garden events and classes",
+          "url": "https://atlantabg.org/events-exhibitions/"
+        },
+        {
+          "id": "atlanta-history-tribe",
+          "name": "Atlanta History Center",
+          "adds": "Exhibits, programs and family days",
+          "url": "https://www.atlantahistorycenter.com/events/"
+        },
+        {
+          "id": "cumming-tribe",
+          "name": "City of Cumming",
+          "adds": "City events and programs",
+          "url": "https://www.cityofcumming.net/events"
+        },
+        {
+          "id": "kennesaw-tribe",
+          "name": "City of Kennesaw",
+          "adds": "City events and programs",
+          "url": "https://www.kennesaw-ga.gov/events/"
+        },
+        {
+          "id": "lawrenceville-civic",
+          "name": "City of Lawrenceville",
+          "adds": "City events and programs",
+          "url": "https://www.lawrencevillega.org/calendar.aspx"
+        },
+        {
+          "id": "marietta-civic",
+          "name": "City of Marietta",
+          "adds": "City events and programs",
+          "url": "https://www.mariettaga.gov/calendar.aspx"
+        },
+        {
+          "id": "mcdonough-civic",
+          "name": "City of McDonough",
+          "adds": "City events and programs",
+          "url": "https://www.mcdonoughga.org/calendar.aspx"
+        },
+        {
+          "id": "dekalb-communico",
+          "name": "DeKalb County Public Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://events.dekalblibrary.org/events"
+        },
+        {
+          "id": "forsyth-communico",
+          "name": "Forsyth County Public Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://www.forsythpl.org/events"
+        },
+        {
+          "id": "fulton-bibliocommons",
+          "name": "Fulton County Library System",
+          "adds": "Story times, classes and library events",
+          "url": "https://fulcolibrary.bibliocommons.com/v2/events"
+        },
+        {
+          "id": "gwinnett-communico",
+          "name": "Gwinnett County Public Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://gwinnettpl.libnet.info/events"
+        },
+        {
+          "id": "henry-communico",
+          "name": "Henry County Library System",
+          "adds": "Story times, classes and library events",
+          "url": "https://henrylibraries.libnet.info/events"
+        }
+      ]
+    },
+    {
+      "metro": "orlando",
+      "name": "Orlando, Florida",
+      "picks": true,
+      "sources": [
+        {
+          "id": "altamonte-civic",
+          "name": "City of Altamonte Springs",
+          "adds": "City events and programs",
+          "url": "https://www.altamonte.org/calendar.aspx"
+        },
+        {
+          "id": "apopka-civic",
+          "name": "City of Apopka",
+          "adds": "City events and programs",
+          "url": "https://www.apopka.gov/calendar.aspx"
+        },
+        {
+          "id": "casselberry-civic",
+          "name": "City of Casselberry",
+          "adds": "City events and programs",
+          "url": "https://www.casselberry.org/calendar.aspx"
+        },
+        {
+          "id": "clermont-civic",
+          "name": "City of Clermont",
+          "adds": "City events and programs",
+          "url": "https://www.clermontfl.gov/calendar.aspx"
+        },
+        {
+          "id": "kissimmee-opencities",
+          "name": "City of Kissimmee",
+          "adds": "City events and programs",
+          "url": "https://www.kissimmee.gov/Events-directory"
+        },
+        {
+          "id": "maitland-civic",
+          "name": "City of Maitland",
+          "adds": "City events and programs",
+          "url": "https://maitlandfl.gov/calendar.aspx"
+        },
+        {
+          "id": "ocoee-civic",
+          "name": "City of Ocoee",
+          "adds": "City events and programs",
+          "url": "https://www.ocoee.org/calendar.aspx"
+        },
+        {
+          "id": "orlando-opencities",
+          "name": "City of Orlando",
+          "adds": "City events and programs",
+          "url": "https://www.orlando.gov/Events"
+        },
+        {
+          "id": "oviedo-civic",
+          "name": "City of Oviedo",
+          "adds": "City events and programs",
+          "url": "https://www.cityofoviedo.net/calendar.aspx"
+        },
+        {
+          "id": "leu-opencities",
+          "name": "Harry P. Leu Gardens",
+          "adds": "Garden events and classes",
+          "url": "https://www.leugardens.org/Events-directory"
+        },
+        {
+          "id": "ivanhoe-park-tribe",
+          "name": "Ivanhoe Park Brewing",
+          "adds": "Markets and community events",
+          "url": "https://ivanhoeparkbrewing.com/events/"
+        },
+        {
+          "id": "lake-libcal",
+          "name": "Lake County Library System",
+          "adds": "Story times, classes and library events",
+          "url": "https://mylakelibrary.libcal.com/calendar"
+        },
+        {
+          "id": "mennello-opencities",
+          "name": "Mennello Museum of American Art",
+          "adds": "Exhibits, programs and family days",
+          "url": "https://www.mennellomuseum.org/Events-directory"
+        },
+        {
+          "id": "ocls-communico",
+          "name": "Orange County Library System",
+          "adds": "Story times, classes and library events",
+          "url": "https://attend.ocls.org/events"
+        },
+        {
+          "id": "orlando-art-tribe",
+          "name": "Orlando Museum of Art",
+          "adds": "Exhibits, programs and family days",
+          "url": "https://omart.org/events/"
+        },
+        {
+          "id": "osc-tribe",
+          "name": "Orlando Science Center",
+          "adds": "Science programs and family events",
+          "url": "https://www.osc.org/visit/events/"
+        },
+        {
+          "id": "osceola-libcal",
+          "name": "Osceola Library System",
+          "adds": "Story times, classes and library events",
+          "url": "https://osceolalibrary.libcal.com/calendar"
+        }
+      ]
+    },
+    {
+      "metro": "tampa-bay",
+      "name": "Tampa Bay, Florida",
+      "picks": true,
+      "sources": [
+        {
+          "id": "pplc-clearwater-countryside-tribe",
+          "name": "Clearwater Public Library, Countryside Branch",
+          "adds": "Story times, classes and library events",
+          "url": "https://pplc.us/events/"
+        },
+        {
+          "id": "pplc-clearwater-main-tribe",
+          "name": "Clearwater Public Library, Main Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://pplc.us/events/"
+        },
+        {
+          "id": "pplc-dunedin-tribe",
+          "name": "Dunedin Public Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://pplc.us/events/"
+        },
+        {
+          "id": "glazer-tribe",
+          "name": "Glazer Children's Museum",
+          "adds": "Play days, classes and family events",
+          "url": "https://glazermuseum.org/events/"
+        },
+        {
+          "id": "hcplc-communico",
+          "name": "Hillsborough County Public Library Cooperative",
+          "adds": "Story times, classes and library events",
+          "url": "https://attend.hcplc.org/events"
+        },
+        {
+          "id": "pplc-largo-tribe",
+          "name": "Largo Public Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://pplc.us/events/"
+        },
+        {
+          "id": "pplc-palm-harbor-tribe",
+          "name": "Palm Harbor Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://pplc.us/events/"
+        },
+        {
+          "id": "pasco-communico",
+          "name": "Pasco County Library Cooperative",
+          "adds": "Story times, classes and library events",
+          "url": "https://pascolibraries.libnet.info/events"
+        },
+        {
+          "id": "pplc-safety-harbor-tribe",
+          "name": "Safety Harbor Public Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://pplc.us/events/"
+        }
+      ]
+    },
+    {
+      "metro": "jacksonville",
+      "name": "Jacksonville, Florida",
+      "picks": true,
+      "sources": [
+        {
+          "id": "jaxbeach-civic",
+          "name": "City of Jacksonville Beach",
+          "adds": "City events and programs",
+          "url": "https://www.jacksonvillebeach.org/calendar.aspx"
+        },
+        {
+          "id": "clay-libcal",
+          "name": "Clay County Public Library System",
+          "adds": "Story times, classes and library events",
+          "url": "https://claycountygov.libcal.com/calendar"
+        },
+        {
+          "id": "cummer-tribe",
+          "name": "Cummer Museum of Art & Gardens",
+          "adds": "Exhibits, garden programs and family days",
+          "url": "https://www.cummermuseum.org/calendar/"
+        },
+        {
+          "id": "jpl-communico",
+          "name": "Jacksonville Public Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://jaxpubliclibrary.libnet.info/events"
+        }
+      ]
+    },
+    {
+      "metro": "charleston",
+      "name": "Charleston, South Carolina",
+      "picks": true,
+      "sources": [
+        {
+          "id": "berkeley-libcal",
+          "name": "Berkeley County Library System",
+          "adds": "Story times, classes and library events",
+          "url": "https://berkeleylibrarysc.libcal.com/calendar"
+        },
+        {
+          "id": "ccpl-libcal",
+          "name": "Charleston County Public Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://ccplsc.libcal.com/calendar"
+        },
+        {
+          "id": "explorecml-ics",
+          "name": "Children's Museum of the Lowcountry",
+          "adds": "Play days, classes and family events",
+          "url": "https://explorecml.org/events/"
+        },
+        {
+          "id": "dorchester-libcal",
+          "name": "Dorchester County Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://dorchesterlibrarysc.libcal.com/calendar"
+        },
+        {
+          "id": "summerville-civic",
+          "name": "Town of Summerville",
+          "adds": "Town events and programs",
+          "url": "https://www.summervillesc.gov/calendar.aspx"
+        }
+      ]
+    },
+    {
+      "metro": "upstate-sc",
+      "name": "Greenville and Spartanburg, South Carolina",
+      "picks": false,
+      "sources": [
+        {
+          "id": "greenville-rec-tribe",
+          "name": "Greenville County Recreation",
+          "adds": "Parks and recreation programs and events",
+          "url": "https://greenvillerec.com/calendar/"
+        },
+        {
+          "id": "spartanburg-trumba",
+          "name": "Spartanburg County Public Libraries",
+          "adds": "Story times, classes and library events",
+          "url": "https://www.spartanburglibraries.org/Events"
+        }
+      ]
+    },
+    {
+      "metro": "richmond",
+      "name": "Richmond, Virginia",
+      "picks": true,
+      "sources": [
+        {
+          "id": "chesterfield-libcal",
+          "name": "Chesterfield County Public Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://chesterfield.libcal.com/calendar"
+        },
+        {
+          "id": "cmor-tribe",
+          "name": "Children's Museum of Richmond",
+          "adds": "Play days, classes and family events",
+          "url": "https://www.childrensmuseumofrichmond.org/events/"
+        },
+        {
+          "id": "henrico-libcal",
+          "name": "Henrico County Public Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://henricolibrary-va.libcal.com/calendar"
+        },
+        {
+          "id": "henrico-rec-tribe",
+          "name": "Henrico County Recreation and Parks",
+          "adds": "Parks and recreation programs and events",
+          "url": "https://henrico.gov/calendar/"
+        },
+        {
+          "id": "lewis-ginter-tribe",
+          "name": "Lewis Ginter Botanical Garden",
+          "adds": "Garden events and classes",
+          "url": "https://www.lewisginter.org/events/"
+        },
+        {
+          "id": "rpl-libcal",
+          "name": "Richmond Public Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://rvalibrary.libcal.com/calendar"
+        }
+      ]
+    },
+    {
+      "metro": "nashville",
+      "name": "Nashville, Tennessee",
+      "picks": true,
+      "sources": [
+        {
+          "id": "adventure-science-tribe",
+          "name": "Adventure Science Center",
+          "adds": "Science programs and family events",
+          "url": "https://www.adventuresci.org/calendar/"
+        },
+        {
+          "id": "mtjuliet-civic",
+          "name": "City of Mt. Juliet",
+          "adds": "City events and programs",
+          "url": "https://www.mtjuliet-tn.gov/calendar.aspx"
+        },
+        {
+          "id": "brentwood-libcal",
+          "name": "John P. Holt Brentwood Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://brentwood-tn.libcal.com/calendar"
+        },
+        {
+          "id": "rcls-sugarcalendar",
+          "name": "Rutherford County Library System",
+          "adds": "Story times, classes and library events",
+          "url": "https://rclstn.org/events/"
+        },
+        {
+          "id": "wcpl-civic",
+          "name": "Williamson County Public Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://wcpltn.org/calendar.aspx"
+        }
+      ]
+    },
+    {
+      "metro": "dallas-fort-worth",
+      "name": "Dallas-Fort Worth, Texas",
+      "picks": true,
+      "sources": [
+        {
+          "id": "frisco-parks-civic",
+          "name": "City of Frisco",
+          "adds": "City events and programs",
+          "url": "https://www.friscotexas.gov/calendar.aspx"
+        },
+        {
+          "id": "denton-bibliocommons",
+          "name": "Denton Public Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://denton.bibliocommons.com/v2/events"
+        },
+        {
+          "id": "frisco-bibliocommons",
+          "name": "Frisco Public Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://friscolibrary.bibliocommons.com/v2/events"
+        },
+        {
+          "id": "mckinney-libcal",
+          "name": "McKinney Public Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://mckinneytexas.libcal.com/calendar"
+        },
+        {
+          "id": "plano-communico",
+          "name": "Plano Public Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://plano.libnet.info/events"
+        },
+        {
+          "id": "smith-libcal",
+          "name": "Smith Public Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://smithlibrary.libcal.com/calendar"
+        }
+      ]
+    },
+    {
+      "metro": "minneapolis-st-paul",
+      "name": "Minneapolis-St. Paul, Minnesota",
+      "picks": true,
+      "sources": [
+        {
+          "id": "anoka-libcal",
+          "name": "Anoka County Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://anokacounty.libcal.com/calendar"
+        },
+        {
+          "id": "bell-museum-tribe",
+          "name": "Bell Museum",
+          "adds": "Exhibits, planetarium shows and family days",
+          "url": "https://www.bellmuseum.umn.edu/events/"
+        },
+        {
+          "id": "dakota-libcal",
+          "name": "Dakota County Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://dakotacountylibrary.libcal.com/calendar"
+        },
+        {
+          "id": "hclib-bibliocommons",
+          "name": "Hennepin County Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://hclib.bibliocommons.com/v2/events"
+        },
+        {
+          "id": "sppl-bibliocommons",
+          "name": "Saint Paul Public Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://sppl.bibliocommons.com/v2/events"
+        },
+        {
+          "id": "washco-libcal",
+          "name": "Washington County Library",
+          "adds": "Story times, classes and library events",
+          "url": "https://washcolib.libcal.com/calendar"
+        }
+      ]
+    }
+  ],
+  "services": [
+    {
+      "id": "ticketmaster",
+      "name": "Ticketmaster",
+      "adds": "Theater, comedy and family shows near you, with a link to buy on Ticketmaster",
+      "url": "https://www.ticketmaster.com/"
+    },
+    {
+      "id": "runsignup",
+      "name": "RunSignup",
+      "adds": "Races and fun runs, with a link to sign up",
+      "url": "https://runsignup.com/"
+    },
+    {
+      "id": "nws",
+      "name": "National Weather Service",
+      "adds": "The forecast behind the outdoor hours intori suggests",
+      "url": "https://www.weather.gov/"
+    },
+    {
+      "id": "osm",
+      "name": "OpenStreetMap",
+      "adds": "Parks, playgrounds, beaches, gardens and courts",
+      "url": "https://www.openstreetmap.org/copyright",
+      "credit": "© OpenStreetMap contributors, available under the Open Database License"
+    },
+    {
+      "id": "nasa-sky-2026",
+      "name": "NASA",
+      "adds": "Meteor showers and other nights worth looking up",
+      "url": "https://www.nasa.gov/blogs/watch-the-skies/"
+    },
+    {
+      "id": "nasa-launch-schedule",
+      "name": "NASA launch schedule",
+      "adds": "Rocket launch dates",
+      "url": "https://www.nasa.gov/event-type/launch-schedule/"
+    },
+    {
+      "id": "nps",
+      "name": "National Park Service",
+      "adds": "Ranger programs and events at national park sites",
+      "url": "https://www.nps.gov/"
+    },
+    {
+      "id": "nps-canaveral-viewing",
+      "name": "Canaveral National Seashore",
+      "adds": "Where to watch a launch from the seashore, from the National Park Service",
+      "url": "https://www.nps.gov/cana/planyourvisit/rocket-launch-viewing.htm"
+    },
+    {
+      "id": "tmdb",
+      "name": "TMDB",
+      "adds": "Films and series, and where to watch them",
+      "url": "https://www.themoviedb.org/",
+      "credit": "Where to watch: JustWatch. This product uses the TMDB API but is not endorsed or certified by TMDB."
+    },
+    {
+      "id": "google-maps",
+      "name": "Google Maps",
+      "adds": "Places to eat near your plans, and season places such as pumpkin patches, orchards and tree farms, shown with Google's own place card",
+      "url": "https://maps.google.com/"
+    },
+    {
+      "id": "census-geocoder",
+      "name": "U.S. Census Bureau Geocoder",
+      "adds": "Places the street addresses that public calendars and race listings print, so a venue sits at its building",
+      "url": "https://geocoding.geo.census.gov/geocoder/",
+      "credit": "Public US government data."
+    }
+  ]
+}

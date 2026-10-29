@@ -1,32 +1,34 @@
-import type { NextPage } from "next"
+import type { GetStaticProps, InferGetStaticPropsType } from "next"
 import Link from "next/link"
 
 import { MarketingFooter, MarketingHeader } from "@/components/MarketingChrome"
 import { SeoHead } from "@/lib/seo"
 import { metroPath, picksMetroInfo } from "@/lib/publicPicks"
-import sourcesData from "@/content/sources.json"
+import { SOURCES_REVALIDATE_SECONDS, loadSourcesPage, type Source, type SourcesPageData } from "@/lib/publicSources"
 import styles from "./index.module.css"
 import sourceStyles from "./sources.module.css"
 
 // Who intori reads for Outings, Outdoors, shows and movie night, and how an
-// organizer is taken off. The list lives in content/sources.json, built from
-// the app's source registry (MomentSource rows that are switched on), so an
-// update is a data change: add an organizer when its source is read, take it
-// off when it is switched off, and move "updated" to that day.
+// organizer is taken off. The organizers come live from the app's source
+// registry (lib/publicSources.ts) and refresh every 30 minutes, so a source
+// switched on or off in the app shows here without a site change.
+// content/sources.json is the fallback and holds the area names, each
+// organizer's "what it adds" line and the national services with credits.
 const SOURCES_EMAIL = "sources@intori.com"
 
-type Source = { id: string; name: string; adds: string; url: string; credit?: string }
-type Area = { metro: string; name: string; picks: boolean; sources: Source[] }
+export const getStaticProps: GetStaticProps<SourcesPageData> = async () => {
+  const data = await loadSourcesPage()
+  return { props: data, revalidate: data.live ? SOURCES_REVALIDATE_SECONDS : 300 }
+}
 
-const AREAS: Area[] = sourcesData.areas
-const SERVICES: Source[] = sourcesData.services
-const LOCAL_COUNT = AREAS.reduce((sum, area) => sum + area.sources.length, 0)
-const UPDATED = new Date(`${sourcesData.updated}T12:00:00Z`).toLocaleDateString("en-US", {
-  month: "long",
-  day: "numeric",
-  year: "numeric",
-  timeZone: "UTC",
-})
+function updatedLabel(iso: string): string {
+  return new Date(iso).toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "America/New_York",
+  })
+}
 
 const RULES: Array<{ title: string; body: string }> = [
   { title: "Facts only", body: "From a local calendar we keep what it is, when, where, who it is for, what it costs, and the link. Never its description, its photos or a staff contact." },
@@ -49,7 +51,8 @@ function SourceList({ sources }: { sources: Source[] }) {
   )
 }
 
-const SourcesPage: NextPage = () => {
+const SourcesPage = ({ areas, services, updated }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const localCount = areas.reduce((sum, area) => sum + area.sources.length, 0)
   return (
     <>
       <SeoHead
@@ -95,11 +98,11 @@ const SourcesPage: NextPage = () => {
 
               <h2 className={sourceStyles.sectionHeading}>Local organizers</h2>
               <p className={sourceStyles.sectionIntro}>
-                {LOCAL_COUNT} libraries, towns, museums, gardens and parks departments in{" "}
-                {AREAS.length} areas. Open yours to see who intori reads there.
+                {localCount} libraries, towns, museums, gardens and parks departments in{" "}
+                {areas.length} areas. Open yours to see who intori reads there.
               </p>
               <div className={sourceStyles.areas}>
-                {AREAS.map((area) => {
+                {areas.map((area) => {
                   const picks = area.picks ? picksMetroInfo(area.metro) : null
                   return (
                     <details key={area.metro} className={sourceStyles.area}>
@@ -121,10 +124,10 @@ const SourcesPage: NextPage = () => {
               </div>
 
               <h2 className={sourceStyles.sectionHeading}>Services everywhere</h2>
-              <SourceList sources={SERVICES} />
+              <SourceList sources={services} />
 
               <p className={sourceStyles.updated}>
-                Updated {UPDATED}. How we handle your own information is in the{" "}
+                Updated {updatedLabel(updated)}. How we handle your own information is in the{" "}
                 <Link href="/privacy-policy">Privacy Policy</Link>.
               </p>
             </div>

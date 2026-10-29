@@ -236,12 +236,6 @@
           "name": "High Point Public Library",
           "adds": "Story times, classes and library events",
           "url": "https://www.highpointnc.gov/calendar.aspx"
-        },
-        {
-          "id": "winston-salem-parks-civic",
-          "name": "Winston Salem Recreation and Parks",
-          "adds": "Parks and recreation programs and events",
-          "url": "https://www.cityofws.org/calendar.aspx"
         }
       ]
     },

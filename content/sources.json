@@ -799,6 +799,12 @@
       "url": "https://www.nps.gov/cana/planyourvisit/rocket-launch-viewing.htm"
     },
     {
+      "id": "balldontlie",
+      "name": "BALLDONTLIE",
+      "adds": "Game dates and times for the teams you follow",
+      "url": "https://www.balldontlie.io/"
+    },
+    {
       "id": "tmdb",
       "name": "TMDB",
       "adds": "Films and series, and where to watch them",

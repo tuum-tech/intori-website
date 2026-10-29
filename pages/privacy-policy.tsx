@@ -23,7 +23,7 @@ const Privacy: NextPage = () => {
 
       <h2>What changed in this update</h2>
       <p>
-        This update adds a Meta ads section: what we send Meta when someone who arrived from a Facebook or Instagram ad signs up on the web or starts a trial there, what we never send, that none of it runs inside the iPhone app, and how to turn it off. Our Apple Ads and campaign-link attribution practices are unchanged. It also changes our contact address to hello@intori.com, and calls Outings, Outdoors, Sports, Shows, Music and Food interests, as the app does. The October 29, 2026 update removes Spoonacular, which intori no longer uses, and describes Food as places to eat.
+        This update adds a Meta ads section: what we send Meta when someone who arrived from a Facebook or Instagram ad signs up on the web or starts a trial there, what we never send, that none of it runs inside the iPhone app, and how to turn it off. Our Apple Ads and campaign-link attribution practices are unchanged. It also changes our contact address to hello@intori.com, and calls Outings, Outdoors, Sports, Shows, Music and Food interests, as the app does. The October 29, 2026 update removes Spoonacular and Perplexity, which intori no longer uses, and describes Food as places to eat.
       </p>
 
       <h2>Who we are</h2>
@@ -267,14 +267,13 @@ const Privacy: NextPage = () => {
 
       <h3>With AI processors</h3>
       <p>
-        Two of the companies we work with are AI processors. To produce a result, intori sends them a limited amount of context. We send what the request needs and no more. We do not send your email address, sign-in identifiers, or payment information to them.
+        One company we work with is an AI processor: OpenAI. To produce a result, intori sends it a limited amount of context. We send what the request needs and no more. We do not send your email address, sign-in identifiers, or payment information to it.
       </p>
       <ul>
         <li><strong>OpenAI.</strong> Used to interpret your request, summarize sources, and write the result. May receive your request text, the declared preferences and dietary constraints relevant to that request, coarse local context, and source material retrieved for the request.</li>
-        <li><strong>Perplexity.</strong> Used for search and retrieval when a result needs current information. May receive a search query built from your request and the relevant declared preferences, which can include dietary constraints.</li>
       </ul>
       <p>
-        These processors receive context in order to answer a request. They do not receive your intori account. We reach both companies through their developer APIs, not through their consumer products. We send them context to answer your request. We do not send it for model training, and we do not ask them to train on it. What each company does with data it receives through its API is governed by that company&apos;s own terms. If our use changes, we will update this policy first.
+        OpenAI receives context in order to answer a request. It does not receive your intori account. We reach OpenAI through its developer API, not through its consumer products. We send it context to answer your request. We do not send it for model training, and we do not ask OpenAI to train on it. What OpenAI does with data it receives through its API is governed by OpenAI&apos;s own terms. If our use changes, we will update this policy first.
       </p>
 
       <h3>With data providers</h3>
@@ -291,10 +290,10 @@ const Privacy: NextPage = () => {
 
       <h3>How you control what goes to an AI processor</h3>
       <p>
-        Context goes to OpenAI or Perplexity only when you run a feature that needs one of them. Running that feature is what sends it. Nothing goes to either company when you are not using an AI-assisted feature, and the rest of intori works without them.
+        Context goes to OpenAI only when you run a feature that needs it. Running that feature is what sends it. Nothing goes to OpenAI when you are not using an AI-assisted feature, and the rest of intori works without it.
       </p>
       <p>
-        You can allow or turn off AI sharing in You, then What intori knows, under Permissions. Turning it off stops new personal context from reaching OpenAI or Perplexity; it does not erase results already created. Features that need this permission explain the sharing before asking you to allow it. Event and place data services are separate from AI processing and follow the provider disclosures above.
+        You can allow or turn off AI sharing in You, then What intori knows, under Permissions. Turning it off stops new personal context from reaching OpenAI; it does not erase results already created. Features that need this permission explain the sharing before asking you to allow it. Event and place data services are separate from AI processing and follow the provider disclosures above.
       </p>
       <p>
         If you have a question or a request about your context, email <a href="mailto:hello@intori.com">hello@intori.com</a>.
@@ -324,7 +323,7 @@ const Privacy: NextPage = () => {
         We use service providers to host and operate intori, store data, process payments, deliver notifications, provide AI processing and source data, secure intori, and provide customer support. These providers may process information only as needed to perform services for us, subject to appropriate contractual and security obligations.
       </p>
       <p>
-        Service providers include cloud hosting and database providers, Apple for app distribution, sign-in, push notifications, and App Store billing, Stripe for web payments, OpenAI and Perplexity for AI processing, Google Places and Ticketmaster for venue and event data, Farcaster and Farcaster data providers, World App and Worldcoin services, wallet or blockchain infrastructure providers, and support tools.
+        Service providers include cloud hosting and database providers, Apple for app distribution, sign-in, push notifications, and App Store billing, Stripe for web payments, OpenAI for AI processing, Google Places and Ticketmaster for venue and event data, Farcaster and Farcaster data providers, World App and Worldcoin services, wallet or blockchain infrastructure providers, and support tools.
       </p>
 
       <h3>With third-party platforms</h3>

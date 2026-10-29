@@ -2,10 +2,11 @@ import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Image from 'next/image'
 import Link from 'next/link'
 import { getSession } from "next-auth/react"
+import FamilyScreenWeek from '@/components/FamilyScreenWeek'
 import { MarketingFooter, MarketingHeader } from '@/components/MarketingChrome'
 import { JsonLd, SeoHead } from '@/lib/seo'
 import { applicationJsonLd, organizationJsonLd } from '@/lib/structuredData'
-import { APP_URL, HERO_VARIANT, IOS_CHANNEL, IOS_URL } from '@/lib/appLinks'
+import { APP_URL, IOS_CHANNEL, IOS_URL } from '@/lib/appLinks'
 import { appStoreQrSvg } from '@/lib/appStoreQr'
 
 import styles from './index.module.css'
@@ -243,26 +244,6 @@ function AppCtas({ qrSvg }: { qrSvg?: string | null }) {
   )
 }
 
-function HeroHeadline() {
-  if (HERO_VARIANT === 'decided') {
-    return <h1 className={styles.heroHeadline}>Tonight,<br />decided.</h1>
-  }
-
-  if (HERO_VARIANT === 'weekly') {
-    return (
-      <h1 className={`${styles.heroHeadline} ${styles.heroHeadlineWeekly}`}>
-        Something to look forward to. Every week.
-      </h1>
-    )
-  }
-
-  return (
-    <h1 className={styles.heroHeadline}>
-      Something to look forward to.
-    </h1>
-  )
-}
-
 function Phone({ src, alt, priority = false, className = '' }: { src: string; alt: string; priority?: boolean; className?: string }) {
   return (
     <div className={`${styles.phone} ${className}`}>
@@ -283,15 +264,6 @@ function CheckIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M4 12.5 9.5 18 20 6.5" />
-    </svg>
-  )
-}
-
-function CalendarIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.calIcon}>
-      <rect x="3.5" y="5" width="17" height="15" rx="3" />
-      <path d="M3.5 10h17M8 3v4M16 3v4" />
     </svg>
   )
 }
@@ -338,45 +310,27 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
 
         <main>
           <header className={styles.heroSection}>
-            <div className={`${styles.container} ${styles.heroGrid}`}>
-              <div className={styles.heroText}>
-                <p className={styles.heroEyebrow}>For busy families</p>
-                <HeroHeadline />
-                <p className={styles.heroDeck}>
-                  Your calendar tells you what you have to do. intori finds what your
-                  family would love to do, and adds it in one tap.
-                </p>
-                <div className={styles.heroCtas}>
-                  <AppCtas qrSvg={qrSvg} />
-                </div>
-                <p className={styles.heroTrust}>
-                  <strong>21 days free, no card needed.</strong> No ads, and nothing sold about your family.
-                </p>
-                <p className={styles.worksWith}>
-                  <CalendarIcon />
-                  <span>
-                    Works with Apple Calendar, Google Calendar, and{" "}
-                    <Link href="/family-screen" className={styles.worksWithLink}>family screens and wall calendars</Link>
-                  </span>
-                </p>
+            <div className={`${styles.container} ${styles.heroCentered}`}>
+              <h1 className={styles.heroPull}>
+                <span className={styles.heroPullA}>Your calendar tells you what you have to do. </span>
+                <span className={styles.heroPullB}>intori gives you something to look forward to.</span>
+              </h1>
+              <div className={styles.heroCtas}>
+                <AppCtas qrSvg={qrSvg} />
               </div>
-              <div className={styles.heroStage}>
-                <div className={styles.heroPhoto} aria-hidden="true">
-                  <Image src="/brand/lanes/outings-out-there.jpg" alt="" fill sizes="420px" className={styles.heroPhotoImg} priority />
-                </div>
+              <p className={styles.heroTrust}>
+                <strong>21 days free, no card needed.</strong>
+              </p>
+            </div>
+            <div className={`${styles.container} ${styles.showcaseWrap}`}>
+              <div className={styles.showcase}>
+                <FamilyScreenWeek compact rail className={styles.showcaseScreen} />
                 <Phone
                   src="/brand/app-b25/01-home.jpg"
                   alt="intori Today: apple picking at a nearby farm tomorrow, 8 AM to 5 PM, ready to hold, with Marbles Courtyard already on the calendar for Sunday at 11:00 AM"
                   priority
-                  className={styles.heroPhone}
+                  className={styles.showcasePhone}
                 />
-                <div className={styles.momentCard} aria-hidden="true">
-                  <span className={styles.momentIcon}><CalendarIcon /></span>
-                  <span>
-                    <b>On your calendar</b>
-                    <span>Marbles Courtyard · Sun 11:00 AM</span>
-                  </span>
-                </div>
               </div>
             </div>
             <div className={styles.container}>
@@ -453,14 +407,6 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
 
           <section className={styles.wedgeSection}>
             <div className={styles.container}>
-              <div className={styles.wedgeState}>
-                <p className={styles.wedgeLineA}>
-                  Your calendar tells you what you have to do.
-                </p>
-                <p className={styles.wedgeLineB}>
-                  intori gives you something to look forward to.
-                </p>
-              </div>
               <p className={styles.wedgeBody}>
                 Family calendars keep the week running. They can&rsquo;t notice that
                 the library has story time Saturday, the park looks perfect Sunday, or your

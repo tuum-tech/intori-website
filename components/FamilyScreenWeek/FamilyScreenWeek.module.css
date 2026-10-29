@@ -8,6 +8,7 @@
 }
 
 .screen {
+  container-type: inline-size;
   background: #3A3546;
   border-radius: 18px;
   padding: 10px;
@@ -20,6 +21,110 @@
   padding: 14px;
   border-radius: 10px;
   background: var(--card);
+}
+
+.main {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+/* The date column a wall calendar keeps at its left edge. With the rail the
+   screen takes a wide wall display's 2:1 shape, and its type is sized in
+   container units (cqi, a share of the screen's own width) so the picture
+   keeps its proportions at every width, the way a product photo does. */
+.withRail {
+  grid-template-columns: minmax(0, 0.24fr) minmax(0, 1fr);
+  gap: 2.2cqi;
+  aspect-ratio: 2.3 / 1;
+  padding: 2.4cqi;
+}
+
+.withRail .main {
+  gap: 1.3cqi;
+}
+
+.withRail .top b {
+  font-size: 2.5cqi;
+}
+
+.withRail .legend {
+  font-size: 1.6cqi;
+}
+
+.withRail .days {
+  gap: 1.35cqi;
+}
+
+.withRail .day {
+  gap: 1.3cqi;
+}
+
+.withRail .dayName {
+  font-size: 1.55cqi;
+}
+
+.withRail .main {
+  align-content: start;
+}
+
+.withRail .own,
+.withRail .pick {
+  font-size: 1.62cqi;
+  padding: 1cqi 0.95cqi;
+  border-radius: 0.8cqi;
+  hyphens: manual;
+  -webkit-hyphens: manual;
+}
+
+.withRail .own time,
+.withRail .pick time {
+  font-size: 1.4cqi;
+}
+
+.withRail .railDay {
+  font-size: 1.5cqi;
+}
+
+.withRail .railDate {
+  font-size: 5.6cqi;
+}
+
+.withRail .railMonth {
+  font-size: 1.7cqi;
+}
+
+.rail {
+  display: grid;
+  align-content: start;
+  justify-items: end;
+  text-align: right;
+  padding-right: 14px;
+  border-right: 1px solid var(--hairline);
+  color: var(--ink);
+}
+
+.railDay {
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.railDate {
+  margin-top: 2px;
+  font-size: 46px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.railMonth {
+  margin-top: 4px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .top {
@@ -103,7 +208,13 @@
 .pick time {
   display: block;
   font-size: 10.5px;
-  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Two-line titles break evenly, never leaving one word alone. */
+.title {
+  display: block;
+  text-wrap: balance;
 }
 
 .own {
@@ -146,6 +257,41 @@
     padding: 12px;
   }
 
+  .withRail {
+    grid-template-columns: minmax(0, 1fr);
+    aspect-ratio: auto;
+    padding: 12px;
+  }
+
+  .withRail .main { gap: 10px; }
+  .withRail .top b { font-size: 16px; }
+  .withRail .legend { font-size: 11px; white-space: nowrap; }
+  .withRail .days { gap: 0; }
+  .withRail .day { gap: 4px; }
+  .withRail .dayName { font-size: 11px; }
+
+  .withRail .own,
+  .withRail .pick {
+    font-size: 12.5px;
+    padding: 4px 8px;
+    border-radius: 6px;
+  }
+
+  .withRail .own,
+  .withRail .pick {
+    display: block;
+  }
+
+  .withRail .own time,
+  .withRail .pick time {
+    display: block;
+    font-size: 11px;
+  }
+
+  .rail {
+    display: none;
+  }
+
   .days {
     grid-template-columns: minmax(0, 1fr);
     gap: 0;
@@ -184,6 +330,14 @@
     flex: none;
     min-width: 76px;
     font-size: 11.5px;
+  }
+
+  .day.wideOnlyDay {
+    display: none;
+  }
+
+  .wideOnlyDay + .day {
+    border-top: 0;
   }
 
   /* After the flex rule above, so it wins. */

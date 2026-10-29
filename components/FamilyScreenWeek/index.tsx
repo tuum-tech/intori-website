@@ -9,7 +9,9 @@ import styles from "./FamilyScreenWeek.module.css"
 // illustration, so it stays generic on purpose: no maker's shape, marks or UI,
 // no faces, and no team, league, show or artist names. On phones the week
 // becomes a day-by-day list that keeps every intori item and one family item
-// per day.
+// per day. In compact mode phones show Friday to Sunday only. The rail adds
+// the date column a wall calendar shows at its left edge; in the homepage
+// hero the phone stands in front of it, so the phone never hides a pick.
 
 type Lane = "outings" | "outdoors" | "sports" | "shows" | "music" | "food"
 type Item = { time: string; title: string; lane?: Lane; tone?: "b" | "c"; wideOnly?: boolean }
@@ -25,51 +27,56 @@ const LANE_COLOR: Record<Lane, string> = {
   food: "#E5484D",
 }
 
+// Calm on purpose (founder, Oct 29): a few chores and appointments, clearly
+// things a family has to do, and one intori pick per interest, with room
+// between days. Times are start times, the way a wall calendar shows them.
 const WEEK: Day[] = [
   { name: "Mon", items: [
-    { time: "3 to 4 PM", title: "Carpool" },
-    { time: "6 to 7 PM", title: "Gymnastics", tone: "b", wideOnly: true },
+    { time: "3 PM", title: "Carpool" },
     { time: "9 PM", title: "Season premiere", lane: "shows" },
   ] },
   { name: "Tue", items: [
-    { time: "10 to 11 AM", title: "Math test", tone: "c" },
-    { time: "3 to 4 PM", title: "Carpool", wideOnly: true },
+    { time: "10 AM", title: "Math test", tone: "c" },
     { time: "6 PM", title: "New taco spot", lane: "food" },
   ] },
   { name: "Wed", items: [
-    { time: "8 to 9 AM", title: "Doctor", tone: "c" },
-    { time: "3 to 4 PM", title: "Carpool", wideOnly: true },
-    { time: "4:30 PM", title: "Piano", tone: "b", wideOnly: true },
+    { time: "8 AM", title: "Doctor", tone: "c" },
+    { time: "7 PM", title: "Cleaning", tone: "b" },
   ] },
   { name: "Thu", items: [
-    { time: "10 to 11 AM", title: "Yearbook meeting", tone: "c" },
-    { time: "3 to 4 PM", title: "Carpool", wideOnly: true },
+    { time: "6:30 PM", title: "PTA meeting", tone: "c" },
   ] },
   { name: "Fri", items: [
-    { time: "3 to 4 PM", title: "Carpool", wideOnly: true },
-    { time: "5 to 7 PM", title: "Cheer", tone: "b" },
+    { time: "5 PM", title: "Grocery pickup", tone: "b" },
     { time: "7:30 PM", title: "Movie in the park", lane: "outings" },
   ] },
   { name: "Sat", items: [
-    { time: "10 AM", title: "Fall festival", lane: "outings" },
     { time: "3:30 PM", title: "College football", lane: "sports" },
     { time: "8 PM", title: "Concert", lane: "music" },
   ] },
   { name: "Sun", items: [
     { time: "9 AM", title: "Trail walk", lane: "outdoors" },
-    { time: "1 PM", title: "Pro football", lane: "sports" },
-    { time: "8 PM", title: "New episode", lane: "shows" },
   ] },
 ]
 
 const LABEL =
-  "Illustration of a family's week on a wall screen. Carpool, practices, a test and appointments fill the school days. intori's picks are mixed in: a season premiere Monday night, a new taco spot Tuesday, a movie in the park Friday, then a fall festival, a college football game and a concert on Saturday, and a trail walk, a pro football game and a new episode on Sunday."
+  "Illustration of a family's week on a wall screen. Carpool, a math test, the doctor, cleaning, a PTA meeting and grocery pickup fill the school days. intori's picks sit in the gaps: a season premiere Monday night, a new taco spot Tuesday, a movie in the park Friday, a college football game and a concert on Saturday, and a trail walk on Sunday."
 
-export default function FamilyScreenWeek({ className = "" }: { className?: string }) {
+const WEEKEND = new Set(["Fri", "Sat", "Sun"])
+
+export default function FamilyScreenWeek({ className = "", compact = false, rail = false }: { className?: string; compact?: boolean; rail?: boolean }) {
   return (
     <figure className={`${styles.figure} ${className}`}>
       <div className={styles.screen} role="img" aria-label={LABEL}>
-        <div className={styles.inner}>
+        <div className={`${styles.inner} ${rail ? styles.withRail : ""}`}>
+          {rail ? (
+            <div className={styles.rail} aria-hidden="true">
+              <span className={styles.railDay}>Friday</span>
+              <span className={styles.railDate}>30</span>
+              <span className={styles.railMonth}>October</span>
+            </div>
+          ) : null}
+          <div className={styles.main}>
           <div className={styles.top}>
             <b>This week</b>
             <span className={styles.legend}>
@@ -79,7 +86,7 @@ export default function FamilyScreenWeek({ className = "" }: { className?: strin
           </div>
           <div className={styles.days}>
             {WEEK.map((day) => (
-              <div key={day.name} className={styles.day}>
+              <div key={day.name} className={`${styles.day} ${compact && !WEEKEND.has(day.name) ? styles.wideOnlyDay : ""}`}>
                 <span className={styles.dayName}>{day.name}</span>
                 {day.items.map((item) => (
                   <span
@@ -97,6 +104,7 @@ export default function FamilyScreenWeek({ className = "" }: { className?: strin
                 ))}
               </div>
             ))}
+          </div>
           </div>
         </div>
       </div>

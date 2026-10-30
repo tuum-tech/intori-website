@@ -9,6 +9,8 @@ export default function Document() {
         <meta name="theme-color" content="#FCF8F1" />
         {/* Bing Webmaster Tools ownership for https://intori.com/ (Google verified by DNS). */}
         <meta name="msvalidate.01" content="F625B380E29E7E9AA00B0AEC01417BE1" />
+        {/* Pinterest website claim for intori.com. */}
+        <meta name="p:domain_verify" content="bec3ded8c6b7fb7f8eea011737708019" />
       </Head>
       <body>
         <Main />

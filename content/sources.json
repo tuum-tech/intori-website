@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-29",
+  "updated": "2026-11-02",
   "areas": [
     {
       "metro": "raleigh-durham",
@@ -779,6 +779,12 @@
       "name": "NASA launch schedule",
       "adds": "Rocket launch dates",
       "url": "https://www.nasa.gov/event-type/launch-schedule/"
+    },
+    {
+      "id": "launch-library-2",
+      "name": "The Space Devs · Launch Library 2",
+      "adds": "Rocket launch dates and status for Cape Canaveral and Kennedy",
+      "url": "https://thespacedevs.com/"
     },
     {
       "id": "nps",

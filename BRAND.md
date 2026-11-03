@@ -63,7 +63,9 @@ italic-only face).
   never meal planning, recipes, or shopping lists.
 - Style Finds is parked and must not appear on any marketing surface.
 - iPhone leads. The button verb is "Add to calendar" and the result is "On
-  your calendar": one tap to the iPhone's calendar, with Sign in with Apple.
+  your calendar": the date goes to the iPhone's calendar, with Sign in with Apple.
+  Never "one tap" or "one-tap": adding a date takes more than one tap, so the
+  claim is banned on every surface.
   Google Calendar and Skylight are mentioned quietly (the calendar link in
   Settings), never as a choice the reader has to make up front.
 - Calendar language stays user-initiated: intori adds only what you tap to

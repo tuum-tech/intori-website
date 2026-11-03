@@ -37,7 +37,7 @@ export function applicationJsonLd() {
   }))
   const shared = {
     name: 'intori',
-    description: 'intori finds what your family would love to do, from story time and good park hours to the big game, a show coming back, or an artist playing nearby, and adds it to your calendar in one tap. 21 days free, no card needed.',
+    description: 'intori finds what your family would love to do, from story time and good park hours to the big game, a show coming back, or an artist playing nearby, and puts it on your calendar. 21 days free, no card needed.',
     applicationCategory: 'LifestyleApplication',
     publisher: { '@id': ORGANIZATION_ID },
     offers,

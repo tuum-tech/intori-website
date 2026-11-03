@@ -69,7 +69,7 @@ export default function PickListingPage(props: InferGetStaticPropsType<typeof ge
             <p className={styles.checked}>{checkedLabel}</p>
             <PicksCta
               title="Want this on your calendar?"
-              body="intori adds it in one tap, with a reminder, and finds the next one for you."
+              body="intori puts it on your calendar, with a reminder, and finds the next one for you."
               className={styles.phoneOnly}
             />
             {sameDay.items.length > 0 ? (
@@ -98,7 +98,7 @@ export default function PickListingPage(props: InferGetStaticPropsType<typeof ge
           <aside className={styles.aside}>
             <PicksCta
               title="Want this on your calendar?"
-              body="intori adds it in one tap, with a reminder, and finds the next one for you."
+              body="intori puts it on your calendar, with a reminder, and finds the next one for you."
               className={styles.wideOnly}
             />
             <PicksFootNote otherMetros={otherMetros} />

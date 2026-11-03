@@ -15,7 +15,7 @@ const Terms: NextPage = () => {
 
       <LegalLayout>
         <h1>intori Terms of Use</h1>
-        <p><strong>Last Updated: October 13, 2026</strong></p>
+        <p><strong>Last Updated: October 29, 2026</strong></p>
 
       <p>
         These terms cover the intori website and the intori mobile app. There is one set of terms for both.
@@ -23,7 +23,7 @@ const Terms: NextPage = () => {
 
       <h2>What changed in this update</h2>
       <p>
-        This update explains how intori checks age where the law requires it and says that people under 18 need a parent or legal guardian&apos;s permission to buy a subscription. It also extends the app-managed full-access trial to 21 days, changes the annual plan to $59.99, explains when early web subscribers are first charged, and clarifies what remains available after full access ends. No payment method is required to start the trial, and it does not become a paid subscription on its own. The AI processors and data providers we use are named in our <Link href="/privacy-policy">Privacy Policy</Link>. The October 13, 2026 update adds the Outings and Outdoors lanes to the description of the Services.
+        This update explains how intori checks age where the law requires it and says that people under 18 need a parent or legal guardian&apos;s permission to buy a subscription. It also extends the app-managed full-access trial to 21 days, changes the annual plan to $59.99, explains when early web subscribers are first charged, and clarifies what remains available after full access ends. No payment method is required to start the trial, and it does not become a paid subscription on its own. The AI processors and data providers we use are named in our <Link href="/privacy-policy">Privacy Policy</Link>. The October 13, 2026 update adds Outings and Outdoors to the description of the Services. The October 23, 2026 update changes our contact address to hello@intori.com, says when we refund web purchases, and calls Outings, Outdoors, Sports, Shows, Music and Food interests, as the app does. The October 29, 2026 update removes Spoonacular, Perplexity, recipe databases and web search from the sources and services intori uses, and describes Food as places to eat.
       </p>
 
       <p>
@@ -46,7 +46,7 @@ const Terms: NextPage = () => {
 
       <h2>2. What intori does</h2>
       <p>
-        intori is a household personalization service. You declare preferences and constraints for your household. intori uses those declared signals to produce daily suggestions with sources attached: local outings and events, outdoor places and good times to go, sports, what to watch, live music and events, and what to cook or eat. The features that produce those suggestions are organized into lanes: Outings, Outdoors, Sports, Shows, Music, and Food.
+        intori is a household personalization service. You declare preferences and constraints for your household. intori uses those declared signals to produce daily suggestions with sources attached: local outings and events, outdoor places and good times to go, sports, what to watch, live music and events, and places to eat. The features that produce those suggestions are organized into six interests: Outings, Outdoors, Sports, Shows, Music, and Food.
       </p>
       <p>How your declarations are used:</p>
       <ul>
@@ -89,7 +89,7 @@ const Terms: NextPage = () => {
 
       <h2>5. Consent and connected apps</h2>
       <p>
-        Some Services depend on your consent. You may be asked to grant consent for topics, groups, local context, lane access, sharing context with an AI processor, connected app sharing, or other scopes. You may also revoke consent through intori controls.
+        Some Services depend on your consent. You may be asked to grant consent for topics, groups, local context, access to an interest, sharing context with an AI processor, connected app sharing, or other scopes. You may also revoke consent through intori controls.
       </p>
       <p>
         If you approve a connected app, intori may share a scoped context bundle with that app. Connected apps are independent services, and their own terms and privacy policies may apply after they receive information. We are not responsible for a connected app&apos;s use of information after you authorize sharing, except to the extent required by law or a written agreement with that app.
@@ -135,7 +135,7 @@ const Terms: NextPage = () => {
         Read this section carefully if you or anyone in your household has a food allergy, celiac disease, or another medical dietary condition.
       </p>
       <p>
-        When you declare a dietary constraint, intori applies it as a filter against the information available from its sources. Those sources include recipe databases, venue and menu listings, event listings, and web search. intori reports what those sources say. It does not verify what they say.
+        When you declare a dietary constraint, intori applies it as a filter against the information available from its sources. Those sources include venue and menu listings and event listings. intori reports what those sources say. It does not verify what they say.
       </p>
       <p>
         intori is not a food safety service. We do not inspect kitchens, test food, audit suppliers, or observe how a dish is prepared. We cannot detect cross-contact, shared fryers, shared equipment, ingredient substitutions, recipe changes, or mislabeled products. A menu that says a dish is gluten free may be wrong. Independent testing has repeatedly found gluten in restaurant food sold as gluten free, and the same risk applies to any allergen.
@@ -173,7 +173,7 @@ const Terms: NextPage = () => {
         <strong>When you are charged.</strong> On the web, if you choose a plan while at least 48 hours of your app-managed trial remain, you provide a payment method at checkout and authorize the first charge for the trial end date shown there. Cancel before that date through Manage billing in the app and you will not be charged. If less than 48 hours remain, or your trial has ended, the first web charge is made when you confirm your purchase. App Store purchases are billed by Apple when you confirm your purchase, unless Apple presents a separate offer for which you are eligible. The app-managed trial is not an Apple introductory offer. Renewal charges are made at the start of each new billing period; Apple may charge within 24 hours before the current period ends. The amount, billing period and first-charge timing are shown before you confirm.
       </p>
       <p>
-        <strong>How to cancel.</strong> You can cancel at any time. If you subscribed in the iOS app, cancel in your Apple account subscription settings on your device. If you subscribed on the web, cancel in your intori account settings or by emailing <a href="mailto:contact@intori.com">contact@intori.com</a>. To avoid the next charge, cancel at least 24 hours before the current period ends.
+        <strong>How to cancel.</strong> You can cancel at any time. If you subscribed in the iOS app, cancel in your Apple account subscription settings on your device. If you subscribed on the web, cancel in your intori account settings or by emailing <a href="mailto:hello@intori.com">hello@intori.com</a>. To avoid the next charge, cancel at least 24 hours before the current period ends.
       </p>
       <p>
         <strong>What cancellation does.</strong> Cancelling stops the next renewal. It does not end the period you already paid for. You keep paid access until the end of that period, and you are not charged again after that.
@@ -188,10 +188,10 @@ const Terms: NextPage = () => {
         <strong>App Store purchases.</strong> If you subscribe in the intori iOS app, Apple bills you, and the purchase is governed by Apple&apos;s terms, including the Apple Media Services Terms and Conditions. You manage and cancel that subscription in your Apple account subscription settings. We cannot cancel or refund an App Store subscription for you. Send refund requests for App Store purchases to Apple.
       </p>
       <p>
-        <strong>Web purchases.</strong> If you subscribe on the intori website, Stripe processes the payment and we manage the subscription. Cancel in your intori account settings or by emailing <a href="mailto:contact@intori.com">contact@intori.com</a>. Send refund requests for web purchases to us at the same address.
+        <strong>Web purchases.</strong> If you subscribe on the intori website, Stripe processes the payment and we manage the subscription. Cancel in your intori account settings or by emailing <a href="mailto:hello@intori.com">hello@intori.com</a>. Send refund requests for web purchases to us at the same address.
       </p>
       <p>
-        <strong>Refunds.</strong> Apple handles refunds for App Store purchases under its own policies. For web purchases, and except where the law gives you a refund right, fees already charged are not refundable, and cancelling stops future charges rather than refunding past ones. We may give a refund at our discretion.
+        <strong>Refunds.</strong> Apple handles refunds for App Store purchases under its own policies. For web purchases, except as described below or where the law gives you a refund right, fees already charged are not refundable, and cancelling stops future charges rather than refunding past ones. For web purchases we refund an annual charge in full when you ask within 30 days of it, and a monthly charge within 7 days, by email to <a href="mailto:hello@intori.com">hello@intori.com</a>. Billing mistakes are always refunded in full.
       </p>
       <p>
         <strong>Legacy paid Credit accounts.</strong> intori used to sell Credit packs. Credit packs are no longer sold. If an account completed a paid Credit purchase before packs retired, we replaced its former Credit balance with lifetime full access to intori. This lifetime access does not expire and does not require a subscription. It is tied to that intori account and may not be transferred, resold, or redeemed for money unless we expressly allow it in writing.
@@ -216,7 +216,7 @@ const Terms: NextPage = () => {
 
       <h2>12. Third-party services</h2>
       <p>
-        The Services may interact with or depend on third-party services, including Apple, Stripe, OpenAI, Perplexity, Spoonacular, Google Places, Ticketmaster, Farcaster, World App, Worldcoin services, wallets, blockchain networks, RPC providers, notification providers, hosting providers, and connected apps.
+        The Services may interact with or depend on third-party services, including Apple, Stripe, OpenAI, Google Places, Ticketmaster, Farcaster, World App, Worldcoin services, wallets, blockchain networks, RPC providers, notification providers, hosting providers, and connected apps.
       </p>
       <p>
         We do not control third-party services and are not responsible for their content, policies, availability, security, or actions. Information from a third-party source may be wrong, incomplete, or out of date. Your use of third-party services may be governed by their own terms and privacy policies.
@@ -251,7 +251,7 @@ const Terms: NextPage = () => {
         We use reasonable safeguards designed to protect the Services, but no online service is perfectly secure. You are responsible for securing your devices, wallets, platform accounts, and authentication methods.
       </p>
       <p>
-        You must promptly notify us at <a href="mailto:contact@intori.com">contact@intori.com</a> if you believe your account, wallet, session, grant credential, API key, or access has been compromised.
+        You must promptly notify us at <a href="mailto:hello@intori.com">hello@intori.com</a> if you believe your account, wallet, session, grant credential, API key, or access has been compromised.
       </p>
 
       <h2>17. Disclaimers</h2>
@@ -280,7 +280,7 @@ const Terms: NextPage = () => {
 
       <h2>20. Termination</h2>
       <p>
-        You may stop using the Services at any time. You can delete your account from inside the intori mobile app, on the You tab under Settings and data, or by contacting <a href="mailto:contact@intori.com">contact@intori.com</a>, subject to retention needed for legal, security, fraud-prevention, accounting, or operational reasons. Deleting your account does not cancel an App Store subscription. Cancel that separately in your Apple account subscription settings.
+        You may stop using the Services at any time. You can delete your account from inside the intori mobile app, on the You tab under Settings and data, or by contacting <a href="mailto:hello@intori.com">hello@intori.com</a>, subject to retention needed for legal, security, fraud-prevention, accounting, or operational reasons. Deleting your account does not cancel an App Store subscription. Cancel that separately in your Apple account subscription settings.
       </p>
       <p>
         We may suspend or terminate your access if we believe you violated these Terms, created risk, or used the Services unlawfully or abusively.
@@ -299,7 +299,7 @@ const Terms: NextPage = () => {
         These Terms are governed by the laws of the State of North Carolina, without regard to conflict-of-law rules, except where applicable law requires otherwise.
       </p>
       <p>
-        Before filing a claim, you and Tuum agree to try to resolve the dispute informally by contacting the other party. Contact us at <a href="mailto:contact@intori.com">contact@intori.com</a>.
+        Before filing a claim, you and Tuum agree to try to resolve the dispute informally by contacting the other party. Contact us at <a href="mailto:hello@intori.com">hello@intori.com</a>.
       </p>
 
       <h2>23. General terms</h2>
@@ -315,7 +315,7 @@ const Terms: NextPage = () => {
         Tuum Technologies, Inc.<br />
         4030 Wake Forest Road, STE 349<br />
         Raleigh, NC 27609<br />
-        <a href="mailto:contact@intori.com">contact@intori.com</a>
+        <a href="mailto:hello@intori.com">hello@intori.com</a>
       </p>
       </LegalLayout>
     </>

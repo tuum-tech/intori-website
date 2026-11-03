@@ -2,9 +2,11 @@ import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Image from 'next/image'
 import Link from 'next/link'
 import { getSession } from "next-auth/react"
+import FamilyScreenWeek from '@/components/FamilyScreenWeek'
 import { MarketingFooter, MarketingHeader } from '@/components/MarketingChrome'
-import { SeoHead } from '@/lib/seo'
-import { APP_STORE_BADGE, APP_STORE_BADGE_ALT, APP_URL, HERO_VARIANT, IOS_CHANNEL, appStoreUrl } from '@/lib/appLinks'
+import { JsonLd, SeoHead } from '@/lib/seo'
+import { applicationJsonLd, organizationJsonLd } from '@/lib/structuredData'
+import { APP_STORE_BADGE, APP_STORE_BADGE_ALT, APP_URL, IOS_CHANNEL, appStoreUrl } from '@/lib/appLinks'
 import { appStoreQr, type AppStoreQr } from '@/lib/appStoreQr'
 
 import styles from './index.module.css'
@@ -90,7 +92,7 @@ const NEAR_YOU: Lane[] = [
     id: 'food',
     kicker: 'Food',
     title: 'Dinner that fits the plan.',
-    body: 'Headed to a game or a show? A few places nearby that suit your household, and a few good spots close to home.',
+    body: 'Headed to a game or a show? A few places nearby that suit your family, and a few good spots close to home.',
     image: '/brand/lanes/food-table-for-four.jpg',
     alt: 'A mother and two children passing a big bowl of pasta around a pink table',
     tint: styles.artFood,
@@ -132,7 +134,7 @@ const ALL_LANES = [NEAR_YOU[0], NEAR_YOU[1], ...FOLLOWED, NEAR_YOU[2]]
 
 const STEPS = [
   {
-    title: 'Turn on what your household enjoys.',
+    title: 'Turn on what you enjoy.',
     body: 'Sign in with Apple or your email, then pick from six interests. Follow a team or a show, choose the outings you like, and add the rest anytime.',
     image: '/brand/app-b25/04-interests.jpg',
     alt: 'intori Interests for a family with kids under 5 and 5 to 8, with all six turned on: Outings, Outdoors, Sports, Shows, Music and Food',
@@ -244,26 +246,6 @@ function AppCtas({ qr }: { qr?: AppStoreQr | null }) {
   )
 }
 
-function HeroHeadline() {
-  if (HERO_VARIANT === 'decided') {
-    return <h1 className={styles.heroHeadline}>Tonight,<br />decided.</h1>
-  }
-
-  if (HERO_VARIANT === 'weekly') {
-    return (
-      <h1 className={`${styles.heroHeadline} ${styles.heroHeadlineWeekly}`}>
-        Something to look forward to. Every week.
-      </h1>
-    )
-  }
-
-  return (
-    <h1 className={styles.heroHeadline}>
-      Something to look forward to.
-    </h1>
-  )
-}
-
 function Phone({ src, alt, priority = false, className = '' }: { src: string; alt: string; priority?: boolean; className?: string }) {
   return (
     <div className={`${styles.phone} ${className}`}>
@@ -288,18 +270,9 @@ function CheckIcon() {
   )
 }
 
-function CalendarIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.calIcon}>
-      <rect x="3.5" y="5" width="17" height="15" rx="3" />
-      <path d="M3.5 10h17M8 3v4M16 3v4" />
-    </svg>
-  )
-}
-
 function LaneCard({ lane }: { lane: Lane }) {
   return (
-    <article id={`lane-${lane.id}`} tabIndex={-1} className={`${styles.laneCard} ${lane.tint}`}>
+    <article id={lane.id} tabIndex={-1} className={`${styles.laneCard} ${lane.tint}`}>
       <div className={styles.laneArt}>
         <Image
           src={lane.image}
@@ -325,11 +298,13 @@ export default function HomePage({ qr, trialEnds }: InferGetServerSidePropsType<
     <>
       <SeoHead
         title="intori. Something to look forward to."
-        description="Your calendar tells you what you have to do. intori finds what your household would love to do, from story time and good park hours to the big game, a show coming back, or an artist playing nearby, and puts it on your calendar."
+        description="Your calendar tells you what you have to do. intori finds what your family would love to do, from story time and good park hours to the big game, a show coming back, or an artist playing nearby, and puts it on your calendar."
         canonicalPath="/"
         ogDescription="Your calendar tells you what you have to do. intori gives you something to look forward to."
         ogImageAlt="intori card reading Something to look forward to, with tiles for Outings, Outdoors, Sports, Shows, Music and Food"
       />
+      <JsonLd id="organization" data={organizationJsonLd()} />
+      <JsonLd id="application" data={applicationJsonLd()} />
 
       <div className={styles.page}>
 
@@ -337,48 +312,33 @@ export default function HomePage({ qr, trialEnds }: InferGetServerSidePropsType<
 
         <main>
           <header className={styles.heroSection}>
-            <div className={`${styles.container} ${styles.heroGrid}`}>
-              <div className={styles.heroText}>
-                <p className={styles.heroEyebrow}>For busy households</p>
-                <HeroHeadline />
-                <p className={styles.heroDeck}>
-                  Your calendar tells you what you have to do. intori finds what your
-                  household would love to do, and puts it on your calendar.
-                </p>
-                <div className={styles.heroCtas}>
-                  <AppCtas qr={qr} />
-                </div>
-                <p className={styles.heroTrust}>
-                  <strong>21 days free, no card needed.</strong> No ads, and nothing sold about your family.
-                </p>
-                <p className={styles.worksWith}>
-                  <CalendarIcon />
-                  Works with Apple Calendar, Google Calendar, and family displays like Skylight
-                </p>
+            <div className={`${styles.container} ${styles.heroCentered}`}>
+              <h1 className={styles.heroPull}>
+                <span className={styles.heroPullA}>Your calendar tells you what you have to do. </span>
+                <span className={styles.heroPullB}>intori gives you something to look forward to.</span>
+              </h1>
+              <div className={styles.heroCtas}>
+                <AppCtas qr={qr} />
               </div>
-              <div className={styles.heroStage}>
-                <div className={styles.heroPhoto} aria-hidden="true">
-                  <Image src="/brand/lanes/outings-out-there.jpg" alt="" fill sizes="420px" className={styles.heroPhotoImg} priority />
-                </div>
+              <p className={styles.heroTrust}>
+                <strong>21 days free, no card needed.</strong>
+              </p>
+            </div>
+            <div className={`${styles.container} ${styles.showcaseWrap}`}>
+              <div className={styles.showcase}>
+                <FamilyScreenWeek compact rail className={styles.showcaseScreen} />
                 <Phone
                   src="/brand/app-b25/01-home.jpg"
                   alt="intori Today: apple picking at a nearby farm tomorrow, 8 AM to 5 PM, ready to hold, with Marbles Courtyard already on the calendar for Sunday at 11:00 AM"
                   priority
-                  className={styles.heroPhone}
+                  className={styles.showcasePhone}
                 />
-                <div className={styles.momentCard} aria-hidden="true">
-                  <span className={styles.momentIcon}><CalendarIcon /></span>
-                  <span>
-                    <b>On your calendar</b>
-                    <span>Marbles Courtyard · Sun 11:00 AM</span>
-                  </span>
-                </div>
               </div>
             </div>
             <div className={styles.container}>
               <nav className={styles.laneStrip} aria-label="What intori watches for">
                 {ALL_LANES.map((lane) => (
-                  <a key={lane.id} href={`#lane-${lane.id}`} className={`${styles.laneChip} ${lane.tint}`}>
+                  <a key={lane.id} href={`#${lane.id}`} className={`${styles.laneChip} ${lane.tint}`}>
                     <span className={styles.laneChipImg}>
                       <Image src={lane.image} alt="" fill sizes="40px" className={styles.todayArtImage} />
                     </span>
@@ -390,12 +350,12 @@ export default function HomePage({ qr, trialEnds }: InferGetServerSidePropsType<
             </div>
           </header>
 
-          <section id="lanes" className={styles.todaySection}>
+          <section id="what-it-watches" className={styles.todaySection}>
             <div className={styles.container}>
               <div className={styles.secHead}>
                 <h2 className={styles.secTitle}>Six things intori watches for</h2>
                 <p className={styles.secSub}>
-                  Turn on the ones your household enjoys. intori does the looking.
+                  Turn on the ones you enjoy. intori does the looking.
                 </p>
               </div>
 
@@ -449,16 +409,8 @@ export default function HomePage({ qr, trialEnds }: InferGetServerSidePropsType<
 
           <section className={styles.wedgeSection}>
             <div className={styles.container}>
-              <div className={styles.wedgeState}>
-                <p className={styles.wedgeLineA}>
-                  Your calendar tells you what you have to do.
-                </p>
-                <p className={styles.wedgeLineB}>
-                  intori gives you something to look forward to.
-                </p>
-              </div>
               <p className={styles.wedgeBody}>
-                Family calendars keep the household running. They can&rsquo;t notice that
+                Family calendars keep the week running. They can&rsquo;t notice that
                 the library has story time Saturday, the park looks perfect Sunday, or your
                 team plays Thursday. intori does the noticing, and fills the open days.
               </p>
@@ -517,7 +469,8 @@ export default function HomePage({ qr, trialEnds }: InferGetServerSidePropsType<
                 </p>
                 <p className={styles.calFine}>
                   intori adds only the dates you choose, and never reads your other events.
-                  Use Google Calendar or a family display like Skylight? Connect it from Week,
+                  Use Google Calendar or a family screen?{" "}
+                  <Link href="/family-screen" className={styles.worksWithLink}>Connect it from Week</Link>,
                   and what you add shows up there too.
                 </p>
               </div>
@@ -629,7 +582,7 @@ export default function HomePage({ qr, trialEnds }: InferGetServerSidePropsType<
               <h2 className={styles.convertTitle}>Your first pick is a few minutes away.</h2>
               <p className={styles.convertSub}>
                 {IOS_CHANNEL === 'appstore'
-                  ? <>Download intori, sign in with Apple, and choose what your household enjoys. intori takes it from there.</>
+                  ? <>Download intori, sign in with Apple, and choose what you enjoy. intori takes it from there.</>
                   : <>intori works on the web today. The iPhone app is next, and the button below will say so the moment it&rsquo;s real.</>}
               </p>
               <div className={styles.convertCtas}>
@@ -637,7 +590,7 @@ export default function HomePage({ qr, trialEnds }: InferGetServerSidePropsType<
               </div>
               <p className={styles.convertNote}>
                 21 days free, starting when you finish setup. Then $8.99 a month or $59.99
-                a year. <a href="#pricing" className={styles.convertNoteLink}>See what a lapse does</a>.
+                a year. <a href="#pricing" className={styles.convertNoteLink}>See what happens if you stop paying</a>.
               </p>
             </div>
           </section>

@@ -30,7 +30,7 @@ export function MarketingHeader() {
           </Link>
           <nav className={styles.nav} aria-label="Primary navigation">
             <Link href="/#how" className={styles.navLink}>How it works</Link>
-            <Link href="/#lanes" className={styles.navLink}>What it watches</Link>
+            <Link href="/#what-it-watches" className={styles.navLink}>What it watches</Link>
             <Link href="/#pricing" className={styles.navLink}>Pricing</Link>
             <Link href="/faq" className={styles.navLink}>FAQ</Link>
             {/* Same destination as the homepage's primary button: the iPhone app
@@ -66,11 +66,11 @@ export function MarketingFooter() {
           <nav className={styles.footerNav} aria-label="Footer">
             <Link href="/faq" className={styles.footerLink}>FAQ</Link>
             <Link href="/support" className={styles.footerLink}>Support</Link>
-            <Link href="/news" className={styles.footerLink}>News</Link>
+            <Link href="/things-to-do-with-kids" className={styles.footerLink}>Things to do with kids</Link>
             <Link href="/sources" className={styles.footerLink}>Sources</Link>
             <Link href="/privacy-policy" className={styles.footerLink}>Privacy</Link>
             <Link href="/terms-of-use" className={styles.footerLink}>Terms</Link>
-            <a href="mailto:contact@intori.com" className={styles.footerLink}>Contact</a>
+            <a href="mailto:hello@intori.com" className={styles.footerLink}>Contact</a>
             <a
               href={WORLD_APP_URL}
               className={styles.footerLink}

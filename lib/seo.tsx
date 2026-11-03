@@ -75,3 +75,16 @@ export function SeoHead({
     </Head>
   )
 }
+
+/** Schema.org markup. `<` is escaped so a value can never close the script tag. */
+export function JsonLd({ id, data }: { id: string; data: unknown }) {
+  return (
+    <Head>
+      <script
+        key={`jsonld-${id}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, '\\u003c') }}
+      />
+    </Head>
+  )
+}

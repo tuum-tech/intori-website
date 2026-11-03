@@ -20,7 +20,7 @@ Most apps that help a family run help with what you have to do: practice, appoin
 
 ## What it does
 
-Tell intori what your household loves, once. Then it keeps watch, so you don't have to ask.
+Tell intori what your family loves, once. Then it keeps watch, so you don't have to ask.
 
 - **Outings:** library programs, museum days, fun runs and family shows near you.
 - **Outdoors:** parks, playgrounds, trails and beaches close to home, with the hours the forecast looks good.
@@ -43,4 +43,4 @@ Home shows up to five picks a day, each with the reason it is there. When you ha
 
 Full access is free for 21 days after setup, with no payment needed to start. After that, intori is $8.99 a month or $59.99 a year.
 
-Download intori from the App Store, or tap Get the app at the top of this page. We would love to hear what you think at [contact@intori.com](mailto:contact@intori.com).
+Download intori from the App Store, or tap Get the app at the top of this page. We would love to hear what you think at [hello@intori.com](mailto:hello@intori.com).

@@ -1,0 +1,114 @@
+import type { CSSProperties } from "react"
+
+import styles from "./FamilyScreenWeek.module.css"
+
+// A family's week on a generic wall screen. The family's own items are muted;
+// intori's are striped by interest. Every interest shows (founder, Oct 29
+// 2026): a followed team, show or artist lands all season after one follow,
+// and Food, Outings and Outdoors are picked week by week. It is an
+// illustration, so it stays generic on purpose: no maker's shape, marks or UI,
+// no faces, and no team, league, show or artist names. On phones the week
+// becomes a day-by-day list that keeps every intori item and one family item
+// per day. In compact mode phones show Friday to Sunday only. The rail adds
+// the date column a wall calendar shows at its left edge; in the homepage
+// hero the phone stands in front of it, so the phone never hides a pick.
+
+type Lane = "outings" | "outdoors" | "sports" | "shows" | "music" | "food"
+type Item = { time: string; title: string; lane?: Lane; tone?: "b" | "c"; wideOnly?: boolean }
+type Day = { name: string; items: Item[] }
+
+// Lane colours: artwork only (a stripe and a faint wash), never text colour.
+const LANE_COLOR: Record<Lane, string> = {
+  outings: "#6C63D9",
+  outdoors: "#00A884",
+  sports: "#F76B15",
+  shows: "#60B3D7",
+  music: "#D467FF",
+  food: "#E5484D",
+}
+
+// Calm on purpose (founder, Oct 29): a few chores and appointments, clearly
+// things a family has to do, and one intori pick per interest, with room
+// between days. Times are start times, the way a wall calendar shows them.
+const WEEK: Day[] = [
+  { name: "Mon", items: [
+    { time: "3 PM", title: "Carpool" },
+    { time: "9 PM", title: "Season premiere", lane: "shows" },
+  ] },
+  { name: "Tue", items: [
+    { time: "10 AM", title: "Math test", tone: "c" },
+    { time: "6 PM", title: "New taco spot", lane: "food" },
+  ] },
+  { name: "Wed", items: [
+    { time: "8 AM", title: "Doctor", tone: "c" },
+    { time: "7 PM", title: "Cleaning", tone: "b" },
+  ] },
+  { name: "Thu", items: [
+    { time: "6:30 PM", title: "PTA meeting", tone: "c" },
+  ] },
+  { name: "Fri", items: [
+    { time: "5 PM", title: "Grocery pickup", tone: "b" },
+    { time: "7:30 PM", title: "Movie in the park", lane: "outings" },
+  ] },
+  { name: "Sat", items: [
+    { time: "3:30 PM", title: "College football", lane: "sports" },
+    { time: "8 PM", title: "Concert", lane: "music" },
+  ] },
+  { name: "Sun", items: [
+    { time: "9 AM", title: "Trail walk", lane: "outdoors" },
+  ] },
+]
+
+const LABEL =
+  "Illustration of a family's week on a wall screen. Carpool, a math test, the doctor, cleaning, a PTA meeting and grocery pickup fill the school days. intori's picks sit in the gaps: a season premiere Monday night, a new taco spot Tuesday, a movie in the park Friday, a college football game and a concert on Saturday, and a trail walk on Sunday."
+
+const WEEKEND = new Set(["Fri", "Sat", "Sun"])
+
+export default function FamilyScreenWeek({ className = "", compact = false, rail = false }: { className?: string; compact?: boolean; rail?: boolean }) {
+  return (
+    <figure className={`${styles.figure} ${className}`}>
+      <div className={styles.screen} role="img" aria-label={LABEL}>
+        <div className={`${styles.inner} ${rail ? styles.withRail : ""}`}>
+          {rail ? (
+            <div className={styles.rail} aria-hidden="true">
+              <span className={styles.railDay}>Friday</span>
+              <span className={styles.railDate}>30</span>
+              <span className={styles.railMonth}>October</span>
+            </div>
+          ) : null}
+          <div className={styles.main}>
+          <div className={styles.top}>
+            <b>This week</b>
+            <span className={styles.legend}>
+              <i className={styles.keyFamily} aria-hidden="true" />Your week
+              <i className={styles.keyPick} aria-hidden="true" />From intori
+            </span>
+          </div>
+          <div className={styles.days}>
+            {WEEK.map((day) => (
+              <div key={day.name} className={`${styles.day} ${compact && !WEEKEND.has(day.name) ? styles.wideOnlyDay : ""}`}>
+                <span className={styles.dayName}>{day.name}</span>
+                {day.items.map((item) => (
+                  <span
+                    key={item.title + item.time}
+                    className={[
+                      item.lane ? styles.pick : styles.own,
+                      item.tone ? styles[item.tone] : "",
+                      item.wideOnly ? styles.wideOnly : "",
+                    ].join(" ")}
+                    style={item.lane ? ({ "--lane": LANE_COLOR[item.lane] } as CSSProperties) : undefined}
+                  >
+                    <time>{item.time}</time>
+                    <span className={styles.title}>{item.title}</span>
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+          </div>
+        </div>
+      </div>
+      <div className={styles.stand} aria-hidden="true" />
+    </figure>
+  )
+}

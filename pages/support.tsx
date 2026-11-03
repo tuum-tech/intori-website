@@ -7,7 +7,7 @@ import styles from "./index.module.css"
 
 // The App Store Support URL. Every answer here describes what the app does
 // today; paths name the app's own labels (You tab, Settings and data).
-const SUPPORT_EMAIL = "contact@intori.com"
+const SUPPORT_EMAIL = "hello@intori.com"
 
 const TOPICS: Array<{ question: string; answer: string[] }> = [
   {
@@ -79,8 +79,9 @@ const SupportPage: NextPage = () => {
                 <p className={styles.heroEyebrow}>Support</p>
                 <h1 className={styles.faqHeading}>How can we help?</h1>
                 <p className={styles.faqIntro}>
-                  Email us at <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a> and we will
-                  write back. The answers below cover the most common questions.
+                  Email us at <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>. A real person
+                  reads every note and answers within one business day. The answers below cover
+                  the most common questions.
                 </p>
               </div>
 

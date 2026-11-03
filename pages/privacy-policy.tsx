@@ -15,7 +15,7 @@ const Privacy: NextPage = () => {
 
       <LegalLayout>
         <h1>intori Privacy Policy</h1>
-        <p><strong>Last Updated: October 19, 2026</strong></p>
+        <p><strong>Last Updated: October 29, 2026</strong></p>
 
       <p>
         This policy covers the intori website and the intori mobile app. There is one policy for both.
@@ -23,14 +23,14 @@ const Privacy: NextPage = () => {
 
       <h2>What changed in this update</h2>
       <p>
-        This update clarifies optional precise location for Food, email-code sign-in, the household age bands you may choose to share, the AI-sharing controls already available in the app, and retention of first-party usage records. Our Apple Ads and campaign-link attribution practices are unchanged.
+        This update adds a Meta ads section: what we send Meta when someone who arrived from a Facebook or Instagram ad signs up on the web or starts a trial there, what we never send, that none of it runs inside the iPhone app, and how to turn it off. Our Apple Ads and campaign-link attribution practices are unchanged. It also changes our contact address to hello@intori.com, and calls Outings, Outdoors, Sports, Shows, Music and Food interests, as the app does. The October 29, 2026 update removes Spoonacular and Perplexity, which intori no longer uses, and describes Food as places to eat.
       </p>
 
       <h2>Who we are</h2>
       <p>
         The intori service is owned by Tuum Technologies, Inc. (&quot;Tuum&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;).
       </p>
-      <p>You can contact us by email at <a href="mailto:contact@intori.com">contact@intori.com</a>.</p>
+      <p>You can contact us by email at <a href="mailto:hello@intori.com">hello@intori.com</a>.</p>
       <p>In writing to:</p>
       <address>
         Tuum Technologies, Inc.<br />
@@ -40,7 +40,7 @@ const Privacy: NextPage = () => {
 
       <h2>What intori is</h2>
       <p>
-        intori is a household personalization service. You declare preferences and constraints for your household, and intori uses those declared signals to produce daily suggestions with sources attached: local outings and events, outdoor places and good times to go, sports, what to watch, live music and events, and what to cook or eat. The features that produce those suggestions are organized into lanes: Outings, Outdoors, Sports, Shows, Music, and Food.
+        intori is a household personalization service. You declare preferences and constraints for your household, and intori uses those declared signals to produce daily suggestions with sources attached: local outings and events, outdoor places and good times to go, sports, what to watch, live music and events, and places to eat. The features that produce those suggestions are organized into six interests: Outings, Outdoors, Sports, Shows, Music, and Food.
       </p>
       <p>How your declarations are used:</p>
       <ul>
@@ -89,6 +89,17 @@ const Privacy: NextPage = () => {
       <h3>Campaign links</h3>
       <p>
         If you arrive at intori on the web from a link that carries a campaign tag, such as a utm_source or utm_campaign value, or a referral code, and you create an account soon after, we keep that tag or code with your new account. Until then, your browser remembers the tag on your device for up to 30 days, so it can be matched when you sign up. We use it only to learn which campaigns and partners bring new accounts. We do not keep the page you came from or your browsing history, we do not share the tag, and it follows the same deletion rules as Apple Ads attribution below: it is deleted with your account, and after 13 months only totals that are not tied to anyone remain.
+      </p>
+
+      <h3>Meta ads</h3>
+      <p>
+        intori advertises on Facebook and Instagram, which Meta runs. When you arrive at intori on the web from one of those ads, the link carries a Meta click id, and Meta&apos;s pixel on our web pages sets a browser id in a cookie. On the web pages where the pixel runs, Meta learns that a page was viewed, with its address, your IP address, and your browser type, the way any Meta pixel does. If you create an account soon after arriving, we keep the click id and the browser id with your new account, in the same place as a campaign tag. When you sign up, and when your free trial starts, we tell Meta that a sign-up or a trial start happened, with the click id, the browser id, and the IP address and browser type of the request that made it. That is all we send. We do not tell Meta about purchases or subscriptions. We do not send your name, email address, or phone number, in plain or hashed form, and we do not send what you do inside intori.
+      </p>
+      <p>
+        Meta uses this to tell which of its ads bring families who sign up, so that we can stop paying for ads that do not. All of this happens on the web, in a browser. The pixel never runs inside the iPhone app, which loads the same web pages, and never on our internal pages, and nothing you do inside the iPhone app is ever sent to Meta, even if your account first arrived from a Meta ad. If your browser sends the Global Privacy Control signal, the pixel does not load and we keep nothing and send nothing to Meta about you. We keep the ids only for accounts that arrived from a Meta link; every other account has none, and nothing about those accounts goes to Meta.
+      </p>
+      <p>
+        The ids follow the same deletion rules as Apple Ads attribution and campaign tags: they are deleted with your account, and 13 months after we record them we delete them from your account and keep only totals that are not tied to anyone. To have them removed sooner, email <a href="mailto:hello@intori.com">hello@intori.com</a> from the address on your account, and we will delete them and send nothing further about your account to Meta. Meta&apos;s handling of what it receives is governed by the <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noreferrer">Meta Privacy Policy</a>.
       </p>
 
       <h3>Answers, preferences, and context</h3>
@@ -244,7 +255,7 @@ const Privacy: NextPage = () => {
         <li>Detect, prevent, and respond to spam, abuse, fraud, security incidents, and violations of our terms.</li>
         <li>Provide customer support and communicate with you.</li>
         <li>Measure performance, reliability, and product usage.</li>
-        <li>Learn which of our ads and campaign links bring new accounts, as described under Apple Ads attribution and Campaign links.</li>
+        <li>Learn which of our ads and campaign links bring new accounts, as described under Apple Ads attribution, Campaign links, and Meta ads.</li>
         <li>Comply with law and enforce our rights.</li>
       </ul>
       <p>
@@ -256,14 +267,13 @@ const Privacy: NextPage = () => {
 
       <h3>With AI processors</h3>
       <p>
-        Two of the companies we work with are AI processors. To produce a result, intori sends them a limited amount of context. We send what the request needs and no more. We do not send your email address, sign-in identifiers, or payment information to them.
+        One company we work with is an AI processor: OpenAI. To produce a result, intori sends it a limited amount of context. We send what the request needs and no more. We do not send your email address, sign-in identifiers, or payment information to it.
       </p>
       <ul>
         <li><strong>OpenAI.</strong> Used to interpret your request, summarize sources, and write the result. May receive your request text, the declared preferences and dietary constraints relevant to that request, coarse local context, and source material retrieved for the request.</li>
-        <li><strong>Perplexity.</strong> Used for search and retrieval when a result needs current information. May receive a search query built from your request and the relevant declared preferences, which can include dietary constraints.</li>
       </ul>
       <p>
-        These processors receive context in order to answer a request. They do not receive your intori account. We reach both companies through their developer APIs, not through their consumer products. We send them context to answer your request. We do not send it for model training, and we do not ask them to train on it. What each company does with data it receives through its API is governed by that company&apos;s own terms. If our use changes, we will update this policy first.
+        OpenAI receives context in order to answer a request. It does not receive your intori account. We reach OpenAI through its developer API, not through its consumer products. We send it context to answer your request. We do not send it for model training, and we do not ask OpenAI to train on it. What OpenAI does with data it receives through its API is governed by OpenAI&apos;s own terms. If our use changes, we will update this policy first.
       </p>
 
       <h3>With data providers</h3>
@@ -271,7 +281,6 @@ const Privacy: NextPage = () => {
         The following are data APIs, not AI services. intori queries them for facts and listings. They do not generate results, and they do not receive your intori account.
       </p>
       <ul>
-        <li><strong>Spoonacular.</strong> Used for recipe and ingredient data. May receive recipe search terms, including dietary constraints and excluded ingredients such as allergens.</li>
         <li><strong>Google Maps Platform and Google Places.</strong> Used to find and describe local venues such as restaurants and to display Google Maps place details. May receive a city or approximate area, a search radius, and venue search terms. When you choose Use my location for Food, it may also receive the precise point described above, through intori, to answer that request. Google&apos;s handling of this information is governed by the <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google Privacy Policy</a>, and use of Google Maps features is subject to the <a href="https://maps.google.com/help/terms_maps/" target="_blank" rel="noreferrer">Google Maps/Google Earth Additional Terms of Service</a>.</li>
         <li><strong>Ticketmaster.</strong> Used for live event and ticket listings. May receive coarse local context, date ranges, and event search terms such as a genre or an artist.</li>
       </ul>
@@ -281,13 +290,13 @@ const Privacy: NextPage = () => {
 
       <h3>How you control what goes to an AI processor</h3>
       <p>
-        Context goes to OpenAI or Perplexity only when you run a feature that needs one of them. Running that feature is what sends it. Nothing goes to either company when you are not using an AI-assisted feature, and the rest of intori works without them.
+        Context goes to OpenAI only when you run a feature that needs it. Running that feature is what sends it. Nothing goes to OpenAI when you are not using an AI-assisted feature, and the rest of intori works without it.
       </p>
       <p>
-        You can allow or turn off AI sharing in You, then What intori knows, under Permissions. Turning it off stops new personal context from reaching OpenAI or Perplexity; it does not erase results already created. Features that need this permission explain the sharing before asking you to allow it. Event and place data services are separate from AI processing and follow the provider disclosures above.
+        You can allow or turn off AI sharing in You, then What intori knows, under Permissions. Turning it off stops new personal context from reaching OpenAI; it does not erase results already created. Features that need this permission explain the sharing before asking you to allow it. Event and place data services are separate from AI processing and follow the provider disclosures above.
       </p>
       <p>
-        If you have a question or a request about your context, email <a href="mailto:contact@intori.com">contact@intori.com</a>.
+        If you have a question or a request about your context, email <a href="mailto:hello@intori.com">hello@intori.com</a>.
       </p>
 
       <h3>With other intori users</h3>
@@ -314,7 +323,7 @@ const Privacy: NextPage = () => {
         We use service providers to host and operate intori, store data, process payments, deliver notifications, provide AI processing and source data, secure intori, and provide customer support. These providers may process information only as needed to perform services for us, subject to appropriate contractual and security obligations.
       </p>
       <p>
-        Service providers include cloud hosting and database providers, Apple for app distribution, sign-in, push notifications, and App Store billing, Stripe for web payments, OpenAI and Perplexity for AI processing, Spoonacular, Google Places, and Ticketmaster for recipe, venue, and event data, Farcaster and Farcaster data providers, World App and Worldcoin services, wallet or blockchain infrastructure providers, and support tools.
+        Service providers include cloud hosting and database providers, Apple for app distribution, sign-in, push notifications, and App Store billing, Stripe for web payments, OpenAI for AI processing, Google Places and Ticketmaster for venue and event data, Farcaster and Farcaster data providers, World App and Worldcoin services, wallet or blockchain infrastructure providers, and support tools.
       </p>
 
       <h3>With third-party platforms</h3>
@@ -329,7 +338,7 @@ const Privacy: NextPage = () => {
 
       <h2>Selling or sharing for advertising</h2>
       <p>
-        We do not sell or rent your personal information. We do not share personal information for cross-context behavioral advertising. We do not sell, rent, or share your declared dietary and health-adjacent information for any advertising purpose, and we do not use it to target ads to you. If any of this changes, we will update this policy and provide any required choices.
+        We do not sell or rent your personal information. Apart from the Meta ads measurement described above, we do not share personal information for cross-context behavioral advertising. Depending on the law where you live, telling Meta about a sign-up or trial start may count as sharing for advertising; you can turn it off for your browser with Global Privacy Control, which we honor, or ask us to remove the ids at any time. We do not sell, rent, or share your declared dietary and health-adjacent information for any advertising purpose, and we do not use it to target ads to you. If any of this changes, we will update this policy and provide any required choices.
       </p>
 
       <h2>Your controls and choices</h2>
@@ -351,10 +360,10 @@ const Privacy: NextPage = () => {
 
       <h3>Deleting your account</h3>
       <p>
-        You can delete your intori account yourself. Open the You tab, then Settings and data, and choose Delete your account. What intori knows also links to Settings and data. For help with deletion, email <a href="mailto:contact@intori.com">contact@intori.com</a>.
+        You can delete your intori account yourself. Open the You tab, then Settings and data, and choose Delete your account. What intori knows also links to Settings and data. For help with deletion, email <a href="mailto:hello@intori.com">hello@intori.com</a>.
       </p>
       <p>
-        Deleting your account removes your answers, declared preferences, declared dietary constraints, local context, results, and connected app grants, except for records we must keep for legal, accounting, security, or fraud-prevention reasons. If you signed in with Apple, we ask Apple to revoke your Sign in with Apple token. If Apple is temporarily unavailable, your intori account deletion still proceeds and intori removes its stored Apple credentials.
+        Deleting your account removes your answers, declared preferences, declared dietary constraints, local context, results, and connected app grants, except for records we must keep for legal, accounting, security, or fraud-prevention reasons. If you signed in with Apple, we ask Apple to revoke your Sign in with Apple token. If Apple is temporarily unavailable, your intori account deletion still proceeds and intori removes its stored Apple credentials. So that the free trial is one per person, we keep one thing after deletion: a one-way code made from how you signed in (your email address with any +tag removed and, for Gmail, its dots, or your Apple, World or Farcaster sign-in), with the dates your free trial started and ended. The code is not your email address, cannot be turned back into it, and is not linked to anything else about you. We use it only to tell whether a new account belongs to someone who already had the free trial.
       </p>
       <p>
         Deletion is permanent. We cannot restore a deleted account. Deleting your intori account does not cancel an App Store subscription. Cancel that separately in your Apple account subscription settings.
@@ -365,7 +374,7 @@ const Privacy: NextPage = () => {
         You can download a copy of your data yourself, in the app and on the web. Open You, then Settings and data, and choose Download your data. intori builds the file straight away and your device downloads it as a JSON file. There is no queue and no waiting for an email.
       </p>
       <p>
-        The export includes your account and sign-in details, your answers, your declared preferences, your declared dietary constraints including whether each one applies to you or to a household member, your local context, your consent records, your results and runs, your connected app grants and receipts, and your vibe. If you would rather ask us for it, email <a href="mailto:contact@intori.com">contact@intori.com</a>.
+        The export includes your account and sign-in details, your answers, your declared preferences, your declared dietary constraints including whether each one applies to you or to a household member, your local context, your consent records, your results and runs, your connected app grants and receipts, and your vibe. If you would rather ask us for it, email <a href="mailto:hello@intori.com">hello@intori.com</a>.
       </p>
 
       <h2>Retention</h2>
@@ -373,10 +382,10 @@ const Privacy: NextPage = () => {
         We keep information for as long as needed to provide intori, maintain user controls and receipts, prevent abuse, comply with legal obligations, resolve disputes, and enforce agreements.
       </p>
       <p>
-        Session cookies are intended to expire after a limited period. Ad attribution and campaign tags kept on an account are deleted 13 months after we record them, and only totals that are not tied to anyone remain. Partner grants may expire or be revoked. Payment, subscription, and transaction records may be retained for accounting, fraud prevention, charge dispute, tax, and legal reasons. Profile, answer, declared constraint, consent, AI result, receipt, and derived records are kept until you delete them, delete your account, or request deletion. Turning off a topic consent changes what intori may ask you next. It does not by itself delete result context that already exists.
+        Session cookies are intended to expire after a limited period. Ad attribution, campaign tags, and Meta click and browser ids kept on an account are deleted 13 months after we record them, and only totals that are not tied to anyone remain. Partner grants may expire or be revoked. Payment, subscription, and transaction records may be retained for accounting, fraud prevention, charge dispute, tax, and legal reasons. Profile, answer, declared constraint, consent, AI result, receipt, and derived records are kept until you delete them, delete your account, or request deletion. Turning off a topic consent changes what intori may ask you next. It does not by itself delete result context that already exists.
       </p>
       <p>
-        First-party transport observations from our current measurement system are normally removed after 90 days. Daily maintenance is bounded, so a backlog may take additional time to clear. Account-owned activity, action and replay records are removed when you delete your account. Anonymous aggregate statistics may remain after deletion. Financial transaction references may remain for accounting, disputes and replay prevention; we do not use them to recognize a deleted account or decide whether a new account can start a trial. Older operational and security records follow the purpose-based retention described above, not an automatic 90-day rule.
+        First-party transport observations from our current measurement system are normally removed after 90 days. Daily maintenance is bounded, so a backlog may take additional time to clear. Account-owned activity, action and replay records are removed when you delete your account. Anonymous aggregate statistics may remain after deletion. Financial transaction references may remain for accounting, disputes and replay prevention; we do not use them to recognize a deleted account or decide whether a new account can start a trial. Only the one-way trial code described above is used for that. Older operational and security records follow the purpose-based retention described above, not an automatic 90-day rule.
       </p>
 
       <h2>Security</h2>
@@ -394,7 +403,7 @@ const Privacy: NextPage = () => {
         Depending on where you live, you may have rights to request access, correction, deletion, portability, restriction, objection, or information about how your personal information is used and disclosed. You may also have rights to limit the use of sensitive personal information, or to opt out of certain sales, sharing, or targeted advertising. Declared dietary and health-adjacent information is treated as sensitive. We use it only to provide intori, and we do not sell it or share it for advertising.
       </p>
       <p>
-        To make a privacy request, contact <a href="mailto:contact@intori.com">contact@intori.com</a>. We may need to verify your identity before fulfilling a request. We will not discriminate against you for exercising privacy rights.
+        To make a privacy request, contact <a href="mailto:hello@intori.com">hello@intori.com</a>. We may need to verify your identity before fulfilling a request. We will not discriminate against you for exercising privacy rights.
       </p>
 
       <h2>Changes to this policy</h2>
@@ -404,7 +413,7 @@ const Privacy: NextPage = () => {
 
       <h2>Contact us</h2>
       <p>
-        For questions or privacy requests, contact us at <a href="mailto:contact@intori.com">contact@intori.com</a>.
+        For questions or privacy requests, contact us at <a href="mailto:hello@intori.com">hello@intori.com</a>.
       </p>
       </LegalLayout>
     </>

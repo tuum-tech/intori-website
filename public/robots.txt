@@ -1,6 +1,20 @@
+# Search engines, and assistants fetching a page for one person, may read everything public.
 User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /dashboard/
+
+# AI training crawlers may read intori's own pages, not the weekly picks built from
+# organizers' calendars (some of those organizers turn these crawlers away themselves).
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+User-agent: meta-externalagent
+Allow: /
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /things-to-do-with-kids/
 
 Sitemap: https://intori.com/sitemap.xml

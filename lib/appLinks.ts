@@ -61,6 +61,7 @@ export type AppStoreSurface =
   | 'website-qr' // the desktop QR code beside the hero button
   | 'website-footer' // the footer link
   | 'faq' // the FAQ answer
+  | 'picks' // the button on the things-to-do pages
 
 export function appStoreUrl(ct: AppStoreSurface = 'website'): string {
   if (!HAS_APP_ANALYTICS_TOKEN) return APP_STORE_LISTING_URL

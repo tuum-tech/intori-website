@@ -25,6 +25,7 @@
     "@tanstack/react-query-devtools": "^5.73.3",
     "@types/dotenv-safe": "^8.1.6",
     "@types/formidable": "^3.4.5",
+    "@vercel/analytics": "2.0.1",
     "axios": "^1.6.0",
     "chart.js": "^4.4.3",
     "crypto": "^1.0.1",

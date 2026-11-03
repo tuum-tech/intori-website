@@ -90,8 +90,9 @@
 
 .footerNav {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 24px;
+  gap: 10px 24px;
 }
 
 .footerLink,

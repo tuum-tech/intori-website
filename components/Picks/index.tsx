@@ -5,7 +5,7 @@ import { Newsreader } from 'next/font/google'
 import { MarketingFooter, MarketingHeader } from '@/components/MarketingChrome'
 import { APP_URL, IOS_APP_STORE_URL, IOS_CHANNEL } from '@/lib/appLinks'
 import { metroPath } from '@/lib/publicPicks'
-import type { PickCardView } from '@/lib/publicPicksView'
+import type { PickCardView, LibraryProgramsCardView } from '@/lib/publicPicksView'
 import homeStyles from '@/pages/index.module.css'
 import styles from './styles.module.css'
 
@@ -49,7 +49,18 @@ export function PicksCta({ title, body, className }: { title: string; body: stri
   )
 }
 
-export function PickCard({ card }: { card: PickCardView }) {
+export function PickCard({ card }: { card: PickCardView | LibraryProgramsCardView }) {
+  if ('programs' in card) return (
+    <li className={styles.item}>
+      <span aria-hidden="true" />
+      <details className={styles.what}>
+        <summary className={styles.title}>{card.title} · {card.organizer.name}</summary>
+        <ul className={styles.items} aria-label={`${card.organizer.name} library programs`}>
+          {card.programs.map(program => <PickCard key={program.id} card={program} />)}
+        </ul>
+      </details>
+    </li>
+  )
   return (
     <li className={styles.item}>
       <time className={styles.time} dateTime={card.dateTime}>

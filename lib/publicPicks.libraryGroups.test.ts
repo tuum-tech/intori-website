@@ -64,3 +64,13 @@ test('SP10 group metadata cannot invent program facts, hide valid listings, or k
   assert.equal(current.programs.length, 7)
   assert.ok(current.programs.every(item => item.id !== expired.id))
 })
+
+test('SP10 registry system credit does not require stale occurrence display labels to match', () => {
+  const occurrence = { ...items[0], organizer: { ...items[0].organizer, name: 'Downtown branch program' } }
+  const week = parsePublicPicksWeek({ ...raw, items: [occurrence, ...items.slice(1)], lines: [group] })!
+  assert.equal(week.lines!.length, 1)
+  const line = week.lines![0]
+  assert.ok('programs' in line)
+  assert.equal(line.organizer.name, group.organizer.name)
+  assert.equal(line.programs[0].organizer.name, occurrence.organizer.name)
+})

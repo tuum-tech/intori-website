@@ -285,7 +285,7 @@ function parsePublicPicksLines(raw: unknown[], items: readonly PublicPickItem[])
     const programs: PublicPickItem[] = [], memberIds = new Set<string>()
     for (const member of entry.programs) {
       const item = isObject(member) && typeof member.id === 'string' ? canonical.get(member.id) : null
-      if (!item || used.has(item.id) || memberIds.has(item.id) || item.localDate !== date || item.timeZone !== zone || item.organizer.name !== organizer.name) { programs.length = 0; break }
+      if (!item || used.has(item.id) || memberIds.has(item.id) || item.localDate !== date || item.timeZone !== zone) { programs.length = 0; break }
       memberIds.add(item.id); programs.push(item)
     }
     if (!programs.length) continue

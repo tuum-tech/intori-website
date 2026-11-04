@@ -8,8 +8,10 @@ import {
   PICKS_METROS,
   type PickAgeBand,
   type PublicPickItem,
+  type PublicPicksLine,
   type PublicPicksWeek,
   currentPicks,
+  currentPickLines,
   isTimeZone,
   listingPath,
   localDateIn,
@@ -136,7 +138,7 @@ export function wherePhrase(item: PublicPickItem): string {
 }
 
 /** The day a listing sits under: its own date, or the week's first day for one already running. */
-function displayDate(item: PublicPickItem, weekStart: string): string {
+function displayDate(item: Pick<PublicPickItem, 'localDate'>, weekStart: string): string {
   return item.localDate < weekStart ? weekStart : item.localDate
 }
 
@@ -219,7 +221,8 @@ export type PickCardView = {
   organizer: { name: string; url: string }
 }
 
-export type PickDayView = { localDate: string; weekday: string; date: string; cards: PickCardView[] }
+export type LibraryProgramsCardView = { kind: 'library_programs'; id: string; title: 'Library programs'; organizer: PublicPickItem['organizer']; programs: PickCardView[] }
+export type PickDayView = { localDate: string; weekday: string; date: string; cards: Array<PickCardView | LibraryProgramsCardView> }
 
 export type MetroPageProps = {
   metro: { slug: string; name: string }
@@ -250,8 +253,8 @@ function cardView(metroSlug: string, item: PublicPickItem): PickCardView {
 }
 
 /** Items grouped by the local day they sit under, days in order, items in the endpoint's order. */
-function groupByDay(items: readonly PublicPickItem[], weekStart: string): Array<{ localDate: string; items: PublicPickItem[] }> {
-  const groups: Array<{ localDate: string; items: PublicPickItem[] }> = []
+function groupByDay<T extends Pick<PublicPickItem, 'localDate'>>(items: readonly T[], weekStart: string): Array<{ localDate: string; items: T[] }> {
+  const groups: Array<{ localDate: string; items: T[] }> = []
   for (const item of items) {
     const key = displayDate(item, weekStart)
     const group = groups.find(entry => entry.localDate === key)
@@ -282,12 +285,16 @@ export function buildMetroPageProps(week: PublicPicksWeek, now: Date): MetroPage
   const items = currentPicks(week.items, now)
   const timeZone = metroTimeZone(slug, items)
   const range = weekRange(week, items, timeZone)
-  const days = groupByDay(items, range.start).map(group => {
+  const lines = currentPickLines(week, now)
+  const lineCard = (line: PublicPicksLine): PickCardView | LibraryProgramsCardView => 'programs' in line
+    ? { kind: 'library_programs', id: line.id, title: line.title, organizer: line.organizer, programs: line.programs.map(item => cardView(slug, item)) }
+    : cardView(slug, line)
+  const days = groupByDay(lines, range.start).map(group => {
     const day = calendarDay(group.localDate)
-    return { localDate: group.localDate, weekday: day.weekday, date: day.date, cards: group.items.map(item => cardView(slug, item)) }
+    return { localDate: group.localDate, weekday: day.weekday, date: day.date, cards: group.items.map(lineCard) }
   })
   const place = metroInPhrase(week.metro.name)
-  const count = items.length
+  const count = lines.length
   const description = count > 0
     ? `${count} ${count === 1 ? 'thing' : 'things'} to do with kids in ${place}, ${range.label}. ${LEDE} With times, ages, cost and who runs each.`
     : `Things to do with kids in ${place} this week. ${LEDE} Checked every morning.`
@@ -297,10 +304,10 @@ export function buildMetroPageProps(week: PublicPicksWeek, now: Date): MetroPage
     description,
     lede: `${LEDE} ${unbroken(range.label)}.`,
     checkedLabel: unbroken(`Checked ${checkedLabel(week.generatedAt, timeZone)}`),
-    indexable: weekIsIndexable(week, items),
+    indexable: weekIsIndexable(week, items, lines.length),
     itemCount: count,
     days,
-    listingUrls: days.flatMap(day => day.cards.map(card => absoluteUrl(card.href))),
+    listingUrls: items.map(item => absoluteUrl(listingPath(slug, item))),
     otherMetros: otherMetros(slug),
   }
 }
@@ -440,12 +447,12 @@ export function buildListingPageProps(week: PublicPicksWeek, item: PublicPickIte
 
 export type HubMetro = { slug: string; name: string; href: string; count: number | null }
 
-export function hubMetros(metros: ReadonlyArray<{ slug: string; name: string; itemCount?: number }>): HubMetro[] {
+export function hubMetros(metros: ReadonlyArray<{ slug: string; name: string; itemCount?: number; lineCount?: number }>): HubMetro[] {
   return metros.map(metro => ({
     slug: metro.slug,
     name: metro.name,
     href: metroPath(metro.slug),
-    count: typeof metro.itemCount === 'number' ? metro.itemCount : null,
+    count: typeof metro.lineCount === 'number' ? metro.lineCount : typeof metro.itemCount === 'number' ? metro.itemCount : null,
   }))
 }
 

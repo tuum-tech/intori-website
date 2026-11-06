@@ -64,16 +64,25 @@ const LABEL =
 
 const WEEKEND = new Set(["Fri", "Sat", "Sun"])
 
+// The rail always shows today, so the homepage never carries a date that has
+// passed. One fixed zone keeps the server and the browser on the same day.
+function railToday(now = new Date()) {
+  const part = (options: Intl.DateTimeFormatOptions) =>
+    new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", ...options }).format(now)
+  return { day: part({ weekday: "long" }), date: part({ day: "numeric" }), month: part({ month: "long" }) }
+}
+
 export default function FamilyScreenWeek({ className = "", compact = false, rail = false }: { className?: string; compact?: boolean; rail?: boolean }) {
+  const today = railToday()
   return (
     <figure className={`${styles.figure} ${className}`}>
       <div className={styles.screen} role="img" aria-label={LABEL}>
         <div className={`${styles.inner} ${rail ? styles.withRail : ""}`}>
           {rail ? (
             <div className={styles.rail} aria-hidden="true">
-              <span className={styles.railDay}>Friday</span>
-              <span className={styles.railDate}>30</span>
-              <span className={styles.railMonth}>October</span>
+              <span className={styles.railDay} suppressHydrationWarning>{today.day}</span>
+              <span className={styles.railDate} suppressHydrationWarning>{today.date}</span>
+              <span className={styles.railMonth} suppressHydrationWarning>{today.month}</span>
             </div>
           ) : null}
           <div className={styles.main}>

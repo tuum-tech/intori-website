@@ -49,15 +49,29 @@ export type PublicPickItem = {
 
 export type PublicPicksWindow = { fromIso: string; toIso: string }
 
+export type PublicLibraryProgramsDay = {
+  kind: 'library_programs'
+  id: string
+  title: 'Library programs'
+  localDate: string
+  timeZone: string
+  organizer: PublicPickItem['organizer']
+  programs: PublicPickItem[]
+}
+export type PublicPicksLine = PublicPickItem | PublicLibraryProgramsDay
+
 export type PublicPicksWeek = {
   metro: { slug: string; name: string; towns: string[] }
   window: PublicPicksWindow
   generatedAt: string
   indexable: boolean
   items: PublicPickItem[]
+  lines?: PublicPicksLine[]
+  lineCount?: number
+  linesIndexable?: boolean
 }
 
-export type PublicPicksMetroSummary = { slug: string; name: string; itemCount: number; indexable: boolean }
+export type PublicPicksMetroSummary = { slug: string; name: string; itemCount: number; indexable: boolean; lineCount?: number; linesIndexable?: boolean }
 export type PublicPicksMetroList = { window: PublicPicksWindow; generatedAt: string; metros: PublicPicksMetroSummary[] }
 
 /** What the site knows about each metro without the endpoint: its time zone
@@ -239,6 +253,7 @@ export function parsePublicPicksWeek(raw: unknown): PublicPicksWeek | null {
     seen[item.id] = true
     items.push(item)
   }
+  const lines = Array.isArray(raw.lines) ? parsePublicPicksLines(raw.lines, items) : null
   return {
     metro: { slug, name, towns },
     window,
@@ -246,7 +261,39 @@ export function parsePublicPicksWeek(raw: unknown): PublicPicksWeek | null {
     // The app's flag, held to its own rule after malformed rows are dropped.
     indexable: raw.indexable === true && items.length >= PICKS_INDEXABLE_MIN,
     items,
+    ...(lines ? { lines, lineCount: lines.length, linesIndexable: raw.linesIndexable === true && lines.length >= PICKS_INDEXABLE_MIN } : {}),
   }
+}
+
+/** Metadata only groups canonical occurrence facts already accepted above.
+ * A malformed or missing group falls back to the original individual rows. */
+function parsePublicPicksLines(raw: unknown[], items: readonly PublicPickItem[]): PublicPicksLine[] {
+  const canonical = new Map(items.map(item => [item.id, item])), used = new Set<string>(), groups = new Set<string>()
+  const lines: PublicPicksLine[] = []
+  for (const entry of raw.slice(0, items.length)) {
+    if (!isObject(entry)) continue
+    if (entry.kind !== 'library_programs') {
+      const item = typeof entry.id === 'string' ? canonical.get(entry.id) : null
+      if (item && !used.has(item.id)) { used.add(item.id); lines.push(item) }
+      continue
+    }
+    const id = typeof entry.id === 'string' && PICK_ID.test(entry.id) ? entry.id : null
+    const date = localDate(entry.localDate), zone = isTimeZone(entry.timeZone) ? entry.timeZone : null
+    const organizer = isObject(entry.organizer) ? { name: text(entry.organizer.name, 160), url: webUrl(entry.organizer.url) } : null
+    if (!id || groups.has(id) || entry.title !== 'Library programs' || !date || !zone || !organizer?.name || !organizer.url ||
+      !Array.isArray(entry.programs) || entry.programs.length === 0 || entry.programs.length > items.length) continue
+    const programs: PublicPickItem[] = [], memberIds = new Set<string>()
+    for (const member of entry.programs) {
+      const item = isObject(member) && typeof member.id === 'string' ? canonical.get(member.id) : null
+      if (!item || used.has(item.id) || memberIds.has(item.id) || item.localDate !== date || item.timeZone !== zone) { programs.length = 0; break }
+      memberIds.add(item.id); programs.push(item)
+    }
+    if (!programs.length) continue
+    groups.add(id); programs.forEach(item => used.add(item.id))
+    lines.push({ kind: 'library_programs', id, title: 'Library programs', localDate: date, timeZone: zone,
+      organizer: { name: organizer.name, url: organizer.url }, programs })
+  }
+  return [...lines, ...items.filter(item => !used.has(item.id))]
 }
 
 /** The metro list, or null when the envelope itself is unusable. */
@@ -263,7 +310,9 @@ export function parsePublicPicksMetroList(raw: unknown): PublicPicksMetroList | 
     if (!name) continue
     seen[entry.slug] = true
     const itemCount = typeof entry.itemCount === 'number' && Number.isInteger(entry.itemCount) && entry.itemCount > 0 ? entry.itemCount : 0
-    metros.push({ slug: entry.slug, name, itemCount, indexable: entry.indexable === true && itemCount >= PICKS_INDEXABLE_MIN })
+    const lineCount = typeof entry.lineCount === 'number' && Number.isInteger(entry.lineCount) && entry.lineCount >= 0 && entry.lineCount <= itemCount ? entry.lineCount : null
+    metros.push({ slug: entry.slug, name, itemCount, indexable: entry.indexable === true && itemCount >= PICKS_INDEXABLE_MIN,
+      ...(lineCount !== null ? { lineCount, linesIndexable: entry.linesIndexable === true && lineCount >= PICKS_INDEXABLE_MIN } : {}) })
   }
   return { window, generatedAt, metros }
 }
@@ -295,7 +344,18 @@ export function currentPicks(items: readonly PublicPickItem[], now: Date): Publi
 }
 
 /** Whether a week, as shown at `now`, is one search engines may index. */
-export function weekIsIndexable(week: PublicPicksWeek, current: readonly PublicPickItem[]): boolean {
+export function currentPickLines(week: PublicPicksWeek, now: Date): PublicPicksLine[] {
+  const current = currentPicks(week.items, now), byId = new Map(current.map(item => [item.id, item]))
+  if (!week.lines) return current
+  return week.lines.flatMap<PublicPicksLine>(line => {
+    if (!('programs' in line)) return byId.has(line.id) ? [byId.get(line.id)!] : []
+    const programs = line.programs.flatMap(item => byId.get(item.id) ?? [])
+    return programs.length ? [{ ...line, programs }] : []
+  })
+}
+
+export function weekIsIndexable(week: PublicPicksWeek, current: readonly PublicPickItem[], currentLineCount?: number): boolean {
+  if (week.lines && currentLineCount !== undefined) return week.linesIndexable === true && currentLineCount >= PICKS_INDEXABLE_MIN
   return week.indexable && current.length >= PICKS_INDEXABLE_MIN
 }
 

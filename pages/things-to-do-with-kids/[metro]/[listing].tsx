@@ -27,6 +27,8 @@ export const getStaticProps: GetStaticProps<ListingPageProps, Params> = async ({
   // A failed read throws, so a page already built keeps serving.
   const week = await fetchPicksWeek(metroSlug)
   if (!week) return { notFound: true, revalidate: PICKS_REVALIDATE_SECONDS }
+  // Aggregate headings have no Event page: original occurrence IDs stay
+  // addressable, with their own facts and Event JSON-LD.
   const current = currentPicks(week.items, new Date())
   const item = current.find(entry => entry.id === listing.id)
   // Over, expired or taken off: old links land on the metro's week.
@@ -69,7 +71,7 @@ export default function PickListingPage(props: InferGetStaticPropsType<typeof ge
             <p className={styles.checked}>{checkedLabel}</p>
             <PicksCta
               title="Want this on your calendar?"
-              body="intori adds it in one tap, with a reminder, and finds the next one for you."
+              body="intori puts it on your calendar, with a reminder, and finds the next one for you."
               className={styles.phoneOnly}
             />
             {sameDay.items.length > 0 ? (
@@ -98,7 +100,7 @@ export default function PickListingPage(props: InferGetStaticPropsType<typeof ge
           <aside className={styles.aside}>
             <PicksCta
               title="Want this on your calendar?"
-              body="intori adds it in one tap, with a reminder, and finds the next one for you."
+              body="intori puts it on your calendar, with a reminder, and finds the next one for you."
               className={styles.wideOnly}
             />
             <PicksFootNote otherMetros={otherMetros} />

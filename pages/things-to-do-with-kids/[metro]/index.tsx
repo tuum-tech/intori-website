@@ -47,7 +47,7 @@ export const getStaticProps: GetStaticProps<MetroPageProps, Params> = async ({ p
 }
 
 const CTA_TITLE = 'Get picks like these on your calendar every week'
-const CTA_BODY = 'intori learns what your family enjoys and adds the good ones in one tap. 21 days free, no card needed.'
+const CTA_BODY = 'intori learns what your family enjoys and puts the good ones on your calendar. 21 days free, no card needed.'
 
 export default function MetroPicksPage(props: InferGetStaticPropsType<typeof getStaticProps>) {
   const { metro, heading, description, lede, checkedLabel, indexable, itemCount, days, listingUrls, otherMetros } = props

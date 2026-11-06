@@ -68,7 +68,7 @@ export default function PicksHub({ metros }: InferGetStaticPropsType<typeof getS
           <aside className={styles.aside}>
             <PicksCta
               title="Get picks like these on your calendar every week"
-              body="intori learns what your family enjoys and adds the good ones in one tap. 21 days free, no card needed."
+              body="intori learns what your family enjoys and puts the good ones on your calendar. 21 days free, no card needed."
             />
             <PicksFootNote otherMetros={[]} />
           </aside>

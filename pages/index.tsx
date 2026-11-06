@@ -6,8 +6,8 @@ import FamilyScreenWeek from '@/components/FamilyScreenWeek'
 import { MarketingFooter, MarketingHeader } from '@/components/MarketingChrome'
 import { JsonLd, SeoHead } from '@/lib/seo'
 import { applicationJsonLd, organizationJsonLd } from '@/lib/structuredData'
-import { APP_URL, IOS_CHANNEL, IOS_URL } from '@/lib/appLinks'
-import { appStoreQrSvg } from '@/lib/appStoreQr'
+import { APP_STORE_BADGE, APP_STORE_BADGE_ALT, APP_URL, IOS_CHANNEL, appStoreUrl } from '@/lib/appLinks'
+import { appStoreQr, type AppStoreQr } from '@/lib/appStoreQr'
 
 import styles from './index.module.css'
 
@@ -41,8 +41,8 @@ export const getServerSideProps = (async (context) => {
     }
   }
 
-  return { props: { qrSvg: await appStoreQrSvg(), trialEnds: trialSampleLabel() } }
-}) satisfies GetServerSideProps<{ qrSvg: string | null; trialEnds: string }>
+  return { props: { qr: await appStoreQr(), trialEnds: trialSampleLabel() } }
+}) satisfies GetServerSideProps<{ qr: AppStoreQr | null; trialEnds: string }>
 
 // App screens are unedited Build 25 captures from the App Store storefront
 // package (Oct 16 2026): the same Raleigh, NC test household on every
@@ -181,34 +181,36 @@ const INCLUDES = [
 
 // Staged iOS CTA, driven entirely by IOS_CHANNEL in lib/appLinks.ts.
 //
-//   'appstore' -> "Download on the App Store" is primary, the web is a quiet link
-//   'beta'     -> "Join the iPhone beta" is primary, the web is a quiet link
+//   'appstore' -> Apple's "Download on the App Store" badge is primary, the web is a quiet link
 //   'none'     -> web is primary, iPhone is a quiet non-clickable status chip
 //
 // iPhone leads because the launch promise lives there: Sign in with Apple, one
 // tap to Apple Calendar, and reminders on the lock screen. The web stays one
 // link away for anyone on Android or a laptop, and on desktop a QR code sits
-// beside the button, since the button alone cannot install anything there.
-function AppCtas({ qrSvg }: { qrSvg?: string | null }) {
-  if (IOS_CHANNEL !== 'none') {
+// beside the badge, since the badge alone cannot install anything there. The
+// code is ink straight on the cream, its ink the same height as the badge; the
+// SVG's own quiet zone is pulled out of the layout by --qr-scale (see .qrCode).
+function AppCtas({ qr }: { qr?: AppStoreQr | null }) {
+  if (IOS_CHANNEL === 'appstore') {
     return (
       <div className={styles.ctaStack}>
         <div className={styles.ctaRow}>
           <a
-            href={IOS_URL}
-            className={styles.btnPrimary}
+            href={appStoreUrl('website')}
+            className={styles.badgeLink}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {IOS_CHANNEL === 'appstore' ? 'Download on the App Store' : 'Join the iPhone beta'}
+            <Image src={APP_STORE_BADGE} alt={APP_STORE_BADGE_ALT} width={120} height={40} />
           </a>
-          {qrSvg && (
+          {qr && (
             <div className={styles.qr}>
               <span
                 className={styles.qrCode}
+                style={{ '--qr-scale': qr.scale } as React.CSSProperties}
                 role="img"
                 aria-label="QR code that opens intori on your iPhone"
-                dangerouslySetInnerHTML={{ __html: qrSvg }}
+                dangerouslySetInnerHTML={{ __html: qr.svg }}
               />
               <span className={styles.qrLabel}>Scan with your iPhone camera</span>
             </div>
@@ -291,7 +293,7 @@ function LaneCard({ lane }: { lane: Lane }) {
   )
 }
 
-export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function HomePage({ qr, trialEnds }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <>
       <SeoHead
@@ -316,7 +318,7 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
                 <span className={styles.heroPullB}>intori gives you something to look forward to.</span>
               </h1>
               <div className={styles.heroCtas}>
-                <AppCtas qrSvg={qrSvg} />
+                <AppCtas qr={qr} />
               </div>
               <p className={styles.heroTrust}>
                 <strong>21 days free, no card needed.</strong>
@@ -581,12 +583,10 @@ export default function HomePage({ qrSvg, trialEnds }: InferGetServerSidePropsTy
               <p className={styles.convertSub}>
                 {IOS_CHANNEL === 'appstore'
                   ? <>Download intori, sign in with Apple, and choose what you enjoy. intori takes it from there.</>
-                  : IOS_CHANNEL === 'beta'
-                    ? <>Join the iPhone beta, sign in with Apple, and choose what you enjoy. intori takes it from there.</>
-                    : <>intori works on the web today. The iPhone app is next, and the button below will say so the moment it&rsquo;s real.</>}
+                  : <>intori works on the web today. The iPhone app is next, and the button below will say so the moment it&rsquo;s real.</>}
               </p>
               <div className={styles.convertCtas}>
-                <AppCtas qrSvg={qrSvg} />
+                <AppCtas qr={qr} />
               </div>
               <p className={styles.convertNote}>
                 21 days free, starting when you finish setup. Then $8.99 a month or $59.99

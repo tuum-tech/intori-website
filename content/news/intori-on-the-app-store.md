@@ -7,7 +7,7 @@ slug: "intori-on-the-app-store"
 heroImage: "/og/og-forward-v7.jpg"
 # Launch post. Publish the day the App Store listing goes live: set the date,
 # then flip published to true. The body names no App Store URL on purpose; the
-# header's button follows NEXT_PUBLIC_IOS_APP_STORE_URL like every other CTA.
+# header's button follows IOS_CHANNEL in lib/appLinks.ts like every other CTA.
 published: false
 tags:
   - "Launch"

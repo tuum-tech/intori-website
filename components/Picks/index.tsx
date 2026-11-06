@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Newsreader } from 'next/font/google'
 
 import { MarketingFooter, MarketingHeader } from '@/components/MarketingChrome'
-import { APP_URL, IOS_APP_STORE_URL, IOS_CHANNEL } from '@/lib/appLinks'
+import { APP_URL, IOS_CHANNEL, appStoreUrl } from '@/lib/appLinks'
 import { metroPath } from '@/lib/publicPicks'
 import type { PickCardView, LibraryProgramsCardView } from '@/lib/publicPicksView'
 import homeStyles from '@/pages/index.module.css'
@@ -22,7 +22,7 @@ const picksSerif = Newsreader({
 const SOURCES_EMAIL = 'sources@intori.com'
 
 /** The homepage's primary destination: the App Store once it is live, the web app until then. */
-const START_URL = IOS_CHANNEL === 'appstore' && IOS_APP_STORE_URL ? IOS_APP_STORE_URL : APP_URL
+const START_URL = IOS_CHANNEL === 'appstore' ? appStoreUrl('picks') : APP_URL
 const START_LABEL = IOS_CHANNEL === 'appstore' ? 'Get the app' : 'Try intori'
 
 export function PicksShell({ children }: { children: React.ReactNode }) {

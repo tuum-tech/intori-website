@@ -15,7 +15,7 @@ const Terms: NextPage = () => {
 
       <LegalLayout>
         <h1>intori Terms of Use</h1>
-        <p><strong>Last Updated: October 29, 2026</strong></p>
+        <p><strong>Last Updated: November 6, 2026</strong></p>
 
       <p>
         These terms cover the intori website and the intori mobile app. There is one set of terms for both.
@@ -23,7 +23,7 @@ const Terms: NextPage = () => {
 
       <h2>What changed in this update</h2>
       <p>
-        This update explains how intori checks age where the law requires it and says that people under 18 need a parent or legal guardian&apos;s permission to buy a subscription. It also extends the app-managed full-access trial to 21 days, changes the annual plan to $59.99, explains when early web subscribers are first charged, and clarifies what remains available after full access ends. No payment method is required to start the trial, and it does not become a paid subscription on its own. The AI processors and data providers we use are named in our <Link href="/privacy-policy">Privacy Policy</Link>. The October 13, 2026 update adds Outings and Outdoors to the description of the Services. The October 23, 2026 update changes our contact address to hello@intori.com, says when we refund web purchases, and calls Outings, Outdoors, Sports, Shows, Music and Food interests, as the app does. The October 29, 2026 update removes Spoonacular, Perplexity, recipe databases and web search from the sources and services intori uses, and describes Food as places to eat.
+        This update explains how intori checks age where the law requires it and says that people under 18 need a parent or legal guardian&apos;s permission to buy a subscription. It also extends the app-managed full-access trial to 21 days, changes the annual plan to $59.99, explains when early web subscribers are first charged, and clarifies what remains available after full access ends. No payment method is required to start the trial, and it does not become a paid subscription on its own. The AI processors and data providers we use are named in our <Link href="/privacy-policy">Privacy Policy</Link>. The October 13, 2026 update adds Outings and Outdoors to the description of the Services. The October 23, 2026 update changes our contact address to hello@intori.com, says when we refund web purchases, and calls Outings, Outdoors, Sports, Shows, Music and Food interests, as the app does. The October 29, 2026 update removes Spoonacular, Perplexity, recipe databases and web search from the sources and services intori uses, and describes Food as places to eat. The November 6, 2026 update says you can send a private link to your plans.
       </p>
 
       <p>
@@ -211,7 +211,7 @@ const Terms: NextPage = () => {
         intori is not a social product. There is no matching, no friends, no chemistry summaries, no shared vibes, no mutual friends, and no profile sharing between users. Your answers, your declared preferences, and your declared dietary constraints are not shown to other intori users.
       </p>
       <p>
-        You can create a share link or a preview image for a Helper and send it to whoever you like. Those show information about the Helper, not information about you. Anything you choose to share outside intori can be saved or reshared by whoever receives it.
+        You can create a share link or a preview image for a Helper and send it to whoever you like. Those show information about the Helper, not information about you. You can also send a private link to your plans. Anyone with it can see them, as the Privacy Policy explains. Anything you choose to share outside intori can be saved or reshared by whoever receives it.
       </p>
 
       <h2>12. Third-party services</h2>

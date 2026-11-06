@@ -15,7 +15,7 @@ const Privacy: NextPage = () => {
 
       <LegalLayout>
         <h1>intori Privacy Policy</h1>
-        <p><strong>Last Updated: October 29, 2026</strong></p>
+        <p><strong>Last Updated: November 6, 2026</strong></p>
 
       <p>
         This policy covers the intori website and the intori mobile app. There is one policy for both.
@@ -23,7 +23,7 @@ const Privacy: NextPage = () => {
 
       <h2>What changed in this update</h2>
       <p>
-        This update adds a Meta ads section: what we send Meta when someone who arrived from a Facebook or Instagram ad signs up on the web or starts a trial there, what we never send, that none of it runs inside the iPhone app, and how to turn it off. Our Apple Ads and campaign-link attribution practices are unchanged. It also changes our contact address to hello@intori.com, and calls Outings, Outdoors, Sports, Shows, Music and Food interests, as the app does. The October 29, 2026 update removes Spoonacular and Perplexity, which intori no longer uses, and describes Food as places to eat.
+        This update adds a Meta ads section: what we send Meta when someone who arrived from a Facebook or Instagram ad signs up on the web or starts a trial there, what we never send, that none of it runs inside the iPhone app, and how to turn it off. Our Apple Ads and campaign-link attribution practices are unchanged. It also changes our contact address to hello@intori.com, and calls Outings, Outdoors, Sports, Shows, Music and Food interests, as the app does. The October 29, 2026 update removes Spoonacular and Perplexity, which intori no longer uses, and describes Food as places to eat. The November 6, 2026 update adds a section on the private plans link you can choose to send.
       </p>
 
       <h2>Who we are</h2>
@@ -301,10 +301,30 @@ const Privacy: NextPage = () => {
 
       <h3>With other intori users</h3>
       <p>
-        We do not share your information with other intori users. There is no matching, no friends, no chemistry summaries, no shared vibes, and no mutual friends. intori has no social graph. Your answers, your declared preferences, and your declared dietary constraints are not visible to anyone else using intori.
+        We do not share your information with other intori users, apart from any plans link you choose to send, described below. There is no matching, no friends, no chemistry summaries, no shared vibes, and no mutual friends. intori has no social graph. Your answers, your declared preferences, and your declared dietary constraints are not visible to anyone else using intori.
       </p>
       <p>
         You can create a share link or a preview image for a Helper and send it to whoever you like. Those show information about the Helper. They do not carry your answers, your declared constraints, or anything else personal to you.
+      </p>
+
+      <h3>With people you send your plans to</h3>
+      <p>
+        You can choose to share your plans. Share your plans, in the app&apos;s Calendars and displays panel, makes one private link for your account that you can send or copy. intori also offers this once after you add a date to your calendar. Nothing is shared until you send or copy the link.
+      </p>
+      <p>
+        Anyone who has the link can open a web page showing your next few plans and add all of your upcoming plans to their own calendar. They do not need an account or the app. If they forward the link, whoever receives it can do the same, so send it only to people you trust.
+      </p>
+      <p>
+        The link covers your upcoming plans: the dates you put on your calendar through intori, including games from a team you follow. New plans and changes reach their calendar on their own for as long as the link is on. Each plan can include its title, date and time, place, a link to its source, and its notes. A day you hold in intori, or a date saved only in intori, is not included.
+      </p>
+      <p>
+        The link does not include your email address, your sign-in details, or your list of preferences and dietary constraints. A plan can still say something about your household. A followed team&apos;s games show who you follow, and the page heading can say &quot;Your family&apos;s plans&quot; if you told intori you plan for your family.
+      </p>
+      <p>
+        You can turn the link off in the same panel. It stops working for everyone who has it, and their calendar stops getting your plans. Plans that already reached their calendar may stay there until that calendar removes them, and we cannot remove anything someone saved or copied. Sending again makes a new link. Deleting your account also ends the link. Clearing what intori knows does not, so turn the link off separately.
+      </p>
+      <p>
+        We record when a calendar first read your link and when it last did. The app shows you the first as &quot;On their calendar since.&quot; We do not ask who opens the link. When someone opens the page or their calendar checks the link, we handle ordinary request information, such as the network address it came from, to keep the link working and limit abuse. Search engines are told not to list the page, and advertising pixels do not run on it. A calendar service that adds the link receives your plans and handles them under its own policy.
       </p>
 
       <h3>With connected apps you approve</h3>
@@ -355,6 +375,7 @@ const Privacy: NextPage = () => {
         <li>Approve a connected app, or disconnect one, in Connected apps under Your data.</li>
         <li>Enable or disable notifications through the iOS Settings app or intori notification controls.</li>
         <li>Choose whether to create or distribute Helper share links and preview images.</li>
+        <li>Choose whether to share your plans, and turn the link off at any time.</li>
         <li>Contact us to request access, correction, export, deletion, or other privacy rights.</li>
       </ul>
 
@@ -374,7 +395,7 @@ const Privacy: NextPage = () => {
         You can download a copy of your data yourself, in the app and on the web. Open You, then Settings and data, and choose Download your data. intori builds the file straight away and your device downloads it as a JSON file. There is no queue and no waiting for an email.
       </p>
       <p>
-        The export includes your account and sign-in details, your answers, your declared preferences, your declared dietary constraints including whether each one applies to you or to a household member, your local context, your consent records, your results and runs, your connected app grants and receipts, and your vibe. If you would rather ask us for it, email <a href="mailto:hello@intori.com">hello@intori.com</a>.
+        The export includes your account and sign-in details, your answers, your declared preferences, your declared dietary constraints including whether each one applies to you or to a household member, your local context, your consent records, your results and runs, your connected app grants and receipts, the record of your plans link, without its address, and your vibe. If you would rather ask us for it, email <a href="mailto:hello@intori.com">hello@intori.com</a>.
       </p>
 
       <h2>Retention</h2>
@@ -382,7 +403,7 @@ const Privacy: NextPage = () => {
         We keep information for as long as needed to provide intori, maintain user controls and receipts, prevent abuse, comply with legal obligations, resolve disputes, and enforce agreements.
       </p>
       <p>
-        Session cookies are intended to expire after a limited period. Ad attribution, campaign tags, and Meta click and browser ids kept on an account are deleted 13 months after we record them, and only totals that are not tied to anyone remain. Partner grants may expire or be revoked. Payment, subscription, and transaction records may be retained for accounting, fraud prevention, charge dispute, tax, and legal reasons. Profile, answer, declared constraint, consent, AI result, receipt, and derived records are kept until you delete them, delete your account, or request deletion. Turning off a topic consent changes what intori may ask you next. It does not by itself delete result context that already exists.
+        Session cookies are intended to expire after a limited period. Ad attribution, campaign tags, and Meta click and browser ids kept on an account are deleted 13 months after we record them, and only totals that are not tied to anyone remain. Partner grants may expire or be revoked. Payment, subscription, and transaction records may be retained for accounting, fraud prevention, charge dispute, tax, and legal reasons. Profile, answer, declared constraint, consent, AI result, receipt, and derived records are kept until you delete them, delete your account, or request deletion. Turning off a topic consent changes what intori may ask you next. It does not by itself delete result context that already exists. A turned-off plans link&apos;s record, with its dates, stays until you delete your account.
       </p>
       <p>
         First-party transport observations from our current measurement system are normally removed after 90 days. Daily maintenance is bounded, so a backlog may take additional time to clear. Account-owned activity, action and replay records are removed when you delete your account. Anonymous aggregate statistics may remain after deletion. Financial transaction references may remain for accounting, disputes and replay prevention; we do not use them to recognize a deleted account or decide whether a new account can start a trial. Only the one-way trial code described above is used for that. Older operational and security records follow the purpose-based retention described above, not an automatic 90-day rule.

@@ -201,7 +201,7 @@ function AppCtas({ qr }: { qr?: AppStoreQr | null }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image src={APP_STORE_BADGE} alt={APP_STORE_BADGE_ALT} width={120} height={40} />
+            <Image src={APP_STORE_BADGE} alt={APP_STORE_BADGE_ALT} width={120} height={40} priority />
           </a>
           {qr && (
             <div className={styles.qr}>

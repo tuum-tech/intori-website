@@ -44,10 +44,10 @@ export const getServerSideProps = (async (context) => {
   return { props: { qr: await appStoreQr(), trialEnds: trialSampleLabel() } }
 }) satisfies GetServerSideProps<{ qr: AppStoreQr | null; trialEnds: string }>
 
-// App screens are unedited Build 25 captures from the App Store storefront
-// package (Oct 16 2026): the same Raleigh, NC test household on every
-// screen, so the story holds together from section to section.
-const SCREEN = { width: 1206, height: 2622 }
+// App screens are unedited Build 26 captures (Nov 8 2026): the same Raleigh, NC
+// test household on every screen, so the story holds together from section to
+// section. Home and Week print dates, so they read current through Sat Nov 14.
+const SCREEN = { width: 1080, height: 2346 }
 
 // Six live lanes in two groups. "Near you" lanes are found from the saved area
 // and checked against the date and the forecast; "Follow" lanes come from the
@@ -136,20 +136,20 @@ const STEPS = [
   {
     title: 'Turn on what you enjoy.',
     body: 'Sign in with Apple or your email, then pick from six interests. Follow a team or a show, choose the outings you like, and add the rest anytime.',
-    image: '/brand/app-b25/04-interests.jpg',
-    alt: 'intori Interests for a family with kids under 5 and 5 to 8, with all six turned on: Outings, Outdoors, Sports, Shows, Music and Food',
+    image: '/brand/app-b26/04-interests.jpg',
+    alt: 'intori Interests for a family with kids under 5 and 5 to 8, with all six turned on: Food, Sports, Shows, Music, Outings and Outdoors',
   },
   {
     title: 'A few good picks, with the reason.',
     body: 'Up to five picks a day on Home. Each one says when, where, and why it fits, like good playground hours on Sunday, with the forecast checked.',
-    image: '/brand/app-b25/02-detail.jpg',
-    alt: 'intori details for Lenoir Street Park playground: Sunday, October 18, good hours 11:00 AM to 6:00 PM, 51 to 58°F, 15% chance of rain, for kids, with Hold the day',
+    image: '/brand/app-b26/02-detail.jpg',
+    alt: 'intori details for John Chavis Memorial Park playground: today, good hours 1:00 PM to 6:00 PM, 61 to 64°F, no rain expected, wind up to 6 mph, with Hold the day',
   },
   {
     title: 'Keep the dates you choose.',
     body: 'Games, shows and dated outings go straight on your iPhone’s calendar. For a flexible day, Hold the day keeps it in intori until you choose a time. Want a reminder? intori sends one the day before.',
-    image: '/brand/app-b25/06-calendar.jpg',
-    alt: 'intori confirming Lenoir Street Park playground is on your calendar for Sunday, October 18 at 2:00 PM in Apple Calendar, with a reminder the day before turned on',
+    image: '/brand/app-b26/05-receipt.jpg',
+    alt: 'intori confirming Story Time at the Museum is on your calendar for Thursday, November 12 at 11:00 AM in Apple Calendar, with a reminder the day before turned on',
   },
 ]
 
@@ -328,8 +328,8 @@ export default function HomePage({ qr, trialEnds }: InferGetServerSidePropsType<
               <div className={styles.showcase}>
                 <FamilyScreenWeek compact rail className={styles.showcaseScreen} />
                 <Phone
-                  src="/brand/app-b25/01-home.jpg"
-                  alt="intori Today: apple picking at a nearby farm tomorrow, 8 AM to 5 PM, ready to hold, with Marbles Courtyard already on the calendar for Sunday at 11:00 AM"
+                  src="/brand/app-b26/01-home.jpg"
+                  alt="intori Today for Sunday, November 8: John Chavis Memorial Park playground already on the calendar for 1:30 PM, and NCMA to Go Art Kits at the North Carolina Museum of Art on Saturday, November 14, ready to add"
                   priority
                   className={styles.showcasePhone}
                 />
@@ -476,8 +476,8 @@ export default function HomePage({ qr, trialEnds }: InferGetServerSidePropsType<
               </div>
               <div className={styles.calVisual}>
                 <Phone
-                  src="/brand/app-b25/03-week.jpg"
-                  alt="intori Week for October 18 to 24: Marbles Courtyard and Lenoir Street Park playground on Sunday, the Hurricanes at the Flames Sunday night, and Abbott Elementary on Wednesday"
+                  src="/brand/app-b26/03-week.jpg"
+                  alt="intori Week for November 8 to 14: John Chavis Memorial Park playground on Sunday, Abbott Elementary on Wednesday, Story Time at the Museum on Thursday, and the Seattle Kraken at the Carolina Hurricanes on Saturday"
                   className={styles.phoneSmall}
                 />
               </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { Newsreader } from 'next/font/google'
+import localFont from 'next/font/local'
 
 import { MarketingFooter, MarketingHeader } from '@/components/MarketingChrome'
 import { APP_URL, IOS_CHANNEL, appStoreUrl } from '@/lib/appLinks'
@@ -11,12 +11,14 @@ import styles from './styles.module.css'
 
 // Upright Newsreader for the picks headings, as in the approved mockup. The
 // site-wide serif in _app is the italic accent cut only.
-const picksSerif = Newsreader({
-  subsets: ['latin'],
-  style: ['normal'],
-  weight: ['500', '600'],
+const picksSerif = localFont({
+  src: [
+    { path: '../../lib/fonts/Newsreader-wght.woff2', weight: '500', style: 'normal' },
+    { path: '../../lib/fonts/Newsreader-wght.woff2', weight: '600', style: 'normal' },
+  ],
   variable: '--font-picks-serif',
   display: 'swap',
+  adjustFontFallback: 'Times New Roman',
 })
 
 const SOURCES_EMAIL = 'sources@intori.com'

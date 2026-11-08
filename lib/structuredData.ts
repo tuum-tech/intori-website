@@ -1,4 +1,4 @@
-import { APP_URL, IOS_APP_STORE_URL, IOS_CHANNEL } from './appLinks'
+import { APP_STORE_LISTING_URL, APP_URL, IOS_CHANNEL } from './appLinks'
 import { FAQ } from './faq'
 import { SITE_URL } from './seo'
 
@@ -44,7 +44,7 @@ export function applicationJsonLd() {
   }
   const web = { '@context': 'https://schema.org', '@type': 'WebApplication', ...shared, url: APP_URL, browserRequirements: 'Any modern browser' }
   if (IOS_CHANNEL !== 'appstore') return [web]
-  return [web, { '@context': 'https://schema.org', '@type': 'MobileApplication', ...shared, operatingSystem: 'iOS', installUrl: IOS_APP_STORE_URL, url: IOS_APP_STORE_URL }]
+  return [web, { '@context': 'https://schema.org', '@type': 'MobileApplication', ...shared, operatingSystem: 'iOS', installUrl: APP_STORE_LISTING_URL, url: APP_STORE_LISTING_URL }]
 }
 
 export function faqJsonLd() {

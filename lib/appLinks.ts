@@ -12,21 +12,17 @@ export const APP_URL = 'https://app.intori.co'
 //
 //   APP_STORE_ID                  App Store Connect > App Information > Apple ID
 //                                 (the number after "id" in the listing's URL).
-//                                 Filled: 6801558369 is intori's. The listing
-//                                 is not live until Apple releases the build.
+//                                 Filled: 6801558369 is intori's.
 //   APP_ANALYTICS_PROVIDER_TOKEN  App Store Connect > App Analytics > Campaigns
 //                                 > Generate Campaign Link, the "pt" value. It
 //                                 lets App Analytics attribute installs to this
-//                                 website. "000000" is a PLACEHOLDER: replace it.
+//                                 website. Filled: 129187622 is Tuum's.
 //
-// App Store Connect cannot generate the provider token until the app is live
-// (the app is "currently unavailable for Analytics" before then), so this PR
-// can merge with the placeholder still in place. While it is the placeholder,
-// appStoreUrl() returns the plain listing link with no pt, ct or mt at all,
-// never a link carrying a fake token. The moment a real token is set here,
-// every link gains ?pt=...&ct=<surface>&mt=8 with no other change.
+// Every link carries ?pt=...&ct=<surface>&mt=8. If the token is ever set back
+// to the "000000" placeholder, appStoreUrl() returns the plain listing link,
+// never a link carrying a fake token.
 export const APP_STORE_ID = '6801558369'
-export const APP_ANALYTICS_PROVIDER_TOKEN: string = '000000'
+export const APP_ANALYTICS_PROVIDER_TOKEN: string = '129187622'
 
 const PLACEHOLDER_PROVIDER_TOKEN = '000000'
 

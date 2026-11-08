@@ -329,7 +329,7 @@ export default function HomePage({ qr, trialEnds }: InferGetServerSidePropsType<
                 <FamilyScreenWeek compact rail className={styles.showcaseScreen} />
                 <Phone
                   src="/brand/app-b26/01-home.jpg"
-                  alt="intori Today for Sunday, November 8: John Chavis Memorial Park playground already on the calendar for 1:30 PM, and NCMA to Go Art Kits at the North Carolina Museum of Art on Saturday, November 14, ready to add"
+                  alt="intori Today for Sunday, November 8: John Chavis Memorial Park playground already on the calendar for 1:30 PM, and the Leonids meteor shower through November 17, good hours 6:34 PM to 8:34 PM, ready to hold"
                   priority
                   className={styles.showcasePhone}
                 />

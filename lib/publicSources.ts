@@ -3,10 +3,12 @@
 // listed publicly). content/sources.json is the fallback and the source of
 // everything the endpoint does not carry: area names, each organizer's
 // hand-written "what it adds" line, and the national services with their
-// credits. Same fetch posture as lib/publicPicks.ts.
+// credits. The feed decides who is listed: an organizer in an area this file
+// does not name yet still shows, and a national service the app switches on
+// or off appears or goes. Same fetch posture as lib/publicPicks.ts.
 
 import fallback from '@/content/sources.json'
-import { isBuildPhase } from '@/lib/publicPicks'
+import { isBuildPhase, picksMetroInfo } from '@/lib/publicPicks'
 
 const DEFAULT_SOURCES_API = 'https://app.intori.co/api/public/sources'
 export const SOURCES_FETCH_TIMEOUT_MS = 8_000
@@ -17,6 +19,11 @@ export type SourceArea = { metro: string; name: string; picks: boolean; sources:
 export type SourcesPageData = { areas: SourceArea[]; services: Source[]; updated: string; live: boolean }
 
 type LiveSource = { id: string; displayName: string; metro: string; publicUrl: string; kind: string }
+// A service listed by hand that the app's source registry does not carry, such
+// as a map or geocoder. It is always shown; the rest follow the feed.
+type FallbackService = Source & { outsideRegistry?: boolean }
+
+const NATIONAL = 'national'
 
 // The line for an organizer the hand-written list does not know yet.
 const ADDS_BY_KIND: Record<string, string> = {
@@ -27,11 +34,14 @@ const ADDS_BY_KIND: Record<string, string> = {
   parks: 'Parks and recreation programs and events',
   museum: 'Exhibits, programs and family days',
   garden: 'Garden events and classes',
+  festival: 'Festival dates and events',
+  venue: 'Shows and community events',
+  curator: 'Local event roundups',
 }
 const ADDS_OTHER = 'Events and programs'
 
 const FALLBACK_AREAS = fallback.areas as SourceArea[]
-const FALLBACK_SERVICES = fallback.services as Source[]
+const FALLBACK_SERVICES = fallback.services as FallbackService[]
 const HAND_WRITTEN_ADDS = new Map(FALLBACK_AREAS.flatMap((area) => area.sources.map((s) => [s.id, s.adds] as const)))
 
 function sourcesApi(): string {
@@ -73,20 +83,57 @@ function parseLive(body: unknown): { generatedAt: string; sources: LiveSource[] 
 
 /** Live organizers grouped into the page's areas. Only areas the page knows by
  * name are shown; national rows stay with the hand-listed services. */
+function areaName(metro: string): string {
+  const picks = picksMetroInfo(metro)
+  if (picks) return picks.name
+  return metro.split('-').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+}
+
+function liveLine(s: LiveSource): Source {
+  return { id: s.id, name: s.displayName, url: s.publicUrl, adds: HAND_WRITTEN_ADDS.get(s.id) ?? ADDS_BY_KIND[s.kind] ?? ADDS_OTHER }
+}
+
 export function areasFromLive(sources: LiveSource[]): SourceArea[] {
-  return FALLBACK_AREAS.map((area) => ({
-    metro: area.metro,
-    name: area.name,
-    picks: area.picks,
+  const known = new Set(FALLBACK_AREAS.map((area) => area.metro))
+  const newMetros = Array.from(new Set(sources.map((s) => s.metro)))
+    .filter((metro) => metro !== NATIONAL && !known.has(metro))
+    .sort()
+  const areas = [
+    ...FALLBACK_AREAS.map(({ metro, name, picks }) => ({ metro, name, picks })),
+    ...newMetros.map((metro) => ({ metro, name: areaName(metro), picks: picksMetroInfo(metro) !== null })),
+  ]
+  return areas.map((area) => ({
+    ...area,
     sources: sources
       .filter((s) => s.metro === area.metro)
-      .map((s) => ({ id: s.id, name: s.displayName, url: s.publicUrl, adds: HAND_WRITTEN_ADDS.get(s.id) ?? ADDS_BY_KIND[s.kind] ?? ADDS_OTHER }))
+      .map(liveLine)
       .sort((a, b) => a.name.localeCompare(b.name)),
   })).filter((area) => area.sources.length > 0)
 }
 
+function handService({ outsideRegistry: _outside, ...service }: FallbackService): Source {
+  return service
+}
+
+/** Hand-written services the feed still lists (or that sit outside it), in the
+ * hand-written order, then any national service the hand list does not know. */
+export function servicesFromLive(sources: LiveSource[]): Source[] {
+  const national = sources.filter((s) => s.metro === NATIONAL)
+  // A feed without national rows says nothing about services: keep the list.
+  if (national.length === 0) return FALLBACK_SERVICES.map(handService)
+  const live = new Set(national.map((s) => s.id))
+  const handIds = new Set(FALLBACK_SERVICES.map((s) => s.id))
+  return [
+    ...FALLBACK_SERVICES.filter((s) => s.outsideRegistry || live.has(s.id)).map(handService),
+    ...national
+      .filter((s) => !handIds.has(s.id))
+      .map(liveLine)
+      .sort((a, b) => a.name.localeCompare(b.name)),
+  ]
+}
+
 function fallbackData(): SourcesPageData {
-  return { areas: FALLBACK_AREAS, services: FALLBACK_SERVICES, updated: `${fallback.updated}T12:00:00Z`, live: false }
+  return { areas: FALLBACK_AREAS, services: FALLBACK_SERVICES.map(handService), updated: `${fallback.updated}T12:00:00Z`, live: false }
 }
 
 /** The page's data. At build time a failed read uses the fallback so a deploy
@@ -110,7 +157,7 @@ export async function loadSourcesPage(timeoutMs = SOURCES_FETCH_TIMEOUT_MS): Pro
     if (!live) throw new Error('public_sources_malformed')
     const areas = areasFromLive(live.sources)
     if (areas.length === 0) throw new Error('public_sources_empty')
-    return { areas, services: FALLBACK_SERVICES, updated: live.generatedAt, live: true }
+    return { areas, services: servicesFromLive(live.sources), updated: live.generatedAt, live: true }
   } catch (error) {
     if (isBuildPhase()) return fallbackData()
     throw error

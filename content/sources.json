@@ -800,6 +800,7 @@
     },
     {
       "id": "balldontlie",
+      "outsideRegistry": true,
       "name": "BALLDONTLIE",
       "adds": "Game dates and times for the teams you follow",
       "url": "https://www.balldontlie.io/"
@@ -813,12 +814,14 @@
     },
     {
       "id": "google-maps",
+      "outsideRegistry": true,
       "name": "Google Maps",
       "adds": "Places to eat near your plans, and season places such as pumpkin patches, orchards and tree farms, shown with Google's own place card",
       "url": "https://maps.google.com/"
     },
     {
       "id": "census-geocoder",
+      "outsideRegistry": true,
       "name": "U.S. Census Bureau Geocoder",
       "adds": "Places the street addresses that public calendars and race listings print, so a venue sits at its building",
       "url": "https://geocoding.geo.census.gov/geocoder/",

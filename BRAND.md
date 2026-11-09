@@ -44,11 +44,9 @@ other three, so its underline runs at 0.7 alpha where the others sit at 0.5 to
 ## Type (marketing surfaces, Aug 2026)
 
 Schibsted Grotesk for display and body (weights 400–800, headline tracking
--0.03em to -0.035em). Newsreader italic is an editorial accent used **once per
-page**, on the homepage wedge line. Both load via `next/font/local` in
-`pages/_app.tsx` from the files in `lib/fonts`, and are exposed as `--font-sans` / `--font-serif`; Newsreader
-needs `adjustFontFallback: false` (no Next fallback-metrics entry for the
-italic-only face).
+-0.03em to -0.035em). It loads via `next/font/local` in `pages/_app.tsx` from
+the files in `lib/fonts`, and is exposed as `--font-sans`. Upright Newsreader is
+used for the picks page headings only, loaded in `components/Picks/index.tsx`.
 
 ## Voice / register (updated Aug 2026)
 

@@ -26,7 +26,6 @@
   --radius-img: 16px;
   --radius-pill: 999px;
   --sans: var(--font-sans, 'Schibsted Grotesk'), -apple-system, 'Helvetica Neue', Arial, sans-serif;
-  --serif: var(--font-serif, 'Newsreader'), Georgia, 'Times New Roman', serif;
 
   width: 100%;
   background: var(--ground);
@@ -184,9 +183,8 @@
   font-size: clamp(40px, 5.6vw, 72px);
 }
 
-/* Quiet sans deck. The page's single Newsreader italic moment lives on the
-   wedge pivot line, where the rhetorical turn is. Width capped so the deck
-   sets as two balanced lines instead of one 75-character run. */
+/* Quiet sans deck. Width capped so the deck sets as two balanced lines instead
+   of one 75-character run. */
 .heroDeck {
   max-width: 30rem;
   margin: 24px 0 0;
@@ -555,8 +553,6 @@
   text-wrap: balance;
 }
 
-/* Copy and role unchanged. The Newsreader italic moved to the hero deck, since
-   the locked type system allows exactly one italic moment per page. */
 .wedgeLineB {
   margin: 10px 0 0;
   font-weight: 800;

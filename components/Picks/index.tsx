@@ -9,8 +9,7 @@ import type { PickCardView, LibraryProgramsCardView } from '@/lib/publicPicksVie
 import homeStyles from '@/pages/index.module.css'
 import styles from './styles.module.css'
 
-// Upright Newsreader for the picks headings, as in the approved mockup. The
-// site-wide serif in _app is the italic accent cut only.
+// Upright Newsreader for the picks headings, as in the approved mockup.
 const picksSerif = localFont({
   src: [
     { path: '../../lib/fonts/Newsreader-wght.woff2', weight: '500', style: 'normal' },

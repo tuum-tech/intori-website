@@ -16,10 +16,10 @@ import { SeoHead } from '@/lib/seo'
 Chart.register(CategoryScale)
 
 // Marketing type system (warm Direction A refresh, 2026-08): Schibsted Grotesk
-// for display and body, Newsreader italic for the single wedge accent line.
-// Exposed as CSS variables; page styles opt in. The files live in lib/fonts so a
-// build never depends on Google Fonts. Each weight is declared on its own, not as
-// a range, so in-between CSS weights like 550 keep snapping to these five.
+// for display and body. Exposed as a CSS variable; page styles opt in. The file
+// lives in lib/fonts so a build never depends on Google Fonts. Each weight is
+// declared on its own, not as a range, so in-between CSS weights like 550 keep
+// snapping to these five.
 const sansFont = localFont({
   src: [
     { path: '../lib/fonts/SchibstedGrotesk-wght.woff2', weight: '400', style: 'normal' },
@@ -30,18 +30,6 @@ const sansFont = localFont({
   ],
   variable: '--font-sans',
   display: 'swap',
-})
-
-const serifFont = localFont({
-  src: [
-    { path: '../lib/fonts/Newsreader-Italic-wght.woff2', weight: '400', style: 'italic' },
-    { path: '../lib/fonts/Newsreader-Italic-wght.woff2', weight: '500', style: 'italic' },
-  ],
-  variable: '--font-serif',
-  display: 'swap',
-  // Next has no fallback-metrics table entry for italic-only Newsreader; the
-  // Georgia fallback in the CSS stack covers the single accent line fine.
-  adjustFontFallback: false,
 })
 
 const queryClient = new QueryClient({
@@ -68,7 +56,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
       <SessionProvider session={session}>
         <QueryClientProvider client={queryClient}>
           <ToastContainer position="top-right" />
-          <div className={`${sansFont.variable} ${serifFont.variable}`}>
+          <div className={sansFont.variable}>
             <Component {...pageProps} />
           </div>
           <ReactQueryDevtools initialIsOpen={false} />

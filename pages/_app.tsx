@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app'
-import { Newsreader, Schibsted_Grotesk } from 'next/font/google'
+import localFont from 'next/font/local'
 import Chart from "chart.js/auto"
 import { CategoryScale } from "chart.js"
 import { ToastContainer } from 'react-toastify'
@@ -17,18 +17,26 @@ Chart.register(CategoryScale)
 
 // Marketing type system (warm Direction A refresh, 2026-08): Schibsted Grotesk
 // for display and body, Newsreader italic for the single wedge accent line.
-// Exposed as CSS variables; page styles opt in.
-const sansFont = Schibsted_Grotesk({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
+// Exposed as CSS variables; page styles opt in. The files live in lib/fonts so a
+// build never depends on Google Fonts. Each weight is declared on its own, not as
+// a range, so in-between CSS weights like 550 keep snapping to these five.
+const sansFont = localFont({
+  src: [
+    { path: '../lib/fonts/SchibstedGrotesk-wght.woff2', weight: '400', style: 'normal' },
+    { path: '../lib/fonts/SchibstedGrotesk-wght.woff2', weight: '500', style: 'normal' },
+    { path: '../lib/fonts/SchibstedGrotesk-wght.woff2', weight: '600', style: 'normal' },
+    { path: '../lib/fonts/SchibstedGrotesk-wght.woff2', weight: '700', style: 'normal' },
+    { path: '../lib/fonts/SchibstedGrotesk-wght.woff2', weight: '800', style: 'normal' },
+  ],
   variable: '--font-sans',
   display: 'swap',
 })
 
-const serifFont = Newsreader({
-  subsets: ['latin'],
-  style: ['italic'],
-  weight: ['400', '500'],
+const serifFont = localFont({
+  src: [
+    { path: '../lib/fonts/Newsreader-Italic-wght.woff2', weight: '400', style: 'italic' },
+    { path: '../lib/fonts/Newsreader-Italic-wght.woff2', weight: '500', style: 'italic' },
+  ],
   variable: '--font-serif',
   display: 'swap',
   // Next has no fallback-metrics table entry for italic-only Newsreader; the

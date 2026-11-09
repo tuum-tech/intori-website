@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-02",
+  "updated": "2026-11-09",
   "areas": [
     {
       "metro": "raleigh-durham",
@@ -23,6 +23,12 @@
           "name": "Durham Parks and Recreation",
           "adds": "Parks and recreation programs and events",
           "url": "https://www.dprplaymore.org/calendar.aspx"
+        },
+        {
+          "id": "eno-simplecalendar",
+          "name": "Eno River Association",
+          "adds": "Hikes, nature programs and events along the Eno River",
+          "url": "https://www.enoriver.org/events-on-the-eno/"
         },
         {
           "id": "morehead-tribe",
@@ -83,6 +89,12 @@
           "name": "Town of Morrisville",
           "adds": "Town events and programs",
           "url": "https://www.morrisvillenc.gov/Events-directory"
+        },
+        {
+          "id": "triangle-on-the-cheap",
+          "name": "Triangle on the Cheap",
+          "adds": "Free and low-cost things to do around the Triangle",
+          "url": "https://triangleonthecheap.com/"
         }
       ]
     },
@@ -91,6 +103,12 @@
       "name": "Charlotte, North Carolina",
       "picks": true,
       "sources": [
+        {
+          "id": "charlotte-on-the-cheap",
+          "name": "Charlotte on the Cheap",
+          "adds": "Free and low-cost things to do around Charlotte",
+          "url": "https://www.charlotteonthecheap.com/"
+        },
         {
           "id": "monroe-civic",
           "name": "City of Monroe",
@@ -205,6 +223,12 @@
           "name": "Pender County",
           "adds": "County events and programs",
           "url": "https://www.pendercountync.gov/calendar.aspx"
+        },
+        {
+          "id": "st-stanislaus-polish-festival",
+          "name": "St. Stanislaus Catholic Church",
+          "adds": "The annual Polish Festival in Castle Hayne",
+          "url": "https://ststanspolishfestival.org/"
         },
         {
           "id": "leland-civic",
@@ -537,6 +561,12 @@
           "url": "https://ccplsc.libcal.com/calendar"
         },
         {
+          "id": "charleston-parks-conservancy-tribe",
+          "name": "Charleston Parks Conservancy",
+          "adds": "Picnics, tree giveaways and volunteer days in Charleston's parks",
+          "url": "https://www.charlestonparksconservancy.org/"
+        },
+        {
           "id": "explorecml-ics",
           "name": "Children's Museum of the Lowcountry",
           "adds": "Play days, classes and family events",
@@ -593,6 +623,12 @@
           "url": "https://www.childrensmuseumofrichmond.org/events/"
         },
         {
+          "id": "cultureworks-artsopolis",
+          "name": "CultureWorks",
+          "adds": "Richmond's arts calendar: performances, classes and exhibitions",
+          "url": "https://calendar.richmondcultureworks.org/events/"
+        },
+        {
           "id": "henrico-libcal",
           "name": "Henrico County Public Library",
           "adds": "Story times, classes and library events",
@@ -609,6 +645,12 @@
           "name": "Lewis Ginter Botanical Garden",
           "adds": "Garden events and classes",
           "url": "https://www.lewisginter.org/events/"
+        },
+        {
+          "id": "maymont-tribe",
+          "name": "Maymont",
+          "adds": "Events in Maymont's gardens, farm and nature center",
+          "url": "https://maymont.org/event-calendar/"
         },
         {
           "id": "rpl-libcal",
@@ -726,6 +768,12 @@
           "name": "Hennepin County Library",
           "adds": "Story times, classes and library events",
           "url": "https://hclib.bibliocommons.com/v2/events"
+        },
+        {
+          "id": "minneapolis-downtown-tribe",
+          "name": "Minneapolis Downtown Council",
+          "adds": "Events around downtown Minneapolis",
+          "url": "https://www.mplsdowntown.com/events/"
         },
         {
           "id": "sppl-bibliocommons",

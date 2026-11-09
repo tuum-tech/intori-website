@@ -27,7 +27,7 @@ export default function NewsIndex({
   posts,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <>
+    <div className={styles.newsArticleWrapper}>
       <SeoHead
         title="News - intori"
         description="Official announcements and updates from intori."
@@ -90,6 +90,6 @@ export default function NewsIndex({
       </div>
 
       <MarketingFooter />
-    </>
+    </div>
   )
 }

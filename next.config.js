@@ -26,12 +26,11 @@ const nextConfig = {
         permanent: true
       },
       {
-        // The Feb 2026 World launch announcement was unpublished on 2026-07-19.
-        // It had external press distribution, so send those inbound links to the
-        // news index rather than a dead end. Temporary (307) on purpose: the post
-        // is hidden, not retired, and may be restored.
-        source: '/news/intori-now-live-on-world',
-        destination: '/news',
+        // News is not in use until further notice (Nov 2026). Its pages and the
+        // unpublished posts stay in the repo; every /news address goes Home.
+        // Temporary (307) on purpose, so News can come back at the same address.
+        source: '/news/:path*',
+        destination: '/',
         permanent: false
       }
     ]

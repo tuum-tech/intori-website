@@ -81,13 +81,12 @@ used for the picks page headings only, loaded in `components/Picks/index.tsx`.
 
 ## Asset inventory (live, post-purge 2026-07-23; refreshed 2026-08-27)
 
-- `public/og/og-forward-v7.jpg` — the current OG card, warm (1800x945).
-  v7 is the first card carrying the **lane words** (Sports, Music, Shows, Food);
-  v6 and earlier still show the retired helper product names and stay on disk.
-  Unlike every card before it, v7 has a **source in the repo**:
-  `public/og/templates/og-forward-v7.html`, rendered at 1800x945. Regenerate
-  from that template rather than editing the JPEG, and see its header comment
-  for the capture command.
+- `public/og/og-forward-v9.jpg` — the current OG card (1800x945): the
+  positioning line word for word in the hero's two tones, on the App Store
+  cream (#FAF3E6), with the six lane photos the app shows for each lane.
+  Its source is `public/og/templates/og-forward-v9.html`. Regenerate from the
+  template rather than editing the JPEG, and see its header comment for the
+  capture command.
   OG filenames are **versioned on purpose**: scrapers cache image bytes by URL,
   so new card art always ships at a new path and older files stay in place so
   previously-scraped embeds do not 404.

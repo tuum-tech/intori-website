@@ -5,7 +5,7 @@ export const SITE_URL = 'https://intori.com'
 // by image URL, so replacing the card in place (as #197 did) leaves stale pre-pivot
 // art in every previously-scraped preview. Ship a NEW filename whenever the card
 // art changes, and leave the old file in place so historic embeds do not 404.
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/og/og-forward-v8.jpg`
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/og/og-forward-v9.jpg`
 export const DEFAULT_TITLE = 'intori. Something to look forward to.'
 // Ends on timing, not throughput, to match the hero. Kept under ~155 characters
 // so the closing claim survives search-result truncation.

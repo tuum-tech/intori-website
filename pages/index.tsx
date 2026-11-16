@@ -147,7 +147,7 @@ const STEPS = [
   },
   {
     title: 'Keep the dates you choose.',
-    body: 'Games, shows and dated outings go straight on your iPhone’s calendar. For a flexible day, Hold the day keeps it in intori until you choose a time. Want a reminder? intori sends one the day before.',
+    body: 'Games, shows and dated outings go straight on your iPhone’s calendar. For a flexible day, Hold the day keeps it in intori until you choose a time. Want a reminder? intori sends one the night before.',
     image: '/brand/app-b26/05-receipt.jpg',
     alt: 'intori confirming Story Time at the Museum is on your calendar for Thursday, November 12 at 11:00 AM in Apple Calendar, with a reminder the day before turned on',
   },

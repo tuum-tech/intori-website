@@ -1,32 +1,16 @@
-import type { GetServerSideProps } from 'next'
 import { getAllPosts } from '@/lib/news'
 import {
   PICKS_BASE_PATH,
   PICKS_FETCH_TIMEOUT_MS,
-  type PicksUrlEntry,
   collectIndexablePicksUrls,
 } from '@/lib/publicPicks'
 import { SITE_URL } from '@/lib/seo'
 
-// The city pages are the sitemap's most important entries, so the picks read
-// gets the endpoint's full timeout (a cold Atlanta week alone takes ~3s) and
-// the function the time to wait for it.
-export const config = { maxDuration: 30 }
-
-// If the endpoint is down, the static routes and the picks hub still render,
-// but that copy is cached briefly so the next crawl gets the cities back.
-const DEGRADED_CACHE = 'public, s-maxage=60'
-const FULL_CACHE = 'public, s-maxage=1800, stale-while-revalidate=3600'
-
-async function picksEntries(today: string): Promise<{ entries: PicksUrlEntry[]; complete: boolean }> {
-  try {
-    const entries = await collectIndexablePicksUrls({ timeoutMs: PICKS_FETCH_TIMEOUT_MS, max: 45_000 })
-    return { entries, complete: true }
-  } catch (error) {
-    console.error('sitemap_picks_unavailable', error)
-    return { entries: [{ path: PICKS_BASE_PATH, lastmod: today }], complete: false }
-  }
-}
+// Cache the complete XML with ISR. A failed refresh throws and Next keeps the
+// last successful response; a cold failure never publishes a reduced sitemap.
+export const dynamic = 'force-static'
+export const revalidate = 1800
+export const maxDuration = 30
 
 function picksPriority(path: string): string {
   if (path === PICKS_BASE_PATH) return '0.7'
@@ -73,10 +57,10 @@ function sitemapEntry({
   ].join('\n')
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+export async function GET() {
   const today = new Date().toISOString().slice(0, 10)
   const posts = getAllPosts()
-  const { entries: picks, complete } = await picksEntries(today)
+  const picks = await collectIndexablePicksUrls({ timeoutMs: PICKS_FETCH_TIMEOUT_MS, max: 45_000 })
   const entries = [
     ...staticRoutes.map((route) =>
       sitemapEntry({
@@ -109,15 +93,5 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     '</urlset>',
   ].join('\n')
 
-  res.setHeader('Content-Type', 'application/xml')
-  // Picks change through the day; a half-hour edge copy spares the endpoint.
-  res.setHeader('Cache-Control', complete ? FULL_CACHE : DEGRADED_CACHE)
-  res.write(sitemap)
-  res.end()
-
-  return { props: {} }
-}
-
-export default function Sitemap() {
-  return null
+  return new Response(sitemap, { headers: { 'Content-Type': 'application/xml; charset=utf-8' } })
 }

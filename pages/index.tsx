@@ -44,11 +44,11 @@ export const getServerSideProps = (async (context) => {
   return { props: { qr: await appStoreQr(), trialEnds: trialSampleLabel() } }
 }) satisfies GetServerSideProps<{ qr: AppStoreQr | null; trialEnds: string }>
 
-// App screens: Home, the pick and the receipt are Build 28 iPhone captures from
-// Mon Nov 16 2026 (Raleigh, set to away), following one holiday pick from Home to
-// the calendar. Only the status bar is changed (9:41, full battery). Interests
-// and Week are Build 26 (Nov 8). Screens that print dates must be re-shot before
-// those dates pass: Home and the pick read current through Fri Nov 20.
+// App screens: Home, the pick, the receipt and Week are Build 28 iPhone captures
+// from Mon Nov 16 2026 (Raleigh, set to away), following one holiday pick from
+// Home to the calendar. Only the status bar is changed (9:41, full battery).
+// Interests is Build 26 (Nov 8); it did not change in Build 28. Screens that print
+// dates must be re-shot before those dates pass: they read current through Fri Nov 20.
 const SCREEN = { width: 1080, height: 2346 }
 
 // Six live lanes in two groups. "Near you" lanes are found from the saved area
@@ -478,8 +478,8 @@ export default function HomePage({ qr, trialEnds }: InferGetServerSidePropsType<
               </div>
               <div className={styles.calVisual}>
                 <Phone
-                  src="/brand/app-b26/03-week.jpg"
-                  alt="intori Week for November 8 to 14: John Chavis Memorial Park playground on Sunday, Abbott Elementary on Wednesday, Story Time at the Museum on Thursday, and the Seattle Kraken at the Carolina Hurricanes on Saturday"
+                  src="/brand/app-b28/03-week.jpg"
+                  alt="intori Week for November 15 to 21: the Leonids meteor shower on Tuesday, a UNCW game on Wednesday, the Raleigh Tree Lighting and Holiday Market on Friday, and the Raleigh Christmas Parade on Saturday, each on your calendar"
                   className={styles.phoneSmall}
                 />
               </div>

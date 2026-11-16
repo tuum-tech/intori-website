@@ -44,9 +44,11 @@ export const getServerSideProps = (async (context) => {
   return { props: { qr: await appStoreQr(), trialEnds: trialSampleLabel() } }
 }) satisfies GetServerSideProps<{ qr: AppStoreQr | null; trialEnds: string }>
 
-// App screens are unedited Build 26 captures (Nov 8 2026): the same Raleigh, NC
-// test household on every screen, so the story holds together from section to
-// section. Home and Week print dates, so they read current through Sat Nov 14.
+// App screens: Home, the pick and the receipt are Build 28 iPhone captures from
+// Mon Nov 16 2026 (Raleigh, set to away), following one holiday pick from Home to
+// the calendar. Only the status bar is changed (9:41, full battery). Interests
+// and Week are Build 26 (Nov 8). Screens that print dates must be re-shot before
+// those dates pass: Home and the pick read current through Fri Nov 20.
 const SCREEN = { width: 1080, height: 2346 }
 
 // Six live lanes in two groups. "Near you" lanes are found from the saved area
@@ -141,15 +143,15 @@ const STEPS = [
   },
   {
     title: 'A few good picks, with the reason.',
-    body: 'Up to five picks a day on Home. Each one says when, where, and why it fits, like good playground hours on Sunday, with the forecast checked.',
-    image: '/brand/app-b26/02-detail.jpg',
-    alt: 'intori details for John Chavis Memorial Park playground: today, good hours 1:00 PM to 6:00 PM, 61 to 64°F, no rain expected, wind up to 6 mph, with Hold the day',
+    body: 'Up to five picks a day on Home. Each one says when, where, and why it fits, like a free tree lighting under a mile away.',
+    image: '/brand/app-b28/02-detail.jpg',
+    alt: 'intori details for the Raleigh Tree Lighting and Holiday Market: Friday, November 20, 5:30 PM to 8 PM at Moore Square, under a mile away, free, all ages, no sign-up, with Add to calendar, Directions and the event page',
   },
   {
     title: 'Keep the dates you choose.',
     body: 'Games, shows and dated outings go straight on your iPhone’s calendar. For a flexible day, Hold the day keeps it in intori until you choose a time. Want a reminder? intori sends one the night before.',
-    image: '/brand/app-b26/05-receipt.jpg',
-    alt: 'intori confirming Story Time at the Museum is on your calendar for Thursday, November 12 at 11:00 AM in Apple Calendar, with a reminder the day before turned on',
+    image: '/brand/app-b28/05-receipt.jpg',
+    alt: 'intori confirming the Raleigh Tree Lighting and Holiday Market, Friday, November 20 at 5:30 PM, was sent to Apple Calendar, with a reminder turned on for November 19 at 8 PM',
   },
 ]
 
@@ -328,8 +330,8 @@ export default function HomePage({ qr, trialEnds }: InferGetServerSidePropsType<
               <div className={styles.showcase}>
                 <FamilyScreenWeek compact rail className={styles.showcaseScreen} />
                 <Phone
-                  src="/brand/app-b26/01-home.jpg"
-                  alt="intori Today for Sunday, November 8: John Chavis Memorial Park playground already on the calendar for 1:30 PM, and the Leonids meteor shower through November 17, good hours 6:34 PM to 8:34 PM, ready to hold"
+                  src="/brand/app-b28/01-home.jpg"
+                  alt="intori Today for Monday, November 16, away in Raleigh: the Leonids meteor shower tomorrow at 6:33 PM, 55°F and no rain in the forecast, then the Raleigh Tree Lighting and Holiday Market this Friday at 5:30 PM at Moore Square, under a mile away, free, all ages, no sign-up, with Add to calendar"
                   priority
                   className={styles.showcasePhone}
                 />

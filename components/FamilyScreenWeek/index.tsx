@@ -59,8 +59,22 @@ const WEEK: Day[] = [
   ] },
 ]
 
-const LABEL =
-  "Illustration of a family's week on a wall screen. Carpool, a math test, the doctor, cleaning, a PTA meeting and grocery pickup fill the school days. intori's picks sit in the gaps: a season premiere Monday night, a new taco spot Tuesday, a movie in the park Friday, a college football game and a concert on Saturday, and a trail walk on Sunday."
+// Holiday season (the homepage passes it through Dec 31): Friday's outing is a
+// tree lighting instead of a movie in the park.
+const HOLIDAY_FRIDAY: Item = { time: "6 PM", title: "Tree lighting", lane: "outings" }
+
+function weekFor(holiday: boolean): Day[] {
+  if (!holiday) return WEEK
+  return WEEK.map((day) =>
+    day.name === "Fri"
+      ? { ...day, items: day.items.map((item) => (item.lane === "outings" ? HOLIDAY_FRIDAY : item)) }
+      : day,
+  )
+}
+
+function labelFor(holiday: boolean) {
+  return `Illustration of a family's week on a wall screen. Carpool, a math test, the doctor, cleaning, a PTA meeting and grocery pickup fill the school days. intori's picks sit in the gaps: a season premiere Monday night, a new taco spot Tuesday, ${holiday ? "a tree lighting" : "a movie in the park"} Friday, a college football game and a concert on Saturday, and a trail walk on Sunday.`
+}
 
 const WEEKEND = new Set(["Fri", "Sat", "Sun"])
 
@@ -72,11 +86,12 @@ function railToday(now = new Date()) {
   return { day: part({ weekday: "long" }), date: part({ day: "numeric" }), month: part({ month: "long" }) }
 }
 
-export default function FamilyScreenWeek({ className = "", compact = false, rail = false }: { className?: string; compact?: boolean; rail?: boolean }) {
+export default function FamilyScreenWeek({ className = "", compact = false, rail = false, holiday = false }: { className?: string; compact?: boolean; rail?: boolean; holiday?: boolean }) {
+  const week = weekFor(holiday)
   const today = railToday()
   return (
     <figure className={`${styles.figure} ${className}`}>
-      <div className={styles.screen} role="img" aria-label={LABEL}>
+      <div className={styles.screen} role="img" aria-label={labelFor(holiday)}>
         <div className={`${styles.inner} ${rail ? styles.withRail : ""}`}>
           {rail ? (
             <div className={styles.rail} aria-hidden="true">
@@ -94,7 +109,7 @@ export default function FamilyScreenWeek({ className = "", compact = false, rail
             </span>
           </div>
           <div className={styles.days}>
-            {WEEK.map((day) => (
+            {week.map((day) => (
               <div key={day.name} className={`${styles.day} ${compact && !WEEKEND.has(day.name) ? styles.wideOnlyDay : ""}`}>
                 <span className={styles.dayName}>{day.name}</span>
                 {day.items.map((item) => (

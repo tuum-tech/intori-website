@@ -8,6 +8,7 @@ import { JsonLd, SeoHead } from '@/lib/seo'
 import { applicationJsonLd, organizationJsonLd } from '@/lib/structuredData'
 import { APP_STORE_BADGE, APP_STORE_BADGE_ALT, APP_URL, IOS_CHANNEL, appStoreUrl } from '@/lib/appLinks'
 import { appStoreQr, type AppStoreQr } from '@/lib/appStoreQr'
+import { isHolidaySeason } from '@/lib/season'
 
 import styles from './index.module.css'
 
@@ -41,8 +42,8 @@ export const getServerSideProps = (async (context) => {
     }
   }
 
-  return { props: { qr: await appStoreQr(), trialEnds: trialSampleLabel() } }
-}) satisfies GetServerSideProps<{ qr: AppStoreQr | null; trialEnds: string }>
+  return { props: { qr: await appStoreQr(), trialEnds: trialSampleLabel(), holiday: isHolidaySeason() } }
+}) satisfies GetServerSideProps<{ qr: AppStoreQr | null; trialEnds: string; holiday: boolean }>
 
 // App screens: Home, the pick, the receipt and Week are Build 28 iPhone captures
 // from Mon Nov 16 2026 (Raleigh, set to away), following one holiday pick from
@@ -131,8 +132,27 @@ const FOLLOWED: Lane[] = [
   },
 ]
 
+// Holiday season (through Dec 31, lib/season.ts): Outings wears the app's
+// tree-lighting picture and names the holiday outings families look for.
+const HOLIDAY_OUTINGS: Partial<Lane> = {
+  title: 'Tree lightings, parades, Santa.',
+  body: 'Tree lightings, holiday markets, parades and visits with Santa near you, each with the date, the place, and who it suits.',
+  image: '/brand/lanes/outings-lights-on.jpg',
+  alt: 'A mother and her two daughters in knit hats and scarves looking up at a glowing paper lantern against a starry blue backdrop',
+}
+
+function nearYouLanes(holiday: boolean): Lane[] {
+  return holiday ? [{ ...NEAR_YOU[0], ...HOLIDAY_OUTINGS }, ...NEAR_YOU.slice(1)] : NEAR_YOU
+}
+
 // Strip and dot order: the two new lanes first, Food last.
-const ALL_LANES = [NEAR_YOU[0], NEAR_YOU[1], ...FOLLOWED, NEAR_YOU[2]]
+function allLanes(nearYou: Lane[]): Lane[] {
+  return [nearYou[0], nearYou[1], ...FOLLOWED, nearYou[2]]
+}
+
+// The holiday share card has the same layout as og-forward-v9, with the
+// Outings and Outdoors tiles in holiday pictures. New filename, per lib/seo.tsx.
+const HOLIDAY_OG_IMAGE = '/og/og-holiday-v10.jpg'
 
 const STEPS = [
   {
@@ -295,7 +315,9 @@ function LaneCard({ lane }: { lane: Lane }) {
   )
 }
 
-export default function HomePage({ qr, trialEnds }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function HomePage({ qr, trialEnds, holiday }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  const nearYou = nearYouLanes(holiday)
+  const lanes = allLanes(nearYou)
   return (
     <>
       <SeoHead
@@ -303,6 +325,7 @@ export default function HomePage({ qr, trialEnds }: InferGetServerSidePropsType<
         description="Your calendar tells you what you have to do. intori finds what your family would love to do, from story time and good park hours to the big game, a show coming back, or an artist playing nearby, and puts it on your calendar."
         canonicalPath="/"
         ogDescription="Your calendar tells you what you have to do. intori gives you something to look forward to."
+        {...(holiday ? { ogImage: HOLIDAY_OG_IMAGE } : {})}
         ogImageAlt="intori card reading Something to look forward to, with tiles for Outings, Outdoors, Sports, Shows, Music and Food"
       />
       <JsonLd id="organization" data={organizationJsonLd()} />
@@ -328,7 +351,7 @@ export default function HomePage({ qr, trialEnds }: InferGetServerSidePropsType<
             </div>
             <div className={`${styles.container} ${styles.showcaseWrap}`}>
               <div className={styles.showcase}>
-                <FamilyScreenWeek compact rail className={styles.showcaseScreen} />
+                <FamilyScreenWeek compact rail holiday={holiday} className={styles.showcaseScreen} />
                 <Phone
                   src="/brand/app-b28/01-home.jpg"
                   alt="intori Today for Monday, November 16, away in Raleigh: the Leonids meteor shower tomorrow at 6:33 PM, 55°F and no rain in the forecast, then the Raleigh Tree Lighting and Holiday Market this Friday at 5:30 PM at Moore Square, under a mile away, free, all ages, no sign-up, with Add to calendar"
@@ -339,7 +362,7 @@ export default function HomePage({ qr, trialEnds }: InferGetServerSidePropsType<
             </div>
             <div className={styles.container}>
               <nav className={styles.laneStrip} aria-label="What intori watches for">
-                {ALL_LANES.map((lane) => (
+                {lanes.map((lane) => (
                   <a key={lane.id} href={`#${lane.id}`} className={`${styles.laneChip} ${lane.tint}`}>
                     <span className={styles.laneChipImg}>
                       <Image src={lane.image} alt="" fill sizes="40px" className={styles.todayArtImage} />
@@ -367,7 +390,7 @@ export default function HomePage({ qr, trialEnds }: InferGetServerSidePropsType<
                   <p className={styles.laneGroupSub}>Found from your area, and checked against the date and the forecast.</p>
                 </div>
                 <div className={styles.laneGrid}>
-                  {NEAR_YOU.map((lane) => <LaneCard key={lane.id} lane={lane} />)}
+                  {nearYou.map((lane) => <LaneCard key={lane.id} lane={lane} />)}
                 </div>
               </div>
 
@@ -577,7 +600,7 @@ export default function HomePage({ qr, trialEnds }: InferGetServerSidePropsType<
           <section id="start" className={styles.convertSection}>
             <div className={styles.container}>
               <div className={styles.convertLanes} aria-hidden="true">
-                {ALL_LANES.map((lane) => (
+                {lanes.map((lane) => (
                   <span key={lane.id} className={`${styles.laneMark} ${lane.tint}`} />
                 ))}
               </div>

@@ -12,6 +12,8 @@
     "start": "PORT=6868 next start",
     "lint": "next lint",
     "tsc": "tsc --noEmit",
+    "test:sitemap": "tsx --test lib/sitemap.test.ts lib/publicPicks.libraryGroups.test.ts",
+    "test:sitemap:isr": "node scripts/test-sitemap-isr.mjs",
     "db:pull": "prisma db pull && prisma generate --no-engine",
     "_comment": "For vercel prod deployment for the TS build checks",
     "postinstall": "prisma generate --no-engine"

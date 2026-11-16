@@ -354,8 +354,8 @@ export function currentPickLines(week: PublicPicksWeek, now: Date): PublicPicksL
   })
 }
 
-export function weekIsIndexable(week: PublicPicksWeek, current: readonly PublicPickItem[], currentLineCount?: number): boolean {
-  if (week.lines && currentLineCount !== undefined) return week.linesIndexable === true && currentLineCount >= PICKS_INDEXABLE_MIN
+export function weekIsIndexable(week: PublicPicksWeek, current: readonly PublicPickItem[], currentLineCount: number): boolean {
+  if (week.lines) return week.linesIndexable === true && currentLineCount >= PICKS_INDEXABLE_MIN
   return week.indexable && current.length >= PICKS_INDEXABLE_MIN
 }
 
@@ -370,7 +370,9 @@ async function getJson(url: string, timeoutMs: number): Promise<{ status: number
   const controller = new AbortController()
   const timer = setTimeout(() => controller.abort(), timeoutMs)
   try {
-    const response = await fetch(url, { headers: { accept: 'application/json' }, signal: controller.signal })
+    // The caller (page ISR or the XML route) caches a complete snapshot. Do not
+    // independently cache these reads, which could mix old and new feed data.
+    const response = await fetch(url, { headers: { accept: 'application/json' }, cache: 'no-store', signal: controller.signal })
     let body: unknown = null
     try {
       body = await response.json()
@@ -416,8 +418,8 @@ export function isBuildPhase(): boolean {
 export type PicksUrlEntry = { path: string; lastmod: string }
 
 /** The hub, every indexable metro page, and every listing page of those
- * metros, for the sitemap and IndexNow. Throws only when the metro list
- * cannot be read; a metro whose week fails is left out. */
+ * metros, for the sitemap and IndexNow. Any failed candidate week rejects the
+ * snapshot, so callers never publish a partial list as a successful refresh. */
 export async function collectIndexablePicksUrls(args: { timeoutMs?: number; max?: number; now?: Date } = {}): Promise<PicksUrlEntry[]> {
   const timeoutMs = args.timeoutMs ?? PICKS_FETCH_TIMEOUT_MS
   const max = args.max ?? Number.POSITIVE_INFINITY
@@ -425,11 +427,14 @@ export async function collectIndexablePicksUrls(args: { timeoutMs?: number; max?
   const list = await fetchPicksMetroList(timeoutMs)
   const entries: PicksUrlEntry[] = [{ path: PICKS_BASE_PATH, lastmod: list.generatedAt.slice(0, 10) }]
   const candidates = list.metros.filter(metro => metro.indexable)
-  const weeks = await Promise.all(candidates.map(metro => fetchPicksWeek(metro.slug, timeoutMs).catch(() => null)))
+  const weeks = await Promise.all(candidates.map(async metro => {
+    const week = await fetchPicksWeek(metro.slug, timeoutMs)
+    if (!week) throw new Error(`public_picks_week_missing_${metro.slug}`)
+    return week
+  }))
   for (const week of weeks) {
-    if (!week) continue
     const current = currentPicks(week.items, now)
-    if (!weekIsIndexable(week, current)) continue
+    if (!weekIsIndexable(week, current, currentPickLines(week, now).length)) continue
     const lastmod = week.generatedAt.slice(0, 10)
     entries.push({ path: metroPath(week.metro.slug), lastmod })
     for (const item of current) entries.push({ path: listingPath(week.metro.slug, item), lastmod })

@@ -87,6 +87,10 @@ used for the picks page headings only, loaded in `components/Picks/index.tsx`.
   Its source is `public/og/templates/og-forward-v9.html`. Regenerate from the
   template rather than editing the JPEG, and see its header comment for the
   capture command.
+- `public/og/og-holiday-v10.jpg` — the homepage's share card for the holiday
+  season only (through Dec 31 2026, `lib/season.ts`): v9 with the Outings and
+  Outdoors tiles in the app's tree-lighting and tree-farm pictures. Every other
+  page keeps v9, and the homepage goes back to v9 on Jan 1 by itself.
   OG filenames are **versioned on purpose**: scrapers cache image bytes by URL,
   so new card art always ships at a new path and older files stay in place so
   previously-scraped embeds do not 404.

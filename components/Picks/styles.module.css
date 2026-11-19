@@ -521,3 +521,63 @@
     display: none;
   }
 }
+
+.picks .guidePanel {
+  padding: clamp(16px, 3vw, 28px);
+  border: 1px solid var(--hairline);
+  border-top: 3px solid var(--outings);
+  border-radius: 14px;
+  background: var(--outings-tint);
+}
+
+.picks .guideHeading {
+  margin: 0 0 8px;
+  font-family: var(--picks-serif);
+  font-size: clamp(24px, 4vw, 32px);
+  line-height: 1.12;
+}
+
+.picks .guideList {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+}
+
+.picks .guideItem {
+  padding: 12px 0;
+  border-top: 1px solid var(--hairline);
+  overflow-wrap: anywhere;
+}
+
+.picks .guideItem h3 {
+  margin: 0 0 4px;
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.picks .guideItem h3 a {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration-color: var(--ink-soft);
+  text-underline-offset: 3px;
+}
+
+.picks .guideItem p {
+  margin: 4px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.picks .guideLink {
+  display: inline-block;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.picks .cta .guideLink {
+  margin-top: 12px;
+}

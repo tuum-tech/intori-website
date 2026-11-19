@@ -5,6 +5,7 @@ import { PicksCta, PicksFootNote, PicksShell, picksStyles as styles } from '@/co
 import { PICKS_BASE_PATH, PICKS_METROS, PICKS_REVALIDATE_SECONDS, fetchPicksMetroList, isBuildPhase } from '@/lib/publicPicks'
 import { type HubMetro, hubMetros } from '@/lib/publicPicksView'
 import { JsonLd, SeoHead, absoluteUrl } from '@/lib/seo'
+import { RALEIGH_WINTER_PATH, RALEIGH_WINTER_TITLE } from '@/lib/raleighGuides'
 
 type Props = { metros: HubMetro[] }
 
@@ -54,6 +55,7 @@ export default function PicksHub({ metros }: InferGetStaticPropsType<typeof getS
               Pick your area. Each page lists this week&apos;s story times, festivals and family events from local
               libraries, towns and parks, with times, ages, cost and who runs each.
             </p>
+            <p className={styles.crumbs}><Link href={RALEIGH_WINTER_PATH}>{RALEIGH_WINTER_TITLE}</Link></p>
             <ul className={styles.areaList}>
               {metros.map(metro => (
                 <li key={metro.slug}>

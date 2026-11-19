@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import styles from './styles.module.css'
-import { APP_STORE_BADGE, APP_STORE_BADGE_ALT, APP_URL, IOS_CHANNEL, WORLD_APP_URL, appStoreUrl } from '@/lib/appLinks'
+import { APP_STORE_BADGE, APP_STORE_BADGE_ALT, APP_URL, IOS_CHANNEL, appStoreUrl, guideWebUrl, type GuideCampaign } from '@/lib/appLinks'
 
 export function WorldIcon({ size = 17 }: { size?: number }) {
   return (
@@ -14,7 +14,8 @@ export function WorldIcon({ size = 17 }: { size?: number }) {
   )
 }
 
-export function MarketingHeader() {
+export function MarketingHeader({ campaign }: { campaign?: GuideCampaign } = {}) {
+  const webUrl = campaign ? guideWebUrl(campaign) : APP_URL
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -36,7 +37,7 @@ export function MarketingHeader() {
             {/* Same destination as the homepage's primary button: the iPhone app
                 once IOS_CHANNEL has one, the web app until then. */}
             <a
-              href={IOS_CHANNEL === 'appstore' ? appStoreUrl('website-header') : APP_URL}
+              href={IOS_CHANNEL === 'appstore' ? appStoreUrl(campaign?.appStore ?? 'website-header') : webUrl}
               className={styles.ctaPrimary}
               target="_blank"
               rel="noopener noreferrer"
@@ -50,7 +51,7 @@ export function MarketingHeader() {
   )
 }
 
-export function MarketingFooter() {
+export function MarketingFooter({ campaign }: { campaign?: GuideCampaign } = {}) {
   const year = useMemo(() => new Date().getFullYear(), [])
 
   return (
@@ -71,21 +72,12 @@ export function MarketingFooter() {
             <Link href="/privacy-policy" className={styles.footerLink}>Privacy</Link>
             <Link href="/terms-of-use" className={styles.footerLink}>Terms</Link>
             <a href="mailto:hello@intori.com" className={styles.footerLink}>Contact</a>
-            <a
-              href={WORLD_APP_URL}
-              className={styles.footerLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className={styles.footerLinkIcon}><WorldIcon size={13} /></span>
-              World App
-            </a>
           </nav>
           {/* Apple's official badge, black on the cream footer. Only rendered on
               the 'appstore' channel. */}
           {IOS_CHANNEL === 'appstore' && (
             <a
-              href={appStoreUrl('website-footer')}
+              href={appStoreUrl(campaign?.appStore ?? 'website-footer')}
               className={styles.footerBadge}
               target="_blank"
               rel="noopener noreferrer"

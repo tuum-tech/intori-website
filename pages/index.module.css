@@ -1478,8 +1478,13 @@
   color: var(--ink);
 }
 
+.heroCentered > .secSub {
+  margin: 14px auto 0;
+  max-width: 38rem;
+}
+
 .heroCentered .heroCtas {
-  margin-top: 34px;
+  margin-top: 24px;
 }
 
 .heroCentered .heroCtas > div {

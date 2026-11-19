@@ -1,4 +1,4 @@
-import { APP_STORE_BADGE, APP_STORE_BADGE_ALT, IOS_CHANNEL, appStoreUrl } from './appLinks'
+import { APP_STORE_BADGE, APP_STORE_BADGE_ALT, IOS_CHANNEL, PRODUCT_DEFINITION, appStoreUrl } from './appLinks'
 
 export type FaqItem = {
   question: string
@@ -18,10 +18,10 @@ const WHERE_TO_USE_ANSWER =
   IOS_CHANNEL === 'appstore'
     ? [
         "intori is on the App Store for iPhone, and that is the best way to use it: Sign in with Apple, picks that go on your calendar, and reminders on your lock screen.",
-        "It also works in any browser at app.intori.co, and in the World App. Sign in with the same account and intori already knows you, whichever one you open.",
+        "It also works in any browser at app.intori.co, including on Android. Sign in with the same account to keep your picks and interests together.",
       ]
     : [
-        "intori works in any browser at app.intori.co, and in the World App. An iPhone app is coming soon.",
+        "intori works in any browser at app.intori.co, including on Android. An iPhone app is coming soon.",
         "Sign in with the same account and intori already knows you, whichever one you open.",
       ]
 
@@ -47,9 +47,13 @@ export const FAQ: FaqItem[] = [
   {
     question: "What is intori?",
     answer: [
-      "Your calendar tells you what you have to do. intori gives you something to look forward to.",
-      "Tell it what your family loves: outings near you, time outside, your teams, your shows, the artists you would go see, the food you like. intori watches local events, the forecast, schedules, premieres, and tour dates for you, brings you up to five picks a day, and puts the ones you want on your calendar."
+      PRODUCT_DEFINITION,
+      "Tell intori what you enjoy. It brings you up to five picks a day, with the reason each one fits. It watches for local outings, time outdoors, sports, shows, live music, and places to eat."
     ]
+  },
+  {
+    question: "Who is intori for?",
+    answer: ["Use intori to make plans for yourself, for two, or for your family. Pick Just me, Two of us, or Family in setup, then choose the interests you want intori to look for."]
   },
   {
     question: "Do I have to go looking for any of this?",
@@ -62,7 +66,7 @@ export const FAQ: FaqItem[] = [
     question: "How does intori work?",
     answer: [
       "Sign in with Apple or your email, and pick what you love. It takes a few taps for each, and you can add the rest anytime.",
-      "From then on, intori brings you up to five picks a day on Home, each with the reason it is there. A game, a show or a dated outing has Add to calendar: tap it and the date is on your iPhone's calendar. A flexible day, like good hours at the park, has Hold the day, which keeps it in intori until you choose a time. Now and then, after you add something, intori asks one quick question so the next picks fit a little better."
+      "From then on, intori brings you up to five picks a day on Home, each with the reason it is there. Open a dated pick and choose Add to calendar to put it on your iPhone calendar. A flexible day, like good hours at the park, has Hold the day, which keeps it in intori until you choose a time. Now and then, after you add something, intori asks one quick question so the next picks fit a little better."
     ]
   },
   {
@@ -80,19 +84,19 @@ export const FAQ: FaqItem[] = [
     ]
   },
   {
-    question: "Will this mess up my family calendar?",
+    question: "How do I add a plan? What calendar access does intori use?",
     answer: [
-      "No. intori only adds what you tap to add. Nothing lands on your calendar by itself, and a day you hold stays in intori until you choose a time.",
-      "On iPhone, intori asks for permission to add events, and that is all it can do. It cannot read, change, or delete anything else on your calendar.",
-      "Everything you add also shows up in intori's Week, so what you are looking forward to is in one place."
+      "On iPhone, open a dated pick and choose Add to calendar. The first time, iPhone may ask you to allow intori to add events. Your chosen plan appears on your calendar and in intori’s Week.",
+      "intori uses add-only calendar permission on iPhone. Your existing events stay private. For a flexible plan, choose Hold the day and pick a time later."
     ]
   },
   {
-    question: "Does intori work with my wall calendar?",
+    question: "Does intori work with Skylight, Google Calendar, or other family screens?",
     answer: [
-      "Yes, if it can add a calendar by link, as most wall calendars and family screens can. In intori, open Week, then Calendars and displays, and copy your private link. Add it to your screen as a subscribed calendar, and the plans you choose show up beside the rest of your week.",
-      "The same link works in Google Calendar and Apple Calendar. Step-by-step help for each one is at intori.com/family-screen."
-    ]
+      "Yes. Open Week, then Calendars and displays, and copy your private intori link. Add it as a subscribed calendar in Skylight, Google Calendar, Apple Calendar, or another calendar that supports subscriptions by link.",
+      "New plans appear after that calendar or screen refreshes."
+    ],
+    link: { href: '/family-screen', label: 'See setup steps for your calendar' }
   },
   {
     question: "Will I get a lot of notifications?",
@@ -109,11 +113,9 @@ export const FAQ: FaqItem[] = [
     ]
   },
   {
-    question: "What makes intori different?",
+    question: "How is intori different from a shared calendar?",
     answer: [
-      "Shared calendars and family displays are good at keeping track of what is already planned. None of them tell you what is worth looking forward to.",
-      "intori works on that half. It brings you something specific and dated, shaped by what your family likes, early enough to say yes. And because it remembers what you have added, it helps with those plans too, like finding dinner near the venue before a show.",
-      "The assistant on your phone can add a game to your calendar when you ask. intori does the noticing, so you never have to think to ask."
+      "intori keeps looking for upcoming plans based on what you enjoy and brings you a short list. It works alongside the calendar or family screen you already use, so an outing you choose can show up beside the rest of your week."
     ]
   },
   {
@@ -147,12 +149,31 @@ export const FAQ: FaqItem[] = [
     ]
   },
   {
-    question: "Does intori work where I live?",
+    question: "Does intori find things to do where I live?",
     answer: [
-      "Your teams, your shows and artists on tour work anywhere in the US.",
-      "For outings and time outside, intori prepares these areas ahead of time: Raleigh-Durham, Charlotte, the Greensboro area, Wilmington, Fayetteville, Atlanta, Orlando, Tampa Bay, Jacksonville, Charleston, Richmond, the Nashville suburbs, the northern Dallas-Fort Worth suburbs, and Minneapolis-St. Paul.",
-      "Anywhere else, intori starts with the parks, playgrounds and good outdoor hours near you."
+      "intori finds local outings in Raleigh–Durham, Wilmington, and other supported areas. The number and types of local picks vary by area. Our local guides show current public listings.",
+      "You can follow teams, shows, and touring artists across the U.S."
+    ],
+    link: { href: '/things-to-do-with-kids', label: 'Browse the local guides' }
+  },
+  {
+    question: "Can I use intori when I’m away from home?",
+    answer: ["Yes. Tap your area beside Today to open Home or Away, then choose Away. Use your current location or enter a ZIP code or a city and state, like Wilmington, NC. Choose Home when you’re back. Local outing coverage depends on your destination."]
+  },
+  {
+    question: "How do I send an outing or invite someone to join me?",
+    answer: [
+      "Open an eligible outing or outdoor event and choose Send this one. After you add an eligible plan to your calendar, choose Bring someone along on the confirmation to invite them.",
+      "The person who gets the link can open the plan in a browser and add it to their calendar."
     ]
+  },
+  {
+    question: "Where do the events and illustrations come from?",
+    answer: [
+      "intori finds events in public listings from libraries, towns, parks, museums, and other organizers. Each listing names the organizer and links to their page for current details, registration, or tickets.",
+      "Some picks use AI-generated illustrations. The event details come from the organizer’s listing."
+    ],
+    link: { href: '/sources', label: 'See how intori sources events' }
   },
   {
     question: "Can my partner or family share it?",
@@ -162,10 +183,10 @@ export const FAQ: FaqItem[] = [
     ]
   },
   {
-    question: "What does intori cost?",
+    question: "What does intori cost? Do I need a card for the trial?",
     answer: [
       "intori is $8.99 a month, or $59.99 a year.",
-      "Before that, you get 21 days free. The trial starts when you finish setup, not when you sign up. It is a real date, and the app shows it to you, so you always know how long you have left.",
+      "You get 21 days free, starting when you finish setup. You can start without entering a payment method. You choose whether to subscribe.",
       "On the web, choose a plan with at least 48 hours left and your first charge waits until your free days end. Cancel before then and you will not be charged. With less time left, web billing starts immediately. On iPhone, Apple bills when you confirm your purchase."
     ]
   },
@@ -181,13 +202,6 @@ export const FAQ: FaqItem[] = [
     answer: [
       "Everything you already added stays visible in intori and on your calendar. Followed-season dates keep their last saved details.",
       "New picks, calendar adds, Holds, date updates and reminders pause until you subscribe again. Your answers and everything you follow stay in your account."
-    ]
-  },
-  {
-    question: "Do I need a credit card to start?",
-    answer: [
-      "No. You can start the trial without entering a payment method, and it does not turn into a paid subscription on its own.",
-      "When the trial ends you choose a plan, or you do not. Nothing is charged unless you decide to subscribe."
     ]
   },
   {

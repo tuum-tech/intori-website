@@ -13,8 +13,10 @@ import {
   metroPath,
   picksMetroInfo,
 } from '@/lib/publicPicks'
-import { type MetroPageProps, buildMetroPageProps, emptyMetroPageProps } from '@/lib/publicPicksView'
+import { type MetroPageProps, buildMetroPageProps, calendarDay, emptyMetroPageProps } from '@/lib/publicPicksView'
 import { JsonLd, SeoHead } from '@/lib/seo'
+import { RALEIGH_SATURDAY_CAMPAIGN } from '@/lib/appLinks'
+import { RALEIGH_MUSEUM, RALEIGH_WINTER_PATH } from '@/lib/raleighGuides'
 
 type Params = { metro: string }
 
@@ -50,15 +52,16 @@ const CTA_TITLE = 'Get picks like these on your calendar every week'
 const CTA_BODY = 'intori learns what your family enjoys and puts the good ones on your calendar. 21 days free, no card needed.'
 
 export default function MetroPicksPage(props: InferGetStaticPropsType<typeof getStaticProps>) {
-  const { metro, heading, description, lede, checkedLabel, indexable, itemCount, days, listingUrls, otherMetros } = props
+  const { metro, heading, description, lede, checkedLabel, indexable, itemCount, days, listingUrls, otherMetros, saturday } = props
+  const campaign = saturday ? RALEIGH_SATURDAY_CAMPAIGN : undefined
   return (
     <>
       <SeoHead
-        title={heading}
-        description={description}
+        title={saturday ? `${heading} | intori` : heading}
+        description={saturday ? "Find Saturday morning outings for kids in Raleigh–Durham with times, prices, age fit, and links to organizers. More picks for the week below." : description}
         canonicalPath={metroPath(metro.slug)}
         robots={indexable ? 'index,follow' : 'noindex,follow'}
-        ogImageAlt="intori preview"
+        {...(saturday ? { ogImage: "/og/raleigh-weekend.jpg", ogImageWidth: "1200", ogImageHeight: "630", ogImageAlt: "Saturday morning in Raleigh–Durham, a guide from intori" } : { ogImageAlt: "intori preview" })}
       />
       {listingUrls.length > 0 && (
         <JsonLd
@@ -72,7 +75,7 @@ export default function MetroPicksPage(props: InferGetStaticPropsType<typeof get
           }}
         />
       )}
-      <PicksShell>
+      <PicksShell campaign={campaign}>
         <div className={styles.layout}>
           <div className={styles.main}>
             <p className={styles.crumbs}>
@@ -81,6 +84,33 @@ export default function MetroPicksPage(props: InferGetStaticPropsType<typeof get
             <h1 className={styles.h1}>{heading}</h1>
             <p className={styles.lede}>{lede}</p>
             {checkedLabel ? <p className={styles.checked}>{checkedLabel}</p> : null}
+
+            {saturday && (
+              <>
+                <section className={styles.guidePanel} aria-labelledby="saturday-morning">
+                  <h2 id="saturday-morning" className={styles.guideHeading}>Saturday morning · {calendarDay(saturday.date).date}</h2>
+                  <p className={styles.lede}>Need a plan for Saturday? Start with these local picks and check the organizer before heading out.</p>
+                  <ul className={styles.guideList}>
+                    {saturday.picks.map(pick => (
+                      <li key={pick.id} className={styles.guideItem}>
+                        <h3>{pick.listing ? <Link href={pick.listing}>{pick.title}</Link> : pick.title}</h3>
+                        <p>{pick.when} · {pick.where}</p>
+                        <p>{pick.details}</p>
+                        <a href={pick.source} className={styles.guideLink}>Details from {pick.organizer}</a>
+                      </li>
+                    ))}
+                    <li className={styles.guideItem}>
+                      <h3>Indoor fallback · {RALEIGH_MUSEUM.title}</h3>
+                      <p>{RALEIGH_MUSEUM.details}</p><p>{RALEIGH_MUSEUM.note}</p>
+                      <a href={RALEIGH_MUSEUM.source} className={styles.guideLink}>Museum hours and admission</a>
+                    </li>
+                  </ul>
+                </section>
+                <p className={styles.crumbs}><Link href={RALEIGH_WINTER_PATH}>Winter break activities for kids in Raleigh–Durham</Link></p>
+                <PicksCta title={CTA_TITLE} body={CTA_BODY} campaign={campaign} />
+                <h2 className={styles.guideHeading}>More things to do this week</h2>
+              </>
+            )}
 
             {itemCount === 0 ? (
               <section className={styles.empty}>
@@ -102,7 +132,7 @@ export default function MetroPicksPage(props: InferGetStaticPropsType<typeof get
                       {day.cards.map(card => <PickCard key={card.id} card={card} />)}
                     </ul>
                   </section>
-                  {index === 0 && days.length > 1 ? (
+                  {!saturday && index === 0 && days.length > 1 ? (
                     <PicksCta title={CTA_TITLE} body={CTA_BODY} className={styles.phoneOnly} />
                   ) : null}
                 </Fragment>
@@ -110,7 +140,7 @@ export default function MetroPicksPage(props: InferGetStaticPropsType<typeof get
             )}
           </div>
           <aside className={styles.aside}>
-            <PicksCta title={CTA_TITLE} body={CTA_BODY} />
+            {!saturday && <PicksCta title={CTA_TITLE} body={CTA_BODY} />}
             <PicksFootNote otherMetros={otherMetros} />
           </aside>
         </div>

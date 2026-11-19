@@ -6,9 +6,10 @@ import FamilyScreenWeek from '@/components/FamilyScreenWeek'
 import { MarketingFooter, MarketingHeader } from '@/components/MarketingChrome'
 import { JsonLd, SeoHead } from '@/lib/seo'
 import { applicationJsonLd, organizationJsonLd } from '@/lib/structuredData'
-import { APP_STORE_BADGE, APP_STORE_BADGE_ALT, APP_URL, IOS_CHANNEL, appStoreUrl } from '@/lib/appLinks'
+import { APP_STORE_BADGE, APP_STORE_BADGE_ALT, APP_URL, IOS_CHANNEL, PRODUCT_DEFINITION, appStoreUrl } from '@/lib/appLinks'
 import { appStoreQr, type AppStoreQr } from '@/lib/appStoreQr'
 import { isHolidaySeason } from '@/lib/season'
+import { RALEIGH_GUIDE_PATH } from '@/lib/raleighGuides'
 
 import styles from './index.module.css'
 
@@ -206,8 +207,8 @@ const INCLUDES = [
 //   'appstore' -> Apple's "Download on the App Store" badge is primary, the web is a quiet link
 //   'none'     -> web is primary, iPhone is a quiet non-clickable status chip
 //
-// iPhone leads because the launch promise lives there: Sign in with Apple, one
-// tap to Apple Calendar, and reminders on the lock screen. The web stays one
+// The iPhone app offers Sign in with Apple, Apple Calendar adds, and
+// lock-screen reminders. The web stays one
 // link away for anyone on Android or a laptop, and on desktop a QR code sits
 // beside the badge, since the badge alone cannot install anything there. The
 // code is ink straight on the cream, its ink the same height as the badge; the
@@ -321,10 +322,9 @@ export default function HomePage({ qr, trialEnds, holiday }: InferGetServerSideP
   return (
     <>
       <SeoHead
-        title="intori. Something to look forward to."
-        description="Your calendar tells you what you have to do. intori finds what your family would love to do, from story time and good park hours to the big game, a show coming back, or an artist playing nearby, and puts it on your calendar."
+        title="intori | Find things to do and add them to your calendar"
+        description={PRODUCT_DEFINITION}
         canonicalPath="/"
-        ogDescription="Your calendar tells you what you have to do. intori gives you something to look forward to."
         {...(holiday ? { ogImage: HOLIDAY_OG_IMAGE } : {})}
         ogImageAlt="intori card reading Something to look forward to, with tiles for Outings, Outdoors, Sports, Shows, Music and Food"
       />
@@ -339,14 +339,15 @@ export default function HomePage({ qr, trialEnds, holiday }: InferGetServerSideP
           <header className={styles.heroSection}>
             <div className={`${styles.container} ${styles.heroCentered}`}>
               <h1 className={styles.heroPull}>
-                <span className={styles.heroPullA}>Your calendar tells you what you have to do. </span>
-                <span className={styles.heroPullB}>intori gives you something to look forward to.</span>
+                <span className={styles.heroPullA}>Find things to do. </span>
+                <span className={styles.heroPullB}>Put the good ones on your calendar.</span>
               </h1>
+              <p className={styles.secSub}>{PRODUCT_DEFINITION}</p>
               <div className={styles.heroCtas}>
                 <AppCtas qr={qr} />
               </div>
               <p className={styles.heroTrust}>
-                <strong>21 days free, no card needed.</strong>
+                <strong>21 days free, no card needed.</strong> Then $8.99 a month or $59.99 a year if you choose a plan.
               </p>
             </div>
             <div className={`${styles.container} ${styles.showcaseWrap}`}>
@@ -407,6 +408,7 @@ export default function HomePage({ qr, trialEnds, holiday }: InferGetServerSideP
               <p className={styles.laneFine}>
                 What intori finds near you depends on your area. See who intori reads on
                 the <Link href="/sources">Sources</Link> page.
+                Looking for a weekend plan? <Link href={RALEIGH_GUIDE_PATH}>See things to do with kids in Raleigh–Durham</Link>.
               </p>
             </div>
           </section>
@@ -435,9 +437,8 @@ export default function HomePage({ qr, trialEnds, holiday }: InferGetServerSideP
           <section className={styles.wedgeSection}>
             <div className={styles.container}>
               <p className={styles.wedgeBody}>
-                Family calendars keep the week running. They can&rsquo;t notice that
-                the library has story time Saturday, the park looks perfect Sunday, or your
-                team plays Thursday. intori does the noticing, and fills the open days.
+                intori keeps looking for plans you might want, from Saturday story time to your
+                team&rsquo;s next game. Add the ones you choose beside everything already on your calendar.
               </p>
               <div className={styles.wedgeDemo}>
                 <div className={styles.demoCol}>
@@ -487,16 +488,15 @@ export default function HomePage({ qr, trialEnds, holiday }: InferGetServerSideP
           <section id="calendar" className={styles.calSection}>
             <div className={`${styles.container} ${styles.calGrid}`}>
               <div>
-                <h2 className={styles.calTitle}>A week to look forward to.</h2>
+                <h2 className={styles.calTitle}>Make plans on the calendar you already use.</h2>
                 <p className={styles.calSub}>
-                  Everything you add lands in your iPhone&rsquo;s calendar and in
-                  intori&rsquo;s Week, so the open days are easy to see and easy to fill.
+                  Add a dated pick to your iPhone calendar and see it in intori&rsquo;s Week.
+                  For a flexible plan, hold the day and choose a time later.
                 </p>
                 <p className={styles.calFine}>
-                  intori adds only the dates you choose, and never reads your other events.
-                  Use Google Calendar or a family screen?{" "}
-                  <Link href="/family-screen" className={styles.worksWithLink}>Connect it from Week</Link>,
-                  and what you add shows up there too.
+                  On iPhone, intori uses permission to add events. Your existing events stay private.
+                  Use Google Calendar or a family screen like Skylight?{" "}
+                  <Link href="/family-screen" className={styles.worksWithLink}>Connect it from Week</Link>.
                 </p>
               </div>
               <div className={styles.calVisual}>

@@ -1,4 +1,4 @@
-import { APP_STORE_LISTING_URL, APP_URL, IOS_CHANNEL } from './appLinks'
+import { APP_STORE_LISTING_URL, APP_URL, IOS_CHANNEL, PRODUCT_DEFINITION } from './appLinks'
 import { FAQ } from './faq'
 import { SITE_URL } from './seo'
 
@@ -37,7 +37,7 @@ export function applicationJsonLd() {
   }))
   const shared = {
     name: 'intori',
-    description: 'intori finds what your family would love to do, from story time and good park hours to the big game, a show coming back, or an artist playing nearby, and puts it on your calendar. 21 days free, no card needed.',
+    description: PRODUCT_DEFINITION,
     applicationCategory: 'LifestyleApplication',
     publisher: { '@id': ORGANIZATION_ID },
     offers,

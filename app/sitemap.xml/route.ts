@@ -5,6 +5,7 @@ import {
   collectIndexablePicksUrls,
 } from '@/lib/publicPicks'
 import { SITE_URL } from '@/lib/seo'
+import { RALEIGH_WINTER_PATH } from '@/lib/raleighGuides'
 
 // Cache the complete XML with ISR. A failed refresh throws and Next keeps the
 // last successful response; a cold failure never publishes a reduced sitemap.
@@ -25,6 +26,7 @@ const staticRoutes = [
   { path: '/sources', priority: '0.5', changefreq: 'monthly' },
   { path: '/privacy-policy', priority: '0.3', changefreq: 'yearly' },
   { path: '/terms-of-use', priority: '0.3', changefreq: 'yearly' },
+  { path: RALEIGH_WINTER_PATH, priority: '0.8', changefreq: 'weekly' },
 ]
 
 function escapeXml(value: string) {
@@ -43,14 +45,14 @@ function sitemapEntry({
   priority,
 }: {
   path: string
-  lastmod: string
+  lastmod?: string
   changefreq: string
   priority: string
 }) {
   return [
     '  <url>',
     `    <loc>${escapeXml(`${SITE_URL}${path}`)}</loc>`,
-    `    <lastmod>${lastmod}</lastmod>`,
+    ...(lastmod ? [`    <lastmod>${lastmod}</lastmod>`] : []),
     `    <changefreq>${changefreq}</changefreq>`,
     `    <priority>${priority}</priority>`,
     '  </url>',
@@ -58,16 +60,10 @@ function sitemapEntry({
 }
 
 export async function GET() {
-  const today = new Date().toISOString().slice(0, 10)
   const posts = getAllPosts()
   const picks = await collectIndexablePicksUrls({ timeoutMs: PICKS_FETCH_TIMEOUT_MS, max: 45_000 })
   const entries = [
-    ...staticRoutes.map((route) =>
-      sitemapEntry({
-        ...route,
-        lastmod: today,
-      })
-    ),
+    ...staticRoutes.map(sitemapEntry),
     ...posts.map((post) =>
       sitemapEntry({
         path: `/news/${post.slug}`,
@@ -79,7 +75,6 @@ export async function GET() {
     ...picks.map((entry) =>
       sitemapEntry({
         path: entry.path,
-        lastmod: entry.lastmod,
         changefreq: 'daily',
         priority: picksPriority(entry.path),
       })

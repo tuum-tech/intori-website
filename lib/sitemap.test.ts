@@ -5,7 +5,8 @@ import {
   collectIndexablePicksUrls, currentPickLines, currentPicks, listingPath,
   parsePublicPicksWeek, weekIsIndexable, type PublicPickItem, type PublicPicksWeek,
 } from './publicPicks'
-import { buildMetroPageProps } from './publicPicksView'
+import { buildListingPageProps, buildMetroPageProps, buildSaturdayShortlist, eventJsonLd } from './publicPicksView'
+import { appStoreUrl, guideWebUrl, RALEIGH_SATURDAY_CAMPAIGN, RALEIGH_WINTER_CAMPAIGN } from './appLinks'
 
 const now = new Date('2026-11-05T14:00:00Z')
 function week(slug = 'nashville'): PublicPicksWeek {
@@ -100,10 +101,63 @@ test('XML route returns a complete sitemap with canonical URLs', async t => {
   const xml = await response.text()
   assert.match(xml, /<loc>https:\/\/intori.com\/<\/loc>/)
   assert.match(xml, /<loc>https:\/\/intori.com\/things-to-do-with-kids\/nashville<\/loc>/)
-  assert.equal((xml.match(/<loc>/g) ?? []).length, 17)
+  assert.equal((xml.match(/<loc>/g) ?? []).length, 18)
+  assert.match(xml, /<loc>https:\/\/intori.com\/things-to-do-with-kids\/raleigh-durham\/winter-break<\/loc>/)
+  assert.doesNotMatch(xml, /<lastmod>/)
 })
 
 test('XML route propagates failure instead of returning the eight-URL fallback', async t => {
   feed(t, [week()], { status: 503 })
   await assert.rejects(GET(), /public_picks_list_503/)
+})
+
+test('Saturday picks favor upcoming free, kid-friendly events from distinct organizers', () => {
+  const raw = week('raleigh-durham')
+  const saturday = new Date('2026-11-07T14:30:00Z')
+  const picks = raw.items.map((item, i): PublicPickItem => ({
+    ...item,
+    timeZone: 'America/New_York',
+    startIso: i === 0 ? '2026-11-07T14:00:00Z' : i === 1 ? '2026-11-07T17:00:00Z' : '2026-11-07T15:00:00Z',
+    endIso: '2026-11-07T18:00:00Z',
+    expiresAtIso: '2026-11-08T00:00:00Z',
+    ageBands: i === 2 ? ['teens'] : ['under_5'],
+    cost: i === 3 ? 'paid' : 'free',
+    organizer: { name: i <= 4 ? 'Library' : `Organizer ${i}`, url: 'https://library.example/events' },
+  }))
+  const result = buildSaturdayShortlist(picks, saturday)
+  assert.equal(result.date, '2026-11-07')
+  assert.deepEqual(result.picks.map(pick => pick.title), ['Event 4', 'Event 5', 'Event 6'])
+  assert.equal(buildSaturdayShortlist(picks, new Date('2026-11-07T17:01:00Z')).date, '2026-11-14')
+})
+
+test('Cape Fear Museum planetarium listings use admission and reservation facts', () => {
+  const raw = week('wilmington')
+  Object.assign(raw.items[0], {
+    title: 'Planetarium Show-One World, One Sky', placeName: 'Cape Fear Museum',
+    organizer: { name: 'New Hanover County', url: 'https://www.nhcgov.com/calendar.aspx?EID=7205' },
+  })
+  const parsed = parsePublicPicksWeek(raw)!
+  assert.equal(parsed.items[0].cost, 'admission')
+  const detail = buildListingPageProps(parsed, parsed.items[0], parsed.items)
+  assert.equal(detail.facts.cost, 'Included with museum admission')
+  assert.equal(detail.facts.signUp?.label, 'Reserve at the museum’s admissions desk')
+  assert.equal(detail.eventJsonLd.offers, undefined)
+  assert.equal(eventJsonLd('wilmington', parsed.items[1], 'https://intori.com/example').isAccessibleForFree, true)
+})
+
+test('guide campaign links preserve their separate web and App Store identifiers', () => {
+  for (const campaign of [RALEIGH_SATURDAY_CAMPAIGN, RALEIGH_WINTER_CAMPAIGN]) {
+    const web = new URL(guideWebUrl(campaign))
+    assert.equal(web.searchParams.get('utm_source'), 'intori_com')
+    assert.equal(web.searchParams.get('utm_campaign'), campaign.web)
+    const store = new URL(appStoreUrl(campaign.appStore))
+    assert.equal(store.searchParams.get('ct'), campaign.appStore)
+    assert.equal(store.searchParams.get('mt'), '8')
+  }
+})
+
+
+test('the source-checked first-edition Durham pick clears after its start', () => {
+  assert.equal(buildSaturdayShortlist([], new Date('2026-11-21T14:00:00Z')).picks[0]?.title, 'Durham Art Walk Holiday Market')
+  assert.deepEqual(buildSaturdayShortlist([], new Date('2026-11-21T15:01:00Z')).picks, [])
 })

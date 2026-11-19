@@ -58,6 +58,8 @@ export type AppStoreSurface =
   | 'website-footer' // the footer link
   | 'faq' // the FAQ answer
   | 'picks' // the button on the things-to-do pages
+  | 'picks-rdu-saturday'
+  | 'picks-rdu-winter'
 
 export function appStoreUrl(ct: AppStoreSurface = 'website'): string {
   if (!HAS_APP_ANALYTICS_TOKEN) return APP_STORE_LISTING_URL
@@ -108,3 +110,18 @@ export const WORLD_APP_URL =
 // primary or secondary CTA on consumer marketing surfaces.
 export const FARCASTER_FRAME_URL =
   'https://warpcast.com/~/frames/launch?domain=frame.intori.co'
+
+export const RALEIGH_SATURDAY_CAMPAIGN = { web: 'guide_rdu_sat', appStore: 'picks-rdu-saturday' } as const
+export const RALEIGH_WINTER_CAMPAIGN = { web: 'guide_rdu_winter', appStore: 'picks-rdu-winter' } as const
+export type GuideCampaign = typeof RALEIGH_SATURDAY_CAMPAIGN | typeof RALEIGH_WINTER_CAMPAIGN
+
+export function guideWebUrl(campaign: GuideCampaign) {
+  const url = new URL(APP_URL)
+  url.searchParams.set('utm_source', 'intori_com')
+  url.searchParams.set('utm_campaign', campaign.web)
+  return url.href
+}
+
+export const PRODUCT_DEFINITION = IOS_CHANNEL === 'appstore'
+  ? 'intori is an iPhone and web app that finds things to do near you and adds the plans you choose to the calendar you already use.'
+  : 'intori is a web app that finds things to do near you and helps you put the plans you choose on your calendar.'

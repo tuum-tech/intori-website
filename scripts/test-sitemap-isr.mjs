@@ -70,7 +70,7 @@ try {
   await mkdir(path.join(fixture, 'lib'))
   await mkdir(path.join(fixture, 'pages'))
   await symlink(path.join(root, 'node_modules'), path.join(fixture, 'node_modules'), 'dir')
-  for (const file of ['tsconfig.json', 'next-env.d.ts', 'lib/publicPicks.ts', 'lib/news.ts', 'lib/seo.tsx']) {
+  for (const file of ['tsconfig.json', 'next-env.d.ts', 'lib/publicPicks.ts', 'lib/pickSourceFacts.ts', 'lib/raleighGuides.ts', 'lib/news.ts', 'lib/seo.tsx']) {
     await cp(path.join(root, file), path.join(fixture, file))
   }
   const route = await readFile(path.join(root, 'app/sitemap.xml/route.ts'), 'utf8')
@@ -97,7 +97,7 @@ try {
   }
   await until(async () => { try { return (await fetch(url)).ok } catch { return false } }, 'server ready')
   const baseline = await read()
-  assert.equal((baseline.match(/<loc>/g) ?? []).length, 26)
+  assert.equal((baseline.match(/<loc>/g) ?? []).length, 27)
   assert.ok(baseline.includes('/atlanta/'))
   assert.ok(!baseline.includes('/nashville'))
   console.log('PASS: complete XML excludes the noindex grouped city')
@@ -118,7 +118,7 @@ try {
   version = 2
   await until(async () => (await read()).includes('/v2-event-'), 'healthy refresh replaces stale XML')
   const refreshed = await read()
-  assert.equal((refreshed.match(/<loc>/g) ?? []).length, 26)
+  assert.equal((refreshed.match(/<loc>/g) ?? []).length, 27)
   assert.ok(!refreshed.includes('/v1-event-'))
   console.log('PASS: recovery publishes the refreshed complete XML')
 } catch (error) {

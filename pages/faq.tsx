@@ -11,7 +11,7 @@ const FaqPage: NextPage = () => {
   return (
     <>
       <SeoHead
-        title="FAQ - intori"
+        title="intori FAQ | Pricing, calendar setup, and local picks"
         description="Questions about intori, what it watches for, how the calendar works, what it costs, and how the free trial starts."
         canonicalPath="/faq"
         ogImageAlt="intori FAQ preview"

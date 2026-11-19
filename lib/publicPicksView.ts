@@ -3,6 +3,8 @@
 // crawler reads and the page a parent hydrates say the same thing.
 
 import { absoluteUrl } from './seo'
+import { verifiedVenueAddress } from './pickSourceFacts'
+import { FIRST_SATURDAY_PICK, RALEIGH_GUIDE_PATH, RALEIGH_SATURDAY_TITLE } from './raleighGuides'
 import {
   DEFAULT_PICKS_TIME_ZONE,
   PICKS_METROS,
@@ -103,6 +105,7 @@ export function pickChips(item: PublicPickItem): PickChip[] {
     ? [{ label: 'All ages', tone: 'age' }]
     : item.ageBands.map(band => ({ label: BAND_LABELS[band], tone: 'age' as const }))
   if (item.cost === 'free') chips.push({ label: 'Free', tone: 'plain' })
+  if (item.cost === 'admission') chips.push({ label: 'With admission', tone: 'plain' })
   if (item.cost === 'paid') chips.push({ label: 'Paid', tone: 'plain' })
   if (item.booking.kind === 'register' || item.booking.kind === 'ticket') chips.push({ label: 'Sign up', tone: 'plain' })
   return chips
@@ -133,7 +136,9 @@ export function suitsLabel(item: PublicPickItem): string {
 /** "Regional Library, near Raleigh". The town is the nearest prepared town, not a postal city. */
 export function wherePhrase(item: PublicPickItem): string {
   const town = item.nearestTown
-  if (!town || town.toLowerCase() === item.placeName.toLowerCase()) return item.placeName
+  const place = item.placeName.toLowerCase()
+  const townName = town.toLowerCase()
+  if (!town || place === townName || place.endsWith(`, ${townName}`)) return item.placeName
   return `${item.placeName}, near ${town}`
 }
 
@@ -235,6 +240,7 @@ export type MetroPageProps = {
   days: PickDayView[]
   listingUrls: string[]
   otherMetros: OtherMetro[]
+  saturday: SaturdayShortlist | null
 }
 
 function cardView(metroSlug: string, item: PublicPickItem): PickCardView {
@@ -250,6 +256,51 @@ function cardView(metroSlug: string, item: PublicPickItem): PickCardView {
     chips: pickChips(item),
     organizer: item.organizer,
   }
+}
+
+export type SaturdayShortlist = {
+  date: string
+  picks: Array<{ id: string; title: string; where: string; when: string; details: string; source: string; organizer: string; listing?: string }>
+}
+
+export function buildSaturdayShortlist(items: readonly PublicPickItem[], now: Date): SaturdayShortlist {
+  const zone = DEFAULT_PICKS_TIME_ZONE
+  const today = localDateIn(now, zone)
+  const weekday = new Date(`${today}T12:00:00Z`).getUTCDay()
+  const offset = weekday === 6 && zonedTime(now.toISOString(), zone).hour >= 12 ? 7 : 6 - weekday
+  const date = addDays(today, offset)
+  const choices = currentPicks(items, now)
+    .filter(item => item.localDate === date && item.startIso && item.cost !== 'unknown' &&
+      Date.parse(item.startIso) >= now.getTime() && zonedTime(item.startIso, zone).hour < 12 &&
+      (item.audience === 'all_ages' || item.ageBands.some(band => band !== 'teens')))
+    .sort((a, b) => Number(b.cost === 'free') - Number(a.cost === 'free') ||
+      Date.parse(a.startIso!) - Date.parse(b.startIso!))
+  const organizers = new Set<string>()
+  const picks: SaturdayShortlist['picks'] = []
+  for (const item of choices) {
+    if (organizers.has(item.organizer.name)) continue
+    organizers.add(item.organizer.name)
+    const reservation = item.booking.kind === 'register' ? ' · Registration required'
+      : item.booking.kind === 'ticket' ? ' · Ticket required' : ''
+    picks.push({
+      id: item.id,
+      title: item.title,
+      where: wherePhrase(item),
+      when: shortTime(item),
+      details: `${suitsLabel(item)} · ${costLabel(item)}${reservation}`,
+      source: signUpLink(item)?.url ?? item.organizer.url,
+      organizer: item.organizer.name,
+      listing: listingPath('raleigh-durham', item),
+    })
+    if (picks.length === 3) break
+  }
+  const { date: editionDate, startsAt, ...editorPick } = FIRST_SATURDAY_PICK
+  if (date === editionDate && Date.parse(startsAt) >= now.getTime()) {
+    const otherPicks = picks.filter(pick => pick.title !== editorPick.title && pick.organizer !== editorPick.organizer)
+    otherPicks.splice(1, 0, editorPick)
+    return { date, picks: otherPicks.slice(0, 3) }
+  }
+  return { date, picks }
 }
 
 /** Items grouped by the local day they sit under, days in order, items in the endpoint's order. */
@@ -300,7 +351,7 @@ export function buildMetroPageProps(week: PublicPicksWeek, now: Date): MetroPage
     : `Things to do with kids in ${place} this week. ${LEDE} Checked every morning.`
   return {
     metro: { slug, name: week.metro.name },
-    heading: metroHeading(week.metro.name),
+    heading: metroPath(slug) === RALEIGH_GUIDE_PATH ? RALEIGH_SATURDAY_TITLE : metroHeading(week.metro.name),
     description,
     lede: `${LEDE} ${unbroken(range.label)}.`,
     checkedLabel: unbroken(`Checked ${checkedLabel(week.generatedAt, timeZone)}`),
@@ -309,6 +360,7 @@ export function buildMetroPageProps(week: PublicPicksWeek, now: Date): MetroPage
     days,
     listingUrls: items.map(item => absoluteUrl(listingPath(slug, item))),
     otherMetros: otherMetros(slug),
+    saturday: metroPath(slug) === RALEIGH_GUIDE_PATH ? buildSaturdayShortlist(items, now) : null,
   }
 }
 
@@ -373,12 +425,16 @@ function addressRegion(metroSlug: string, item: PublicPickItem): string | null {
 
 function signUpLink(item: PublicPickItem): { label: string; url: string } | null {
   if (item.booking.kind !== 'register' && item.booking.kind !== 'ticket') return null
-  return { label: 'On their page', url: item.booking.url ?? item.organizer.url }
+  return {
+    label: item.cost === 'admission' ? 'Reserve at the museum’s admissions desk' : 'On their page',
+    url: item.booking.url ?? item.organizer.url,
+  }
 }
 
 function costLabel(item: PublicPickItem): string {
   if (item.cost === 'free') return 'Free'
   if (item.cost === 'paid') return 'Paid. Prices are on their page.'
+  if (item.cost === 'admission') return 'Included with museum admission'
   return 'Not listed. Check their page.'
 }
 
@@ -386,18 +442,20 @@ export function eventJsonLd(metroSlug: string, item: PublicPickItem, canonicalUr
   const timed = item.timePrecision === 'instant' && item.startIso
   const region = addressRegion(metroSlug, item)
   const offerUrl = signUpLink(item)?.url ?? item.organizer.url
+  const verifiedAddress = verifiedVenueAddress(item)
   const event: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Event',
     name: item.title,
+    description: `${suitsLabel(item)}. Organized by ${item.organizer.name}.`,
     startDate: timed ? isoInZone(item.startIso as string, item.timeZone) : item.localDate,
     eventStatus: 'https://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     location: {
       '@type': 'Place',
       name: item.placeName,
-      geo: { '@type': 'GeoCoordinates', latitude: item.latitude, longitude: item.longitude },
-      address: { '@type': 'PostalAddress', ...(region ? { addressRegion: region } : {}), addressCountry: 'US' },
+      ...(!verifiedAddress.streetAddress ? { geo: { '@type': 'GeoCoordinates', latitude: item.latitude, longitude: item.longitude } } : {}),
+      address: { '@type': 'PostalAddress', ...verifiedAddress, ...(region ? { addressRegion: region } : {}), addressCountry: 'US' },
     },
     organizer: { '@type': 'Organization', name: item.organizer.name, url: item.organizer.url },
     url: canonicalUrl,

@@ -4,6 +4,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { INDEXNOW_ENDPOINT, INDEXNOW_HOST, INDEXNOW_KEY, INDEXNOW_KEY_LOCATION, INDEXNOW_MAX_URLS } from '@/lib/indexNow'
 import { collectIndexablePicksUrls } from '@/lib/publicPicks'
 import { absoluteUrl } from '@/lib/seo'
+import { RALEIGH_WINTER_PATH } from '@/lib/raleighGuides'
 
 // Daily Vercel cron (vercel.json): sends every indexable picks URL to
 // IndexNow. Vercel calls it with "Authorization: Bearer <CRON_SECRET>"; with no
@@ -28,12 +29,11 @@ export default async function indexNow(req: NextApiRequest, res: NextApiResponse
 
   let urlList: string[]
   try {
-    const entries = await collectIndexablePicksUrls({ max: INDEXNOW_MAX_URLS })
-    urlList = entries.map(entry => absoluteUrl(entry.path))
+    const entries = await collectIndexablePicksUrls({ max: INDEXNOW_MAX_URLS - 1 })
+    urlList = [absoluteUrl(RALEIGH_WINTER_PATH), ...entries.map(entry => absoluteUrl(entry.path))]
   } catch {
     return res.status(503).json({ error: 'picks_unavailable' })
   }
-  if (urlList.length === 0) return res.status(200).json({ submitted: 0 })
 
   const controller = new AbortController()
   const timer = setTimeout(() => controller.abort(), POST_TIMEOUT_MS)

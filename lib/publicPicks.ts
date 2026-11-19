@@ -5,6 +5,8 @@
 // and nothing here throws on bad data. Fetch failures do throw, so a page in
 // ISR keeps serving its last good version.
 
+import { applyPickSourceFacts } from './pickSourceFacts'
+
 export const PICKS_BASE_PATH = '/things-to-do-with-kids'
 const DEFAULT_PICKS_API = 'https://app.intori.co/api/public/picks'
 export const PICKS_FETCH_TIMEOUT_MS = 8_000
@@ -39,7 +41,7 @@ export type PublicPickItem = {
   nearestTown: string
   audience: 'kids' | 'all_ages'
   ageBands: PickAgeBand[]
-  cost: 'free' | 'paid' | 'unknown'
+  cost: 'free' | 'paid' | 'admission' | 'unknown'
   booking: { kind: PickBookingKind; url: string | null }
   organizer: { name: string; url: string }
   checkedAtIso: string
@@ -214,7 +216,7 @@ export function parsePublicPickItem(raw: unknown): PublicPickItem | null {
   const booking = isObject(raw.booking) ? raw.booking : {}
   const bookingKind = BOOKING_KINDS.indexOf(booking.kind as PickBookingKind) !== -1 ? booking.kind as PickBookingKind : 'unknown'
 
-  return {
+  return applyPickSourceFacts({
     id, slug, title, timePrecision, startIso, endIso,
     localDate: date,
     untilLocalDate: until && until > date ? until : null,
@@ -224,7 +226,7 @@ export function parsePublicPickItem(raw: unknown): PublicPickItem | null {
     booking: { kind: bookingKind, url: webUrl(booking.url) },
     organizer: { name: organizer.name, url: organizer.url },
     checkedAtIso, expiresAtIso,
-  }
+  })
 }
 
 function parseWindow(raw: unknown): PublicPicksWindow | null {

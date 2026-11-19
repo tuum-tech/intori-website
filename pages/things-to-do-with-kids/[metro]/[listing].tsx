@@ -31,8 +31,9 @@ export const getStaticProps: GetStaticProps<ListingPageProps, Params> = async ({
   // addressable, with their own facts and Event JSON-LD.
   const current = currentPicks(week.items, new Date())
   const item = current.find(entry => entry.id === listing.id)
-  // Over, expired or taken off: old links land on the metro's week.
-  if (!item) return { redirect: { destination: metroPath(metroSlug), permanent: false }, revalidate: PICKS_REVALIDATE_SECONDS }
+  // Missing and expired occurrences share the same live feed boundary. A 404
+  // lets stale search links drop out while the error page offers current picks.
+  if (!item) return { notFound: true, revalidate: PICKS_REVALIDATE_SECONDS }
   if (item.slug !== listing.slug) {
     return { redirect: { destination: listingPath(metroSlug, item), permanent: false }, revalidate: PICKS_REVALIDATE_SECONDS }
   }
@@ -70,8 +71,8 @@ export default function PickListingPage(props: InferGetStaticPropsType<typeof ge
             </dl>
             <p className={styles.checked}>{checkedLabel}</p>
             <PicksCta
-              title="Want this on your calendar?"
-              body="intori puts it on your calendar, with a reminder, and finds the next one for you."
+              title="Get more picks like this"
+              body="intori finds plans you might enjoy and helps add the ones you choose to your calendar."
               className={styles.phoneOnly}
             />
             {sameDay.items.length > 0 ? (
@@ -99,8 +100,8 @@ export default function PickListingPage(props: InferGetStaticPropsType<typeof ge
           </div>
           <aside className={styles.aside}>
             <PicksCta
-              title="Want this on your calendar?"
-              body="intori puts it on your calendar, with a reminder, and finds the next one for you."
+              title="Get more picks like this"
+              body="intori finds plans you might enjoy and helps add the ones you choose to your calendar."
               className={styles.wideOnly}
             />
             <PicksFootNote otherMetros={otherMetros} />

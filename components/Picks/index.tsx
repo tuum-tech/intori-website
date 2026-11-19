@@ -3,7 +3,7 @@ import Link from 'next/link'
 import localFont from 'next/font/local'
 
 import { MarketingFooter, MarketingHeader } from '@/components/MarketingChrome'
-import { APP_URL, IOS_CHANNEL, appStoreUrl } from '@/lib/appLinks'
+import { APP_URL, IOS_CHANNEL, appStoreUrl, guideWebUrl, type GuideCampaign } from '@/lib/appLinks'
 import { metroPath } from '@/lib/publicPicks'
 import type { PickCardView, LibraryProgramsCardView } from '@/lib/publicPicksView'
 import homeStyles from '@/pages/index.module.css'
@@ -26,26 +26,32 @@ const SOURCES_EMAIL = 'sources@intori.com'
 const START_URL = IOS_CHANNEL === 'appstore' ? appStoreUrl('picks') : APP_URL
 const START_LABEL = IOS_CHANNEL === 'appstore' ? 'Get the app' : 'Try intori'
 
-export function PicksShell({ children }: { children: React.ReactNode }) {
+export function PicksShell({ children, campaign }: { children: React.ReactNode; campaign?: GuideCampaign }) {
   return (
     <div className={`${homeStyles.page} ${picksSerif.variable}`}>
-      <MarketingHeader />
+      <MarketingHeader campaign={campaign} />
       <main className={styles.picks}>
         <div className={homeStyles.container}>{children}</div>
       </main>
-      <MarketingFooter />
+      <MarketingFooter campaign={campaign} />
     </div>
   )
 }
 
-export function PicksCta({ title, body, className }: { title: string; body: string; className?: string }) {
+export function PicksCta({ title, body, className, campaign }: { title: string; body: string; className?: string; campaign?: GuideCampaign }) {
+  const store = IOS_CHANNEL === 'appstore'
+  const webUrl = campaign ? guideWebUrl(campaign) : APP_URL
+  const startUrl = campaign ? (store ? appStoreUrl(campaign.appStore) : webUrl) : START_URL
   return (
     <section className={className ? `${styles.cta} ${className}` : styles.cta}>
       <h2 className={styles.ctaTitle}>{title}</h2>
       <p className={styles.ctaBody}>{body}</p>
-      <a href={START_URL} className={styles.ctaButton} target="_blank" rel="noopener noreferrer">
-        {START_LABEL}
+      <a href={startUrl} className={styles.ctaButton} target="_blank" rel="noopener noreferrer">
+        {campaign && store ? 'Get intori for iPhone' : START_LABEL}
       </a>
+      {store && (
+        <a href={webUrl} className={styles.guideLink}>Use intori on the web</a>
+      )}
     </section>
   )
 }

@@ -32,6 +32,14 @@ const nextConfig = {
         source: '/news/:path*',
         destination: '/',
         permanent: false
+      },
+      {
+        // Founder gift links (Nov 2026): the link people get reads intori.com,
+        // and the gift page lives on the app, where sign-in is. Temporary, so
+        // the page can move here one day without breaking links already sent.
+        source: '/gift/:code',
+        destination: 'https://app.intori.co/gift/:code',
+        permanent: false
       }
     ]
   }
